@@ -5,7 +5,7 @@ void main() {
 }
 
 //TODO add Icon
-//TODO Add Font Google Fonts Poetsen One
+//TODO Add Font Google Fonts Poetsen One font
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
