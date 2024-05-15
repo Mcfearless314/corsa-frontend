@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:corsa/ui/userpage_screen.dart';
 
-class HomePageScreen extends StatelessWidget {
+class HomePageScreen extends StatefulWidget {
   const HomePageScreen({super.key});
 
+  @override
+  _HomePageScreenState createState() => _HomePageScreenState();
+}
+
+class _HomePageScreenState extends State<HomePageScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,7 +50,12 @@ class HomePageScreen extends StatelessWidget {
     );
   }
 
-  void logIn() {}
+  void logIn() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => UserPageScreen()),
+    );
+  }
 
   void signUp() {}
 }

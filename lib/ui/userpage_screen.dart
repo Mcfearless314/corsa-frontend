@@ -1,3 +1,4 @@
+import 'package:corsa/ui/run_db_list.dart';
 import 'package:flutter/material.dart';
 
 class UserPageScreen extends StatelessWidget {
@@ -5,18 +6,7 @@ class UserPageScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("User Page"),
-        centerTitle: true,
-      ),
-      body: Column(
-        children: [
-          Image.asset('assets/Corsa.jpg'),
-        ],
-      ),
-      floatingActionButton: FloatingActionButton(onPressed: startNewRun,),
-    );
+    return RunList();
   }
 
   void startNewRun() {
