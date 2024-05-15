@@ -1,15 +1,8 @@
-import 'package:corsa/ui/registerpage_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:corsa/ui/userpage_screen.dart';
 
-class HomePageScreen extends StatefulWidget {
-  const HomePageScreen({super.key});
+class RegisterPageScreen extends StatelessWidget {
+  const RegisterPageScreen({super.key});
 
-  @override
-  _HomePageScreenState createState() => _HomePageScreenState();
-}
-
-class _HomePageScreenState extends State<HomePageScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,6 +12,13 @@ class _HomePageScreenState extends State<HomePageScreen> {
       ),
       body: Column(
         children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: TextField(
+              decoration: InputDecoration(
+                  border: OutlineInputBorder(), hintText: 'Email'),
+            ),
+          ),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: TextField(
@@ -33,16 +33,20 @@ class _HomePageScreenState extends State<HomePageScreen> {
                   border: OutlineInputBorder(), hintText: 'Password'),
             ),
           ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: TextField(
+              decoration: InputDecoration(
+                  border: OutlineInputBorder(), hintText: 'Confirm Password'),
+            ),
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: ElevatedButton(onPressed: logIn, child: Text("Login")),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: ElevatedButton(onPressed: signUp, child: Text("Sign up")),
+                child: ElevatedButton(
+                    onPressed: signUp, child: Text("Sign up")),
               ),
             ],
           )
@@ -51,18 +55,6 @@ class _HomePageScreenState extends State<HomePageScreen> {
     );
   }
 
-  void logIn() {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => UserPageScreen()),
-    );
-  }
-
   void signUp() {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => RegisterPageScreen()),
-    );
-
   }
 }

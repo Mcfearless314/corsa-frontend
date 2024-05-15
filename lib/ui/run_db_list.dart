@@ -18,12 +18,55 @@ class RunList extends StatelessWidget {
         slivers: <Widget>[
           SliverList(
             delegate: SliverChildBuilderDelegate(
-                  (BuildContext context, int index) {
-                return ListTile(
-                  title: Text('Run ID: ${runs[index].runId}'),
-                  subtitle: Text('Start: ${runs[index].startOfRun}\n'
-                      'Duration: ${runs[index].timeOfRun} min\n'
-                      'Distance: ${runs[index].distance.toString()} km'),
+              (BuildContext context, int index) {
+                return Card(
+                  child: Row(
+                    children: [
+                      Column(
+                        children: [
+                          SizedBox(
+                            height: 50,
+                            width: 80,
+                            child: Stack(children: <Widget>[
+                              Center(
+                                child: Text(
+                                  runs[index].startOfRun.day.toString(),
+                                ),
+                              ),
+                            ]),
+                          ),
+                          SizedBox(
+                            height: 80,
+                            width: 80,
+                            child: Stack(
+                              fit: StackFit.expand,
+                              children: <Widget>[
+                                Center(
+                                  child: Text(
+                                    runs[index].distance.toString(),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                      Expanded(
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                            children: [
+                              Text('Run ID: ${runs[index].runId}'),
+                              Text('Start: ${runs[index].startOfRun}'),
+                              Text('Duration: ${runs[index].timeOfRun} min'),
+                              Text(
+                                  'Distance: ${runs[index].distance.toString()} km'),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 );
               },
               childCount: runs.length,
