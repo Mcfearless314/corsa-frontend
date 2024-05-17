@@ -21,43 +21,20 @@ class RunList extends StatelessWidget {
               (BuildContext context, int index) {
                 return Card(
                   child: Row(
-                    children: [
-                      Column(
-                        children: [
-                          SizedBox(
-                            height: 50,
-                            width: 80,
-                            child: Stack(children: <Widget>[
-                              Center(
-                                child: Text(
-                                  runs[index].startOfRun.day.toString(),
-                                ),
-                              ),
-                            ]),
-                          ),
-                          SizedBox(
-                            height: 80,
-                            width: 80,
-                            child: Stack(
+                    children: <Widget>[
+                      SizedBox(
+                          width: 80,
+                          height: 80,
+                          child: Stack(
                               fit: StackFit.expand,
-                              children: <Widget>[
-                                Center(
-                                  child: Text(
-                                    runs[index].distance.toString(),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
+                              children: [Image.asset('assets/Corsa.jpg')])),
                       Expanded(
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Column(
                             children: [
-                              Text('Run ID: ${runs[index].runId}'),
-                              Text('Start: ${runs[index].startOfRun}'),
+                              Text(
+                                  'Start: ${runs[index].startOfRun.day}/${runs[index].startOfRun.month}-${runs[index].startOfRun.year} ${runs[index].startOfRun.hour}:${runs[index].startOfRun.minute}'),
                               Text('Duration: ${runs[index].timeOfRun} min'),
                               Text(
                                   'Distance: ${runs[index].distance.toString()} km'),
