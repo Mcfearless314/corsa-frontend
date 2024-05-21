@@ -1,3 +1,4 @@
+import 'package:corsa/theme.dart';
 import 'package:corsa/ui/homepage_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -5,8 +6,6 @@ void main() {
   runApp(const MyApp());
 }
 
-//TODO add Icon
-//TODO Add Font Google Fonts Poetsen One font
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -15,10 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.orange),
-          useMaterial3: true,
-        ),
+        theme: AppTheme.lightTheme,
         home: const Center(
           child: HomePageScreen()
         ));

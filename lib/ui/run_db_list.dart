@@ -10,8 +10,13 @@ class RunList extends StatelessWidget {
     List<Run> runs = getRuns(); // Fetch the list of runs
 
     return Scaffold(
+      backgroundColor: Theme.of(context).canvasColor,
       appBar: AppBar(
-        title: const Text("User Page"),
+        iconTheme: IconThemeData(color: Colors.white),
+        backgroundColor: Theme.of(context).canvasColor,
+        title: const Text("User Page",
+            style: TextStyle(
+                fontFamily: 'PoetsenOne', fontSize: 26.0, color: Colors.white)),
         centerTitle: true,
       ),
       body: CustomScrollView(
@@ -20,6 +25,11 @@ class RunList extends StatelessWidget {
             delegate: SliverChildBuilderDelegate(
               (BuildContext context, int index) {
                 return Card(
+                  shape: RoundedRectangleBorder(
+                    side: BorderSide(color: Colors.black, width: 1),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  color: Colors.orange,
                   child: Row(
                     children: <Widget>[
                       SizedBox(
@@ -34,10 +44,22 @@ class RunList extends StatelessWidget {
                           child: Column(
                             children: [
                               Text(
-                                  'Start: ${runs[index].startOfRun.day}/${runs[index].startOfRun.month}-${runs[index].startOfRun.year} ${runs[index].startOfRun.hour}:${runs[index].startOfRun.minute}'),
-                              Text('Duration: ${runs[index].timeOfRun} min'),
+                                  'Start: ${runs[index].startOfRun.day}/${runs[index].startOfRun.month}-${runs[index].startOfRun.year} ${runs[index].startOfRun.hour}:${runs[index].startOfRun.minute}',
+                                  style: TextStyle(
+                                      fontFamily: 'PoetsenOne',
+                                      fontSize: 14.0,
+                                      color: Colors.white)),
+                              Text('Duration: ${runs[index].timeOfRun} min',
+                                  style: TextStyle(
+                                      fontFamily: 'PoetsenOne',
+                                      fontSize: 14.0,
+                                      color: Colors.white)),
                               Text(
-                                  'Distance: ${runs[index].distance.toString()} km'),
+                                  'Distance: ${runs[index].distance.toString()} km',
+                                  style: TextStyle(
+                                      fontFamily: 'PoetsenOne',
+                                      fontSize: 14.0,
+                                      color: Colors.white)),
                             ],
                           ),
                         ),
@@ -53,6 +75,7 @@ class RunList extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: startNewRun,
+        child: const Icon(Icons.add),
       ),
     );
   }

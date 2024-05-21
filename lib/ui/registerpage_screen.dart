@@ -6,38 +6,69 @@ class RegisterPageScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor:
+          Theme.of(context).canvasColor, // use the theme's canvasColor
       appBar: AppBar(
-        title: Text("Welcome to Corsa"),
+        iconTheme: IconThemeData(color: Colors.white),
+        backgroundColor:
+            Theme.of(context).canvasColor, // use the theme's canvasColor
+        title: Text("Register to Corsa",
+            style: TextStyle(
+                fontFamily: 'PoetsenOne', fontSize: 26.0, color: Colors.white)),
         centerTitle: true,
       ),
       body: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: EdgeInsets.all(8.0),
             child: TextField(
               decoration: InputDecoration(
-                  border: OutlineInputBorder(), hintText: 'Email'),
+                border: OutlineInputBorder(),
+                hintText: 'Email',
+                hintStyle: TextStyle(
+                    fontFamily: 'PoetsenOne',
+                    fontSize: 14.0,
+                    color: Colors.white),
+              ),
             ),
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: TextField(
               decoration: InputDecoration(
-                  border: OutlineInputBorder(), hintText: 'Username'),
+                border: OutlineInputBorder(),
+                hintText: 'Username',
+                hintStyle: TextStyle(
+                    fontFamily: 'PoetsenOne',
+                    fontSize: 14.0,
+                    color: Colors.white),
+              ),
             ),
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: TextField(
               decoration: InputDecoration(
-                  border: OutlineInputBorder(), hintText: 'Password'),
+                border: OutlineInputBorder(),
+                hintText: 'Password',
+                hintStyle: TextStyle(
+                    fontFamily: 'PoetsenOne',
+                    fontSize: 14.0,
+                    color: Colors.white),
+              ),
             ),
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: TextField(
               decoration: InputDecoration(
-                  border: OutlineInputBorder(), hintText: 'Confirm Password'),
+                border: OutlineInputBorder(),
+                hintText: 'Confirm Password',
+                hintStyle: TextStyle(
+                    fontFamily: 'PoetsenOne',
+                    fontSize: 14.0,
+                    color: Colors.white),
+              ),
             ),
           ),
           Row(
@@ -46,15 +77,16 @@ class RegisterPageScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: ElevatedButton(
-                    onPressed: signUp, child: Text("Sign up")),
+                    onPressed: signUp,
+                    child: Text("Sign up",
+                        style: Theme.of(context).textTheme.displaySmall)),
               ),
             ],
-          )
+          ),
         ],
       ),
     );
   }
 
-  void signUp() {
-  }
+  void signUp() {}
 }
