@@ -1,3 +1,4 @@
+import 'package:corsa/ui/google_maps.dart';
 import 'package:flutter/material.dart';
 
 import '../models/run.dart';
@@ -74,7 +75,7 @@ class RunList extends StatelessWidget {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: startNewRun,
+        onPressed: () => startNewRun(context),
         child: const Icon(Icons.add),
       ),
     );
@@ -98,7 +99,15 @@ class RunList extends StatelessWidget {
           runId: '3',
           timeOfRun: '15'),
     ];
+
+
+
+  }
+  void startNewRun(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => GoogleMaps()),
+    );
   }
 
-  void startNewRun() {}
 }
