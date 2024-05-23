@@ -1,4 +1,5 @@
 import 'package:corsa/ui/google_maps.dart';
+import 'package:corsa/ui/saved_run_map.dart';
 import 'package:flutter/material.dart';
 
 import '../models/run.dart';
@@ -30,7 +31,7 @@ class RunList extends StatelessWidget {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => GoogleMaps(runId: runs[index].runId)));
+                            builder: (context) => SavedRunMap(runId: runs[index].runId)));
                   },
                   child: Card(
                     shape: RoundedRectangleBorder(
