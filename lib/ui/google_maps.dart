@@ -1,7 +1,8 @@
-import 'package:corsa/models/run.dart';
+import 'package:geolocator/geolocator.dart';
+import 'dart:async';
+import 'package:corsa/models/events.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:geolocator/geolocator.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 class GoogleMaps extends StatefulWidget {
@@ -19,11 +20,46 @@ class _GoogleMapsState extends State<GoogleMaps> {
   List<LatLng> _routePoints = [];
   Position? _currentPosition;
   final Set<Polyline> _polylines = {};
+  String? _runId;
+  Timer? _timer;
 
   @override
   void initState() {
     super.initState();
     _checkPermissions();
+  }
+
+  @override
+  void dispose() {
+    _timer?.cancel();
+    super.dispose();
+  }
+
+  void _startRun() async {
+    _runState = RunState.inProgress;
+    Position position = await Geolocator.getCurrentPosition(
+        desiredAccuracy: LocationAccuracy.high);
+    ClientEvent.clientWantsToLogARun(
+      runDateTime: DateTime.now(),
+      startingLat: position.latitude,
+      startingLng: position.longitude,
+      userId: '1',
+    );
+
+    _timer = Timer.periodic(Duration(seconds: 5), (timer) => _logCoordinates());
+  }
+
+  void _logCoordinates() async {
+    if (_runId == null) return;
+
+    Position position = await Geolocator.getCurrentPosition(
+        desiredAccuracy: LocationAccuracy.high);
+    ClientEvent.clientWantsToLogNewCoordinates(
+      loggingTime: DateTime.now(),
+      lat: position.latitude,
+      lng: position.longitude,
+      runId: _runId!,
+    );
   }
 
   Future<void> _checkPermissions() async {
@@ -58,10 +94,12 @@ class _GoogleMapsState extends State<GoogleMaps> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.white),
-        backgroundColor: Theme.of(context).canvasColor,
-        title: Text('Run Tracker', style: TextStyle(fontFamily: 'PoetsenOne', color: Colors.white),
-      )),
+          iconTheme: IconThemeData(color: Colors.white),
+          backgroundColor: Theme.of(context).canvasColor,
+          title: Text(
+            'Run Tracker',
+            style: TextStyle(fontFamily: 'PoetsenOne', color: Colors.white),
+          )),
       body: GoogleMap(
         initialCameraPosition: CameraPosition(
           target: LatLng(0, 0),
@@ -77,7 +115,6 @@ class _GoogleMapsState extends State<GoogleMaps> {
       floatingActionButton: _buildFloatingActionButton(),
     );
   }
-
 
   Widget _buildFloatingActionButton() {
     if (_runState == RunState.notStarted) {
@@ -102,7 +139,7 @@ class _GoogleMapsState extends State<GoogleMaps> {
           FloatingActionButton(
             onPressed: () {
               setState(() {
-                _runState = RunState.finished;
+                _runState = RunState.notStarted;
               });
             },
             child: Icon(Icons.refresh),
@@ -111,17 +148,16 @@ class _GoogleMapsState extends State<GoogleMaps> {
       );
     } else {
       return FloatingActionButton(
-        onPressed: () {
-          setState(() {
-            _runState = RunState.inProgress;
-          });
-        },
+        onPressed: _startRun,
+        // setState(() {
+        //   _runState = RunState.inProgress;
+        // });
+        // },
         child: Icon(Icons.directions_run),
       );
     }
   }
 }
-
 
 class Coordinates {
   final double latitude;
@@ -129,5 +165,3 @@ class Coordinates {
 
   Coordinates(this.latitude, this.longitude);
 }
-
-
