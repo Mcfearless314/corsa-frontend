@@ -25,47 +25,55 @@ class RunList extends StatelessWidget {
           SliverList(
             delegate: SliverChildBuilderDelegate(
               (BuildContext context, int index) {
-                return Card(
-                  shape: RoundedRectangleBorder(
-                    side: BorderSide(color: Colors.black, width: 1),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  color: Colors.orange,
-                  child: Row(
-                    children: <Widget>[
-                      SizedBox(
-                          width: 80,
-                          height: 80,
-                          child: Stack(
-                              fit: StackFit.expand,
-                              children: [Image.asset('assets/Corsa.jpg')])),
-                      Expanded(
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Column(
-                            children: [
-                              Text(
-                                  'Start: ${runs[index].startOfRun.day}/${runs[index].startOfRun.month}-${runs[index].startOfRun.year} ${runs[index].startOfRun.hour}:${runs[index].startOfRun.minute}',
-                                  style: TextStyle(
-                                      fontFamily: 'PoetsenOne',
-                                      fontSize: 14.0,
-                                      color: Colors.white)),
-                              Text('Duration: ${runs[index].timeOfRun} min',
-                                  style: TextStyle(
-                                      fontFamily: 'PoetsenOne',
-                                      fontSize: 14.0,
-                                      color: Colors.white)),
-                              Text(
-                                  'Distance: ${runs[index].distance.toString()} km',
-                                  style: TextStyle(
-                                      fontFamily: 'PoetsenOne',
-                                      fontSize: 14.0,
-                                      color: Colors.white)),
-                            ],
+                return GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => GoogleMaps(run: runs[index])));
+                  },
+                  child: Card(
+                    shape: RoundedRectangleBorder(
+                      side: BorderSide(color: Colors.black, width: 1),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    color: Colors.orange,
+                    child: Row(
+                      children: <Widget>[
+                        SizedBox(
+                            width: 80,
+                            height: 80,
+                            child: Stack(
+                                fit: StackFit.expand,
+                                children: [Image.asset('assets/Corsa.jpg')])),
+                        Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              children: [
+                                Text(
+                                    'Start: ${runs[index].startOfRun.day}/${runs[index].startOfRun.month}-${runs[index].startOfRun.year} ${runs[index].startOfRun.hour}:${runs[index].startOfRun.minute}',
+                                    style: TextStyle(
+                                        fontFamily: 'PoetsenOne',
+                                        fontSize: 14.0,
+                                        color: Colors.white)),
+                                Text('Duration: ${runs[index].timeOfRun} min',
+                                    style: TextStyle(
+                                        fontFamily: 'PoetsenOne',
+                                        fontSize: 14.0,
+                                        color: Colors.white)),
+                                Text(
+                                    'Distance: ${runs[index].distance.toString()} km',
+                                    style: TextStyle(
+                                        fontFamily: 'PoetsenOne',
+                                        fontSize: 14.0,
+                                        color: Colors.white)),
+                              ],
+                            ),
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 );
               },
@@ -99,15 +107,12 @@ class RunList extends StatelessWidget {
           runId: '3',
           timeOfRun: '15'),
     ];
-
-
-
   }
+
   void startNewRun(BuildContext context) {
     Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => GoogleMaps()),
     );
   }
-
 }

@@ -1,3 +1,4 @@
+import 'package:corsa/models/run.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:geolocator/geolocator.dart';
@@ -5,6 +6,7 @@ import 'package:permission_handler/permission_handler.dart';
 
 class GoogleMaps extends StatefulWidget {
   const GoogleMaps({super.key});
+
 
   @override
   _GoogleMapsState createState() => _GoogleMapsState();
@@ -65,6 +67,42 @@ class _GoogleMapsState extends State<GoogleMaps> {
     ];
   }
 
+  void _showRouteOnMap() {
+    setState(() {
+      _polylines.clear(); // Clear existing polylines
+
+      // Create a new polyline with the points from _getRoute
+      _polylines.add(Polyline(
+        polylineId: PolylineId('route'),
+        points: _getRoute().map((c) => LatLng(c.latitude, c.longitude)).toList(),
+        color: Colors.blue,
+        width: 5,
+      ));
+
+      // Calculate the bounds of the route
+      double minLat = _getRoute()[0].latitude;
+      double maxLat = _getRoute()[0].latitude;
+      double minLong = _getRoute()[0].longitude;
+      double maxLong = _getRoute()[0].longitude;
+
+      for (Coordinates point in _getRoute()) {
+        if (point.latitude < minLat) minLat = point.latitude;
+        if (point.latitude > maxLat) maxLat = point.latitude;
+        if (point.longitude < minLong) minLong = point.longitude;
+        if (point.longitude > maxLong) maxLong = point.longitude;
+      }
+
+      LatLngBounds bounds = LatLngBounds(
+        southwest: LatLng(minLat, minLong),
+        northeast: LatLng(maxLat, maxLong),
+      );
+
+      // Animate the camera to the bounds of the route
+      CameraUpdate cameraUpdate = CameraUpdate.newLatLngBounds(bounds, 50);
+      _mapController?.animateCamera(cameraUpdate);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -83,14 +121,7 @@ class _GoogleMapsState extends State<GoogleMaps> {
           polylines: _polylines,
         ),
         floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            _mapController?.animateCamera(
-              CameraUpdate.newLatLngZoom(
-                LatLng(_getRoute().first.latitude, _getRoute().first.longitude),
-                15,
-              ),
-            );
-          },
+          onPressed:  _showRouteOnMap,
           child: Icon(Icons.directions_run),
         ));
   }
