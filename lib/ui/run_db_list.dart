@@ -30,7 +30,7 @@ class RunList extends StatelessWidget {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => GoogleMaps(run: runs[index])));
+                            builder: (context) => GoogleMaps(runId: runs[index].runId)));
                   },
                   child: Card(
                     shape: RoundedRectangleBorder(

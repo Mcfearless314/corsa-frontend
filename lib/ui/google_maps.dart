@@ -5,8 +5,9 @@ import 'package:geolocator/geolocator.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 class GoogleMaps extends StatefulWidget {
-  const GoogleMaps({super.key});
+  final String? runId;
 
+  const GoogleMaps({super.key, this.runId});
 
   @override
   _GoogleMapsState createState() => _GoogleMapsState();
@@ -21,7 +22,11 @@ class _GoogleMapsState extends State<GoogleMaps> {
   @override
   void initState() {
     super.initState();
-    _checkPermissions();
+    if (widget.runId == null) {
+      _checkPermissions();
+    } else {
+      _showRouteOnMap();
+    }
   }
 
   Future<void> _checkPermissions() async {
@@ -81,9 +86,9 @@ class _GoogleMapsState extends State<GoogleMaps> {
 
       // Calculate the bounds of the route
       double minLat = _getRoute()[0].latitude;
-      double maxLat = _getRoute()[0].latitude;
+      double maxLat = _getRoute()[_getRoute().length-1].latitude;
       double minLong = _getRoute()[0].longitude;
-      double maxLong = _getRoute()[0].longitude;
+      double maxLong = _getRoute()[_getRoute().length-1].longitude;
 
       for (Coordinates point in _getRoute()) {
         if (point.latitude < minLat) minLat = point.latitude;
@@ -120,6 +125,7 @@ class _GoogleMapsState extends State<GoogleMaps> {
           },
           polylines: _polylines,
         ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
         floatingActionButton: FloatingActionButton(
           onPressed:  _showRouteOnMap,
           child: Icon(Icons.directions_run),
