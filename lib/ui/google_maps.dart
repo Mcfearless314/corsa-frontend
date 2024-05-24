@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:corsa/models/events.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:location/location.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 import '../BroadcastWsChannel.dart';
@@ -39,12 +40,11 @@ class _GoogleMapsState extends State<GoogleMaps> {
 
   void _startRun() async {
     _runState = RunState.inProgress;
-    Position position = await Geolocator.getCurrentPosition(
-        desiredAccuracy: LocationAccuracy.high);
+    var position = await Location.instance.getLocation();
     ClientEvent.clientWantsToLogARun(
       runDateTime: DateTime.now(),
-      startingLat: position.latitude,
-      startingLng: position.longitude,
+      startingLat: position.latitude!,
+      startingLng: position.longitude!,
       userId: '1',
     );
 
@@ -53,9 +53,6 @@ class _GoogleMapsState extends State<GoogleMaps> {
 
   void _logCoordinates() async {
     if (_runId == null) return;
-
-    Position position = await Geolocator.getCurrentPosition(
-        desiredAccuracy: LocationAccuracy.high);
     ClientEvent.clientWantsToLogNewCoordinates(
       loggingTime: DateTime.now(),
       lat: position.latitude,
