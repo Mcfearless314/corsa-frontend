@@ -2,7 +2,6 @@ import 'package:corsa/models/progressinfo.dart';
 import 'package:corsa/models/run.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter/foundation.dart';
-import 'package:json_serializable/json_serializable.dart';
 
 part 'events.freezed.dart';
 
@@ -66,7 +65,7 @@ sealed class ClientEvent with _$ClientEvent implements BaseEvent {
 }
 
 @Freezed(unionKey: 'eventType', unionValueCase: FreezedUnionCase.pascal)
-class ServerEvent with _$ServerEvent implements BaseEvent {
+sealed class ServerEvent with _$ServerEvent implements BaseEvent {
   factory ServerEvent.serverSendsBackJwt({
     required String jwt,
   }) = ServerSendsBackJwt;

@@ -1,9 +1,13 @@
-import 'package:geolocator/geolocator.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'dart:async';
 import 'package:corsa/models/events.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:permission_handler/permission_handler.dart';
+
+import '../BroadcastWsChannel.dart';
+import '../bloc/run_cubit.dart';
+import '../bloc/run_state.dart';
 
 class GoogleMaps extends StatefulWidget {
   const GoogleMaps({super.key});
@@ -11,8 +15,6 @@ class GoogleMaps extends StatefulWidget {
   @override
   _GoogleMapsState createState() => _GoogleMapsState();
 }
-
-enum RunState { notStarted, inProgress, finished }
 
 class _GoogleMapsState extends State<GoogleMaps> {
   GoogleMapController? _mapController;
@@ -74,12 +76,6 @@ class _GoogleMapsState extends State<GoogleMaps> {
       setState(() {
         _currentPosition = position;
         _routePoints.add(LatLng(position.latitude, position.longitude));
-        _polylines.add(Polyline(
-          polylineId: PolylineId('route'),
-          points: _routePoints,
-          color: Colors.blue,
-          width: 5,
-        ));
         _mapController?.animateCamera(
           CameraUpdate.newLatLngZoom(
             LatLng(position.latitude, position.longitude),
@@ -92,7 +88,9 @@ class _GoogleMapsState extends State<GoogleMaps> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return  BlocProvider(
+        create: (context) => RunCubit(context.read<BroadcastWsChannel>()),
+    child: Scaffold(
       appBar: AppBar(
           iconTheme: IconThemeData(color: Colors.white),
           backgroundColor: Theme.of(context).canvasColor,
@@ -100,20 +98,25 @@ class _GoogleMapsState extends State<GoogleMaps> {
             'Run Tracker',
             style: TextStyle(fontFamily: 'PoetsenOne', color: Colors.white),
           )),
-      body: GoogleMap(
-        initialCameraPosition: CameraPosition(
-          target: LatLng(0, 0),
-          zoom: 15,
-        ),
-        myLocationEnabled: true,
-        onMapCreated: (GoogleMapController controller) {
-          _mapController = controller;
+      body: BlocConsumer<RunCubit, RunState>(
+        listener: (context, state) {
+          // TODO navigate on run finished
         },
-        polylines: _polylines,
+        builder: (context, state) => GoogleMap(
+          initialCameraPosition: CameraPosition(
+            target: LatLng(0, 0),
+            zoom: 15,
+          ),
+          myLocationEnabled: true,
+          onMapCreated: (GoogleMapController controller) {
+            _mapController = controller;
+          },
+          polylines: _polylines,
+        ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: _buildFloatingActionButton(),
-    );
+    ));
   }
 
   Widget _buildFloatingActionButton() {
