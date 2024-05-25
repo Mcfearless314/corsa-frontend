@@ -33,4 +33,35 @@ class RunCubit extends Cubit<RunState> {
       emit(state.copyWith(runId: serverEvent.runId));
     }
   }
+
+  void stopRun() async {
+    final location = await Location.instance.getLocation();
+    if (location.latitude == null || location.longitude == null) {
+      emit(state.copyWith(status: RunStatus.inProgress));
+      return;
+    } else {
+      emit(state.copyWith(status: RunStatus.finished));
+      final event = ClientEvent.clientWantsToStopARun(
+        runEndTime: DateTime.now(),
+        endingLat: location.latitude!,
+        endingLng: location.longitude!,
+        runId: state.runId!,
+      );
+      channel.sink.add(jsonEncode(event.toJson()));
+    }
+  }
+
+  void logCoordinates() async {
+    final location = await Location.instance.getLocation();
+    if (location.latitude == null || location.longitude == null) {
+      return;
+    }
+    final event = ClientEvent.clientWantsToLogNewCoordinates(
+      runId: state.runId!,
+      lat: location.latitude!,
+      lng: location.longitude!,
+      loggingTime: DateTime.now(),
+    );
+    channel.sink.add(jsonEncode(event.toJson()));
+  }
 }
