@@ -52,7 +52,7 @@ class _SavedRunMapState extends State<SavedRunMap> {
 
       // Create a new polyline with the points from _getRoute
       _polylines.add(Polyline(
-        polylineId: PolylineId('route'),
+        polylineId: const PolylineId('route'),
         points:
             _getRoute().map((c) => LatLng(c.latitude, c.longitude)).toList(),
         color: Colors.blue,
@@ -87,8 +87,8 @@ class _SavedRunMapState extends State<SavedRunMap> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.white),
-        title: Text('Run from $now', style: TextStyle(fontFamily: 'PoetsenOne', color: Colors.white)),
+        iconTheme: const IconThemeData(color: Colors.white),
+        title: Text('Run from $now', style: const TextStyle(fontFamily: 'PoetsenOne', color: Colors.white)),
         backgroundColor: Theme.of(context).canvasColor,
       ),
       body: GoogleMap(

@@ -9,17 +9,17 @@ class RegisterPageScreen extends StatelessWidget {
       backgroundColor:
           Theme.of(context).canvasColor, // use the theme's canvasColor
       appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.white),
+        iconTheme: const IconThemeData(color: Colors.white),
         backgroundColor:
             Theme.of(context).canvasColor, // use the theme's canvasColor
-        title: Text("Register to Corsa",
+        title: const Text("Register to Corsa",
             style: TextStyle(
                 fontFamily: 'PoetsenOne', fontSize: 26.0, color: Colors.white)),
         centerTitle: true,
       ),
       body: Column(
         children: [
-          Padding(
+          const Padding(
             padding: EdgeInsets.all(8.0),
             child: TextField(
               decoration: InputDecoration(
@@ -32,8 +32,8 @@ class RegisterPageScreen extends StatelessWidget {
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
+          const Padding(
+            padding: EdgeInsets.all(8.0),
             child: TextField(
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
@@ -45,8 +45,8 @@ class RegisterPageScreen extends StatelessWidget {
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
+          const Padding(
+            padding: EdgeInsets.all(8.0),
             child: TextField(
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
@@ -58,8 +58,8 @@ class RegisterPageScreen extends StatelessWidget {
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
+          const Padding(
+            padding: EdgeInsets.all(8.0),
             child: TextField(
               decoration: InputDecoration(
                 border: OutlineInputBorder(),

@@ -2,10 +2,9 @@ import 'dart:async';
 
 import 'package:corsa/ui/run_list.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'package:location/location.dart';
 
-import '../BroadcastWsChannel.dart';
 
 class UserPageScreen extends StatefulWidget {
   const UserPageScreen({super.key, required this.userId});
@@ -38,13 +37,13 @@ class _UserPageScreenState extends State<UserPageScreen> {
       stream: null,
       builder: (context, snapshot) {
         if (!snapshot.hasData) {
-          return CircularProgressIndicator();
+          return const CircularProgressIndicator();
         }
         else if (snapshot.data == PermissionStatus.granted) {
           return RunList(userId: widget.userId);
         }
         else {
-          return Text('Location permission denied');
+          return const Text('Location permission denied');
         }
       }
     );

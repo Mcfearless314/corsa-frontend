@@ -23,7 +23,7 @@ class HomePageScreen extends StatelessWidget {
               Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => RegisterPageScreen()));
+                      builder: (context) => const RegisterPageScreen()));
             }
           },
           builder: (context, state) {

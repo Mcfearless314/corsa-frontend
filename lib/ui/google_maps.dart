@@ -16,9 +16,9 @@ class GoogleMaps extends StatelessWidget {
       create: (context) => RunCubit(context.read<BroadcastWsChannel>()),
       child: Scaffold(
         appBar: AppBar(
-          iconTheme: IconThemeData(color: Colors.white),
+          iconTheme: const IconThemeData(color: Colors.white),
           backgroundColor: Theme.of(context).canvasColor,
-          title: Text(
+          title: const Text(
             'Run Tracker',
             style: TextStyle(fontFamily: 'PoetsenOne', color: Colors.white),
           ),
@@ -38,7 +38,7 @@ class GoogleMaps extends StatelessWidget {
             future: context.read<RunCubit>().getCurrentLocation(),
             builder: (BuildContext context, AsyncSnapshot<LatLng> snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
-                return Center(child: CircularProgressIndicator());
+                return const Center(child: CircularProgressIndicator());
               } else if (snapshot.hasError) {
                 return Center(child: Text('Error: ${snapshot.error}'));
               } else {
@@ -69,7 +69,7 @@ class GoogleMaps extends StatelessWidget {
         if (state.status == RunStatus.notStarted) {
           return FloatingActionButton(
             onPressed: () => context.read<RunCubit>().startRun(),
-            child: Icon(Icons.directions_run),
+            child: const Icon(Icons.directions_run),
           );
         } else if (state.status == RunStatus.inProgress) {
           return Row(
@@ -77,18 +77,18 @@ class GoogleMaps extends StatelessWidget {
             children: <Widget>[
               FloatingActionButton(
                 onPressed: () => context.read<RunCubit>().stopRun(),
-                child: Icon(Icons.save),
+                child: const Icon(Icons.save),
               ),
               FloatingActionButton(
                 onPressed: () => context.read<RunCubit>().resetRun(),
-                child: Icon(Icons.refresh),
+                child: const Icon(Icons.refresh),
               ),
             ],
           );
         } else {
           return FloatingActionButton(
             onPressed: () => context.read<RunCubit>().startRun(),
-            child: Icon(Icons.directions_run),
+            child: const Icon(Icons.directions_run),
           );
         }
       },

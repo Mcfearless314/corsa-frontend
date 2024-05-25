@@ -2,7 +2,6 @@
 import 'package:corsa/BroadcastWsChannel.dart';
 import 'package:corsa/ui/google_maps.dart';
 import 'package:corsa/ui/saved_run_map.dart';
-import 'package:corsa/ui/userpage_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
