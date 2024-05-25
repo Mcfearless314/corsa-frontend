@@ -1,5 +1,6 @@
 import 'package:corsa/models/progressinfo.dart';
 import 'package:corsa/models/run.dart';
+import 'package:corsa/models/run_info_with_map.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter/foundation.dart';
 
@@ -42,6 +43,13 @@ sealed class ClientEvent with _$ClientEvent implements BaseEvent {
     required String runTime,
   }) = ClientWantsToSaveARun;
 
+  factory ClientEvent.clientWantsToStopARun({
+    required DateTime runEndTime,
+    required double endingLat,
+    required double endingLng,
+    required String runId,
+  }) = ClientWantsToStopARun;
+
   factory ClientEvent.clientWantsToLogARun({
     required DateTime runDateTime,
     required double startingLat,
@@ -83,6 +91,24 @@ sealed class ServerEvent with _$ServerEvent implements BaseEvent {
   factory ServerEvent.serverSendsBackAllProgress({
     required List<ProgressInfo> progressInfo,
   }) = ServerSendsBackAllProgress;
+
+  factory ServerEvent.serverConfirmsDeletionOfRun({
+    required String runDeleted,
+  }) = ServerConfirmsDeletionOfRun;
+
+  factory ServerEvent.serverSendsBackRunId({
+    required String runId
+  }) = ServerSendsBackRunId;
+
+  factory ServerEvent.serverConfirmsRegistration({
+    required String message,
+    required int userId,
+  }) = ServerConfirmsRegistration;
+
+  factory ServerEvent.serverSendsBackRunWithMap({
+    required String message,
+    required RunInfoWithMap runInfoWithMap,
+  }) = ServerSendsBackRunWithMap;
 
   factory ServerEvent.fromJson(Map<String, dynamic> json) =>
       _$ServerEventFromJson(json);

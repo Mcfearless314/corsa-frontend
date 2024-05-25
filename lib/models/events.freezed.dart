@@ -28,6 +28,8 @@ ClientEvent _$ClientEventFromJson(Map<String, dynamic> json) {
       return ClientWantsToSeeAllSavedRuns.fromJson(json);
     case 'ClientWantsToSaveARun':
       return ClientWantsToSaveARun.fromJson(json);
+    case 'ClientWantsToStopARun':
+      return ClientWantsToStopARun.fromJson(json);
     case 'ClientWantsToLogARun':
       return ClientWantsToLogARun.fromJson(json);
     case 'ClientWantsToLogNewCoordinates':
@@ -56,6 +58,9 @@ mixin _$ClientEvent {
     required TResult Function(DateTime runDateTime, String userId,
             double runDistance, String runTime)
         clientWantsToSaveARun,
+    required TResult Function(DateTime runEndTime, double endingLat,
+            double endingLng, String runId)
+        clientWantsToStopARun,
     required TResult Function(DateTime runDateTime, double startingLat,
             double startingLng, String userId)
         clientWantsToLogARun,
@@ -76,6 +81,9 @@ mixin _$ClientEvent {
     TResult? Function(DateTime runDateTime, String userId, double runDistance,
             String runTime)?
         clientWantsToSaveARun,
+    TResult? Function(DateTime runEndTime, double endingLat, double endingLng,
+            String runId)?
+        clientWantsToStopARun,
     TResult? Function(DateTime runDateTime, double startingLat,
             double startingLng, String userId)?
         clientWantsToLogARun,
@@ -96,6 +104,9 @@ mixin _$ClientEvent {
     TResult Function(DateTime runDateTime, String userId, double runDistance,
             String runTime)?
         clientWantsToSaveARun,
+    TResult Function(DateTime runEndTime, double endingLat, double endingLng,
+            String runId)?
+        clientWantsToStopARun,
     TResult Function(DateTime runDateTime, double startingLat,
             double startingLng, String userId)?
         clientWantsToLogARun,
@@ -119,6 +130,8 @@ mixin _$ClientEvent {
         clientWantsToSeeAllSavedRuns,
     required TResult Function(ClientWantsToSaveARun value)
         clientWantsToSaveARun,
+    required TResult Function(ClientWantsToStopARun value)
+        clientWantsToStopARun,
     required TResult Function(ClientWantsToLogARun value) clientWantsToLogARun,
     required TResult Function(ClientWantsToLogNewCoordinates value)
         clientWantsToLogNewCoordinates,
@@ -136,6 +149,7 @@ mixin _$ClientEvent {
     TResult? Function(ClientWantsToSeeAllSavedRuns value)?
         clientWantsToSeeAllSavedRuns,
     TResult? Function(ClientWantsToSaveARun value)? clientWantsToSaveARun,
+    TResult? Function(ClientWantsToStopARun value)? clientWantsToStopARun,
     TResult? Function(ClientWantsToLogARun value)? clientWantsToLogARun,
     TResult? Function(ClientWantsToLogNewCoordinates value)?
         clientWantsToLogNewCoordinates,
@@ -153,6 +167,7 @@ mixin _$ClientEvent {
     TResult Function(ClientWantsToSeeAllSavedRuns value)?
         clientWantsToSeeAllSavedRuns,
     TResult Function(ClientWantsToSaveARun value)? clientWantsToSaveARun,
+    TResult Function(ClientWantsToStopARun value)? clientWantsToStopARun,
     TResult Function(ClientWantsToLogARun value)? clientWantsToLogARun,
     TResult Function(ClientWantsToLogNewCoordinates value)?
         clientWantsToLogNewCoordinates,
@@ -283,6 +298,9 @@ class _$ClientWantsToAuthenticateWithJwtImpl
     required TResult Function(DateTime runDateTime, String userId,
             double runDistance, String runTime)
         clientWantsToSaveARun,
+    required TResult Function(DateTime runEndTime, double endingLat,
+            double endingLng, String runId)
+        clientWantsToStopARun,
     required TResult Function(DateTime runDateTime, double startingLat,
             double startingLng, String userId)
         clientWantsToLogARun,
@@ -306,6 +324,9 @@ class _$ClientWantsToAuthenticateWithJwtImpl
     TResult? Function(DateTime runDateTime, String userId, double runDistance,
             String runTime)?
         clientWantsToSaveARun,
+    TResult? Function(DateTime runEndTime, double endingLat, double endingLng,
+            String runId)?
+        clientWantsToStopARun,
     TResult? Function(DateTime runDateTime, double startingLat,
             double startingLng, String userId)?
         clientWantsToLogARun,
@@ -329,6 +350,9 @@ class _$ClientWantsToAuthenticateWithJwtImpl
     TResult Function(DateTime runDateTime, String userId, double runDistance,
             String runTime)?
         clientWantsToSaveARun,
+    TResult Function(DateTime runEndTime, double endingLat, double endingLng,
+            String runId)?
+        clientWantsToStopARun,
     TResult Function(DateTime runDateTime, double startingLat,
             double startingLng, String userId)?
         clientWantsToLogARun,
@@ -358,6 +382,8 @@ class _$ClientWantsToAuthenticateWithJwtImpl
         clientWantsToSeeAllSavedRuns,
     required TResult Function(ClientWantsToSaveARun value)
         clientWantsToSaveARun,
+    required TResult Function(ClientWantsToStopARun value)
+        clientWantsToStopARun,
     required TResult Function(ClientWantsToLogARun value) clientWantsToLogARun,
     required TResult Function(ClientWantsToLogNewCoordinates value)
         clientWantsToLogNewCoordinates,
@@ -378,6 +404,7 @@ class _$ClientWantsToAuthenticateWithJwtImpl
     TResult? Function(ClientWantsToSeeAllSavedRuns value)?
         clientWantsToSeeAllSavedRuns,
     TResult? Function(ClientWantsToSaveARun value)? clientWantsToSaveARun,
+    TResult? Function(ClientWantsToStopARun value)? clientWantsToStopARun,
     TResult? Function(ClientWantsToLogARun value)? clientWantsToLogARun,
     TResult? Function(ClientWantsToLogNewCoordinates value)?
         clientWantsToLogNewCoordinates,
@@ -398,6 +425,7 @@ class _$ClientWantsToAuthenticateWithJwtImpl
     TResult Function(ClientWantsToSeeAllSavedRuns value)?
         clientWantsToSeeAllSavedRuns,
     TResult Function(ClientWantsToSaveARun value)? clientWantsToSaveARun,
+    TResult Function(ClientWantsToStopARun value)? clientWantsToStopARun,
     TResult Function(ClientWantsToLogARun value)? clientWantsToLogARun,
     TResult Function(ClientWantsToLogNewCoordinates value)?
         clientWantsToLogNewCoordinates,
@@ -552,6 +580,9 @@ class _$ClientWantsToRegisterImpl
     required TResult Function(DateTime runDateTime, String userId,
             double runDistance, String runTime)
         clientWantsToSaveARun,
+    required TResult Function(DateTime runEndTime, double endingLat,
+            double endingLng, String runId)
+        clientWantsToStopARun,
     required TResult Function(DateTime runDateTime, double startingLat,
             double startingLng, String userId)
         clientWantsToLogARun,
@@ -575,6 +606,9 @@ class _$ClientWantsToRegisterImpl
     TResult? Function(DateTime runDateTime, String userId, double runDistance,
             String runTime)?
         clientWantsToSaveARun,
+    TResult? Function(DateTime runEndTime, double endingLat, double endingLng,
+            String runId)?
+        clientWantsToStopARun,
     TResult? Function(DateTime runDateTime, double startingLat,
             double startingLng, String userId)?
         clientWantsToLogARun,
@@ -598,6 +632,9 @@ class _$ClientWantsToRegisterImpl
     TResult Function(DateTime runDateTime, String userId, double runDistance,
             String runTime)?
         clientWantsToSaveARun,
+    TResult Function(DateTime runEndTime, double endingLat, double endingLng,
+            String runId)?
+        clientWantsToStopARun,
     TResult Function(DateTime runDateTime, double startingLat,
             double startingLng, String userId)?
         clientWantsToLogARun,
@@ -627,6 +664,8 @@ class _$ClientWantsToRegisterImpl
         clientWantsToSeeAllSavedRuns,
     required TResult Function(ClientWantsToSaveARun value)
         clientWantsToSaveARun,
+    required TResult Function(ClientWantsToStopARun value)
+        clientWantsToStopARun,
     required TResult Function(ClientWantsToLogARun value) clientWantsToLogARun,
     required TResult Function(ClientWantsToLogNewCoordinates value)
         clientWantsToLogNewCoordinates,
@@ -647,6 +686,7 @@ class _$ClientWantsToRegisterImpl
     TResult? Function(ClientWantsToSeeAllSavedRuns value)?
         clientWantsToSeeAllSavedRuns,
     TResult? Function(ClientWantsToSaveARun value)? clientWantsToSaveARun,
+    TResult? Function(ClientWantsToStopARun value)? clientWantsToStopARun,
     TResult? Function(ClientWantsToLogARun value)? clientWantsToLogARun,
     TResult? Function(ClientWantsToLogNewCoordinates value)?
         clientWantsToLogNewCoordinates,
@@ -667,6 +707,7 @@ class _$ClientWantsToRegisterImpl
     TResult Function(ClientWantsToSeeAllSavedRuns value)?
         clientWantsToSeeAllSavedRuns,
     TResult Function(ClientWantsToSaveARun value)? clientWantsToSaveARun,
+    TResult Function(ClientWantsToStopARun value)? clientWantsToStopARun,
     TResult Function(ClientWantsToLogARun value)? clientWantsToLogARun,
     TResult Function(ClientWantsToLogNewCoordinates value)?
         clientWantsToLogNewCoordinates,
@@ -810,6 +851,9 @@ class _$ClientWantsToLogInImpl
     required TResult Function(DateTime runDateTime, String userId,
             double runDistance, String runTime)
         clientWantsToSaveARun,
+    required TResult Function(DateTime runEndTime, double endingLat,
+            double endingLng, String runId)
+        clientWantsToStopARun,
     required TResult Function(DateTime runDateTime, double startingLat,
             double startingLng, String userId)
         clientWantsToLogARun,
@@ -833,6 +877,9 @@ class _$ClientWantsToLogInImpl
     TResult? Function(DateTime runDateTime, String userId, double runDistance,
             String runTime)?
         clientWantsToSaveARun,
+    TResult? Function(DateTime runEndTime, double endingLat, double endingLng,
+            String runId)?
+        clientWantsToStopARun,
     TResult? Function(DateTime runDateTime, double startingLat,
             double startingLng, String userId)?
         clientWantsToLogARun,
@@ -856,6 +903,9 @@ class _$ClientWantsToLogInImpl
     TResult Function(DateTime runDateTime, String userId, double runDistance,
             String runTime)?
         clientWantsToSaveARun,
+    TResult Function(DateTime runEndTime, double endingLat, double endingLng,
+            String runId)?
+        clientWantsToStopARun,
     TResult Function(DateTime runDateTime, double startingLat,
             double startingLng, String userId)?
         clientWantsToLogARun,
@@ -885,6 +935,8 @@ class _$ClientWantsToLogInImpl
         clientWantsToSeeAllSavedRuns,
     required TResult Function(ClientWantsToSaveARun value)
         clientWantsToSaveARun,
+    required TResult Function(ClientWantsToStopARun value)
+        clientWantsToStopARun,
     required TResult Function(ClientWantsToLogARun value) clientWantsToLogARun,
     required TResult Function(ClientWantsToLogNewCoordinates value)
         clientWantsToLogNewCoordinates,
@@ -905,6 +957,7 @@ class _$ClientWantsToLogInImpl
     TResult? Function(ClientWantsToSeeAllSavedRuns value)?
         clientWantsToSeeAllSavedRuns,
     TResult? Function(ClientWantsToSaveARun value)? clientWantsToSaveARun,
+    TResult? Function(ClientWantsToStopARun value)? clientWantsToStopARun,
     TResult? Function(ClientWantsToLogARun value)? clientWantsToLogARun,
     TResult? Function(ClientWantsToLogNewCoordinates value)?
         clientWantsToLogNewCoordinates,
@@ -925,6 +978,7 @@ class _$ClientWantsToLogInImpl
     TResult Function(ClientWantsToSeeAllSavedRuns value)?
         clientWantsToSeeAllSavedRuns,
     TResult Function(ClientWantsToSaveARun value)? clientWantsToSaveARun,
+    TResult Function(ClientWantsToStopARun value)? clientWantsToStopARun,
     TResult Function(ClientWantsToLogARun value)? clientWantsToLogARun,
     TResult Function(ClientWantsToLogNewCoordinates value)?
         clientWantsToLogNewCoordinates,
@@ -1067,6 +1121,9 @@ class _$ClientWantsToDeleteARunImpl
     required TResult Function(DateTime runDateTime, String userId,
             double runDistance, String runTime)
         clientWantsToSaveARun,
+    required TResult Function(DateTime runEndTime, double endingLat,
+            double endingLng, String runId)
+        clientWantsToStopARun,
     required TResult Function(DateTime runDateTime, double startingLat,
             double startingLng, String userId)
         clientWantsToLogARun,
@@ -1090,6 +1147,9 @@ class _$ClientWantsToDeleteARunImpl
     TResult? Function(DateTime runDateTime, String userId, double runDistance,
             String runTime)?
         clientWantsToSaveARun,
+    TResult? Function(DateTime runEndTime, double endingLat, double endingLng,
+            String runId)?
+        clientWantsToStopARun,
     TResult? Function(DateTime runDateTime, double startingLat,
             double startingLng, String userId)?
         clientWantsToLogARun,
@@ -1113,6 +1173,9 @@ class _$ClientWantsToDeleteARunImpl
     TResult Function(DateTime runDateTime, String userId, double runDistance,
             String runTime)?
         clientWantsToSaveARun,
+    TResult Function(DateTime runEndTime, double endingLat, double endingLng,
+            String runId)?
+        clientWantsToStopARun,
     TResult Function(DateTime runDateTime, double startingLat,
             double startingLng, String userId)?
         clientWantsToLogARun,
@@ -1142,6 +1205,8 @@ class _$ClientWantsToDeleteARunImpl
         clientWantsToSeeAllSavedRuns,
     required TResult Function(ClientWantsToSaveARun value)
         clientWantsToSaveARun,
+    required TResult Function(ClientWantsToStopARun value)
+        clientWantsToStopARun,
     required TResult Function(ClientWantsToLogARun value) clientWantsToLogARun,
     required TResult Function(ClientWantsToLogNewCoordinates value)
         clientWantsToLogNewCoordinates,
@@ -1162,6 +1227,7 @@ class _$ClientWantsToDeleteARunImpl
     TResult? Function(ClientWantsToSeeAllSavedRuns value)?
         clientWantsToSeeAllSavedRuns,
     TResult? Function(ClientWantsToSaveARun value)? clientWantsToSaveARun,
+    TResult? Function(ClientWantsToStopARun value)? clientWantsToStopARun,
     TResult? Function(ClientWantsToLogARun value)? clientWantsToLogARun,
     TResult? Function(ClientWantsToLogNewCoordinates value)?
         clientWantsToLogNewCoordinates,
@@ -1182,6 +1248,7 @@ class _$ClientWantsToDeleteARunImpl
     TResult Function(ClientWantsToSeeAllSavedRuns value)?
         clientWantsToSeeAllSavedRuns,
     TResult Function(ClientWantsToSaveARun value)? clientWantsToSaveARun,
+    TResult Function(ClientWantsToStopARun value)? clientWantsToStopARun,
     TResult Function(ClientWantsToLogARun value)? clientWantsToLogARun,
     TResult Function(ClientWantsToLogNewCoordinates value)?
         clientWantsToLogNewCoordinates,
@@ -1318,6 +1385,9 @@ class _$ClientWantsToSeeAllSavedRunsImpl
     required TResult Function(DateTime runDateTime, String userId,
             double runDistance, String runTime)
         clientWantsToSaveARun,
+    required TResult Function(DateTime runEndTime, double endingLat,
+            double endingLng, String runId)
+        clientWantsToStopARun,
     required TResult Function(DateTime runDateTime, double startingLat,
             double startingLng, String userId)
         clientWantsToLogARun,
@@ -1341,6 +1411,9 @@ class _$ClientWantsToSeeAllSavedRunsImpl
     TResult? Function(DateTime runDateTime, String userId, double runDistance,
             String runTime)?
         clientWantsToSaveARun,
+    TResult? Function(DateTime runEndTime, double endingLat, double endingLng,
+            String runId)?
+        clientWantsToStopARun,
     TResult? Function(DateTime runDateTime, double startingLat,
             double startingLng, String userId)?
         clientWantsToLogARun,
@@ -1364,6 +1437,9 @@ class _$ClientWantsToSeeAllSavedRunsImpl
     TResult Function(DateTime runDateTime, String userId, double runDistance,
             String runTime)?
         clientWantsToSaveARun,
+    TResult Function(DateTime runEndTime, double endingLat, double endingLng,
+            String runId)?
+        clientWantsToStopARun,
     TResult Function(DateTime runDateTime, double startingLat,
             double startingLng, String userId)?
         clientWantsToLogARun,
@@ -1393,6 +1469,8 @@ class _$ClientWantsToSeeAllSavedRunsImpl
         clientWantsToSeeAllSavedRuns,
     required TResult Function(ClientWantsToSaveARun value)
         clientWantsToSaveARun,
+    required TResult Function(ClientWantsToStopARun value)
+        clientWantsToStopARun,
     required TResult Function(ClientWantsToLogARun value) clientWantsToLogARun,
     required TResult Function(ClientWantsToLogNewCoordinates value)
         clientWantsToLogNewCoordinates,
@@ -1413,6 +1491,7 @@ class _$ClientWantsToSeeAllSavedRunsImpl
     TResult? Function(ClientWantsToSeeAllSavedRuns value)?
         clientWantsToSeeAllSavedRuns,
     TResult? Function(ClientWantsToSaveARun value)? clientWantsToSaveARun,
+    TResult? Function(ClientWantsToStopARun value)? clientWantsToStopARun,
     TResult? Function(ClientWantsToLogARun value)? clientWantsToLogARun,
     TResult? Function(ClientWantsToLogNewCoordinates value)?
         clientWantsToLogNewCoordinates,
@@ -1433,6 +1512,7 @@ class _$ClientWantsToSeeAllSavedRunsImpl
     TResult Function(ClientWantsToSeeAllSavedRuns value)?
         clientWantsToSeeAllSavedRuns,
     TResult Function(ClientWantsToSaveARun value)? clientWantsToSaveARun,
+    TResult Function(ClientWantsToStopARun value)? clientWantsToStopARun,
     TResult Function(ClientWantsToLogARun value)? clientWantsToLogARun,
     TResult Function(ClientWantsToLogNewCoordinates value)?
         clientWantsToLogNewCoordinates,
@@ -1602,6 +1682,9 @@ class _$ClientWantsToSaveARunImpl
     required TResult Function(DateTime runDateTime, String userId,
             double runDistance, String runTime)
         clientWantsToSaveARun,
+    required TResult Function(DateTime runEndTime, double endingLat,
+            double endingLng, String runId)
+        clientWantsToStopARun,
     required TResult Function(DateTime runDateTime, double startingLat,
             double startingLng, String userId)
         clientWantsToLogARun,
@@ -1625,6 +1708,9 @@ class _$ClientWantsToSaveARunImpl
     TResult? Function(DateTime runDateTime, String userId, double runDistance,
             String runTime)?
         clientWantsToSaveARun,
+    TResult? Function(DateTime runEndTime, double endingLat, double endingLng,
+            String runId)?
+        clientWantsToStopARun,
     TResult? Function(DateTime runDateTime, double startingLat,
             double startingLng, String userId)?
         clientWantsToLogARun,
@@ -1649,6 +1735,9 @@ class _$ClientWantsToSaveARunImpl
     TResult Function(DateTime runDateTime, String userId, double runDistance,
             String runTime)?
         clientWantsToSaveARun,
+    TResult Function(DateTime runEndTime, double endingLat, double endingLng,
+            String runId)?
+        clientWantsToStopARun,
     TResult Function(DateTime runDateTime, double startingLat,
             double startingLng, String userId)?
         clientWantsToLogARun,
@@ -1678,6 +1767,8 @@ class _$ClientWantsToSaveARunImpl
         clientWantsToSeeAllSavedRuns,
     required TResult Function(ClientWantsToSaveARun value)
         clientWantsToSaveARun,
+    required TResult Function(ClientWantsToStopARun value)
+        clientWantsToStopARun,
     required TResult Function(ClientWantsToLogARun value) clientWantsToLogARun,
     required TResult Function(ClientWantsToLogNewCoordinates value)
         clientWantsToLogNewCoordinates,
@@ -1698,6 +1789,7 @@ class _$ClientWantsToSaveARunImpl
     TResult? Function(ClientWantsToSeeAllSavedRuns value)?
         clientWantsToSeeAllSavedRuns,
     TResult? Function(ClientWantsToSaveARun value)? clientWantsToSaveARun,
+    TResult? Function(ClientWantsToStopARun value)? clientWantsToStopARun,
     TResult? Function(ClientWantsToLogARun value)? clientWantsToLogARun,
     TResult? Function(ClientWantsToLogNewCoordinates value)?
         clientWantsToLogNewCoordinates,
@@ -1718,6 +1810,7 @@ class _$ClientWantsToSaveARunImpl
     TResult Function(ClientWantsToSeeAllSavedRuns value)?
         clientWantsToSeeAllSavedRuns,
     TResult Function(ClientWantsToSaveARun value)? clientWantsToSaveARun,
+    TResult Function(ClientWantsToStopARun value)? clientWantsToStopARun,
     TResult Function(ClientWantsToLogARun value)? clientWantsToLogARun,
     TResult Function(ClientWantsToLogNewCoordinates value)?
         clientWantsToLogNewCoordinates,
@@ -1755,6 +1848,306 @@ abstract class ClientWantsToSaveARun implements ClientEvent {
   String get runTime;
   @JsonKey(ignore: true)
   _$$ClientWantsToSaveARunImplCopyWith<_$ClientWantsToSaveARunImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ClientWantsToStopARunImplCopyWith<$Res> {
+  factory _$$ClientWantsToStopARunImplCopyWith(
+          _$ClientWantsToStopARunImpl value,
+          $Res Function(_$ClientWantsToStopARunImpl) then) =
+      __$$ClientWantsToStopARunImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call(
+      {DateTime runEndTime, double endingLat, double endingLng, String runId});
+}
+
+/// @nodoc
+class __$$ClientWantsToStopARunImplCopyWithImpl<$Res>
+    extends _$ClientEventCopyWithImpl<$Res, _$ClientWantsToStopARunImpl>
+    implements _$$ClientWantsToStopARunImplCopyWith<$Res> {
+  __$$ClientWantsToStopARunImplCopyWithImpl(_$ClientWantsToStopARunImpl _value,
+      $Res Function(_$ClientWantsToStopARunImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? runEndTime = null,
+    Object? endingLat = null,
+    Object? endingLng = null,
+    Object? runId = null,
+  }) {
+    return _then(_$ClientWantsToStopARunImpl(
+      runEndTime: null == runEndTime
+          ? _value.runEndTime
+          : runEndTime // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      endingLat: null == endingLat
+          ? _value.endingLat
+          : endingLat // ignore: cast_nullable_to_non_nullable
+              as double,
+      endingLng: null == endingLng
+          ? _value.endingLng
+          : endingLng // ignore: cast_nullable_to_non_nullable
+              as double,
+      runId: null == runId
+          ? _value.runId
+          : runId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$ClientWantsToStopARunImpl
+    with DiagnosticableTreeMixin
+    implements ClientWantsToStopARun {
+  _$ClientWantsToStopARunImpl(
+      {required this.runEndTime,
+      required this.endingLat,
+      required this.endingLng,
+      required this.runId,
+      final String? $type})
+      : $type = $type ?? 'ClientWantsToStopARun';
+
+  factory _$ClientWantsToStopARunImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ClientWantsToStopARunImplFromJson(json);
+
+  @override
+  final DateTime runEndTime;
+  @override
+  final double endingLat;
+  @override
+  final double endingLng;
+  @override
+  final String runId;
+
+  @JsonKey(name: 'eventType')
+  final String $type;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'ClientEvent.clientWantsToStopARun(runEndTime: $runEndTime, endingLat: $endingLat, endingLng: $endingLng, runId: $runId)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ClientEvent.clientWantsToStopARun'))
+      ..add(DiagnosticsProperty('runEndTime', runEndTime))
+      ..add(DiagnosticsProperty('endingLat', endingLat))
+      ..add(DiagnosticsProperty('endingLng', endingLng))
+      ..add(DiagnosticsProperty('runId', runId));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ClientWantsToStopARunImpl &&
+            (identical(other.runEndTime, runEndTime) ||
+                other.runEndTime == runEndTime) &&
+            (identical(other.endingLat, endingLat) ||
+                other.endingLat == endingLat) &&
+            (identical(other.endingLng, endingLng) ||
+                other.endingLng == endingLng) &&
+            (identical(other.runId, runId) || other.runId == runId));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, runEndTime, endingLat, endingLng, runId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ClientWantsToStopARunImplCopyWith<_$ClientWantsToStopARunImpl>
+      get copyWith => __$$ClientWantsToStopARunImplCopyWithImpl<
+          _$ClientWantsToStopARunImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String jwt) clientWantsToAuthenticateWithJwt,
+    required TResult Function(String username, String email, String password)
+        clientWantsToRegister,
+    required TResult Function(String email, String password)
+        clientWantsToSignIn,
+    required TResult Function(String userId, String runId)
+        clientWantsToDeleteARun,
+    required TResult Function(String userId) clientWantsToSeeAllSavedRuns,
+    required TResult Function(DateTime runDateTime, String userId,
+            double runDistance, String runTime)
+        clientWantsToSaveARun,
+    required TResult Function(DateTime runEndTime, double endingLat,
+            double endingLng, String runId)
+        clientWantsToStopARun,
+    required TResult Function(DateTime runDateTime, double startingLat,
+            double startingLng, String userId)
+        clientWantsToLogARun,
+    required TResult Function(
+            DateTime loggingTime, double lat, double lng, String runId)
+        clientWantsToLogNewCoordinates,
+    required TResult Function(String userId) clientWantsToSeeAProgressOfAllRuns,
+  }) {
+    return clientWantsToStopARun(runEndTime, endingLat, endingLng, runId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String jwt)? clientWantsToAuthenticateWithJwt,
+    TResult? Function(String username, String email, String password)?
+        clientWantsToRegister,
+    TResult? Function(String email, String password)? clientWantsToSignIn,
+    TResult? Function(String userId, String runId)? clientWantsToDeleteARun,
+    TResult? Function(String userId)? clientWantsToSeeAllSavedRuns,
+    TResult? Function(DateTime runDateTime, String userId, double runDistance,
+            String runTime)?
+        clientWantsToSaveARun,
+    TResult? Function(DateTime runEndTime, double endingLat, double endingLng,
+            String runId)?
+        clientWantsToStopARun,
+    TResult? Function(DateTime runDateTime, double startingLat,
+            double startingLng, String userId)?
+        clientWantsToLogARun,
+    TResult? Function(
+            DateTime loggingTime, double lat, double lng, String runId)?
+        clientWantsToLogNewCoordinates,
+    TResult? Function(String userId)? clientWantsToSeeAProgressOfAllRuns,
+  }) {
+    return clientWantsToStopARun?.call(runEndTime, endingLat, endingLng, runId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String jwt)? clientWantsToAuthenticateWithJwt,
+    TResult Function(String username, String email, String password)?
+        clientWantsToRegister,
+    TResult Function(String email, String password)? clientWantsToSignIn,
+    TResult Function(String userId, String runId)? clientWantsToDeleteARun,
+    TResult Function(String userId)? clientWantsToSeeAllSavedRuns,
+    TResult Function(DateTime runDateTime, String userId, double runDistance,
+            String runTime)?
+        clientWantsToSaveARun,
+    TResult Function(DateTime runEndTime, double endingLat, double endingLng,
+            String runId)?
+        clientWantsToStopARun,
+    TResult Function(DateTime runDateTime, double startingLat,
+            double startingLng, String userId)?
+        clientWantsToLogARun,
+    TResult Function(
+            DateTime loggingTime, double lat, double lng, String runId)?
+        clientWantsToLogNewCoordinates,
+    TResult Function(String userId)? clientWantsToSeeAProgressOfAllRuns,
+    required TResult orElse(),
+  }) {
+    if (clientWantsToStopARun != null) {
+      return clientWantsToStopARun(runEndTime, endingLat, endingLng, runId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ClientWantsToAuthenticateWithJwt value)
+        clientWantsToAuthenticateWithJwt,
+    required TResult Function(ClientWantsToRegister value)
+        clientWantsToRegister,
+    required TResult Function(ClientWantsToLogIn value) clientWantsToSignIn,
+    required TResult Function(ClientWantsToDeleteARun value)
+        clientWantsToDeleteARun,
+    required TResult Function(ClientWantsToSeeAllSavedRuns value)
+        clientWantsToSeeAllSavedRuns,
+    required TResult Function(ClientWantsToSaveARun value)
+        clientWantsToSaveARun,
+    required TResult Function(ClientWantsToStopARun value)
+        clientWantsToStopARun,
+    required TResult Function(ClientWantsToLogARun value) clientWantsToLogARun,
+    required TResult Function(ClientWantsToLogNewCoordinates value)
+        clientWantsToLogNewCoordinates,
+    required TResult Function(ClientWantsToSeeAProgressOfAllRuns value)
+        clientWantsToSeeAProgressOfAllRuns,
+  }) {
+    return clientWantsToStopARun(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ClientWantsToAuthenticateWithJwt value)?
+        clientWantsToAuthenticateWithJwt,
+    TResult? Function(ClientWantsToRegister value)? clientWantsToRegister,
+    TResult? Function(ClientWantsToLogIn value)? clientWantsToSignIn,
+    TResult? Function(ClientWantsToDeleteARun value)? clientWantsToDeleteARun,
+    TResult? Function(ClientWantsToSeeAllSavedRuns value)?
+        clientWantsToSeeAllSavedRuns,
+    TResult? Function(ClientWantsToSaveARun value)? clientWantsToSaveARun,
+    TResult? Function(ClientWantsToStopARun value)? clientWantsToStopARun,
+    TResult? Function(ClientWantsToLogARun value)? clientWantsToLogARun,
+    TResult? Function(ClientWantsToLogNewCoordinates value)?
+        clientWantsToLogNewCoordinates,
+    TResult? Function(ClientWantsToSeeAProgressOfAllRuns value)?
+        clientWantsToSeeAProgressOfAllRuns,
+  }) {
+    return clientWantsToStopARun?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ClientWantsToAuthenticateWithJwt value)?
+        clientWantsToAuthenticateWithJwt,
+    TResult Function(ClientWantsToRegister value)? clientWantsToRegister,
+    TResult Function(ClientWantsToLogIn value)? clientWantsToSignIn,
+    TResult Function(ClientWantsToDeleteARun value)? clientWantsToDeleteARun,
+    TResult Function(ClientWantsToSeeAllSavedRuns value)?
+        clientWantsToSeeAllSavedRuns,
+    TResult Function(ClientWantsToSaveARun value)? clientWantsToSaveARun,
+    TResult Function(ClientWantsToStopARun value)? clientWantsToStopARun,
+    TResult Function(ClientWantsToLogARun value)? clientWantsToLogARun,
+    TResult Function(ClientWantsToLogNewCoordinates value)?
+        clientWantsToLogNewCoordinates,
+    TResult Function(ClientWantsToSeeAProgressOfAllRuns value)?
+        clientWantsToSeeAProgressOfAllRuns,
+    required TResult orElse(),
+  }) {
+    if (clientWantsToStopARun != null) {
+      return clientWantsToStopARun(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$ClientWantsToStopARunImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class ClientWantsToStopARun implements ClientEvent {
+  factory ClientWantsToStopARun(
+      {required final DateTime runEndTime,
+      required final double endingLat,
+      required final double endingLng,
+      required final String runId}) = _$ClientWantsToStopARunImpl;
+
+  factory ClientWantsToStopARun.fromJson(Map<String, dynamic> json) =
+      _$ClientWantsToStopARunImpl.fromJson;
+
+  DateTime get runEndTime;
+  double get endingLat;
+  double get endingLng;
+  String get runId;
+  @JsonKey(ignore: true)
+  _$$ClientWantsToStopARunImplCopyWith<_$ClientWantsToStopARunImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -1893,6 +2286,9 @@ class _$ClientWantsToLogARunImpl
     required TResult Function(DateTime runDateTime, String userId,
             double runDistance, String runTime)
         clientWantsToSaveARun,
+    required TResult Function(DateTime runEndTime, double endingLat,
+            double endingLng, String runId)
+        clientWantsToStopARun,
     required TResult Function(DateTime runDateTime, double startingLat,
             double startingLng, String userId)
         clientWantsToLogARun,
@@ -1916,6 +2312,9 @@ class _$ClientWantsToLogARunImpl
     TResult? Function(DateTime runDateTime, String userId, double runDistance,
             String runTime)?
         clientWantsToSaveARun,
+    TResult? Function(DateTime runEndTime, double endingLat, double endingLng,
+            String runId)?
+        clientWantsToStopARun,
     TResult? Function(DateTime runDateTime, double startingLat,
             double startingLng, String userId)?
         clientWantsToLogARun,
@@ -1940,6 +2339,9 @@ class _$ClientWantsToLogARunImpl
     TResult Function(DateTime runDateTime, String userId, double runDistance,
             String runTime)?
         clientWantsToSaveARun,
+    TResult Function(DateTime runEndTime, double endingLat, double endingLng,
+            String runId)?
+        clientWantsToStopARun,
     TResult Function(DateTime runDateTime, double startingLat,
             double startingLng, String userId)?
         clientWantsToLogARun,
@@ -1970,6 +2372,8 @@ class _$ClientWantsToLogARunImpl
         clientWantsToSeeAllSavedRuns,
     required TResult Function(ClientWantsToSaveARun value)
         clientWantsToSaveARun,
+    required TResult Function(ClientWantsToStopARun value)
+        clientWantsToStopARun,
     required TResult Function(ClientWantsToLogARun value) clientWantsToLogARun,
     required TResult Function(ClientWantsToLogNewCoordinates value)
         clientWantsToLogNewCoordinates,
@@ -1990,6 +2394,7 @@ class _$ClientWantsToLogARunImpl
     TResult? Function(ClientWantsToSeeAllSavedRuns value)?
         clientWantsToSeeAllSavedRuns,
     TResult? Function(ClientWantsToSaveARun value)? clientWantsToSaveARun,
+    TResult? Function(ClientWantsToStopARun value)? clientWantsToStopARun,
     TResult? Function(ClientWantsToLogARun value)? clientWantsToLogARun,
     TResult? Function(ClientWantsToLogNewCoordinates value)?
         clientWantsToLogNewCoordinates,
@@ -2010,6 +2415,7 @@ class _$ClientWantsToLogARunImpl
     TResult Function(ClientWantsToSeeAllSavedRuns value)?
         clientWantsToSeeAllSavedRuns,
     TResult Function(ClientWantsToSaveARun value)? clientWantsToSaveARun,
+    TResult Function(ClientWantsToStopARun value)? clientWantsToStopARun,
     TResult Function(ClientWantsToLogARun value)? clientWantsToLogARun,
     TResult Function(ClientWantsToLogNewCoordinates value)?
         clientWantsToLogNewCoordinates,
@@ -2183,6 +2589,9 @@ class _$ClientWantsToLogNewCoordinatesImpl
     required TResult Function(DateTime runDateTime, String userId,
             double runDistance, String runTime)
         clientWantsToSaveARun,
+    required TResult Function(DateTime runEndTime, double endingLat,
+            double endingLng, String runId)
+        clientWantsToStopARun,
     required TResult Function(DateTime runDateTime, double startingLat,
             double startingLng, String userId)
         clientWantsToLogARun,
@@ -2206,6 +2615,9 @@ class _$ClientWantsToLogNewCoordinatesImpl
     TResult? Function(DateTime runDateTime, String userId, double runDistance,
             String runTime)?
         clientWantsToSaveARun,
+    TResult? Function(DateTime runEndTime, double endingLat, double endingLng,
+            String runId)?
+        clientWantsToStopARun,
     TResult? Function(DateTime runDateTime, double startingLat,
             double startingLng, String userId)?
         clientWantsToLogARun,
@@ -2229,6 +2641,9 @@ class _$ClientWantsToLogNewCoordinatesImpl
     TResult Function(DateTime runDateTime, String userId, double runDistance,
             String runTime)?
         clientWantsToSaveARun,
+    TResult Function(DateTime runEndTime, double endingLat, double endingLng,
+            String runId)?
+        clientWantsToStopARun,
     TResult Function(DateTime runDateTime, double startingLat,
             double startingLng, String userId)?
         clientWantsToLogARun,
@@ -2258,6 +2673,8 @@ class _$ClientWantsToLogNewCoordinatesImpl
         clientWantsToSeeAllSavedRuns,
     required TResult Function(ClientWantsToSaveARun value)
         clientWantsToSaveARun,
+    required TResult Function(ClientWantsToStopARun value)
+        clientWantsToStopARun,
     required TResult Function(ClientWantsToLogARun value) clientWantsToLogARun,
     required TResult Function(ClientWantsToLogNewCoordinates value)
         clientWantsToLogNewCoordinates,
@@ -2278,6 +2695,7 @@ class _$ClientWantsToLogNewCoordinatesImpl
     TResult? Function(ClientWantsToSeeAllSavedRuns value)?
         clientWantsToSeeAllSavedRuns,
     TResult? Function(ClientWantsToSaveARun value)? clientWantsToSaveARun,
+    TResult? Function(ClientWantsToStopARun value)? clientWantsToStopARun,
     TResult? Function(ClientWantsToLogARun value)? clientWantsToLogARun,
     TResult? Function(ClientWantsToLogNewCoordinates value)?
         clientWantsToLogNewCoordinates,
@@ -2298,6 +2716,7 @@ class _$ClientWantsToLogNewCoordinatesImpl
     TResult Function(ClientWantsToSeeAllSavedRuns value)?
         clientWantsToSeeAllSavedRuns,
     TResult Function(ClientWantsToSaveARun value)? clientWantsToSaveARun,
+    TResult Function(ClientWantsToStopARun value)? clientWantsToStopARun,
     TResult Function(ClientWantsToLogARun value)? clientWantsToLogARun,
     TResult Function(ClientWantsToLogNewCoordinates value)?
         clientWantsToLogNewCoordinates,
@@ -2440,6 +2859,9 @@ class _$ClientWantsToSeeAProgressOfAllRunsImpl
     required TResult Function(DateTime runDateTime, String userId,
             double runDistance, String runTime)
         clientWantsToSaveARun,
+    required TResult Function(DateTime runEndTime, double endingLat,
+            double endingLng, String runId)
+        clientWantsToStopARun,
     required TResult Function(DateTime runDateTime, double startingLat,
             double startingLng, String userId)
         clientWantsToLogARun,
@@ -2463,6 +2885,9 @@ class _$ClientWantsToSeeAProgressOfAllRunsImpl
     TResult? Function(DateTime runDateTime, String userId, double runDistance,
             String runTime)?
         clientWantsToSaveARun,
+    TResult? Function(DateTime runEndTime, double endingLat, double endingLng,
+            String runId)?
+        clientWantsToStopARun,
     TResult? Function(DateTime runDateTime, double startingLat,
             double startingLng, String userId)?
         clientWantsToLogARun,
@@ -2486,6 +2911,9 @@ class _$ClientWantsToSeeAProgressOfAllRunsImpl
     TResult Function(DateTime runDateTime, String userId, double runDistance,
             String runTime)?
         clientWantsToSaveARun,
+    TResult Function(DateTime runEndTime, double endingLat, double endingLng,
+            String runId)?
+        clientWantsToStopARun,
     TResult Function(DateTime runDateTime, double startingLat,
             double startingLng, String userId)?
         clientWantsToLogARun,
@@ -2515,6 +2943,8 @@ class _$ClientWantsToSeeAProgressOfAllRunsImpl
         clientWantsToSeeAllSavedRuns,
     required TResult Function(ClientWantsToSaveARun value)
         clientWantsToSaveARun,
+    required TResult Function(ClientWantsToStopARun value)
+        clientWantsToStopARun,
     required TResult Function(ClientWantsToLogARun value) clientWantsToLogARun,
     required TResult Function(ClientWantsToLogNewCoordinates value)
         clientWantsToLogNewCoordinates,
@@ -2535,6 +2965,7 @@ class _$ClientWantsToSeeAProgressOfAllRunsImpl
     TResult? Function(ClientWantsToSeeAllSavedRuns value)?
         clientWantsToSeeAllSavedRuns,
     TResult? Function(ClientWantsToSaveARun value)? clientWantsToSaveARun,
+    TResult? Function(ClientWantsToStopARun value)? clientWantsToStopARun,
     TResult? Function(ClientWantsToLogARun value)? clientWantsToLogARun,
     TResult? Function(ClientWantsToLogNewCoordinates value)?
         clientWantsToLogNewCoordinates,
@@ -2555,6 +2986,7 @@ class _$ClientWantsToSeeAProgressOfAllRunsImpl
     TResult Function(ClientWantsToSeeAllSavedRuns value)?
         clientWantsToSeeAllSavedRuns,
     TResult Function(ClientWantsToSaveARun value)? clientWantsToSaveARun,
+    TResult Function(ClientWantsToStopARun value)? clientWantsToStopARun,
     TResult Function(ClientWantsToLogARun value)? clientWantsToLogARun,
     TResult Function(ClientWantsToLogNewCoordinates value)?
         clientWantsToLogNewCoordinates,
@@ -2601,6 +3033,14 @@ ServerEvent _$ServerEventFromJson(Map<String, dynamic> json) {
       return ServerSendsBackAllSavedRuns.fromJson(json);
     case 'ServerSendsBackAllProgress':
       return ServerSendsBackAllProgress.fromJson(json);
+    case 'ServerConfirmsDeletionOfRun':
+      return ServerConfirmsDeletionOfRun.fromJson(json);
+    case 'ServerSendsBackRunId':
+      return ServerSendsBackRunId.fromJson(json);
+    case 'ServerConfirmsRegistration':
+      return ServerConfirmsRegistration.fromJson(json);
+    case 'ServerSendsBackRunWithMap':
+      return ServerSendsBackRunWithMap.fromJson(json);
 
     default:
       throw CheckedFromJsonException(json, 'eventType', 'ServerEvent',
@@ -2619,6 +3059,12 @@ mixin _$ServerEvent {
     required TResult Function(List<Run> runs) serverSendsBackAllSavedRuns,
     required TResult Function(List<ProgressInfo> progressInfo)
         serverSendsBackAllProgress,
+    required TResult Function(String runDeleted) serverConfirmsDeletionOfRun,
+    required TResult Function(String runId) serverSendsBackRunId,
+    required TResult Function(String message, int userId)
+        serverConfirmsRegistration,
+    required TResult Function(String message, RunInfoWithMap runInfoWithMap)
+        serverSendsBackRunWithMap,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -2629,6 +3075,11 @@ mixin _$ServerEvent {
     TResult? Function(List<Run> runs)? serverSendsBackAllSavedRuns,
     TResult? Function(List<ProgressInfo> progressInfo)?
         serverSendsBackAllProgress,
+    TResult? Function(String runDeleted)? serverConfirmsDeletionOfRun,
+    TResult? Function(String runId)? serverSendsBackRunId,
+    TResult? Function(String message, int userId)? serverConfirmsRegistration,
+    TResult? Function(String message, RunInfoWithMap runInfoWithMap)?
+        serverSendsBackRunWithMap,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -2639,6 +3090,11 @@ mixin _$ServerEvent {
     TResult Function(List<Run> runs)? serverSendsBackAllSavedRuns,
     TResult Function(List<ProgressInfo> progressInfo)?
         serverSendsBackAllProgress,
+    TResult Function(String runDeleted)? serverConfirmsDeletionOfRun,
+    TResult Function(String runId)? serverSendsBackRunId,
+    TResult Function(String message, int userId)? serverConfirmsRegistration,
+    TResult Function(String message, RunInfoWithMap runInfoWithMap)?
+        serverSendsBackRunWithMap,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -2650,6 +3106,13 @@ mixin _$ServerEvent {
         serverSendsBackAllSavedRuns,
     required TResult Function(ServerSendsBackAllProgress value)
         serverSendsBackAllProgress,
+    required TResult Function(ServerConfirmsDeletionOfRun value)
+        serverConfirmsDeletionOfRun,
+    required TResult Function(ServerSendsBackRunId value) serverSendsBackRunId,
+    required TResult Function(ServerConfirmsRegistration value)
+        serverConfirmsRegistration,
+    required TResult Function(ServerSendsBackRunWithMap value)
+        serverSendsBackRunWithMap,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -2660,6 +3123,13 @@ mixin _$ServerEvent {
         serverSendsBackAllSavedRuns,
     TResult? Function(ServerSendsBackAllProgress value)?
         serverSendsBackAllProgress,
+    TResult? Function(ServerConfirmsDeletionOfRun value)?
+        serverConfirmsDeletionOfRun,
+    TResult? Function(ServerSendsBackRunId value)? serverSendsBackRunId,
+    TResult? Function(ServerConfirmsRegistration value)?
+        serverConfirmsRegistration,
+    TResult? Function(ServerSendsBackRunWithMap value)?
+        serverSendsBackRunWithMap,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -2670,6 +3140,13 @@ mixin _$ServerEvent {
         serverSendsBackAllSavedRuns,
     TResult Function(ServerSendsBackAllProgress value)?
         serverSendsBackAllProgress,
+    TResult Function(ServerConfirmsDeletionOfRun value)?
+        serverConfirmsDeletionOfRun,
+    TResult Function(ServerSendsBackRunId value)? serverSendsBackRunId,
+    TResult Function(ServerConfirmsRegistration value)?
+        serverConfirmsRegistration,
+    TResult Function(ServerSendsBackRunWithMap value)?
+        serverSendsBackRunWithMap,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -2784,6 +3261,12 @@ class _$ServerSendsBackJwtImpl
     required TResult Function(List<Run> runs) serverSendsBackAllSavedRuns,
     required TResult Function(List<ProgressInfo> progressInfo)
         serverSendsBackAllProgress,
+    required TResult Function(String runDeleted) serverConfirmsDeletionOfRun,
+    required TResult Function(String runId) serverSendsBackRunId,
+    required TResult Function(String message, int userId)
+        serverConfirmsRegistration,
+    required TResult Function(String message, RunInfoWithMap runInfoWithMap)
+        serverSendsBackRunWithMap,
   }) {
     return serverSendsBackJwt(jwt);
   }
@@ -2797,6 +3280,11 @@ class _$ServerSendsBackJwtImpl
     TResult? Function(List<Run> runs)? serverSendsBackAllSavedRuns,
     TResult? Function(List<ProgressInfo> progressInfo)?
         serverSendsBackAllProgress,
+    TResult? Function(String runDeleted)? serverConfirmsDeletionOfRun,
+    TResult? Function(String runId)? serverSendsBackRunId,
+    TResult? Function(String message, int userId)? serverConfirmsRegistration,
+    TResult? Function(String message, RunInfoWithMap runInfoWithMap)?
+        serverSendsBackRunWithMap,
   }) {
     return serverSendsBackJwt?.call(jwt);
   }
@@ -2810,6 +3298,11 @@ class _$ServerSendsBackJwtImpl
     TResult Function(List<Run> runs)? serverSendsBackAllSavedRuns,
     TResult Function(List<ProgressInfo> progressInfo)?
         serverSendsBackAllProgress,
+    TResult Function(String runDeleted)? serverConfirmsDeletionOfRun,
+    TResult Function(String runId)? serverSendsBackRunId,
+    TResult Function(String message, int userId)? serverConfirmsRegistration,
+    TResult Function(String message, RunInfoWithMap runInfoWithMap)?
+        serverSendsBackRunWithMap,
     required TResult orElse(),
   }) {
     if (serverSendsBackJwt != null) {
@@ -2827,6 +3320,13 @@ class _$ServerSendsBackJwtImpl
         serverSendsBackAllSavedRuns,
     required TResult Function(ServerSendsBackAllProgress value)
         serverSendsBackAllProgress,
+    required TResult Function(ServerConfirmsDeletionOfRun value)
+        serverConfirmsDeletionOfRun,
+    required TResult Function(ServerSendsBackRunId value) serverSendsBackRunId,
+    required TResult Function(ServerConfirmsRegistration value)
+        serverConfirmsRegistration,
+    required TResult Function(ServerSendsBackRunWithMap value)
+        serverSendsBackRunWithMap,
   }) {
     return serverSendsBackJwt(this);
   }
@@ -2840,6 +3340,13 @@ class _$ServerSendsBackJwtImpl
         serverSendsBackAllSavedRuns,
     TResult? Function(ServerSendsBackAllProgress value)?
         serverSendsBackAllProgress,
+    TResult? Function(ServerConfirmsDeletionOfRun value)?
+        serverConfirmsDeletionOfRun,
+    TResult? Function(ServerSendsBackRunId value)? serverSendsBackRunId,
+    TResult? Function(ServerConfirmsRegistration value)?
+        serverConfirmsRegistration,
+    TResult? Function(ServerSendsBackRunWithMap value)?
+        serverSendsBackRunWithMap,
   }) {
     return serverSendsBackJwt?.call(this);
   }
@@ -2853,6 +3360,13 @@ class _$ServerSendsBackJwtImpl
         serverSendsBackAllSavedRuns,
     TResult Function(ServerSendsBackAllProgress value)?
         serverSendsBackAllProgress,
+    TResult Function(ServerConfirmsDeletionOfRun value)?
+        serverConfirmsDeletionOfRun,
+    TResult Function(ServerSendsBackRunId value)? serverSendsBackRunId,
+    TResult Function(ServerConfirmsRegistration value)?
+        serverConfirmsRegistration,
+    TResult Function(ServerSendsBackRunWithMap value)?
+        serverSendsBackRunWithMap,
     required TResult orElse(),
   }) {
     if (serverSendsBackJwt != null) {
@@ -2997,6 +3511,12 @@ class _$ServerSendsBackRunImpl
     required TResult Function(List<Run> runs) serverSendsBackAllSavedRuns,
     required TResult Function(List<ProgressInfo> progressInfo)
         serverSendsBackAllProgress,
+    required TResult Function(String runDeleted) serverConfirmsDeletionOfRun,
+    required TResult Function(String runId) serverSendsBackRunId,
+    required TResult Function(String message, int userId)
+        serverConfirmsRegistration,
+    required TResult Function(String message, RunInfoWithMap runInfoWithMap)
+        serverSendsBackRunWithMap,
   }) {
     return serverSendsBackRun(runDateTime, runDistance, runTime);
   }
@@ -3010,6 +3530,11 @@ class _$ServerSendsBackRunImpl
     TResult? Function(List<Run> runs)? serverSendsBackAllSavedRuns,
     TResult? Function(List<ProgressInfo> progressInfo)?
         serverSendsBackAllProgress,
+    TResult? Function(String runDeleted)? serverConfirmsDeletionOfRun,
+    TResult? Function(String runId)? serverSendsBackRunId,
+    TResult? Function(String message, int userId)? serverConfirmsRegistration,
+    TResult? Function(String message, RunInfoWithMap runInfoWithMap)?
+        serverSendsBackRunWithMap,
   }) {
     return serverSendsBackRun?.call(runDateTime, runDistance, runTime);
   }
@@ -3023,6 +3548,11 @@ class _$ServerSendsBackRunImpl
     TResult Function(List<Run> runs)? serverSendsBackAllSavedRuns,
     TResult Function(List<ProgressInfo> progressInfo)?
         serverSendsBackAllProgress,
+    TResult Function(String runDeleted)? serverConfirmsDeletionOfRun,
+    TResult Function(String runId)? serverSendsBackRunId,
+    TResult Function(String message, int userId)? serverConfirmsRegistration,
+    TResult Function(String message, RunInfoWithMap runInfoWithMap)?
+        serverSendsBackRunWithMap,
     required TResult orElse(),
   }) {
     if (serverSendsBackRun != null) {
@@ -3040,6 +3570,13 @@ class _$ServerSendsBackRunImpl
         serverSendsBackAllSavedRuns,
     required TResult Function(ServerSendsBackAllProgress value)
         serverSendsBackAllProgress,
+    required TResult Function(ServerConfirmsDeletionOfRun value)
+        serverConfirmsDeletionOfRun,
+    required TResult Function(ServerSendsBackRunId value) serverSendsBackRunId,
+    required TResult Function(ServerConfirmsRegistration value)
+        serverConfirmsRegistration,
+    required TResult Function(ServerSendsBackRunWithMap value)
+        serverSendsBackRunWithMap,
   }) {
     return serverSendsBackRun(this);
   }
@@ -3053,6 +3590,13 @@ class _$ServerSendsBackRunImpl
         serverSendsBackAllSavedRuns,
     TResult? Function(ServerSendsBackAllProgress value)?
         serverSendsBackAllProgress,
+    TResult? Function(ServerConfirmsDeletionOfRun value)?
+        serverConfirmsDeletionOfRun,
+    TResult? Function(ServerSendsBackRunId value)? serverSendsBackRunId,
+    TResult? Function(ServerConfirmsRegistration value)?
+        serverConfirmsRegistration,
+    TResult? Function(ServerSendsBackRunWithMap value)?
+        serverSendsBackRunWithMap,
   }) {
     return serverSendsBackRun?.call(this);
   }
@@ -3066,6 +3610,13 @@ class _$ServerSendsBackRunImpl
         serverSendsBackAllSavedRuns,
     TResult Function(ServerSendsBackAllProgress value)?
         serverSendsBackAllProgress,
+    TResult Function(ServerConfirmsDeletionOfRun value)?
+        serverConfirmsDeletionOfRun,
+    TResult Function(ServerSendsBackRunId value)? serverSendsBackRunId,
+    TResult Function(ServerConfirmsRegistration value)?
+        serverConfirmsRegistration,
+    TResult Function(ServerSendsBackRunWithMap value)?
+        serverSendsBackRunWithMap,
     required TResult orElse(),
   }) {
     if (serverSendsBackRun != null) {
@@ -3201,6 +3752,12 @@ class _$ServerSendsBackAllSavedRunsImpl
     required TResult Function(List<Run> runs) serverSendsBackAllSavedRuns,
     required TResult Function(List<ProgressInfo> progressInfo)
         serverSendsBackAllProgress,
+    required TResult Function(String runDeleted) serverConfirmsDeletionOfRun,
+    required TResult Function(String runId) serverSendsBackRunId,
+    required TResult Function(String message, int userId)
+        serverConfirmsRegistration,
+    required TResult Function(String message, RunInfoWithMap runInfoWithMap)
+        serverSendsBackRunWithMap,
   }) {
     return serverSendsBackAllSavedRuns(runs);
   }
@@ -3214,6 +3771,11 @@ class _$ServerSendsBackAllSavedRunsImpl
     TResult? Function(List<Run> runs)? serverSendsBackAllSavedRuns,
     TResult? Function(List<ProgressInfo> progressInfo)?
         serverSendsBackAllProgress,
+    TResult? Function(String runDeleted)? serverConfirmsDeletionOfRun,
+    TResult? Function(String runId)? serverSendsBackRunId,
+    TResult? Function(String message, int userId)? serverConfirmsRegistration,
+    TResult? Function(String message, RunInfoWithMap runInfoWithMap)?
+        serverSendsBackRunWithMap,
   }) {
     return serverSendsBackAllSavedRuns?.call(runs);
   }
@@ -3227,6 +3789,11 @@ class _$ServerSendsBackAllSavedRunsImpl
     TResult Function(List<Run> runs)? serverSendsBackAllSavedRuns,
     TResult Function(List<ProgressInfo> progressInfo)?
         serverSendsBackAllProgress,
+    TResult Function(String runDeleted)? serverConfirmsDeletionOfRun,
+    TResult Function(String runId)? serverSendsBackRunId,
+    TResult Function(String message, int userId)? serverConfirmsRegistration,
+    TResult Function(String message, RunInfoWithMap runInfoWithMap)?
+        serverSendsBackRunWithMap,
     required TResult orElse(),
   }) {
     if (serverSendsBackAllSavedRuns != null) {
@@ -3244,6 +3811,13 @@ class _$ServerSendsBackAllSavedRunsImpl
         serverSendsBackAllSavedRuns,
     required TResult Function(ServerSendsBackAllProgress value)
         serverSendsBackAllProgress,
+    required TResult Function(ServerConfirmsDeletionOfRun value)
+        serverConfirmsDeletionOfRun,
+    required TResult Function(ServerSendsBackRunId value) serverSendsBackRunId,
+    required TResult Function(ServerConfirmsRegistration value)
+        serverConfirmsRegistration,
+    required TResult Function(ServerSendsBackRunWithMap value)
+        serverSendsBackRunWithMap,
   }) {
     return serverSendsBackAllSavedRuns(this);
   }
@@ -3257,6 +3831,13 @@ class _$ServerSendsBackAllSavedRunsImpl
         serverSendsBackAllSavedRuns,
     TResult? Function(ServerSendsBackAllProgress value)?
         serverSendsBackAllProgress,
+    TResult? Function(ServerConfirmsDeletionOfRun value)?
+        serverConfirmsDeletionOfRun,
+    TResult? Function(ServerSendsBackRunId value)? serverSendsBackRunId,
+    TResult? Function(ServerConfirmsRegistration value)?
+        serverConfirmsRegistration,
+    TResult? Function(ServerSendsBackRunWithMap value)?
+        serverSendsBackRunWithMap,
   }) {
     return serverSendsBackAllSavedRuns?.call(this);
   }
@@ -3270,6 +3851,13 @@ class _$ServerSendsBackAllSavedRunsImpl
         serverSendsBackAllSavedRuns,
     TResult Function(ServerSendsBackAllProgress value)?
         serverSendsBackAllProgress,
+    TResult Function(ServerConfirmsDeletionOfRun value)?
+        serverConfirmsDeletionOfRun,
+    TResult Function(ServerSendsBackRunId value)? serverSendsBackRunId,
+    TResult Function(ServerConfirmsRegistration value)?
+        serverConfirmsRegistration,
+    TResult Function(ServerSendsBackRunWithMap value)?
+        serverSendsBackRunWithMap,
     required TResult orElse(),
   }) {
     if (serverSendsBackAllSavedRuns != null) {
@@ -3402,6 +3990,12 @@ class _$ServerSendsBackAllProgressImpl
     required TResult Function(List<Run> runs) serverSendsBackAllSavedRuns,
     required TResult Function(List<ProgressInfo> progressInfo)
         serverSendsBackAllProgress,
+    required TResult Function(String runDeleted) serverConfirmsDeletionOfRun,
+    required TResult Function(String runId) serverSendsBackRunId,
+    required TResult Function(String message, int userId)
+        serverConfirmsRegistration,
+    required TResult Function(String message, RunInfoWithMap runInfoWithMap)
+        serverSendsBackRunWithMap,
   }) {
     return serverSendsBackAllProgress(progressInfo);
   }
@@ -3415,6 +4009,11 @@ class _$ServerSendsBackAllProgressImpl
     TResult? Function(List<Run> runs)? serverSendsBackAllSavedRuns,
     TResult? Function(List<ProgressInfo> progressInfo)?
         serverSendsBackAllProgress,
+    TResult? Function(String runDeleted)? serverConfirmsDeletionOfRun,
+    TResult? Function(String runId)? serverSendsBackRunId,
+    TResult? Function(String message, int userId)? serverConfirmsRegistration,
+    TResult? Function(String message, RunInfoWithMap runInfoWithMap)?
+        serverSendsBackRunWithMap,
   }) {
     return serverSendsBackAllProgress?.call(progressInfo);
   }
@@ -3428,6 +4027,11 @@ class _$ServerSendsBackAllProgressImpl
     TResult Function(List<Run> runs)? serverSendsBackAllSavedRuns,
     TResult Function(List<ProgressInfo> progressInfo)?
         serverSendsBackAllProgress,
+    TResult Function(String runDeleted)? serverConfirmsDeletionOfRun,
+    TResult Function(String runId)? serverSendsBackRunId,
+    TResult Function(String message, int userId)? serverConfirmsRegistration,
+    TResult Function(String message, RunInfoWithMap runInfoWithMap)?
+        serverSendsBackRunWithMap,
     required TResult orElse(),
   }) {
     if (serverSendsBackAllProgress != null) {
@@ -3445,6 +4049,13 @@ class _$ServerSendsBackAllProgressImpl
         serverSendsBackAllSavedRuns,
     required TResult Function(ServerSendsBackAllProgress value)
         serverSendsBackAllProgress,
+    required TResult Function(ServerConfirmsDeletionOfRun value)
+        serverConfirmsDeletionOfRun,
+    required TResult Function(ServerSendsBackRunId value) serverSendsBackRunId,
+    required TResult Function(ServerConfirmsRegistration value)
+        serverConfirmsRegistration,
+    required TResult Function(ServerSendsBackRunWithMap value)
+        serverSendsBackRunWithMap,
   }) {
     return serverSendsBackAllProgress(this);
   }
@@ -3458,6 +4069,13 @@ class _$ServerSendsBackAllProgressImpl
         serverSendsBackAllSavedRuns,
     TResult? Function(ServerSendsBackAllProgress value)?
         serverSendsBackAllProgress,
+    TResult? Function(ServerConfirmsDeletionOfRun value)?
+        serverConfirmsDeletionOfRun,
+    TResult? Function(ServerSendsBackRunId value)? serverSendsBackRunId,
+    TResult? Function(ServerConfirmsRegistration value)?
+        serverConfirmsRegistration,
+    TResult? Function(ServerSendsBackRunWithMap value)?
+        serverSendsBackRunWithMap,
   }) {
     return serverSendsBackAllProgress?.call(this);
   }
@@ -3471,6 +4089,13 @@ class _$ServerSendsBackAllProgressImpl
         serverSendsBackAllSavedRuns,
     TResult Function(ServerSendsBackAllProgress value)?
         serverSendsBackAllProgress,
+    TResult Function(ServerConfirmsDeletionOfRun value)?
+        serverConfirmsDeletionOfRun,
+    TResult Function(ServerSendsBackRunId value)? serverSendsBackRunId,
+    TResult Function(ServerConfirmsRegistration value)?
+        serverConfirmsRegistration,
+    TResult Function(ServerSendsBackRunWithMap value)?
+        serverSendsBackRunWithMap,
     required TResult orElse(),
   }) {
     if (serverSendsBackAllProgress != null) {
@@ -3498,5 +4123,947 @@ abstract class ServerSendsBackAllProgress implements ServerEvent {
   List<ProgressInfo> get progressInfo;
   @JsonKey(ignore: true)
   _$$ServerSendsBackAllProgressImplCopyWith<_$ServerSendsBackAllProgressImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ServerConfirmsDeletionOfRunImplCopyWith<$Res> {
+  factory _$$ServerConfirmsDeletionOfRunImplCopyWith(
+          _$ServerConfirmsDeletionOfRunImpl value,
+          $Res Function(_$ServerConfirmsDeletionOfRunImpl) then) =
+      __$$ServerConfirmsDeletionOfRunImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String runDeleted});
+}
+
+/// @nodoc
+class __$$ServerConfirmsDeletionOfRunImplCopyWithImpl<$Res>
+    extends _$ServerEventCopyWithImpl<$Res, _$ServerConfirmsDeletionOfRunImpl>
+    implements _$$ServerConfirmsDeletionOfRunImplCopyWith<$Res> {
+  __$$ServerConfirmsDeletionOfRunImplCopyWithImpl(
+      _$ServerConfirmsDeletionOfRunImpl _value,
+      $Res Function(_$ServerConfirmsDeletionOfRunImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? runDeleted = null,
+  }) {
+    return _then(_$ServerConfirmsDeletionOfRunImpl(
+      runDeleted: null == runDeleted
+          ? _value.runDeleted
+          : runDeleted // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$ServerConfirmsDeletionOfRunImpl
+    with DiagnosticableTreeMixin
+    implements ServerConfirmsDeletionOfRun {
+  _$ServerConfirmsDeletionOfRunImpl(
+      {required this.runDeleted, final String? $type})
+      : $type = $type ?? 'ServerConfirmsDeletionOfRun';
+
+  factory _$ServerConfirmsDeletionOfRunImpl.fromJson(
+          Map<String, dynamic> json) =>
+      _$$ServerConfirmsDeletionOfRunImplFromJson(json);
+
+  @override
+  final String runDeleted;
+
+  @JsonKey(name: 'eventType')
+  final String $type;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'ServerEvent.serverConfirmsDeletionOfRun(runDeleted: $runDeleted)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty(
+          'type', 'ServerEvent.serverConfirmsDeletionOfRun'))
+      ..add(DiagnosticsProperty('runDeleted', runDeleted));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ServerConfirmsDeletionOfRunImpl &&
+            (identical(other.runDeleted, runDeleted) ||
+                other.runDeleted == runDeleted));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, runDeleted);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ServerConfirmsDeletionOfRunImplCopyWith<_$ServerConfirmsDeletionOfRunImpl>
+      get copyWith => __$$ServerConfirmsDeletionOfRunImplCopyWithImpl<
+          _$ServerConfirmsDeletionOfRunImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String jwt) serverSendsBackJwt,
+    required TResult Function(
+            DateTime runDateTime, double runDistance, String runTime)
+        serverSendsBackRun,
+    required TResult Function(List<Run> runs) serverSendsBackAllSavedRuns,
+    required TResult Function(List<ProgressInfo> progressInfo)
+        serverSendsBackAllProgress,
+    required TResult Function(String runDeleted) serverConfirmsDeletionOfRun,
+    required TResult Function(String runId) serverSendsBackRunId,
+    required TResult Function(String message, int userId)
+        serverConfirmsRegistration,
+    required TResult Function(String message, RunInfoWithMap runInfoWithMap)
+        serverSendsBackRunWithMap,
+  }) {
+    return serverConfirmsDeletionOfRun(runDeleted);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String jwt)? serverSendsBackJwt,
+    TResult? Function(DateTime runDateTime, double runDistance, String runTime)?
+        serverSendsBackRun,
+    TResult? Function(List<Run> runs)? serverSendsBackAllSavedRuns,
+    TResult? Function(List<ProgressInfo> progressInfo)?
+        serverSendsBackAllProgress,
+    TResult? Function(String runDeleted)? serverConfirmsDeletionOfRun,
+    TResult? Function(String runId)? serverSendsBackRunId,
+    TResult? Function(String message, int userId)? serverConfirmsRegistration,
+    TResult? Function(String message, RunInfoWithMap runInfoWithMap)?
+        serverSendsBackRunWithMap,
+  }) {
+    return serverConfirmsDeletionOfRun?.call(runDeleted);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String jwt)? serverSendsBackJwt,
+    TResult Function(DateTime runDateTime, double runDistance, String runTime)?
+        serverSendsBackRun,
+    TResult Function(List<Run> runs)? serverSendsBackAllSavedRuns,
+    TResult Function(List<ProgressInfo> progressInfo)?
+        serverSendsBackAllProgress,
+    TResult Function(String runDeleted)? serverConfirmsDeletionOfRun,
+    TResult Function(String runId)? serverSendsBackRunId,
+    TResult Function(String message, int userId)? serverConfirmsRegistration,
+    TResult Function(String message, RunInfoWithMap runInfoWithMap)?
+        serverSendsBackRunWithMap,
+    required TResult orElse(),
+  }) {
+    if (serverConfirmsDeletionOfRun != null) {
+      return serverConfirmsDeletionOfRun(runDeleted);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ServerSendsBackJwt value) serverSendsBackJwt,
+    required TResult Function(ServerSendsBackRun value) serverSendsBackRun,
+    required TResult Function(ServerSendsBackAllSavedRuns value)
+        serverSendsBackAllSavedRuns,
+    required TResult Function(ServerSendsBackAllProgress value)
+        serverSendsBackAllProgress,
+    required TResult Function(ServerConfirmsDeletionOfRun value)
+        serverConfirmsDeletionOfRun,
+    required TResult Function(ServerSendsBackRunId value) serverSendsBackRunId,
+    required TResult Function(ServerConfirmsRegistration value)
+        serverConfirmsRegistration,
+    required TResult Function(ServerSendsBackRunWithMap value)
+        serverSendsBackRunWithMap,
+  }) {
+    return serverConfirmsDeletionOfRun(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ServerSendsBackJwt value)? serverSendsBackJwt,
+    TResult? Function(ServerSendsBackRun value)? serverSendsBackRun,
+    TResult? Function(ServerSendsBackAllSavedRuns value)?
+        serverSendsBackAllSavedRuns,
+    TResult? Function(ServerSendsBackAllProgress value)?
+        serverSendsBackAllProgress,
+    TResult? Function(ServerConfirmsDeletionOfRun value)?
+        serverConfirmsDeletionOfRun,
+    TResult? Function(ServerSendsBackRunId value)? serverSendsBackRunId,
+    TResult? Function(ServerConfirmsRegistration value)?
+        serverConfirmsRegistration,
+    TResult? Function(ServerSendsBackRunWithMap value)?
+        serverSendsBackRunWithMap,
+  }) {
+    return serverConfirmsDeletionOfRun?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ServerSendsBackJwt value)? serverSendsBackJwt,
+    TResult Function(ServerSendsBackRun value)? serverSendsBackRun,
+    TResult Function(ServerSendsBackAllSavedRuns value)?
+        serverSendsBackAllSavedRuns,
+    TResult Function(ServerSendsBackAllProgress value)?
+        serverSendsBackAllProgress,
+    TResult Function(ServerConfirmsDeletionOfRun value)?
+        serverConfirmsDeletionOfRun,
+    TResult Function(ServerSendsBackRunId value)? serverSendsBackRunId,
+    TResult Function(ServerConfirmsRegistration value)?
+        serverConfirmsRegistration,
+    TResult Function(ServerSendsBackRunWithMap value)?
+        serverSendsBackRunWithMap,
+    required TResult orElse(),
+  }) {
+    if (serverConfirmsDeletionOfRun != null) {
+      return serverConfirmsDeletionOfRun(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$ServerConfirmsDeletionOfRunImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class ServerConfirmsDeletionOfRun implements ServerEvent {
+  factory ServerConfirmsDeletionOfRun({required final String runDeleted}) =
+      _$ServerConfirmsDeletionOfRunImpl;
+
+  factory ServerConfirmsDeletionOfRun.fromJson(Map<String, dynamic> json) =
+      _$ServerConfirmsDeletionOfRunImpl.fromJson;
+
+  String get runDeleted;
+  @JsonKey(ignore: true)
+  _$$ServerConfirmsDeletionOfRunImplCopyWith<_$ServerConfirmsDeletionOfRunImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ServerSendsBackRunIdImplCopyWith<$Res> {
+  factory _$$ServerSendsBackRunIdImplCopyWith(_$ServerSendsBackRunIdImpl value,
+          $Res Function(_$ServerSendsBackRunIdImpl) then) =
+      __$$ServerSendsBackRunIdImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String runId});
+}
+
+/// @nodoc
+class __$$ServerSendsBackRunIdImplCopyWithImpl<$Res>
+    extends _$ServerEventCopyWithImpl<$Res, _$ServerSendsBackRunIdImpl>
+    implements _$$ServerSendsBackRunIdImplCopyWith<$Res> {
+  __$$ServerSendsBackRunIdImplCopyWithImpl(_$ServerSendsBackRunIdImpl _value,
+      $Res Function(_$ServerSendsBackRunIdImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? runId = null,
+  }) {
+    return _then(_$ServerSendsBackRunIdImpl(
+      runId: null == runId
+          ? _value.runId
+          : runId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$ServerSendsBackRunIdImpl
+    with DiagnosticableTreeMixin
+    implements ServerSendsBackRunId {
+  _$ServerSendsBackRunIdImpl({required this.runId, final String? $type})
+      : $type = $type ?? 'ServerSendsBackRunId';
+
+  factory _$ServerSendsBackRunIdImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ServerSendsBackRunIdImplFromJson(json);
+
+  @override
+  final String runId;
+
+  @JsonKey(name: 'eventType')
+  final String $type;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'ServerEvent.serverSendsBackRunId(runId: $runId)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ServerEvent.serverSendsBackRunId'))
+      ..add(DiagnosticsProperty('runId', runId));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ServerSendsBackRunIdImpl &&
+            (identical(other.runId, runId) || other.runId == runId));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, runId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ServerSendsBackRunIdImplCopyWith<_$ServerSendsBackRunIdImpl>
+      get copyWith =>
+          __$$ServerSendsBackRunIdImplCopyWithImpl<_$ServerSendsBackRunIdImpl>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String jwt) serverSendsBackJwt,
+    required TResult Function(
+            DateTime runDateTime, double runDistance, String runTime)
+        serverSendsBackRun,
+    required TResult Function(List<Run> runs) serverSendsBackAllSavedRuns,
+    required TResult Function(List<ProgressInfo> progressInfo)
+        serverSendsBackAllProgress,
+    required TResult Function(String runDeleted) serverConfirmsDeletionOfRun,
+    required TResult Function(String runId) serverSendsBackRunId,
+    required TResult Function(String message, int userId)
+        serverConfirmsRegistration,
+    required TResult Function(String message, RunInfoWithMap runInfoWithMap)
+        serverSendsBackRunWithMap,
+  }) {
+    return serverSendsBackRunId(runId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String jwt)? serverSendsBackJwt,
+    TResult? Function(DateTime runDateTime, double runDistance, String runTime)?
+        serverSendsBackRun,
+    TResult? Function(List<Run> runs)? serverSendsBackAllSavedRuns,
+    TResult? Function(List<ProgressInfo> progressInfo)?
+        serverSendsBackAllProgress,
+    TResult? Function(String runDeleted)? serverConfirmsDeletionOfRun,
+    TResult? Function(String runId)? serverSendsBackRunId,
+    TResult? Function(String message, int userId)? serverConfirmsRegistration,
+    TResult? Function(String message, RunInfoWithMap runInfoWithMap)?
+        serverSendsBackRunWithMap,
+  }) {
+    return serverSendsBackRunId?.call(runId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String jwt)? serverSendsBackJwt,
+    TResult Function(DateTime runDateTime, double runDistance, String runTime)?
+        serverSendsBackRun,
+    TResult Function(List<Run> runs)? serverSendsBackAllSavedRuns,
+    TResult Function(List<ProgressInfo> progressInfo)?
+        serverSendsBackAllProgress,
+    TResult Function(String runDeleted)? serverConfirmsDeletionOfRun,
+    TResult Function(String runId)? serverSendsBackRunId,
+    TResult Function(String message, int userId)? serverConfirmsRegistration,
+    TResult Function(String message, RunInfoWithMap runInfoWithMap)?
+        serverSendsBackRunWithMap,
+    required TResult orElse(),
+  }) {
+    if (serverSendsBackRunId != null) {
+      return serverSendsBackRunId(runId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ServerSendsBackJwt value) serverSendsBackJwt,
+    required TResult Function(ServerSendsBackRun value) serverSendsBackRun,
+    required TResult Function(ServerSendsBackAllSavedRuns value)
+        serverSendsBackAllSavedRuns,
+    required TResult Function(ServerSendsBackAllProgress value)
+        serverSendsBackAllProgress,
+    required TResult Function(ServerConfirmsDeletionOfRun value)
+        serverConfirmsDeletionOfRun,
+    required TResult Function(ServerSendsBackRunId value) serverSendsBackRunId,
+    required TResult Function(ServerConfirmsRegistration value)
+        serverConfirmsRegistration,
+    required TResult Function(ServerSendsBackRunWithMap value)
+        serverSendsBackRunWithMap,
+  }) {
+    return serverSendsBackRunId(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ServerSendsBackJwt value)? serverSendsBackJwt,
+    TResult? Function(ServerSendsBackRun value)? serverSendsBackRun,
+    TResult? Function(ServerSendsBackAllSavedRuns value)?
+        serverSendsBackAllSavedRuns,
+    TResult? Function(ServerSendsBackAllProgress value)?
+        serverSendsBackAllProgress,
+    TResult? Function(ServerConfirmsDeletionOfRun value)?
+        serverConfirmsDeletionOfRun,
+    TResult? Function(ServerSendsBackRunId value)? serverSendsBackRunId,
+    TResult? Function(ServerConfirmsRegistration value)?
+        serverConfirmsRegistration,
+    TResult? Function(ServerSendsBackRunWithMap value)?
+        serverSendsBackRunWithMap,
+  }) {
+    return serverSendsBackRunId?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ServerSendsBackJwt value)? serverSendsBackJwt,
+    TResult Function(ServerSendsBackRun value)? serverSendsBackRun,
+    TResult Function(ServerSendsBackAllSavedRuns value)?
+        serverSendsBackAllSavedRuns,
+    TResult Function(ServerSendsBackAllProgress value)?
+        serverSendsBackAllProgress,
+    TResult Function(ServerConfirmsDeletionOfRun value)?
+        serverConfirmsDeletionOfRun,
+    TResult Function(ServerSendsBackRunId value)? serverSendsBackRunId,
+    TResult Function(ServerConfirmsRegistration value)?
+        serverConfirmsRegistration,
+    TResult Function(ServerSendsBackRunWithMap value)?
+        serverSendsBackRunWithMap,
+    required TResult orElse(),
+  }) {
+    if (serverSendsBackRunId != null) {
+      return serverSendsBackRunId(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$ServerSendsBackRunIdImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class ServerSendsBackRunId implements ServerEvent {
+  factory ServerSendsBackRunId({required final String runId}) =
+      _$ServerSendsBackRunIdImpl;
+
+  factory ServerSendsBackRunId.fromJson(Map<String, dynamic> json) =
+      _$ServerSendsBackRunIdImpl.fromJson;
+
+  String get runId;
+  @JsonKey(ignore: true)
+  _$$ServerSendsBackRunIdImplCopyWith<_$ServerSendsBackRunIdImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ServerConfirmsRegistrationImplCopyWith<$Res> {
+  factory _$$ServerConfirmsRegistrationImplCopyWith(
+          _$ServerConfirmsRegistrationImpl value,
+          $Res Function(_$ServerConfirmsRegistrationImpl) then) =
+      __$$ServerConfirmsRegistrationImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String message, int userId});
+}
+
+/// @nodoc
+class __$$ServerConfirmsRegistrationImplCopyWithImpl<$Res>
+    extends _$ServerEventCopyWithImpl<$Res, _$ServerConfirmsRegistrationImpl>
+    implements _$$ServerConfirmsRegistrationImplCopyWith<$Res> {
+  __$$ServerConfirmsRegistrationImplCopyWithImpl(
+      _$ServerConfirmsRegistrationImpl _value,
+      $Res Function(_$ServerConfirmsRegistrationImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+    Object? userId = null,
+  }) {
+    return _then(_$ServerConfirmsRegistrationImpl(
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+      userId: null == userId
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$ServerConfirmsRegistrationImpl
+    with DiagnosticableTreeMixin
+    implements ServerConfirmsRegistration {
+  _$ServerConfirmsRegistrationImpl(
+      {required this.message, required this.userId, final String? $type})
+      : $type = $type ?? 'ServerConfirmsRegistration';
+
+  factory _$ServerConfirmsRegistrationImpl.fromJson(
+          Map<String, dynamic> json) =>
+      _$$ServerConfirmsRegistrationImplFromJson(json);
+
+  @override
+  final String message;
+  @override
+  final int userId;
+
+  @JsonKey(name: 'eventType')
+  final String $type;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'ServerEvent.serverConfirmsRegistration(message: $message, userId: $userId)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(
+          DiagnosticsProperty('type', 'ServerEvent.serverConfirmsRegistration'))
+      ..add(DiagnosticsProperty('message', message))
+      ..add(DiagnosticsProperty('userId', userId));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ServerConfirmsRegistrationImpl &&
+            (identical(other.message, message) || other.message == message) &&
+            (identical(other.userId, userId) || other.userId == userId));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, message, userId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ServerConfirmsRegistrationImplCopyWith<_$ServerConfirmsRegistrationImpl>
+      get copyWith => __$$ServerConfirmsRegistrationImplCopyWithImpl<
+          _$ServerConfirmsRegistrationImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String jwt) serverSendsBackJwt,
+    required TResult Function(
+            DateTime runDateTime, double runDistance, String runTime)
+        serverSendsBackRun,
+    required TResult Function(List<Run> runs) serverSendsBackAllSavedRuns,
+    required TResult Function(List<ProgressInfo> progressInfo)
+        serverSendsBackAllProgress,
+    required TResult Function(String runDeleted) serverConfirmsDeletionOfRun,
+    required TResult Function(String runId) serverSendsBackRunId,
+    required TResult Function(String message, int userId)
+        serverConfirmsRegistration,
+    required TResult Function(String message, RunInfoWithMap runInfoWithMap)
+        serverSendsBackRunWithMap,
+  }) {
+    return serverConfirmsRegistration(message, userId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String jwt)? serverSendsBackJwt,
+    TResult? Function(DateTime runDateTime, double runDistance, String runTime)?
+        serverSendsBackRun,
+    TResult? Function(List<Run> runs)? serverSendsBackAllSavedRuns,
+    TResult? Function(List<ProgressInfo> progressInfo)?
+        serverSendsBackAllProgress,
+    TResult? Function(String runDeleted)? serverConfirmsDeletionOfRun,
+    TResult? Function(String runId)? serverSendsBackRunId,
+    TResult? Function(String message, int userId)? serverConfirmsRegistration,
+    TResult? Function(String message, RunInfoWithMap runInfoWithMap)?
+        serverSendsBackRunWithMap,
+  }) {
+    return serverConfirmsRegistration?.call(message, userId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String jwt)? serverSendsBackJwt,
+    TResult Function(DateTime runDateTime, double runDistance, String runTime)?
+        serverSendsBackRun,
+    TResult Function(List<Run> runs)? serverSendsBackAllSavedRuns,
+    TResult Function(List<ProgressInfo> progressInfo)?
+        serverSendsBackAllProgress,
+    TResult Function(String runDeleted)? serverConfirmsDeletionOfRun,
+    TResult Function(String runId)? serverSendsBackRunId,
+    TResult Function(String message, int userId)? serverConfirmsRegistration,
+    TResult Function(String message, RunInfoWithMap runInfoWithMap)?
+        serverSendsBackRunWithMap,
+    required TResult orElse(),
+  }) {
+    if (serverConfirmsRegistration != null) {
+      return serverConfirmsRegistration(message, userId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ServerSendsBackJwt value) serverSendsBackJwt,
+    required TResult Function(ServerSendsBackRun value) serverSendsBackRun,
+    required TResult Function(ServerSendsBackAllSavedRuns value)
+        serverSendsBackAllSavedRuns,
+    required TResult Function(ServerSendsBackAllProgress value)
+        serverSendsBackAllProgress,
+    required TResult Function(ServerConfirmsDeletionOfRun value)
+        serverConfirmsDeletionOfRun,
+    required TResult Function(ServerSendsBackRunId value) serverSendsBackRunId,
+    required TResult Function(ServerConfirmsRegistration value)
+        serverConfirmsRegistration,
+    required TResult Function(ServerSendsBackRunWithMap value)
+        serverSendsBackRunWithMap,
+  }) {
+    return serverConfirmsRegistration(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ServerSendsBackJwt value)? serverSendsBackJwt,
+    TResult? Function(ServerSendsBackRun value)? serverSendsBackRun,
+    TResult? Function(ServerSendsBackAllSavedRuns value)?
+        serverSendsBackAllSavedRuns,
+    TResult? Function(ServerSendsBackAllProgress value)?
+        serverSendsBackAllProgress,
+    TResult? Function(ServerConfirmsDeletionOfRun value)?
+        serverConfirmsDeletionOfRun,
+    TResult? Function(ServerSendsBackRunId value)? serverSendsBackRunId,
+    TResult? Function(ServerConfirmsRegistration value)?
+        serverConfirmsRegistration,
+    TResult? Function(ServerSendsBackRunWithMap value)?
+        serverSendsBackRunWithMap,
+  }) {
+    return serverConfirmsRegistration?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ServerSendsBackJwt value)? serverSendsBackJwt,
+    TResult Function(ServerSendsBackRun value)? serverSendsBackRun,
+    TResult Function(ServerSendsBackAllSavedRuns value)?
+        serverSendsBackAllSavedRuns,
+    TResult Function(ServerSendsBackAllProgress value)?
+        serverSendsBackAllProgress,
+    TResult Function(ServerConfirmsDeletionOfRun value)?
+        serverConfirmsDeletionOfRun,
+    TResult Function(ServerSendsBackRunId value)? serverSendsBackRunId,
+    TResult Function(ServerConfirmsRegistration value)?
+        serverConfirmsRegistration,
+    TResult Function(ServerSendsBackRunWithMap value)?
+        serverSendsBackRunWithMap,
+    required TResult orElse(),
+  }) {
+    if (serverConfirmsRegistration != null) {
+      return serverConfirmsRegistration(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$ServerConfirmsRegistrationImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class ServerConfirmsRegistration implements ServerEvent {
+  factory ServerConfirmsRegistration(
+      {required final String message,
+      required final int userId}) = _$ServerConfirmsRegistrationImpl;
+
+  factory ServerConfirmsRegistration.fromJson(Map<String, dynamic> json) =
+      _$ServerConfirmsRegistrationImpl.fromJson;
+
+  String get message;
+  int get userId;
+  @JsonKey(ignore: true)
+  _$$ServerConfirmsRegistrationImplCopyWith<_$ServerConfirmsRegistrationImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ServerSendsBackRunWithMapImplCopyWith<$Res> {
+  factory _$$ServerSendsBackRunWithMapImplCopyWith(
+          _$ServerSendsBackRunWithMapImpl value,
+          $Res Function(_$ServerSendsBackRunWithMapImpl) then) =
+      __$$ServerSendsBackRunWithMapImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String message, RunInfoWithMap runInfoWithMap});
+}
+
+/// @nodoc
+class __$$ServerSendsBackRunWithMapImplCopyWithImpl<$Res>
+    extends _$ServerEventCopyWithImpl<$Res, _$ServerSendsBackRunWithMapImpl>
+    implements _$$ServerSendsBackRunWithMapImplCopyWith<$Res> {
+  __$$ServerSendsBackRunWithMapImplCopyWithImpl(
+      _$ServerSendsBackRunWithMapImpl _value,
+      $Res Function(_$ServerSendsBackRunWithMapImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+    Object? runInfoWithMap = null,
+  }) {
+    return _then(_$ServerSendsBackRunWithMapImpl(
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+      runInfoWithMap: null == runInfoWithMap
+          ? _value.runInfoWithMap
+          : runInfoWithMap // ignore: cast_nullable_to_non_nullable
+              as RunInfoWithMap,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$ServerSendsBackRunWithMapImpl
+    with DiagnosticableTreeMixin
+    implements ServerSendsBackRunWithMap {
+  _$ServerSendsBackRunWithMapImpl(
+      {required this.message,
+      required this.runInfoWithMap,
+      final String? $type})
+      : $type = $type ?? 'ServerSendsBackRunWithMap';
+
+  factory _$ServerSendsBackRunWithMapImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ServerSendsBackRunWithMapImplFromJson(json);
+
+  @override
+  final String message;
+  @override
+  final RunInfoWithMap runInfoWithMap;
+
+  @JsonKey(name: 'eventType')
+  final String $type;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'ServerEvent.serverSendsBackRunWithMap(message: $message, runInfoWithMap: $runInfoWithMap)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(
+          DiagnosticsProperty('type', 'ServerEvent.serverSendsBackRunWithMap'))
+      ..add(DiagnosticsProperty('message', message))
+      ..add(DiagnosticsProperty('runInfoWithMap', runInfoWithMap));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ServerSendsBackRunWithMapImpl &&
+            (identical(other.message, message) || other.message == message) &&
+            (identical(other.runInfoWithMap, runInfoWithMap) ||
+                other.runInfoWithMap == runInfoWithMap));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, message, runInfoWithMap);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ServerSendsBackRunWithMapImplCopyWith<_$ServerSendsBackRunWithMapImpl>
+      get copyWith => __$$ServerSendsBackRunWithMapImplCopyWithImpl<
+          _$ServerSendsBackRunWithMapImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String jwt) serverSendsBackJwt,
+    required TResult Function(
+            DateTime runDateTime, double runDistance, String runTime)
+        serverSendsBackRun,
+    required TResult Function(List<Run> runs) serverSendsBackAllSavedRuns,
+    required TResult Function(List<ProgressInfo> progressInfo)
+        serverSendsBackAllProgress,
+    required TResult Function(String runDeleted) serverConfirmsDeletionOfRun,
+    required TResult Function(String runId) serverSendsBackRunId,
+    required TResult Function(String message, int userId)
+        serverConfirmsRegistration,
+    required TResult Function(String message, RunInfoWithMap runInfoWithMap)
+        serverSendsBackRunWithMap,
+  }) {
+    return serverSendsBackRunWithMap(message, runInfoWithMap);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String jwt)? serverSendsBackJwt,
+    TResult? Function(DateTime runDateTime, double runDistance, String runTime)?
+        serverSendsBackRun,
+    TResult? Function(List<Run> runs)? serverSendsBackAllSavedRuns,
+    TResult? Function(List<ProgressInfo> progressInfo)?
+        serverSendsBackAllProgress,
+    TResult? Function(String runDeleted)? serverConfirmsDeletionOfRun,
+    TResult? Function(String runId)? serverSendsBackRunId,
+    TResult? Function(String message, int userId)? serverConfirmsRegistration,
+    TResult? Function(String message, RunInfoWithMap runInfoWithMap)?
+        serverSendsBackRunWithMap,
+  }) {
+    return serverSendsBackRunWithMap?.call(message, runInfoWithMap);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String jwt)? serverSendsBackJwt,
+    TResult Function(DateTime runDateTime, double runDistance, String runTime)?
+        serverSendsBackRun,
+    TResult Function(List<Run> runs)? serverSendsBackAllSavedRuns,
+    TResult Function(List<ProgressInfo> progressInfo)?
+        serverSendsBackAllProgress,
+    TResult Function(String runDeleted)? serverConfirmsDeletionOfRun,
+    TResult Function(String runId)? serverSendsBackRunId,
+    TResult Function(String message, int userId)? serverConfirmsRegistration,
+    TResult Function(String message, RunInfoWithMap runInfoWithMap)?
+        serverSendsBackRunWithMap,
+    required TResult orElse(),
+  }) {
+    if (serverSendsBackRunWithMap != null) {
+      return serverSendsBackRunWithMap(message, runInfoWithMap);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ServerSendsBackJwt value) serverSendsBackJwt,
+    required TResult Function(ServerSendsBackRun value) serverSendsBackRun,
+    required TResult Function(ServerSendsBackAllSavedRuns value)
+        serverSendsBackAllSavedRuns,
+    required TResult Function(ServerSendsBackAllProgress value)
+        serverSendsBackAllProgress,
+    required TResult Function(ServerConfirmsDeletionOfRun value)
+        serverConfirmsDeletionOfRun,
+    required TResult Function(ServerSendsBackRunId value) serverSendsBackRunId,
+    required TResult Function(ServerConfirmsRegistration value)
+        serverConfirmsRegistration,
+    required TResult Function(ServerSendsBackRunWithMap value)
+        serverSendsBackRunWithMap,
+  }) {
+    return serverSendsBackRunWithMap(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ServerSendsBackJwt value)? serverSendsBackJwt,
+    TResult? Function(ServerSendsBackRun value)? serverSendsBackRun,
+    TResult? Function(ServerSendsBackAllSavedRuns value)?
+        serverSendsBackAllSavedRuns,
+    TResult? Function(ServerSendsBackAllProgress value)?
+        serverSendsBackAllProgress,
+    TResult? Function(ServerConfirmsDeletionOfRun value)?
+        serverConfirmsDeletionOfRun,
+    TResult? Function(ServerSendsBackRunId value)? serverSendsBackRunId,
+    TResult? Function(ServerConfirmsRegistration value)?
+        serverConfirmsRegistration,
+    TResult? Function(ServerSendsBackRunWithMap value)?
+        serverSendsBackRunWithMap,
+  }) {
+    return serverSendsBackRunWithMap?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ServerSendsBackJwt value)? serverSendsBackJwt,
+    TResult Function(ServerSendsBackRun value)? serverSendsBackRun,
+    TResult Function(ServerSendsBackAllSavedRuns value)?
+        serverSendsBackAllSavedRuns,
+    TResult Function(ServerSendsBackAllProgress value)?
+        serverSendsBackAllProgress,
+    TResult Function(ServerConfirmsDeletionOfRun value)?
+        serverConfirmsDeletionOfRun,
+    TResult Function(ServerSendsBackRunId value)? serverSendsBackRunId,
+    TResult Function(ServerConfirmsRegistration value)?
+        serverConfirmsRegistration,
+    TResult Function(ServerSendsBackRunWithMap value)?
+        serverSendsBackRunWithMap,
+    required TResult orElse(),
+  }) {
+    if (serverSendsBackRunWithMap != null) {
+      return serverSendsBackRunWithMap(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$ServerSendsBackRunWithMapImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class ServerSendsBackRunWithMap implements ServerEvent {
+  factory ServerSendsBackRunWithMap(
+          {required final String message,
+          required final RunInfoWithMap runInfoWithMap}) =
+      _$ServerSendsBackRunWithMapImpl;
+
+  factory ServerSendsBackRunWithMap.fromJson(Map<String, dynamic> json) =
+      _$ServerSendsBackRunWithMapImpl.fromJson;
+
+  String get message;
+  RunInfoWithMap get runInfoWithMap;
+  @JsonKey(ignore: true)
+  _$$ServerSendsBackRunWithMapImplCopyWith<_$ServerSendsBackRunWithMapImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

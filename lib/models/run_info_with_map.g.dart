@@ -1,0 +1,1 @@
+part 'run_info_with_map.dart';
