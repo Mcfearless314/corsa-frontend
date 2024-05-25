@@ -96,9 +96,8 @@ sealed class ServerEvent with _$ServerEvent implements BaseEvent {
     required String runDeleted,
   }) = ServerConfirmsDeletionOfRun;
 
-  factory ServerEvent.serverSendsBackRunId({
-    required String runId
-  }) = ServerSendsBackRunId;
+  factory ServerEvent.serverSendsBackRunId({required String runId}) =
+      ServerSendsBackRunId;
 
   factory ServerEvent.serverConfirmsRegistration({
     required String message,
@@ -110,8 +109,16 @@ sealed class ServerEvent with _$ServerEvent implements BaseEvent {
     required RunInfoWithMap runInfoWithMap,
   }) = ServerSendsBackRunWithMap;
 
+  factory ServerEvent.serverConfirmsLogin({
+    required String message,
+    required Object token,
+    required int userId,
+  }) = ServerConfirmsLogin;
+
+  factory ServerEvent.serverDeniesLogin({
+    required String message,
+  }) = ServerDeniesLogin;
+
   factory ServerEvent.fromJson(Map<String, dynamic> json) =>
       _$ServerEventFromJson(json);
 }
-
-

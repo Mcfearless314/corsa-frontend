@@ -1,4 +1,3 @@
-
 import 'package:corsa/models/run_info_with_map.dart';
 import 'package:flutter/foundation.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -14,7 +13,11 @@ class RunState {
 
   LatLng get currentPosition => coordinates.last;
 
-  const RunState({required this.status, required this.coordinates, required this.runId, required this.runInfoWithMap});
+  const RunState(
+      {required this.status,
+      required this.coordinates,
+      required this.runId,
+      required this.runInfoWithMap});
 
   factory RunState.empty() {
     return const RunState(

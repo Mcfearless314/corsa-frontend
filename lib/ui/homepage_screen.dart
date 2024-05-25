@@ -1,16 +1,22 @@
+import 'dart:convert';
+
 import 'package:corsa/ui/registerpage_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:corsa/ui/userpage_screen.dart';
-import 'package:flutter/services.dart';
+
+import '../BroadcastWsChannel.dart';
+import '../models/events.dart';
 
 class HomePageScreen extends StatefulWidget {
-  const HomePageScreen({super.key});
+  const HomePageScreen({super.key, required this.channel});
+  final BroadcastWsChannel channel;
 
   @override
   _HomePageScreenState createState() => _HomePageScreenState();
 }
 
 class _HomePageScreenState extends State<HomePageScreen> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,6 +33,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: TextField(
+              controller: usernameController,
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
                 hintText: 'Username',
@@ -40,6 +47,8 @@ class _HomePageScreenState extends State<HomePageScreen> {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: TextField(
+              controller: passwordController,
+              obscureText: true,
               decoration: InputDecoration(
                   border: OutlineInputBorder(),
                   hintText: 'Password',
@@ -75,7 +84,15 @@ class _HomePageScreenState extends State<HomePageScreen> {
     );
   }
 
-  void logIn() {
+  Future<void> logIn() async {
+    ClientEvent.clientWantsToSignIn(email: usernameController.text, password: passwordController.text);
+    final serverEventFuture = widget.channel.stream
+        .map((event) => ServerEvent.fromJson(jsonDecode(event)))
+        .firstWhere((event) => event is ServerSendsBackAllSavedRuns);
+    final serverEvent = await serverEventFuture.timeout(Duration(seconds: 5));
+    if (serverEvent is ServerConfirmsLogin) {
+      serverEvent.user
+    }
     Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => UserPageScreen()),

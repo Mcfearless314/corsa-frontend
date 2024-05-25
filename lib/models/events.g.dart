@@ -304,3 +304,35 @@ Map<String, dynamic> _$$ServerSendsBackRunWithMapImplToJson(
       'runInfoWithMap': instance.runInfoWithMap,
       'eventType': instance.$type,
     };
+
+_$ServerConfirmsLoginImpl _$$ServerConfirmsLoginImplFromJson(
+        Map<String, dynamic> json) =>
+    _$ServerConfirmsLoginImpl(
+      message: json['message'] as String,
+      token: json['token'] as Object,
+      userId: (json['userId'] as num).toInt(),
+      $type: json['eventType'] as String?,
+    );
+
+Map<String, dynamic> _$$ServerConfirmsLoginImplToJson(
+        _$ServerConfirmsLoginImpl instance) =>
+    <String, dynamic>{
+      'message': instance.message,
+      'token': instance.token,
+      'userId': instance.userId,
+      'eventType': instance.$type,
+    };
+
+_$ServerDeniesLoginImpl _$$ServerDeniesLoginImplFromJson(
+        Map<String, dynamic> json) =>
+    _$ServerDeniesLoginImpl(
+      message: json['message'] as String,
+      $type: json['eventType'] as String?,
+    );
+
+Map<String, dynamic> _$$ServerDeniesLoginImplToJson(
+        _$ServerDeniesLoginImpl instance) =>
+    <String, dynamic>{
+      'message': instance.message,
+      'eventType': instance.$type,
+    };

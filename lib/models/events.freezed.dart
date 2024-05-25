@@ -3041,6 +3041,10 @@ ServerEvent _$ServerEventFromJson(Map<String, dynamic> json) {
       return ServerConfirmsRegistration.fromJson(json);
     case 'ServerSendsBackRunWithMap':
       return ServerSendsBackRunWithMap.fromJson(json);
+    case 'ServerConfirmsLogin':
+      return ServerConfirmsLogin.fromJson(json);
+    case 'ServerDeniesLogin':
+      return ServerDeniesLogin.fromJson(json);
 
     default:
       throw CheckedFromJsonException(json, 'eventType', 'ServerEvent',
@@ -3065,6 +3069,9 @@ mixin _$ServerEvent {
         serverConfirmsRegistration,
     required TResult Function(String message, RunInfoWithMap runInfoWithMap)
         serverSendsBackRunWithMap,
+    required TResult Function(String message, Object token, int userId)
+        serverConfirmsLogin,
+    required TResult Function(String message) serverDeniesLogin,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -3080,6 +3087,9 @@ mixin _$ServerEvent {
     TResult? Function(String message, int userId)? serverConfirmsRegistration,
     TResult? Function(String message, RunInfoWithMap runInfoWithMap)?
         serverSendsBackRunWithMap,
+    TResult? Function(String message, Object token, int userId)?
+        serverConfirmsLogin,
+    TResult? Function(String message)? serverDeniesLogin,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -3095,6 +3105,9 @@ mixin _$ServerEvent {
     TResult Function(String message, int userId)? serverConfirmsRegistration,
     TResult Function(String message, RunInfoWithMap runInfoWithMap)?
         serverSendsBackRunWithMap,
+    TResult Function(String message, Object token, int userId)?
+        serverConfirmsLogin,
+    TResult Function(String message)? serverDeniesLogin,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -3113,6 +3126,8 @@ mixin _$ServerEvent {
         serverConfirmsRegistration,
     required TResult Function(ServerSendsBackRunWithMap value)
         serverSendsBackRunWithMap,
+    required TResult Function(ServerConfirmsLogin value) serverConfirmsLogin,
+    required TResult Function(ServerDeniesLogin value) serverDeniesLogin,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -3130,6 +3145,8 @@ mixin _$ServerEvent {
         serverConfirmsRegistration,
     TResult? Function(ServerSendsBackRunWithMap value)?
         serverSendsBackRunWithMap,
+    TResult? Function(ServerConfirmsLogin value)? serverConfirmsLogin,
+    TResult? Function(ServerDeniesLogin value)? serverDeniesLogin,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -3147,6 +3164,8 @@ mixin _$ServerEvent {
         serverConfirmsRegistration,
     TResult Function(ServerSendsBackRunWithMap value)?
         serverSendsBackRunWithMap,
+    TResult Function(ServerConfirmsLogin value)? serverConfirmsLogin,
+    TResult Function(ServerDeniesLogin value)? serverDeniesLogin,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -3267,6 +3286,9 @@ class _$ServerSendsBackJwtImpl
         serverConfirmsRegistration,
     required TResult Function(String message, RunInfoWithMap runInfoWithMap)
         serverSendsBackRunWithMap,
+    required TResult Function(String message, Object token, int userId)
+        serverConfirmsLogin,
+    required TResult Function(String message) serverDeniesLogin,
   }) {
     return serverSendsBackJwt(jwt);
   }
@@ -3285,6 +3307,9 @@ class _$ServerSendsBackJwtImpl
     TResult? Function(String message, int userId)? serverConfirmsRegistration,
     TResult? Function(String message, RunInfoWithMap runInfoWithMap)?
         serverSendsBackRunWithMap,
+    TResult? Function(String message, Object token, int userId)?
+        serverConfirmsLogin,
+    TResult? Function(String message)? serverDeniesLogin,
   }) {
     return serverSendsBackJwt?.call(jwt);
   }
@@ -3303,6 +3328,9 @@ class _$ServerSendsBackJwtImpl
     TResult Function(String message, int userId)? serverConfirmsRegistration,
     TResult Function(String message, RunInfoWithMap runInfoWithMap)?
         serverSendsBackRunWithMap,
+    TResult Function(String message, Object token, int userId)?
+        serverConfirmsLogin,
+    TResult Function(String message)? serverDeniesLogin,
     required TResult orElse(),
   }) {
     if (serverSendsBackJwt != null) {
@@ -3327,6 +3355,8 @@ class _$ServerSendsBackJwtImpl
         serverConfirmsRegistration,
     required TResult Function(ServerSendsBackRunWithMap value)
         serverSendsBackRunWithMap,
+    required TResult Function(ServerConfirmsLogin value) serverConfirmsLogin,
+    required TResult Function(ServerDeniesLogin value) serverDeniesLogin,
   }) {
     return serverSendsBackJwt(this);
   }
@@ -3347,6 +3377,8 @@ class _$ServerSendsBackJwtImpl
         serverConfirmsRegistration,
     TResult? Function(ServerSendsBackRunWithMap value)?
         serverSendsBackRunWithMap,
+    TResult? Function(ServerConfirmsLogin value)? serverConfirmsLogin,
+    TResult? Function(ServerDeniesLogin value)? serverDeniesLogin,
   }) {
     return serverSendsBackJwt?.call(this);
   }
@@ -3367,6 +3399,8 @@ class _$ServerSendsBackJwtImpl
         serverConfirmsRegistration,
     TResult Function(ServerSendsBackRunWithMap value)?
         serverSendsBackRunWithMap,
+    TResult Function(ServerConfirmsLogin value)? serverConfirmsLogin,
+    TResult Function(ServerDeniesLogin value)? serverDeniesLogin,
     required TResult orElse(),
   }) {
     if (serverSendsBackJwt != null) {
@@ -3517,6 +3551,9 @@ class _$ServerSendsBackRunImpl
         serverConfirmsRegistration,
     required TResult Function(String message, RunInfoWithMap runInfoWithMap)
         serverSendsBackRunWithMap,
+    required TResult Function(String message, Object token, int userId)
+        serverConfirmsLogin,
+    required TResult Function(String message) serverDeniesLogin,
   }) {
     return serverSendsBackRun(runDateTime, runDistance, runTime);
   }
@@ -3535,6 +3572,9 @@ class _$ServerSendsBackRunImpl
     TResult? Function(String message, int userId)? serverConfirmsRegistration,
     TResult? Function(String message, RunInfoWithMap runInfoWithMap)?
         serverSendsBackRunWithMap,
+    TResult? Function(String message, Object token, int userId)?
+        serverConfirmsLogin,
+    TResult? Function(String message)? serverDeniesLogin,
   }) {
     return serverSendsBackRun?.call(runDateTime, runDistance, runTime);
   }
@@ -3553,6 +3593,9 @@ class _$ServerSendsBackRunImpl
     TResult Function(String message, int userId)? serverConfirmsRegistration,
     TResult Function(String message, RunInfoWithMap runInfoWithMap)?
         serverSendsBackRunWithMap,
+    TResult Function(String message, Object token, int userId)?
+        serverConfirmsLogin,
+    TResult Function(String message)? serverDeniesLogin,
     required TResult orElse(),
   }) {
     if (serverSendsBackRun != null) {
@@ -3577,6 +3620,8 @@ class _$ServerSendsBackRunImpl
         serverConfirmsRegistration,
     required TResult Function(ServerSendsBackRunWithMap value)
         serverSendsBackRunWithMap,
+    required TResult Function(ServerConfirmsLogin value) serverConfirmsLogin,
+    required TResult Function(ServerDeniesLogin value) serverDeniesLogin,
   }) {
     return serverSendsBackRun(this);
   }
@@ -3597,6 +3642,8 @@ class _$ServerSendsBackRunImpl
         serverConfirmsRegistration,
     TResult? Function(ServerSendsBackRunWithMap value)?
         serverSendsBackRunWithMap,
+    TResult? Function(ServerConfirmsLogin value)? serverConfirmsLogin,
+    TResult? Function(ServerDeniesLogin value)? serverDeniesLogin,
   }) {
     return serverSendsBackRun?.call(this);
   }
@@ -3617,6 +3664,8 @@ class _$ServerSendsBackRunImpl
         serverConfirmsRegistration,
     TResult Function(ServerSendsBackRunWithMap value)?
         serverSendsBackRunWithMap,
+    TResult Function(ServerConfirmsLogin value)? serverConfirmsLogin,
+    TResult Function(ServerDeniesLogin value)? serverDeniesLogin,
     required TResult orElse(),
   }) {
     if (serverSendsBackRun != null) {
@@ -3758,6 +3807,9 @@ class _$ServerSendsBackAllSavedRunsImpl
         serverConfirmsRegistration,
     required TResult Function(String message, RunInfoWithMap runInfoWithMap)
         serverSendsBackRunWithMap,
+    required TResult Function(String message, Object token, int userId)
+        serverConfirmsLogin,
+    required TResult Function(String message) serverDeniesLogin,
   }) {
     return serverSendsBackAllSavedRuns(runs);
   }
@@ -3776,6 +3828,9 @@ class _$ServerSendsBackAllSavedRunsImpl
     TResult? Function(String message, int userId)? serverConfirmsRegistration,
     TResult? Function(String message, RunInfoWithMap runInfoWithMap)?
         serverSendsBackRunWithMap,
+    TResult? Function(String message, Object token, int userId)?
+        serverConfirmsLogin,
+    TResult? Function(String message)? serverDeniesLogin,
   }) {
     return serverSendsBackAllSavedRuns?.call(runs);
   }
@@ -3794,6 +3849,9 @@ class _$ServerSendsBackAllSavedRunsImpl
     TResult Function(String message, int userId)? serverConfirmsRegistration,
     TResult Function(String message, RunInfoWithMap runInfoWithMap)?
         serverSendsBackRunWithMap,
+    TResult Function(String message, Object token, int userId)?
+        serverConfirmsLogin,
+    TResult Function(String message)? serverDeniesLogin,
     required TResult orElse(),
   }) {
     if (serverSendsBackAllSavedRuns != null) {
@@ -3818,6 +3876,8 @@ class _$ServerSendsBackAllSavedRunsImpl
         serverConfirmsRegistration,
     required TResult Function(ServerSendsBackRunWithMap value)
         serverSendsBackRunWithMap,
+    required TResult Function(ServerConfirmsLogin value) serverConfirmsLogin,
+    required TResult Function(ServerDeniesLogin value) serverDeniesLogin,
   }) {
     return serverSendsBackAllSavedRuns(this);
   }
@@ -3838,6 +3898,8 @@ class _$ServerSendsBackAllSavedRunsImpl
         serverConfirmsRegistration,
     TResult? Function(ServerSendsBackRunWithMap value)?
         serverSendsBackRunWithMap,
+    TResult? Function(ServerConfirmsLogin value)? serverConfirmsLogin,
+    TResult? Function(ServerDeniesLogin value)? serverDeniesLogin,
   }) {
     return serverSendsBackAllSavedRuns?.call(this);
   }
@@ -3858,6 +3920,8 @@ class _$ServerSendsBackAllSavedRunsImpl
         serverConfirmsRegistration,
     TResult Function(ServerSendsBackRunWithMap value)?
         serverSendsBackRunWithMap,
+    TResult Function(ServerConfirmsLogin value)? serverConfirmsLogin,
+    TResult Function(ServerDeniesLogin value)? serverDeniesLogin,
     required TResult orElse(),
   }) {
     if (serverSendsBackAllSavedRuns != null) {
@@ -3996,6 +4060,9 @@ class _$ServerSendsBackAllProgressImpl
         serverConfirmsRegistration,
     required TResult Function(String message, RunInfoWithMap runInfoWithMap)
         serverSendsBackRunWithMap,
+    required TResult Function(String message, Object token, int userId)
+        serverConfirmsLogin,
+    required TResult Function(String message) serverDeniesLogin,
   }) {
     return serverSendsBackAllProgress(progressInfo);
   }
@@ -4014,6 +4081,9 @@ class _$ServerSendsBackAllProgressImpl
     TResult? Function(String message, int userId)? serverConfirmsRegistration,
     TResult? Function(String message, RunInfoWithMap runInfoWithMap)?
         serverSendsBackRunWithMap,
+    TResult? Function(String message, Object token, int userId)?
+        serverConfirmsLogin,
+    TResult? Function(String message)? serverDeniesLogin,
   }) {
     return serverSendsBackAllProgress?.call(progressInfo);
   }
@@ -4032,6 +4102,9 @@ class _$ServerSendsBackAllProgressImpl
     TResult Function(String message, int userId)? serverConfirmsRegistration,
     TResult Function(String message, RunInfoWithMap runInfoWithMap)?
         serverSendsBackRunWithMap,
+    TResult Function(String message, Object token, int userId)?
+        serverConfirmsLogin,
+    TResult Function(String message)? serverDeniesLogin,
     required TResult orElse(),
   }) {
     if (serverSendsBackAllProgress != null) {
@@ -4056,6 +4129,8 @@ class _$ServerSendsBackAllProgressImpl
         serverConfirmsRegistration,
     required TResult Function(ServerSendsBackRunWithMap value)
         serverSendsBackRunWithMap,
+    required TResult Function(ServerConfirmsLogin value) serverConfirmsLogin,
+    required TResult Function(ServerDeniesLogin value) serverDeniesLogin,
   }) {
     return serverSendsBackAllProgress(this);
   }
@@ -4076,6 +4151,8 @@ class _$ServerSendsBackAllProgressImpl
         serverConfirmsRegistration,
     TResult? Function(ServerSendsBackRunWithMap value)?
         serverSendsBackRunWithMap,
+    TResult? Function(ServerConfirmsLogin value)? serverConfirmsLogin,
+    TResult? Function(ServerDeniesLogin value)? serverDeniesLogin,
   }) {
     return serverSendsBackAllProgress?.call(this);
   }
@@ -4096,6 +4173,8 @@ class _$ServerSendsBackAllProgressImpl
         serverConfirmsRegistration,
     TResult Function(ServerSendsBackRunWithMap value)?
         serverSendsBackRunWithMap,
+    TResult Function(ServerConfirmsLogin value)? serverConfirmsLogin,
+    TResult Function(ServerDeniesLogin value)? serverDeniesLogin,
     required TResult orElse(),
   }) {
     if (serverSendsBackAllProgress != null) {
@@ -4228,6 +4307,9 @@ class _$ServerConfirmsDeletionOfRunImpl
         serverConfirmsRegistration,
     required TResult Function(String message, RunInfoWithMap runInfoWithMap)
         serverSendsBackRunWithMap,
+    required TResult Function(String message, Object token, int userId)
+        serverConfirmsLogin,
+    required TResult Function(String message) serverDeniesLogin,
   }) {
     return serverConfirmsDeletionOfRun(runDeleted);
   }
@@ -4246,6 +4328,9 @@ class _$ServerConfirmsDeletionOfRunImpl
     TResult? Function(String message, int userId)? serverConfirmsRegistration,
     TResult? Function(String message, RunInfoWithMap runInfoWithMap)?
         serverSendsBackRunWithMap,
+    TResult? Function(String message, Object token, int userId)?
+        serverConfirmsLogin,
+    TResult? Function(String message)? serverDeniesLogin,
   }) {
     return serverConfirmsDeletionOfRun?.call(runDeleted);
   }
@@ -4264,6 +4349,9 @@ class _$ServerConfirmsDeletionOfRunImpl
     TResult Function(String message, int userId)? serverConfirmsRegistration,
     TResult Function(String message, RunInfoWithMap runInfoWithMap)?
         serverSendsBackRunWithMap,
+    TResult Function(String message, Object token, int userId)?
+        serverConfirmsLogin,
+    TResult Function(String message)? serverDeniesLogin,
     required TResult orElse(),
   }) {
     if (serverConfirmsDeletionOfRun != null) {
@@ -4288,6 +4376,8 @@ class _$ServerConfirmsDeletionOfRunImpl
         serverConfirmsRegistration,
     required TResult Function(ServerSendsBackRunWithMap value)
         serverSendsBackRunWithMap,
+    required TResult Function(ServerConfirmsLogin value) serverConfirmsLogin,
+    required TResult Function(ServerDeniesLogin value) serverDeniesLogin,
   }) {
     return serverConfirmsDeletionOfRun(this);
   }
@@ -4308,6 +4398,8 @@ class _$ServerConfirmsDeletionOfRunImpl
         serverConfirmsRegistration,
     TResult? Function(ServerSendsBackRunWithMap value)?
         serverSendsBackRunWithMap,
+    TResult? Function(ServerConfirmsLogin value)? serverConfirmsLogin,
+    TResult? Function(ServerDeniesLogin value)? serverDeniesLogin,
   }) {
     return serverConfirmsDeletionOfRun?.call(this);
   }
@@ -4328,6 +4420,8 @@ class _$ServerConfirmsDeletionOfRunImpl
         serverConfirmsRegistration,
     TResult Function(ServerSendsBackRunWithMap value)?
         serverSendsBackRunWithMap,
+    TResult Function(ServerConfirmsLogin value)? serverConfirmsLogin,
+    TResult Function(ServerDeniesLogin value)? serverDeniesLogin,
     required TResult orElse(),
   }) {
     if (serverConfirmsDeletionOfRun != null) {
@@ -4454,6 +4548,9 @@ class _$ServerSendsBackRunIdImpl
         serverConfirmsRegistration,
     required TResult Function(String message, RunInfoWithMap runInfoWithMap)
         serverSendsBackRunWithMap,
+    required TResult Function(String message, Object token, int userId)
+        serverConfirmsLogin,
+    required TResult Function(String message) serverDeniesLogin,
   }) {
     return serverSendsBackRunId(runId);
   }
@@ -4472,6 +4569,9 @@ class _$ServerSendsBackRunIdImpl
     TResult? Function(String message, int userId)? serverConfirmsRegistration,
     TResult? Function(String message, RunInfoWithMap runInfoWithMap)?
         serverSendsBackRunWithMap,
+    TResult? Function(String message, Object token, int userId)?
+        serverConfirmsLogin,
+    TResult? Function(String message)? serverDeniesLogin,
   }) {
     return serverSendsBackRunId?.call(runId);
   }
@@ -4490,6 +4590,9 @@ class _$ServerSendsBackRunIdImpl
     TResult Function(String message, int userId)? serverConfirmsRegistration,
     TResult Function(String message, RunInfoWithMap runInfoWithMap)?
         serverSendsBackRunWithMap,
+    TResult Function(String message, Object token, int userId)?
+        serverConfirmsLogin,
+    TResult Function(String message)? serverDeniesLogin,
     required TResult orElse(),
   }) {
     if (serverSendsBackRunId != null) {
@@ -4514,6 +4617,8 @@ class _$ServerSendsBackRunIdImpl
         serverConfirmsRegistration,
     required TResult Function(ServerSendsBackRunWithMap value)
         serverSendsBackRunWithMap,
+    required TResult Function(ServerConfirmsLogin value) serverConfirmsLogin,
+    required TResult Function(ServerDeniesLogin value) serverDeniesLogin,
   }) {
     return serverSendsBackRunId(this);
   }
@@ -4534,6 +4639,8 @@ class _$ServerSendsBackRunIdImpl
         serverConfirmsRegistration,
     TResult? Function(ServerSendsBackRunWithMap value)?
         serverSendsBackRunWithMap,
+    TResult? Function(ServerConfirmsLogin value)? serverConfirmsLogin,
+    TResult? Function(ServerDeniesLogin value)? serverDeniesLogin,
   }) {
     return serverSendsBackRunId?.call(this);
   }
@@ -4554,6 +4661,8 @@ class _$ServerSendsBackRunIdImpl
         serverConfirmsRegistration,
     TResult Function(ServerSendsBackRunWithMap value)?
         serverSendsBackRunWithMap,
+    TResult Function(ServerConfirmsLogin value)? serverConfirmsLogin,
+    TResult Function(ServerDeniesLogin value)? serverDeniesLogin,
     required TResult orElse(),
   }) {
     if (serverSendsBackRunId != null) {
@@ -4693,6 +4802,9 @@ class _$ServerConfirmsRegistrationImpl
         serverConfirmsRegistration,
     required TResult Function(String message, RunInfoWithMap runInfoWithMap)
         serverSendsBackRunWithMap,
+    required TResult Function(String message, Object token, int userId)
+        serverConfirmsLogin,
+    required TResult Function(String message) serverDeniesLogin,
   }) {
     return serverConfirmsRegistration(message, userId);
   }
@@ -4711,6 +4823,9 @@ class _$ServerConfirmsRegistrationImpl
     TResult? Function(String message, int userId)? serverConfirmsRegistration,
     TResult? Function(String message, RunInfoWithMap runInfoWithMap)?
         serverSendsBackRunWithMap,
+    TResult? Function(String message, Object token, int userId)?
+        serverConfirmsLogin,
+    TResult? Function(String message)? serverDeniesLogin,
   }) {
     return serverConfirmsRegistration?.call(message, userId);
   }
@@ -4729,6 +4844,9 @@ class _$ServerConfirmsRegistrationImpl
     TResult Function(String message, int userId)? serverConfirmsRegistration,
     TResult Function(String message, RunInfoWithMap runInfoWithMap)?
         serverSendsBackRunWithMap,
+    TResult Function(String message, Object token, int userId)?
+        serverConfirmsLogin,
+    TResult Function(String message)? serverDeniesLogin,
     required TResult orElse(),
   }) {
     if (serverConfirmsRegistration != null) {
@@ -4753,6 +4871,8 @@ class _$ServerConfirmsRegistrationImpl
         serverConfirmsRegistration,
     required TResult Function(ServerSendsBackRunWithMap value)
         serverSendsBackRunWithMap,
+    required TResult Function(ServerConfirmsLogin value) serverConfirmsLogin,
+    required TResult Function(ServerDeniesLogin value) serverDeniesLogin,
   }) {
     return serverConfirmsRegistration(this);
   }
@@ -4773,6 +4893,8 @@ class _$ServerConfirmsRegistrationImpl
         serverConfirmsRegistration,
     TResult? Function(ServerSendsBackRunWithMap value)?
         serverSendsBackRunWithMap,
+    TResult? Function(ServerConfirmsLogin value)? serverConfirmsLogin,
+    TResult? Function(ServerDeniesLogin value)? serverDeniesLogin,
   }) {
     return serverConfirmsRegistration?.call(this);
   }
@@ -4793,6 +4915,8 @@ class _$ServerConfirmsRegistrationImpl
         serverConfirmsRegistration,
     TResult Function(ServerSendsBackRunWithMap value)?
         serverSendsBackRunWithMap,
+    TResult Function(ServerConfirmsLogin value)? serverConfirmsLogin,
+    TResult Function(ServerDeniesLogin value)? serverDeniesLogin,
     required TResult orElse(),
   }) {
     if (serverConfirmsRegistration != null) {
@@ -4936,6 +5060,9 @@ class _$ServerSendsBackRunWithMapImpl
         serverConfirmsRegistration,
     required TResult Function(String message, RunInfoWithMap runInfoWithMap)
         serverSendsBackRunWithMap,
+    required TResult Function(String message, Object token, int userId)
+        serverConfirmsLogin,
+    required TResult Function(String message) serverDeniesLogin,
   }) {
     return serverSendsBackRunWithMap(message, runInfoWithMap);
   }
@@ -4954,6 +5081,9 @@ class _$ServerSendsBackRunWithMapImpl
     TResult? Function(String message, int userId)? serverConfirmsRegistration,
     TResult? Function(String message, RunInfoWithMap runInfoWithMap)?
         serverSendsBackRunWithMap,
+    TResult? Function(String message, Object token, int userId)?
+        serverConfirmsLogin,
+    TResult? Function(String message)? serverDeniesLogin,
   }) {
     return serverSendsBackRunWithMap?.call(message, runInfoWithMap);
   }
@@ -4972,6 +5102,9 @@ class _$ServerSendsBackRunWithMapImpl
     TResult Function(String message, int userId)? serverConfirmsRegistration,
     TResult Function(String message, RunInfoWithMap runInfoWithMap)?
         serverSendsBackRunWithMap,
+    TResult Function(String message, Object token, int userId)?
+        serverConfirmsLogin,
+    TResult Function(String message)? serverDeniesLogin,
     required TResult orElse(),
   }) {
     if (serverSendsBackRunWithMap != null) {
@@ -4996,6 +5129,8 @@ class _$ServerSendsBackRunWithMapImpl
         serverConfirmsRegistration,
     required TResult Function(ServerSendsBackRunWithMap value)
         serverSendsBackRunWithMap,
+    required TResult Function(ServerConfirmsLogin value) serverConfirmsLogin,
+    required TResult Function(ServerDeniesLogin value) serverDeniesLogin,
   }) {
     return serverSendsBackRunWithMap(this);
   }
@@ -5016,6 +5151,8 @@ class _$ServerSendsBackRunWithMapImpl
         serverConfirmsRegistration,
     TResult? Function(ServerSendsBackRunWithMap value)?
         serverSendsBackRunWithMap,
+    TResult? Function(ServerConfirmsLogin value)? serverConfirmsLogin,
+    TResult? Function(ServerDeniesLogin value)? serverDeniesLogin,
   }) {
     return serverSendsBackRunWithMap?.call(this);
   }
@@ -5036,6 +5173,8 @@ class _$ServerSendsBackRunWithMapImpl
         serverConfirmsRegistration,
     TResult Function(ServerSendsBackRunWithMap value)?
         serverSendsBackRunWithMap,
+    TResult Function(ServerConfirmsLogin value)? serverConfirmsLogin,
+    TResult Function(ServerDeniesLogin value)? serverDeniesLogin,
     required TResult orElse(),
   }) {
     if (serverSendsBackRunWithMap != null) {
@@ -5066,4 +5205,508 @@ abstract class ServerSendsBackRunWithMap implements ServerEvent {
   @JsonKey(ignore: true)
   _$$ServerSendsBackRunWithMapImplCopyWith<_$ServerSendsBackRunWithMapImpl>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ServerConfirmsLoginImplCopyWith<$Res> {
+  factory _$$ServerConfirmsLoginImplCopyWith(_$ServerConfirmsLoginImpl value,
+          $Res Function(_$ServerConfirmsLoginImpl) then) =
+      __$$ServerConfirmsLoginImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String message, Object token, int userId});
+}
+
+/// @nodoc
+class __$$ServerConfirmsLoginImplCopyWithImpl<$Res>
+    extends _$ServerEventCopyWithImpl<$Res, _$ServerConfirmsLoginImpl>
+    implements _$$ServerConfirmsLoginImplCopyWith<$Res> {
+  __$$ServerConfirmsLoginImplCopyWithImpl(_$ServerConfirmsLoginImpl _value,
+      $Res Function(_$ServerConfirmsLoginImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+    Object? token = null,
+    Object? userId = null,
+  }) {
+    return _then(_$ServerConfirmsLoginImpl(
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+      token: null == token ? _value.token : token,
+      userId: null == userId
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$ServerConfirmsLoginImpl
+    with DiagnosticableTreeMixin
+    implements ServerConfirmsLogin {
+  _$ServerConfirmsLoginImpl(
+      {required this.message,
+      required this.token,
+      required this.userId,
+      final String? $type})
+      : $type = $type ?? 'ServerConfirmsLogin';
+
+  factory _$ServerConfirmsLoginImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ServerConfirmsLoginImplFromJson(json);
+
+  @override
+  final String message;
+  @override
+  final Object token;
+  @override
+  final int userId;
+
+  @JsonKey(name: 'eventType')
+  final String $type;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'ServerEvent.serverConfirmsLogin(message: $message, token: $token, userId: $userId)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ServerEvent.serverConfirmsLogin'))
+      ..add(DiagnosticsProperty('message', message))
+      ..add(DiagnosticsProperty('token', token))
+      ..add(DiagnosticsProperty('userId', userId));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ServerConfirmsLoginImpl &&
+            (identical(other.message, message) || other.message == message) &&
+            const DeepCollectionEquality().equals(other.token, token) &&
+            (identical(other.userId, userId) || other.userId == userId));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, message, const DeepCollectionEquality().hash(token), userId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ServerConfirmsLoginImplCopyWith<_$ServerConfirmsLoginImpl> get copyWith =>
+      __$$ServerConfirmsLoginImplCopyWithImpl<_$ServerConfirmsLoginImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String jwt) serverSendsBackJwt,
+    required TResult Function(
+            DateTime runDateTime, double runDistance, String runTime)
+        serverSendsBackRun,
+    required TResult Function(List<Run> runs) serverSendsBackAllSavedRuns,
+    required TResult Function(List<ProgressInfo> progressInfo)
+        serverSendsBackAllProgress,
+    required TResult Function(String runDeleted) serverConfirmsDeletionOfRun,
+    required TResult Function(String runId) serverSendsBackRunId,
+    required TResult Function(String message, int userId)
+        serverConfirmsRegistration,
+    required TResult Function(String message, RunInfoWithMap runInfoWithMap)
+        serverSendsBackRunWithMap,
+    required TResult Function(String message, Object token, int userId)
+        serverConfirmsLogin,
+    required TResult Function(String message) serverDeniesLogin,
+  }) {
+    return serverConfirmsLogin(message, token, userId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String jwt)? serverSendsBackJwt,
+    TResult? Function(DateTime runDateTime, double runDistance, String runTime)?
+        serverSendsBackRun,
+    TResult? Function(List<Run> runs)? serverSendsBackAllSavedRuns,
+    TResult? Function(List<ProgressInfo> progressInfo)?
+        serverSendsBackAllProgress,
+    TResult? Function(String runDeleted)? serverConfirmsDeletionOfRun,
+    TResult? Function(String runId)? serverSendsBackRunId,
+    TResult? Function(String message, int userId)? serverConfirmsRegistration,
+    TResult? Function(String message, RunInfoWithMap runInfoWithMap)?
+        serverSendsBackRunWithMap,
+    TResult? Function(String message, Object token, int userId)?
+        serverConfirmsLogin,
+    TResult? Function(String message)? serverDeniesLogin,
+  }) {
+    return serverConfirmsLogin?.call(message, token, userId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String jwt)? serverSendsBackJwt,
+    TResult Function(DateTime runDateTime, double runDistance, String runTime)?
+        serverSendsBackRun,
+    TResult Function(List<Run> runs)? serverSendsBackAllSavedRuns,
+    TResult Function(List<ProgressInfo> progressInfo)?
+        serverSendsBackAllProgress,
+    TResult Function(String runDeleted)? serverConfirmsDeletionOfRun,
+    TResult Function(String runId)? serverSendsBackRunId,
+    TResult Function(String message, int userId)? serverConfirmsRegistration,
+    TResult Function(String message, RunInfoWithMap runInfoWithMap)?
+        serverSendsBackRunWithMap,
+    TResult Function(String message, Object token, int userId)?
+        serverConfirmsLogin,
+    TResult Function(String message)? serverDeniesLogin,
+    required TResult orElse(),
+  }) {
+    if (serverConfirmsLogin != null) {
+      return serverConfirmsLogin(message, token, userId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ServerSendsBackJwt value) serverSendsBackJwt,
+    required TResult Function(ServerSendsBackRun value) serverSendsBackRun,
+    required TResult Function(ServerSendsBackAllSavedRuns value)
+        serverSendsBackAllSavedRuns,
+    required TResult Function(ServerSendsBackAllProgress value)
+        serverSendsBackAllProgress,
+    required TResult Function(ServerConfirmsDeletionOfRun value)
+        serverConfirmsDeletionOfRun,
+    required TResult Function(ServerSendsBackRunId value) serverSendsBackRunId,
+    required TResult Function(ServerConfirmsRegistration value)
+        serverConfirmsRegistration,
+    required TResult Function(ServerSendsBackRunWithMap value)
+        serverSendsBackRunWithMap,
+    required TResult Function(ServerConfirmsLogin value) serverConfirmsLogin,
+    required TResult Function(ServerDeniesLogin value) serverDeniesLogin,
+  }) {
+    return serverConfirmsLogin(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ServerSendsBackJwt value)? serverSendsBackJwt,
+    TResult? Function(ServerSendsBackRun value)? serverSendsBackRun,
+    TResult? Function(ServerSendsBackAllSavedRuns value)?
+        serverSendsBackAllSavedRuns,
+    TResult? Function(ServerSendsBackAllProgress value)?
+        serverSendsBackAllProgress,
+    TResult? Function(ServerConfirmsDeletionOfRun value)?
+        serverConfirmsDeletionOfRun,
+    TResult? Function(ServerSendsBackRunId value)? serverSendsBackRunId,
+    TResult? Function(ServerConfirmsRegistration value)?
+        serverConfirmsRegistration,
+    TResult? Function(ServerSendsBackRunWithMap value)?
+        serverSendsBackRunWithMap,
+    TResult? Function(ServerConfirmsLogin value)? serverConfirmsLogin,
+    TResult? Function(ServerDeniesLogin value)? serverDeniesLogin,
+  }) {
+    return serverConfirmsLogin?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ServerSendsBackJwt value)? serverSendsBackJwt,
+    TResult Function(ServerSendsBackRun value)? serverSendsBackRun,
+    TResult Function(ServerSendsBackAllSavedRuns value)?
+        serverSendsBackAllSavedRuns,
+    TResult Function(ServerSendsBackAllProgress value)?
+        serverSendsBackAllProgress,
+    TResult Function(ServerConfirmsDeletionOfRun value)?
+        serverConfirmsDeletionOfRun,
+    TResult Function(ServerSendsBackRunId value)? serverSendsBackRunId,
+    TResult Function(ServerConfirmsRegistration value)?
+        serverConfirmsRegistration,
+    TResult Function(ServerSendsBackRunWithMap value)?
+        serverSendsBackRunWithMap,
+    TResult Function(ServerConfirmsLogin value)? serverConfirmsLogin,
+    TResult Function(ServerDeniesLogin value)? serverDeniesLogin,
+    required TResult orElse(),
+  }) {
+    if (serverConfirmsLogin != null) {
+      return serverConfirmsLogin(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$ServerConfirmsLoginImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class ServerConfirmsLogin implements ServerEvent {
+  factory ServerConfirmsLogin(
+      {required final String message,
+      required final Object token,
+      required final int userId}) = _$ServerConfirmsLoginImpl;
+
+  factory ServerConfirmsLogin.fromJson(Map<String, dynamic> json) =
+      _$ServerConfirmsLoginImpl.fromJson;
+
+  String get message;
+  Object get token;
+  int get userId;
+  @JsonKey(ignore: true)
+  _$$ServerConfirmsLoginImplCopyWith<_$ServerConfirmsLoginImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ServerDeniesLoginImplCopyWith<$Res> {
+  factory _$$ServerDeniesLoginImplCopyWith(_$ServerDeniesLoginImpl value,
+          $Res Function(_$ServerDeniesLoginImpl) then) =
+      __$$ServerDeniesLoginImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String message});
+}
+
+/// @nodoc
+class __$$ServerDeniesLoginImplCopyWithImpl<$Res>
+    extends _$ServerEventCopyWithImpl<$Res, _$ServerDeniesLoginImpl>
+    implements _$$ServerDeniesLoginImplCopyWith<$Res> {
+  __$$ServerDeniesLoginImplCopyWithImpl(_$ServerDeniesLoginImpl _value,
+      $Res Function(_$ServerDeniesLoginImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(_$ServerDeniesLoginImpl(
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$ServerDeniesLoginImpl
+    with DiagnosticableTreeMixin
+    implements ServerDeniesLogin {
+  _$ServerDeniesLoginImpl({required this.message, final String? $type})
+      : $type = $type ?? 'ServerDeniesLogin';
+
+  factory _$ServerDeniesLoginImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ServerDeniesLoginImplFromJson(json);
+
+  @override
+  final String message;
+
+  @JsonKey(name: 'eventType')
+  final String $type;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'ServerEvent.serverDeniesLogin(message: $message)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ServerEvent.serverDeniesLogin'))
+      ..add(DiagnosticsProperty('message', message));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ServerDeniesLoginImpl &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ServerDeniesLoginImplCopyWith<_$ServerDeniesLoginImpl> get copyWith =>
+      __$$ServerDeniesLoginImplCopyWithImpl<_$ServerDeniesLoginImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String jwt) serverSendsBackJwt,
+    required TResult Function(
+            DateTime runDateTime, double runDistance, String runTime)
+        serverSendsBackRun,
+    required TResult Function(List<Run> runs) serverSendsBackAllSavedRuns,
+    required TResult Function(List<ProgressInfo> progressInfo)
+        serverSendsBackAllProgress,
+    required TResult Function(String runDeleted) serverConfirmsDeletionOfRun,
+    required TResult Function(String runId) serverSendsBackRunId,
+    required TResult Function(String message, int userId)
+        serverConfirmsRegistration,
+    required TResult Function(String message, RunInfoWithMap runInfoWithMap)
+        serverSendsBackRunWithMap,
+    required TResult Function(String message, Object token, int userId)
+        serverConfirmsLogin,
+    required TResult Function(String message) serverDeniesLogin,
+  }) {
+    return serverDeniesLogin(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String jwt)? serverSendsBackJwt,
+    TResult? Function(DateTime runDateTime, double runDistance, String runTime)?
+        serverSendsBackRun,
+    TResult? Function(List<Run> runs)? serverSendsBackAllSavedRuns,
+    TResult? Function(List<ProgressInfo> progressInfo)?
+        serverSendsBackAllProgress,
+    TResult? Function(String runDeleted)? serverConfirmsDeletionOfRun,
+    TResult? Function(String runId)? serverSendsBackRunId,
+    TResult? Function(String message, int userId)? serverConfirmsRegistration,
+    TResult? Function(String message, RunInfoWithMap runInfoWithMap)?
+        serverSendsBackRunWithMap,
+    TResult? Function(String message, Object token, int userId)?
+        serverConfirmsLogin,
+    TResult? Function(String message)? serverDeniesLogin,
+  }) {
+    return serverDeniesLogin?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String jwt)? serverSendsBackJwt,
+    TResult Function(DateTime runDateTime, double runDistance, String runTime)?
+        serverSendsBackRun,
+    TResult Function(List<Run> runs)? serverSendsBackAllSavedRuns,
+    TResult Function(List<ProgressInfo> progressInfo)?
+        serverSendsBackAllProgress,
+    TResult Function(String runDeleted)? serverConfirmsDeletionOfRun,
+    TResult Function(String runId)? serverSendsBackRunId,
+    TResult Function(String message, int userId)? serverConfirmsRegistration,
+    TResult Function(String message, RunInfoWithMap runInfoWithMap)?
+        serverSendsBackRunWithMap,
+    TResult Function(String message, Object token, int userId)?
+        serverConfirmsLogin,
+    TResult Function(String message)? serverDeniesLogin,
+    required TResult orElse(),
+  }) {
+    if (serverDeniesLogin != null) {
+      return serverDeniesLogin(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ServerSendsBackJwt value) serverSendsBackJwt,
+    required TResult Function(ServerSendsBackRun value) serverSendsBackRun,
+    required TResult Function(ServerSendsBackAllSavedRuns value)
+        serverSendsBackAllSavedRuns,
+    required TResult Function(ServerSendsBackAllProgress value)
+        serverSendsBackAllProgress,
+    required TResult Function(ServerConfirmsDeletionOfRun value)
+        serverConfirmsDeletionOfRun,
+    required TResult Function(ServerSendsBackRunId value) serverSendsBackRunId,
+    required TResult Function(ServerConfirmsRegistration value)
+        serverConfirmsRegistration,
+    required TResult Function(ServerSendsBackRunWithMap value)
+        serverSendsBackRunWithMap,
+    required TResult Function(ServerConfirmsLogin value) serverConfirmsLogin,
+    required TResult Function(ServerDeniesLogin value) serverDeniesLogin,
+  }) {
+    return serverDeniesLogin(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ServerSendsBackJwt value)? serverSendsBackJwt,
+    TResult? Function(ServerSendsBackRun value)? serverSendsBackRun,
+    TResult? Function(ServerSendsBackAllSavedRuns value)?
+        serverSendsBackAllSavedRuns,
+    TResult? Function(ServerSendsBackAllProgress value)?
+        serverSendsBackAllProgress,
+    TResult? Function(ServerConfirmsDeletionOfRun value)?
+        serverConfirmsDeletionOfRun,
+    TResult? Function(ServerSendsBackRunId value)? serverSendsBackRunId,
+    TResult? Function(ServerConfirmsRegistration value)?
+        serverConfirmsRegistration,
+    TResult? Function(ServerSendsBackRunWithMap value)?
+        serverSendsBackRunWithMap,
+    TResult? Function(ServerConfirmsLogin value)? serverConfirmsLogin,
+    TResult? Function(ServerDeniesLogin value)? serverDeniesLogin,
+  }) {
+    return serverDeniesLogin?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ServerSendsBackJwt value)? serverSendsBackJwt,
+    TResult Function(ServerSendsBackRun value)? serverSendsBackRun,
+    TResult Function(ServerSendsBackAllSavedRuns value)?
+        serverSendsBackAllSavedRuns,
+    TResult Function(ServerSendsBackAllProgress value)?
+        serverSendsBackAllProgress,
+    TResult Function(ServerConfirmsDeletionOfRun value)?
+        serverConfirmsDeletionOfRun,
+    TResult Function(ServerSendsBackRunId value)? serverSendsBackRunId,
+    TResult Function(ServerConfirmsRegistration value)?
+        serverConfirmsRegistration,
+    TResult Function(ServerSendsBackRunWithMap value)?
+        serverSendsBackRunWithMap,
+    TResult Function(ServerConfirmsLogin value)? serverConfirmsLogin,
+    TResult Function(ServerDeniesLogin value)? serverDeniesLogin,
+    required TResult orElse(),
+  }) {
+    if (serverDeniesLogin != null) {
+      return serverDeniesLogin(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$ServerDeniesLoginImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class ServerDeniesLogin implements ServerEvent {
+  factory ServerDeniesLogin({required final String message}) =
+      _$ServerDeniesLoginImpl;
+
+  factory ServerDeniesLogin.fromJson(Map<String, dynamic> json) =
+      _$ServerDeniesLoginImpl.fromJson;
+
+  String get message;
+  @JsonKey(ignore: true)
+  _$$ServerDeniesLoginImplCopyWith<_$ServerDeniesLoginImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
