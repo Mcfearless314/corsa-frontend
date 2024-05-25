@@ -1,5 +1,8 @@
+import 'dart:convert';
+
 import 'package:corsa/BroadcastWsChannel.dart';
 import 'package:corsa/bloc/run_cubit.dart';
+import 'package:corsa/models/events.dart';
 import 'package:corsa/ui/google_maps.dart';
 import 'package:corsa/ui/saved_run_map.dart';
 import 'package:flutter/material.dart';
@@ -8,11 +11,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../models/run.dart';
 
 class RunList extends StatelessWidget {
-  const RunList({super.key});
+  const RunList({super.key, required this.channel});
+  final BroadcastWsChannel channel;
 
   @override
   Widget build(BuildContext context) {
-    List<Run> runs = getRuns(); // Fetch the list of runs
+    Future<List<Run>?> runs = getRuns(); // Fetch the list of runs
 
     return BlocProvider(
       create: (context) => RunCubit(context.read<BroadcastWsChannel>()),
@@ -96,7 +100,7 @@ class RunList extends StatelessWidget {
     );
   }
 
-  List<Run> getRuns() {
+  /** List<Run> getRuns() {
     return [
       Run(
           startOfRun: DateTime.now().subtract(const Duration(days: 100)),
@@ -114,6 +118,18 @@ class RunList extends StatelessWidget {
           runId: '3',
           timeOfRun: '15'),
     ];
+  } **/
+
+  Future<List<Run>?> getRuns() async {
+    ClientEvent.clientWantsToSeeAllSavedRuns(userId: userId);
+    final serverEventFuture = channel.stream
+        .map((event) => ServerEvent.fromJson(jsonDecode(event)))
+        .firstWhere((event) => event is ServerSendsBackAllSavedRuns);
+    final serverEvent = await serverEventFuture.timeout(Duration(seconds: 5));
+    if (serverEvent is ServerSendsBackAllSavedRuns) {
+      return serverEvent.runs;
+    }
+    return null;
   }
 
   void startNewRun(BuildContext context) {

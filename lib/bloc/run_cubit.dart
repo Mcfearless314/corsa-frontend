@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:corsa/BroadcastWsChannel.dart';
@@ -13,6 +14,7 @@ class RunCubit extends Cubit<RunState> {
 
   final BroadcastWsChannel channel;
   GoogleMapController? _mapController;
+  Timer? _logCoordinatesTimer;
 
   void setMapController(GoogleMapController controller) {
     _mapController = controller;
@@ -43,11 +45,13 @@ class RunCubit extends Cubit<RunState> {
     if (serverEvent is ServerSendsBackRunId) {
       emit(state.copyWith(runId: serverEvent.runId));
     }
+    _logCoordinatesTimer = Timer.periodic(Duration(seconds: 5), (timer) => logCoordinates());
   }
 
   void stopRun() async {
+    _logCoordinatesTimer?.cancel();
     final location = await getCurrentLocation();
-    emit(state.copyWith(status: RunStatus.finished));
+
     final event = ClientEvent.clientWantsToStopARun(
       runEndTime: DateTime.now(),
       endingLat: location.latitude,
@@ -55,6 +59,15 @@ class RunCubit extends Cubit<RunState> {
       runId: state.runId!,
     );
     channel.sink.add(jsonEncode(event.toJson()));
+
+    final serverEventFuture = channel.stream
+        .map((event) => ServerEvent.fromJson(jsonDecode(event)))
+        .firstWhere((event) => event is ServerSendsBackRunWithMap);
+    final serverEvent = await serverEventFuture.timeout(Duration(seconds: 5));
+    if (serverEvent is ServerSendsBackRunWithMap) {
+      emit(state.copyWith(runInfoWithMap: serverEvent.runInfoWithMap, status: RunStatus.finished));
+
+    }
   }
 
   void logCoordinates() async {
@@ -66,6 +79,9 @@ class RunCubit extends Cubit<RunState> {
       loggingTime: DateTime.now(),
     );
     channel.sink.add(jsonEncode(event.toJson()));
+
+    final updatedCoordinates = List<LatLng>.from(state.coordinates)..add(location);
+    emit(state.copyWith(coordinates: updatedCoordinates));
   }
 
   Future<void> resetRun() async {
@@ -75,6 +91,7 @@ class RunCubit extends Cubit<RunState> {
     );
     channel.sink.add(jsonEncode(event.toJson()));
     emit(RunState.empty());
+    _logCoordinatesTimer?.cancel();
   }
 
   Set<Polyline> getPolylines() {

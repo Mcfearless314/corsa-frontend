@@ -1,3 +1,4 @@
+import 'package:corsa/ui/saved_run_map.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -24,7 +25,14 @@ class GoogleMaps extends StatelessWidget {
         ),
         body: BlocConsumer<RunCubit, RunState>(
           listener: (context, state) {
-            // TODO navigate on run finished
+            if (state.status == RunStatus.finished && state.runInfoWithMap != null) {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => SavedRunMap(runInfoWithMap: state.runInfoWithMap),
+                ),
+              );
+            }
           },
           builder: (context, state) => FutureBuilder<LatLng>(
             future: context.read<RunCubit>().getCurrentLocation(),

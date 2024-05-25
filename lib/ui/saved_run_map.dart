@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:permission_handler/permission_handler.dart';
+
+import '../models/run_info_with_map.dart';
 
 class SavedRunMap extends StatefulWidget {
-  final String? runId;
+  final RunInfoWithMap? runInfoWithMap;
 
-  const SavedRunMap({super.key, this.runId});
+  const SavedRunMap({super.key, this.runInfoWithMap});
 
   @override
   _SavedRunMapState createState() => _SavedRunMapState();
@@ -42,18 +43,7 @@ class _SavedRunMapState extends State<SavedRunMap> {
   }
 
   List<Coordinates> _getRoute() {
-    return [
-      Coordinates(55.4726418932, 8.437347162645564),
-      Coordinates(55.47286081221964, 8.438098181185014),
-      Coordinates(55.472708785251676, 8.439374912702078),
-      Coordinates(55.47257500103484, 8.440501440511255),
-      Coordinates(55.47217972683252, 8.440351236803362),
-      Coordinates(55.47178445183252, 8.44020103309547),
-      Coordinates(55.471839179725976, 8.439825523825748),
-      Coordinates(55.47198512884615, 8.438720453689129),
-      Coordinates(55.472325674691845, 8.437475908680897),
-      Coordinates(55.4726418932, 8.437347162645564),
-    ];
+    return widget.runInfoWithMap!.coordinates;
   }
 
   void _showRouteOnMap() {
@@ -113,9 +103,3 @@ class _SavedRunMapState extends State<SavedRunMap> {
   }
 }
 
-class Coordinates {
-  final double latitude;
-  final double longitude;
-
-  Coordinates(this.latitude, this.longitude);
-}
