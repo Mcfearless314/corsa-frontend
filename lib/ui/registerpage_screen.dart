@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 class RegisterPageScreen extends StatelessWidget {
   const RegisterPageScreen({super.key});
 
+  //TODO implement cubit and state for the register page
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

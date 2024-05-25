@@ -18,6 +18,8 @@ class _SavedRunMapState extends State<SavedRunMap> {
   late CameraPosition _initialCameraPosition;
   final String now = '${DateTime.now().day}/${DateTime.now().month}/${DateTime.now().year}';
 
+  //TODO add some information about the run underneath the map
+
   @override
   void initState() {
     super.initState();
