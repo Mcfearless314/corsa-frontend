@@ -8,7 +8,7 @@ import '../bloc/run_cubit.dart';
 import '../bloc/run_state.dart';
 
 class GoogleMaps extends StatelessWidget {
-  const GoogleMaps({Key? key}) : super(key: key);
+  const GoogleMaps({super.key});
 
   @override
   Widget build(BuildContext context) {

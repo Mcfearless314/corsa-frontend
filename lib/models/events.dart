@@ -22,8 +22,8 @@ sealed class ClientEvent with _$ClientEvent implements BaseEvent {
     required String password,
   }) = ClientWantsToRegister;
 
-  factory ClientEvent.clientWantsToSignIn({
-    required String email,
+  factory ClientEvent.clientWantsToLogIn({
+    required String username,
     required String password,
   }) = ClientWantsToLogIn;
 
@@ -33,7 +33,7 @@ sealed class ClientEvent with _$ClientEvent implements BaseEvent {
   }) = ClientWantsToDeleteARun;
 
   factory ClientEvent.clientWantsToSeeAllSavedRuns({
-    required String userId,
+    required int userId,
   }) = ClientWantsToSeeAllSavedRuns;
 
   factory ClientEvent.clientWantsToSaveARun({
@@ -96,8 +96,9 @@ sealed class ServerEvent with _$ServerEvent implements BaseEvent {
     required String runDeleted,
   }) = ServerConfirmsDeletionOfRun;
 
-  factory ServerEvent.serverSendsBackRunId({required String runId}) =
-      ServerSendsBackRunId;
+  factory ServerEvent.serverSendsBackRunId({
+    required String runId
+  }) = ServerSendsBackRunId;
 
   factory ServerEvent.serverConfirmsRegistration({
     required String message,

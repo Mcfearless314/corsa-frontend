@@ -42,7 +42,7 @@ Map<String, dynamic> _$$ClientWantsToRegisterImplToJson(
 _$ClientWantsToLogInImpl _$$ClientWantsToLogInImplFromJson(
         Map<String, dynamic> json) =>
     _$ClientWantsToLogInImpl(
-      email: json['email'] as String,
+      username: json['username'] as String,
       password: json['password'] as String,
       $type: json['eventType'] as String?,
     );
@@ -50,7 +50,7 @@ _$ClientWantsToLogInImpl _$$ClientWantsToLogInImplFromJson(
 Map<String, dynamic> _$$ClientWantsToLogInImplToJson(
         _$ClientWantsToLogInImpl instance) =>
     <String, dynamic>{
-      'email': instance.email,
+      'username': instance.username,
       'password': instance.password,
       'eventType': instance.$type,
     };
@@ -74,7 +74,7 @@ Map<String, dynamic> _$$ClientWantsToDeleteARunImplToJson(
 _$ClientWantsToSeeAllSavedRunsImpl _$$ClientWantsToSeeAllSavedRunsImplFromJson(
         Map<String, dynamic> json) =>
     _$ClientWantsToSeeAllSavedRunsImpl(
-      userId: json['userId'] as String,
+      userId: (json['userId'] as num).toInt(),
       $type: json['eventType'] as String?,
     );
 

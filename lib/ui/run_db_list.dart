@@ -1,23 +1,24 @@
+
 import 'dart:convert';
 
 import 'package:corsa/BroadcastWsChannel.dart';
 import 'package:corsa/bloc/run_cubit.dart';
-import 'package:corsa/models/events.dart';
 import 'package:corsa/ui/google_maps.dart';
 import 'package:corsa/ui/saved_run_map.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../models/events.dart';
 import '../models/run.dart';
 
 class RunList extends StatelessWidget {
-  const RunList({super.key, required this.channel});
+  const RunList({super.key, required this.channel, required this.userId});
   final BroadcastWsChannel channel;
+  final int userId;
 
   @override
   Widget build(BuildContext context) {
-    Future<List<Run>?> runs = getRuns(); // Fetch the list of runs
-
+    final runs = getRuns();
     return BlocProvider(
       create: (context) => RunCubit(context.read<BroadcastWsChannel>()),
       child: Scaffold(
@@ -40,7 +41,7 @@ class RunList extends StatelessWidget {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => SavedRunMap(runId: runs[index].runId)));
+                              builder: (context) => SavedRunMap()));
                     },
                     child: Card(
                       shape: RoundedRectangleBorder(
@@ -100,37 +101,19 @@ class RunList extends StatelessWidget {
     );
   }
 
-  /** List<Run> getRuns() {
-    return [
-      Run(
-          startOfRun: DateTime.now().subtract(const Duration(days: 100)),
-          distance: 5.0,
-          runId: '1',
-          timeOfRun: '5'),
-      Run(
-          startOfRun: DateTime.now().subtract(const Duration(days: 50)),
-          distance: 10.0,
-          runId: '2',
-          timeOfRun: '10'),
-      Run(
-          startOfRun: DateTime.now().subtract(const Duration(days: 25)),
-          distance: 15.0,
-          runId: '3',
-          timeOfRun: '15'),
-    ];
-  } **/
 
-  Future<List<Run>?> getRuns() async {
+  List<Run> getRuns() {
     ClientEvent.clientWantsToSeeAllSavedRuns(userId: userId);
     final serverEventFuture = channel.stream
         .map((event) => ServerEvent.fromJson(jsonDecode(event)))
         .firstWhere((event) => event is ServerSendsBackAllSavedRuns);
-    final serverEvent = await serverEventFuture.timeout(Duration(seconds: 5));
+    final serverEvent = serverEventFuture.timeout(Duration(seconds: 5));
     if (serverEvent is ServerSendsBackAllSavedRuns) {
-      return serverEvent.runs;
+    } else {
+      return [];
     }
-    return null;
   }
+
 
   void startNewRun(BuildContext context) {
     Navigator.push(

@@ -20,7 +20,7 @@ ClientEvent _$ClientEventFromJson(Map<String, dynamic> json) {
       return ClientWantsToAuthenticateWithJwt.fromJson(json);
     case 'ClientWantsToRegister':
       return ClientWantsToRegister.fromJson(json);
-    case 'ClientWantsToSignIn':
+    case 'ClientWantsToLogIn':
       return ClientWantsToLogIn.fromJson(json);
     case 'ClientWantsToDeleteARun':
       return ClientWantsToDeleteARun.fromJson(json);
@@ -50,11 +50,11 @@ mixin _$ClientEvent {
     required TResult Function(String jwt) clientWantsToAuthenticateWithJwt,
     required TResult Function(String username, String email, String password)
         clientWantsToRegister,
-    required TResult Function(String email, String password)
-        clientWantsToSignIn,
+    required TResult Function(String username, String password)
+        clientWantsToLogIn,
     required TResult Function(String userId, String runId)
         clientWantsToDeleteARun,
-    required TResult Function(String userId) clientWantsToSeeAllSavedRuns,
+    required TResult Function(int userId) clientWantsToSeeAllSavedRuns,
     required TResult Function(DateTime runDateTime, String userId,
             double runDistance, String runTime)
         clientWantsToSaveARun,
@@ -75,9 +75,9 @@ mixin _$ClientEvent {
     TResult? Function(String jwt)? clientWantsToAuthenticateWithJwt,
     TResult? Function(String username, String email, String password)?
         clientWantsToRegister,
-    TResult? Function(String email, String password)? clientWantsToSignIn,
+    TResult? Function(String username, String password)? clientWantsToLogIn,
     TResult? Function(String userId, String runId)? clientWantsToDeleteARun,
-    TResult? Function(String userId)? clientWantsToSeeAllSavedRuns,
+    TResult? Function(int userId)? clientWantsToSeeAllSavedRuns,
     TResult? Function(DateTime runDateTime, String userId, double runDistance,
             String runTime)?
         clientWantsToSaveARun,
@@ -98,9 +98,9 @@ mixin _$ClientEvent {
     TResult Function(String jwt)? clientWantsToAuthenticateWithJwt,
     TResult Function(String username, String email, String password)?
         clientWantsToRegister,
-    TResult Function(String email, String password)? clientWantsToSignIn,
+    TResult Function(String username, String password)? clientWantsToLogIn,
     TResult Function(String userId, String runId)? clientWantsToDeleteARun,
-    TResult Function(String userId)? clientWantsToSeeAllSavedRuns,
+    TResult Function(int userId)? clientWantsToSeeAllSavedRuns,
     TResult Function(DateTime runDateTime, String userId, double runDistance,
             String runTime)?
         clientWantsToSaveARun,
@@ -123,7 +123,7 @@ mixin _$ClientEvent {
         clientWantsToAuthenticateWithJwt,
     required TResult Function(ClientWantsToRegister value)
         clientWantsToRegister,
-    required TResult Function(ClientWantsToLogIn value) clientWantsToSignIn,
+    required TResult Function(ClientWantsToLogIn value) clientWantsToLogIn,
     required TResult Function(ClientWantsToDeleteARun value)
         clientWantsToDeleteARun,
     required TResult Function(ClientWantsToSeeAllSavedRuns value)
@@ -144,7 +144,7 @@ mixin _$ClientEvent {
     TResult? Function(ClientWantsToAuthenticateWithJwt value)?
         clientWantsToAuthenticateWithJwt,
     TResult? Function(ClientWantsToRegister value)? clientWantsToRegister,
-    TResult? Function(ClientWantsToLogIn value)? clientWantsToSignIn,
+    TResult? Function(ClientWantsToLogIn value)? clientWantsToLogIn,
     TResult? Function(ClientWantsToDeleteARun value)? clientWantsToDeleteARun,
     TResult? Function(ClientWantsToSeeAllSavedRuns value)?
         clientWantsToSeeAllSavedRuns,
@@ -162,7 +162,7 @@ mixin _$ClientEvent {
     TResult Function(ClientWantsToAuthenticateWithJwt value)?
         clientWantsToAuthenticateWithJwt,
     TResult Function(ClientWantsToRegister value)? clientWantsToRegister,
-    TResult Function(ClientWantsToLogIn value)? clientWantsToSignIn,
+    TResult Function(ClientWantsToLogIn value)? clientWantsToLogIn,
     TResult Function(ClientWantsToDeleteARun value)? clientWantsToDeleteARun,
     TResult Function(ClientWantsToSeeAllSavedRuns value)?
         clientWantsToSeeAllSavedRuns,
@@ -290,11 +290,11 @@ class _$ClientWantsToAuthenticateWithJwtImpl
     required TResult Function(String jwt) clientWantsToAuthenticateWithJwt,
     required TResult Function(String username, String email, String password)
         clientWantsToRegister,
-    required TResult Function(String email, String password)
-        clientWantsToSignIn,
+    required TResult Function(String username, String password)
+        clientWantsToLogIn,
     required TResult Function(String userId, String runId)
         clientWantsToDeleteARun,
-    required TResult Function(String userId) clientWantsToSeeAllSavedRuns,
+    required TResult Function(int userId) clientWantsToSeeAllSavedRuns,
     required TResult Function(DateTime runDateTime, String userId,
             double runDistance, String runTime)
         clientWantsToSaveARun,
@@ -318,9 +318,9 @@ class _$ClientWantsToAuthenticateWithJwtImpl
     TResult? Function(String jwt)? clientWantsToAuthenticateWithJwt,
     TResult? Function(String username, String email, String password)?
         clientWantsToRegister,
-    TResult? Function(String email, String password)? clientWantsToSignIn,
+    TResult? Function(String username, String password)? clientWantsToLogIn,
     TResult? Function(String userId, String runId)? clientWantsToDeleteARun,
-    TResult? Function(String userId)? clientWantsToSeeAllSavedRuns,
+    TResult? Function(int userId)? clientWantsToSeeAllSavedRuns,
     TResult? Function(DateTime runDateTime, String userId, double runDistance,
             String runTime)?
         clientWantsToSaveARun,
@@ -344,9 +344,9 @@ class _$ClientWantsToAuthenticateWithJwtImpl
     TResult Function(String jwt)? clientWantsToAuthenticateWithJwt,
     TResult Function(String username, String email, String password)?
         clientWantsToRegister,
-    TResult Function(String email, String password)? clientWantsToSignIn,
+    TResult Function(String username, String password)? clientWantsToLogIn,
     TResult Function(String userId, String runId)? clientWantsToDeleteARun,
-    TResult Function(String userId)? clientWantsToSeeAllSavedRuns,
+    TResult Function(int userId)? clientWantsToSeeAllSavedRuns,
     TResult Function(DateTime runDateTime, String userId, double runDistance,
             String runTime)?
         clientWantsToSaveARun,
@@ -375,7 +375,7 @@ class _$ClientWantsToAuthenticateWithJwtImpl
         clientWantsToAuthenticateWithJwt,
     required TResult Function(ClientWantsToRegister value)
         clientWantsToRegister,
-    required TResult Function(ClientWantsToLogIn value) clientWantsToSignIn,
+    required TResult Function(ClientWantsToLogIn value) clientWantsToLogIn,
     required TResult Function(ClientWantsToDeleteARun value)
         clientWantsToDeleteARun,
     required TResult Function(ClientWantsToSeeAllSavedRuns value)
@@ -399,7 +399,7 @@ class _$ClientWantsToAuthenticateWithJwtImpl
     TResult? Function(ClientWantsToAuthenticateWithJwt value)?
         clientWantsToAuthenticateWithJwt,
     TResult? Function(ClientWantsToRegister value)? clientWantsToRegister,
-    TResult? Function(ClientWantsToLogIn value)? clientWantsToSignIn,
+    TResult? Function(ClientWantsToLogIn value)? clientWantsToLogIn,
     TResult? Function(ClientWantsToDeleteARun value)? clientWantsToDeleteARun,
     TResult? Function(ClientWantsToSeeAllSavedRuns value)?
         clientWantsToSeeAllSavedRuns,
@@ -420,7 +420,7 @@ class _$ClientWantsToAuthenticateWithJwtImpl
     TResult Function(ClientWantsToAuthenticateWithJwt value)?
         clientWantsToAuthenticateWithJwt,
     TResult Function(ClientWantsToRegister value)? clientWantsToRegister,
-    TResult Function(ClientWantsToLogIn value)? clientWantsToSignIn,
+    TResult Function(ClientWantsToLogIn value)? clientWantsToLogIn,
     TResult Function(ClientWantsToDeleteARun value)? clientWantsToDeleteARun,
     TResult Function(ClientWantsToSeeAllSavedRuns value)?
         clientWantsToSeeAllSavedRuns,
@@ -572,11 +572,11 @@ class _$ClientWantsToRegisterImpl
     required TResult Function(String jwt) clientWantsToAuthenticateWithJwt,
     required TResult Function(String username, String email, String password)
         clientWantsToRegister,
-    required TResult Function(String email, String password)
-        clientWantsToSignIn,
+    required TResult Function(String username, String password)
+        clientWantsToLogIn,
     required TResult Function(String userId, String runId)
         clientWantsToDeleteARun,
-    required TResult Function(String userId) clientWantsToSeeAllSavedRuns,
+    required TResult Function(int userId) clientWantsToSeeAllSavedRuns,
     required TResult Function(DateTime runDateTime, String userId,
             double runDistance, String runTime)
         clientWantsToSaveARun,
@@ -600,9 +600,9 @@ class _$ClientWantsToRegisterImpl
     TResult? Function(String jwt)? clientWantsToAuthenticateWithJwt,
     TResult? Function(String username, String email, String password)?
         clientWantsToRegister,
-    TResult? Function(String email, String password)? clientWantsToSignIn,
+    TResult? Function(String username, String password)? clientWantsToLogIn,
     TResult? Function(String userId, String runId)? clientWantsToDeleteARun,
-    TResult? Function(String userId)? clientWantsToSeeAllSavedRuns,
+    TResult? Function(int userId)? clientWantsToSeeAllSavedRuns,
     TResult? Function(DateTime runDateTime, String userId, double runDistance,
             String runTime)?
         clientWantsToSaveARun,
@@ -626,9 +626,9 @@ class _$ClientWantsToRegisterImpl
     TResult Function(String jwt)? clientWantsToAuthenticateWithJwt,
     TResult Function(String username, String email, String password)?
         clientWantsToRegister,
-    TResult Function(String email, String password)? clientWantsToSignIn,
+    TResult Function(String username, String password)? clientWantsToLogIn,
     TResult Function(String userId, String runId)? clientWantsToDeleteARun,
-    TResult Function(String userId)? clientWantsToSeeAllSavedRuns,
+    TResult Function(int userId)? clientWantsToSeeAllSavedRuns,
     TResult Function(DateTime runDateTime, String userId, double runDistance,
             String runTime)?
         clientWantsToSaveARun,
@@ -657,7 +657,7 @@ class _$ClientWantsToRegisterImpl
         clientWantsToAuthenticateWithJwt,
     required TResult Function(ClientWantsToRegister value)
         clientWantsToRegister,
-    required TResult Function(ClientWantsToLogIn value) clientWantsToSignIn,
+    required TResult Function(ClientWantsToLogIn value) clientWantsToLogIn,
     required TResult Function(ClientWantsToDeleteARun value)
         clientWantsToDeleteARun,
     required TResult Function(ClientWantsToSeeAllSavedRuns value)
@@ -681,7 +681,7 @@ class _$ClientWantsToRegisterImpl
     TResult? Function(ClientWantsToAuthenticateWithJwt value)?
         clientWantsToAuthenticateWithJwt,
     TResult? Function(ClientWantsToRegister value)? clientWantsToRegister,
-    TResult? Function(ClientWantsToLogIn value)? clientWantsToSignIn,
+    TResult? Function(ClientWantsToLogIn value)? clientWantsToLogIn,
     TResult? Function(ClientWantsToDeleteARun value)? clientWantsToDeleteARun,
     TResult? Function(ClientWantsToSeeAllSavedRuns value)?
         clientWantsToSeeAllSavedRuns,
@@ -702,7 +702,7 @@ class _$ClientWantsToRegisterImpl
     TResult Function(ClientWantsToAuthenticateWithJwt value)?
         clientWantsToAuthenticateWithJwt,
     TResult Function(ClientWantsToRegister value)? clientWantsToRegister,
-    TResult Function(ClientWantsToLogIn value)? clientWantsToSignIn,
+    TResult Function(ClientWantsToLogIn value)? clientWantsToLogIn,
     TResult Function(ClientWantsToDeleteARun value)? clientWantsToDeleteARun,
     TResult Function(ClientWantsToSeeAllSavedRuns value)?
         clientWantsToSeeAllSavedRuns,
@@ -752,7 +752,7 @@ abstract class _$$ClientWantsToLogInImplCopyWith<$Res> {
           $Res Function(_$ClientWantsToLogInImpl) then) =
       __$$ClientWantsToLogInImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String email, String password});
+  $Res call({String username, String password});
 }
 
 /// @nodoc
@@ -766,13 +766,13 @@ class __$$ClientWantsToLogInImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? email = null,
+    Object? username = null,
     Object? password = null,
   }) {
     return _then(_$ClientWantsToLogInImpl(
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
+      username: null == username
+          ? _value.username
+          : username // ignore: cast_nullable_to_non_nullable
               as String,
       password: null == password
           ? _value.password
@@ -788,14 +788,14 @@ class _$ClientWantsToLogInImpl
     with DiagnosticableTreeMixin
     implements ClientWantsToLogIn {
   _$ClientWantsToLogInImpl(
-      {required this.email, required this.password, final String? $type})
-      : $type = $type ?? 'ClientWantsToSignIn';
+      {required this.username, required this.password, final String? $type})
+      : $type = $type ?? 'ClientWantsToLogIn';
 
   factory _$ClientWantsToLogInImpl.fromJson(Map<String, dynamic> json) =>
       _$$ClientWantsToLogInImplFromJson(json);
 
   @override
-  final String email;
+  final String username;
   @override
   final String password;
 
@@ -804,15 +804,15 @@ class _$ClientWantsToLogInImpl
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'ClientEvent.clientWantsToSignIn(email: $email, password: $password)';
+    return 'ClientEvent.clientWantsToLogIn(username: $username, password: $password)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty('type', 'ClientEvent.clientWantsToSignIn'))
-      ..add(DiagnosticsProperty('email', email))
+      ..add(DiagnosticsProperty('type', 'ClientEvent.clientWantsToLogIn'))
+      ..add(DiagnosticsProperty('username', username))
       ..add(DiagnosticsProperty('password', password));
   }
 
@@ -821,14 +821,15 @@ class _$ClientWantsToLogInImpl
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ClientWantsToLogInImpl &&
-            (identical(other.email, email) || other.email == email) &&
+            (identical(other.username, username) ||
+                other.username == username) &&
             (identical(other.password, password) ||
                 other.password == password));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, email, password);
+  int get hashCode => Object.hash(runtimeType, username, password);
 
   @JsonKey(ignore: true)
   @override
@@ -843,11 +844,11 @@ class _$ClientWantsToLogInImpl
     required TResult Function(String jwt) clientWantsToAuthenticateWithJwt,
     required TResult Function(String username, String email, String password)
         clientWantsToRegister,
-    required TResult Function(String email, String password)
-        clientWantsToSignIn,
+    required TResult Function(String username, String password)
+        clientWantsToLogIn,
     required TResult Function(String userId, String runId)
         clientWantsToDeleteARun,
-    required TResult Function(String userId) clientWantsToSeeAllSavedRuns,
+    required TResult Function(int userId) clientWantsToSeeAllSavedRuns,
     required TResult Function(DateTime runDateTime, String userId,
             double runDistance, String runTime)
         clientWantsToSaveARun,
@@ -862,7 +863,7 @@ class _$ClientWantsToLogInImpl
         clientWantsToLogNewCoordinates,
     required TResult Function(String userId) clientWantsToSeeAProgressOfAllRuns,
   }) {
-    return clientWantsToSignIn(email, password);
+    return clientWantsToLogIn(username, password);
   }
 
   @override
@@ -871,9 +872,9 @@ class _$ClientWantsToLogInImpl
     TResult? Function(String jwt)? clientWantsToAuthenticateWithJwt,
     TResult? Function(String username, String email, String password)?
         clientWantsToRegister,
-    TResult? Function(String email, String password)? clientWantsToSignIn,
+    TResult? Function(String username, String password)? clientWantsToLogIn,
     TResult? Function(String userId, String runId)? clientWantsToDeleteARun,
-    TResult? Function(String userId)? clientWantsToSeeAllSavedRuns,
+    TResult? Function(int userId)? clientWantsToSeeAllSavedRuns,
     TResult? Function(DateTime runDateTime, String userId, double runDistance,
             String runTime)?
         clientWantsToSaveARun,
@@ -888,7 +889,7 @@ class _$ClientWantsToLogInImpl
         clientWantsToLogNewCoordinates,
     TResult? Function(String userId)? clientWantsToSeeAProgressOfAllRuns,
   }) {
-    return clientWantsToSignIn?.call(email, password);
+    return clientWantsToLogIn?.call(username, password);
   }
 
   @override
@@ -897,9 +898,9 @@ class _$ClientWantsToLogInImpl
     TResult Function(String jwt)? clientWantsToAuthenticateWithJwt,
     TResult Function(String username, String email, String password)?
         clientWantsToRegister,
-    TResult Function(String email, String password)? clientWantsToSignIn,
+    TResult Function(String username, String password)? clientWantsToLogIn,
     TResult Function(String userId, String runId)? clientWantsToDeleteARun,
-    TResult Function(String userId)? clientWantsToSeeAllSavedRuns,
+    TResult Function(int userId)? clientWantsToSeeAllSavedRuns,
     TResult Function(DateTime runDateTime, String userId, double runDistance,
             String runTime)?
         clientWantsToSaveARun,
@@ -915,8 +916,8 @@ class _$ClientWantsToLogInImpl
     TResult Function(String userId)? clientWantsToSeeAProgressOfAllRuns,
     required TResult orElse(),
   }) {
-    if (clientWantsToSignIn != null) {
-      return clientWantsToSignIn(email, password);
+    if (clientWantsToLogIn != null) {
+      return clientWantsToLogIn(username, password);
     }
     return orElse();
   }
@@ -928,7 +929,7 @@ class _$ClientWantsToLogInImpl
         clientWantsToAuthenticateWithJwt,
     required TResult Function(ClientWantsToRegister value)
         clientWantsToRegister,
-    required TResult Function(ClientWantsToLogIn value) clientWantsToSignIn,
+    required TResult Function(ClientWantsToLogIn value) clientWantsToLogIn,
     required TResult Function(ClientWantsToDeleteARun value)
         clientWantsToDeleteARun,
     required TResult Function(ClientWantsToSeeAllSavedRuns value)
@@ -943,7 +944,7 @@ class _$ClientWantsToLogInImpl
     required TResult Function(ClientWantsToSeeAProgressOfAllRuns value)
         clientWantsToSeeAProgressOfAllRuns,
   }) {
-    return clientWantsToSignIn(this);
+    return clientWantsToLogIn(this);
   }
 
   @override
@@ -952,7 +953,7 @@ class _$ClientWantsToLogInImpl
     TResult? Function(ClientWantsToAuthenticateWithJwt value)?
         clientWantsToAuthenticateWithJwt,
     TResult? Function(ClientWantsToRegister value)? clientWantsToRegister,
-    TResult? Function(ClientWantsToLogIn value)? clientWantsToSignIn,
+    TResult? Function(ClientWantsToLogIn value)? clientWantsToLogIn,
     TResult? Function(ClientWantsToDeleteARun value)? clientWantsToDeleteARun,
     TResult? Function(ClientWantsToSeeAllSavedRuns value)?
         clientWantsToSeeAllSavedRuns,
@@ -964,7 +965,7 @@ class _$ClientWantsToLogInImpl
     TResult? Function(ClientWantsToSeeAProgressOfAllRuns value)?
         clientWantsToSeeAProgressOfAllRuns,
   }) {
-    return clientWantsToSignIn?.call(this);
+    return clientWantsToLogIn?.call(this);
   }
 
   @override
@@ -973,7 +974,7 @@ class _$ClientWantsToLogInImpl
     TResult Function(ClientWantsToAuthenticateWithJwt value)?
         clientWantsToAuthenticateWithJwt,
     TResult Function(ClientWantsToRegister value)? clientWantsToRegister,
-    TResult Function(ClientWantsToLogIn value)? clientWantsToSignIn,
+    TResult Function(ClientWantsToLogIn value)? clientWantsToLogIn,
     TResult Function(ClientWantsToDeleteARun value)? clientWantsToDeleteARun,
     TResult Function(ClientWantsToSeeAllSavedRuns value)?
         clientWantsToSeeAllSavedRuns,
@@ -986,8 +987,8 @@ class _$ClientWantsToLogInImpl
         clientWantsToSeeAProgressOfAllRuns,
     required TResult orElse(),
   }) {
-    if (clientWantsToSignIn != null) {
-      return clientWantsToSignIn(this);
+    if (clientWantsToLogIn != null) {
+      return clientWantsToLogIn(this);
     }
     return orElse();
   }
@@ -1002,13 +1003,13 @@ class _$ClientWantsToLogInImpl
 
 abstract class ClientWantsToLogIn implements ClientEvent {
   factory ClientWantsToLogIn(
-      {required final String email,
+      {required final String username,
       required final String password}) = _$ClientWantsToLogInImpl;
 
   factory ClientWantsToLogIn.fromJson(Map<String, dynamic> json) =
       _$ClientWantsToLogInImpl.fromJson;
 
-  String get email;
+  String get username;
   String get password;
   @JsonKey(ignore: true)
   _$$ClientWantsToLogInImplCopyWith<_$ClientWantsToLogInImpl> get copyWith =>
@@ -1113,11 +1114,11 @@ class _$ClientWantsToDeleteARunImpl
     required TResult Function(String jwt) clientWantsToAuthenticateWithJwt,
     required TResult Function(String username, String email, String password)
         clientWantsToRegister,
-    required TResult Function(String email, String password)
-        clientWantsToSignIn,
+    required TResult Function(String username, String password)
+        clientWantsToLogIn,
     required TResult Function(String userId, String runId)
         clientWantsToDeleteARun,
-    required TResult Function(String userId) clientWantsToSeeAllSavedRuns,
+    required TResult Function(int userId) clientWantsToSeeAllSavedRuns,
     required TResult Function(DateTime runDateTime, String userId,
             double runDistance, String runTime)
         clientWantsToSaveARun,
@@ -1141,9 +1142,9 @@ class _$ClientWantsToDeleteARunImpl
     TResult? Function(String jwt)? clientWantsToAuthenticateWithJwt,
     TResult? Function(String username, String email, String password)?
         clientWantsToRegister,
-    TResult? Function(String email, String password)? clientWantsToSignIn,
+    TResult? Function(String username, String password)? clientWantsToLogIn,
     TResult? Function(String userId, String runId)? clientWantsToDeleteARun,
-    TResult? Function(String userId)? clientWantsToSeeAllSavedRuns,
+    TResult? Function(int userId)? clientWantsToSeeAllSavedRuns,
     TResult? Function(DateTime runDateTime, String userId, double runDistance,
             String runTime)?
         clientWantsToSaveARun,
@@ -1167,9 +1168,9 @@ class _$ClientWantsToDeleteARunImpl
     TResult Function(String jwt)? clientWantsToAuthenticateWithJwt,
     TResult Function(String username, String email, String password)?
         clientWantsToRegister,
-    TResult Function(String email, String password)? clientWantsToSignIn,
+    TResult Function(String username, String password)? clientWantsToLogIn,
     TResult Function(String userId, String runId)? clientWantsToDeleteARun,
-    TResult Function(String userId)? clientWantsToSeeAllSavedRuns,
+    TResult Function(int userId)? clientWantsToSeeAllSavedRuns,
     TResult Function(DateTime runDateTime, String userId, double runDistance,
             String runTime)?
         clientWantsToSaveARun,
@@ -1198,7 +1199,7 @@ class _$ClientWantsToDeleteARunImpl
         clientWantsToAuthenticateWithJwt,
     required TResult Function(ClientWantsToRegister value)
         clientWantsToRegister,
-    required TResult Function(ClientWantsToLogIn value) clientWantsToSignIn,
+    required TResult Function(ClientWantsToLogIn value) clientWantsToLogIn,
     required TResult Function(ClientWantsToDeleteARun value)
         clientWantsToDeleteARun,
     required TResult Function(ClientWantsToSeeAllSavedRuns value)
@@ -1222,7 +1223,7 @@ class _$ClientWantsToDeleteARunImpl
     TResult? Function(ClientWantsToAuthenticateWithJwt value)?
         clientWantsToAuthenticateWithJwt,
     TResult? Function(ClientWantsToRegister value)? clientWantsToRegister,
-    TResult? Function(ClientWantsToLogIn value)? clientWantsToSignIn,
+    TResult? Function(ClientWantsToLogIn value)? clientWantsToLogIn,
     TResult? Function(ClientWantsToDeleteARun value)? clientWantsToDeleteARun,
     TResult? Function(ClientWantsToSeeAllSavedRuns value)?
         clientWantsToSeeAllSavedRuns,
@@ -1243,7 +1244,7 @@ class _$ClientWantsToDeleteARunImpl
     TResult Function(ClientWantsToAuthenticateWithJwt value)?
         clientWantsToAuthenticateWithJwt,
     TResult Function(ClientWantsToRegister value)? clientWantsToRegister,
-    TResult Function(ClientWantsToLogIn value)? clientWantsToSignIn,
+    TResult Function(ClientWantsToLogIn value)? clientWantsToLogIn,
     TResult Function(ClientWantsToDeleteARun value)? clientWantsToDeleteARun,
     TResult Function(ClientWantsToSeeAllSavedRuns value)?
         clientWantsToSeeAllSavedRuns,
@@ -1292,7 +1293,7 @@ abstract class _$$ClientWantsToSeeAllSavedRunsImplCopyWith<$Res> {
           $Res Function(_$ClientWantsToSeeAllSavedRunsImpl) then) =
       __$$ClientWantsToSeeAllSavedRunsImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String userId});
+  $Res call({int userId});
 }
 
 /// @nodoc
@@ -1313,7 +1314,7 @@ class __$$ClientWantsToSeeAllSavedRunsImplCopyWithImpl<$Res>
       userId: null == userId
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
     ));
   }
 }
@@ -1332,7 +1333,7 @@ class _$ClientWantsToSeeAllSavedRunsImpl
       _$$ClientWantsToSeeAllSavedRunsImplFromJson(json);
 
   @override
-  final String userId;
+  final int userId;
 
   @JsonKey(name: 'eventType')
   final String $type;
@@ -1377,11 +1378,11 @@ class _$ClientWantsToSeeAllSavedRunsImpl
     required TResult Function(String jwt) clientWantsToAuthenticateWithJwt,
     required TResult Function(String username, String email, String password)
         clientWantsToRegister,
-    required TResult Function(String email, String password)
-        clientWantsToSignIn,
+    required TResult Function(String username, String password)
+        clientWantsToLogIn,
     required TResult Function(String userId, String runId)
         clientWantsToDeleteARun,
-    required TResult Function(String userId) clientWantsToSeeAllSavedRuns,
+    required TResult Function(int userId) clientWantsToSeeAllSavedRuns,
     required TResult Function(DateTime runDateTime, String userId,
             double runDistance, String runTime)
         clientWantsToSaveARun,
@@ -1405,9 +1406,9 @@ class _$ClientWantsToSeeAllSavedRunsImpl
     TResult? Function(String jwt)? clientWantsToAuthenticateWithJwt,
     TResult? Function(String username, String email, String password)?
         clientWantsToRegister,
-    TResult? Function(String email, String password)? clientWantsToSignIn,
+    TResult? Function(String username, String password)? clientWantsToLogIn,
     TResult? Function(String userId, String runId)? clientWantsToDeleteARun,
-    TResult? Function(String userId)? clientWantsToSeeAllSavedRuns,
+    TResult? Function(int userId)? clientWantsToSeeAllSavedRuns,
     TResult? Function(DateTime runDateTime, String userId, double runDistance,
             String runTime)?
         clientWantsToSaveARun,
@@ -1431,9 +1432,9 @@ class _$ClientWantsToSeeAllSavedRunsImpl
     TResult Function(String jwt)? clientWantsToAuthenticateWithJwt,
     TResult Function(String username, String email, String password)?
         clientWantsToRegister,
-    TResult Function(String email, String password)? clientWantsToSignIn,
+    TResult Function(String username, String password)? clientWantsToLogIn,
     TResult Function(String userId, String runId)? clientWantsToDeleteARun,
-    TResult Function(String userId)? clientWantsToSeeAllSavedRuns,
+    TResult Function(int userId)? clientWantsToSeeAllSavedRuns,
     TResult Function(DateTime runDateTime, String userId, double runDistance,
             String runTime)?
         clientWantsToSaveARun,
@@ -1462,7 +1463,7 @@ class _$ClientWantsToSeeAllSavedRunsImpl
         clientWantsToAuthenticateWithJwt,
     required TResult Function(ClientWantsToRegister value)
         clientWantsToRegister,
-    required TResult Function(ClientWantsToLogIn value) clientWantsToSignIn,
+    required TResult Function(ClientWantsToLogIn value) clientWantsToLogIn,
     required TResult Function(ClientWantsToDeleteARun value)
         clientWantsToDeleteARun,
     required TResult Function(ClientWantsToSeeAllSavedRuns value)
@@ -1486,7 +1487,7 @@ class _$ClientWantsToSeeAllSavedRunsImpl
     TResult? Function(ClientWantsToAuthenticateWithJwt value)?
         clientWantsToAuthenticateWithJwt,
     TResult? Function(ClientWantsToRegister value)? clientWantsToRegister,
-    TResult? Function(ClientWantsToLogIn value)? clientWantsToSignIn,
+    TResult? Function(ClientWantsToLogIn value)? clientWantsToLogIn,
     TResult? Function(ClientWantsToDeleteARun value)? clientWantsToDeleteARun,
     TResult? Function(ClientWantsToSeeAllSavedRuns value)?
         clientWantsToSeeAllSavedRuns,
@@ -1507,7 +1508,7 @@ class _$ClientWantsToSeeAllSavedRunsImpl
     TResult Function(ClientWantsToAuthenticateWithJwt value)?
         clientWantsToAuthenticateWithJwt,
     TResult Function(ClientWantsToRegister value)? clientWantsToRegister,
-    TResult Function(ClientWantsToLogIn value)? clientWantsToSignIn,
+    TResult Function(ClientWantsToLogIn value)? clientWantsToLogIn,
     TResult Function(ClientWantsToDeleteARun value)? clientWantsToDeleteARun,
     TResult Function(ClientWantsToSeeAllSavedRuns value)?
         clientWantsToSeeAllSavedRuns,
@@ -1535,13 +1536,13 @@ class _$ClientWantsToSeeAllSavedRunsImpl
 }
 
 abstract class ClientWantsToSeeAllSavedRuns implements ClientEvent {
-  factory ClientWantsToSeeAllSavedRuns({required final String userId}) =
+  factory ClientWantsToSeeAllSavedRuns({required final int userId}) =
       _$ClientWantsToSeeAllSavedRunsImpl;
 
   factory ClientWantsToSeeAllSavedRuns.fromJson(Map<String, dynamic> json) =
       _$ClientWantsToSeeAllSavedRunsImpl.fromJson;
 
-  String get userId;
+  int get userId;
   @JsonKey(ignore: true)
   _$$ClientWantsToSeeAllSavedRunsImplCopyWith<
           _$ClientWantsToSeeAllSavedRunsImpl>
@@ -1674,11 +1675,11 @@ class _$ClientWantsToSaveARunImpl
     required TResult Function(String jwt) clientWantsToAuthenticateWithJwt,
     required TResult Function(String username, String email, String password)
         clientWantsToRegister,
-    required TResult Function(String email, String password)
-        clientWantsToSignIn,
+    required TResult Function(String username, String password)
+        clientWantsToLogIn,
     required TResult Function(String userId, String runId)
         clientWantsToDeleteARun,
-    required TResult Function(String userId) clientWantsToSeeAllSavedRuns,
+    required TResult Function(int userId) clientWantsToSeeAllSavedRuns,
     required TResult Function(DateTime runDateTime, String userId,
             double runDistance, String runTime)
         clientWantsToSaveARun,
@@ -1702,9 +1703,9 @@ class _$ClientWantsToSaveARunImpl
     TResult? Function(String jwt)? clientWantsToAuthenticateWithJwt,
     TResult? Function(String username, String email, String password)?
         clientWantsToRegister,
-    TResult? Function(String email, String password)? clientWantsToSignIn,
+    TResult? Function(String username, String password)? clientWantsToLogIn,
     TResult? Function(String userId, String runId)? clientWantsToDeleteARun,
-    TResult? Function(String userId)? clientWantsToSeeAllSavedRuns,
+    TResult? Function(int userId)? clientWantsToSeeAllSavedRuns,
     TResult? Function(DateTime runDateTime, String userId, double runDistance,
             String runTime)?
         clientWantsToSaveARun,
@@ -1729,9 +1730,9 @@ class _$ClientWantsToSaveARunImpl
     TResult Function(String jwt)? clientWantsToAuthenticateWithJwt,
     TResult Function(String username, String email, String password)?
         clientWantsToRegister,
-    TResult Function(String email, String password)? clientWantsToSignIn,
+    TResult Function(String username, String password)? clientWantsToLogIn,
     TResult Function(String userId, String runId)? clientWantsToDeleteARun,
-    TResult Function(String userId)? clientWantsToSeeAllSavedRuns,
+    TResult Function(int userId)? clientWantsToSeeAllSavedRuns,
     TResult Function(DateTime runDateTime, String userId, double runDistance,
             String runTime)?
         clientWantsToSaveARun,
@@ -1760,7 +1761,7 @@ class _$ClientWantsToSaveARunImpl
         clientWantsToAuthenticateWithJwt,
     required TResult Function(ClientWantsToRegister value)
         clientWantsToRegister,
-    required TResult Function(ClientWantsToLogIn value) clientWantsToSignIn,
+    required TResult Function(ClientWantsToLogIn value) clientWantsToLogIn,
     required TResult Function(ClientWantsToDeleteARun value)
         clientWantsToDeleteARun,
     required TResult Function(ClientWantsToSeeAllSavedRuns value)
@@ -1784,7 +1785,7 @@ class _$ClientWantsToSaveARunImpl
     TResult? Function(ClientWantsToAuthenticateWithJwt value)?
         clientWantsToAuthenticateWithJwt,
     TResult? Function(ClientWantsToRegister value)? clientWantsToRegister,
-    TResult? Function(ClientWantsToLogIn value)? clientWantsToSignIn,
+    TResult? Function(ClientWantsToLogIn value)? clientWantsToLogIn,
     TResult? Function(ClientWantsToDeleteARun value)? clientWantsToDeleteARun,
     TResult? Function(ClientWantsToSeeAllSavedRuns value)?
         clientWantsToSeeAllSavedRuns,
@@ -1805,7 +1806,7 @@ class _$ClientWantsToSaveARunImpl
     TResult Function(ClientWantsToAuthenticateWithJwt value)?
         clientWantsToAuthenticateWithJwt,
     TResult Function(ClientWantsToRegister value)? clientWantsToRegister,
-    TResult Function(ClientWantsToLogIn value)? clientWantsToSignIn,
+    TResult Function(ClientWantsToLogIn value)? clientWantsToLogIn,
     TResult Function(ClientWantsToDeleteARun value)? clientWantsToDeleteARun,
     TResult Function(ClientWantsToSeeAllSavedRuns value)?
         clientWantsToSeeAllSavedRuns,
@@ -1975,11 +1976,11 @@ class _$ClientWantsToStopARunImpl
     required TResult Function(String jwt) clientWantsToAuthenticateWithJwt,
     required TResult Function(String username, String email, String password)
         clientWantsToRegister,
-    required TResult Function(String email, String password)
-        clientWantsToSignIn,
+    required TResult Function(String username, String password)
+        clientWantsToLogIn,
     required TResult Function(String userId, String runId)
         clientWantsToDeleteARun,
-    required TResult Function(String userId) clientWantsToSeeAllSavedRuns,
+    required TResult Function(int userId) clientWantsToSeeAllSavedRuns,
     required TResult Function(DateTime runDateTime, String userId,
             double runDistance, String runTime)
         clientWantsToSaveARun,
@@ -2003,9 +2004,9 @@ class _$ClientWantsToStopARunImpl
     TResult? Function(String jwt)? clientWantsToAuthenticateWithJwt,
     TResult? Function(String username, String email, String password)?
         clientWantsToRegister,
-    TResult? Function(String email, String password)? clientWantsToSignIn,
+    TResult? Function(String username, String password)? clientWantsToLogIn,
     TResult? Function(String userId, String runId)? clientWantsToDeleteARun,
-    TResult? Function(String userId)? clientWantsToSeeAllSavedRuns,
+    TResult? Function(int userId)? clientWantsToSeeAllSavedRuns,
     TResult? Function(DateTime runDateTime, String userId, double runDistance,
             String runTime)?
         clientWantsToSaveARun,
@@ -2029,9 +2030,9 @@ class _$ClientWantsToStopARunImpl
     TResult Function(String jwt)? clientWantsToAuthenticateWithJwt,
     TResult Function(String username, String email, String password)?
         clientWantsToRegister,
-    TResult Function(String email, String password)? clientWantsToSignIn,
+    TResult Function(String username, String password)? clientWantsToLogIn,
     TResult Function(String userId, String runId)? clientWantsToDeleteARun,
-    TResult Function(String userId)? clientWantsToSeeAllSavedRuns,
+    TResult Function(int userId)? clientWantsToSeeAllSavedRuns,
     TResult Function(DateTime runDateTime, String userId, double runDistance,
             String runTime)?
         clientWantsToSaveARun,
@@ -2060,7 +2061,7 @@ class _$ClientWantsToStopARunImpl
         clientWantsToAuthenticateWithJwt,
     required TResult Function(ClientWantsToRegister value)
         clientWantsToRegister,
-    required TResult Function(ClientWantsToLogIn value) clientWantsToSignIn,
+    required TResult Function(ClientWantsToLogIn value) clientWantsToLogIn,
     required TResult Function(ClientWantsToDeleteARun value)
         clientWantsToDeleteARun,
     required TResult Function(ClientWantsToSeeAllSavedRuns value)
@@ -2084,7 +2085,7 @@ class _$ClientWantsToStopARunImpl
     TResult? Function(ClientWantsToAuthenticateWithJwt value)?
         clientWantsToAuthenticateWithJwt,
     TResult? Function(ClientWantsToRegister value)? clientWantsToRegister,
-    TResult? Function(ClientWantsToLogIn value)? clientWantsToSignIn,
+    TResult? Function(ClientWantsToLogIn value)? clientWantsToLogIn,
     TResult? Function(ClientWantsToDeleteARun value)? clientWantsToDeleteARun,
     TResult? Function(ClientWantsToSeeAllSavedRuns value)?
         clientWantsToSeeAllSavedRuns,
@@ -2105,7 +2106,7 @@ class _$ClientWantsToStopARunImpl
     TResult Function(ClientWantsToAuthenticateWithJwt value)?
         clientWantsToAuthenticateWithJwt,
     TResult Function(ClientWantsToRegister value)? clientWantsToRegister,
-    TResult Function(ClientWantsToLogIn value)? clientWantsToSignIn,
+    TResult Function(ClientWantsToLogIn value)? clientWantsToLogIn,
     TResult Function(ClientWantsToDeleteARun value)? clientWantsToDeleteARun,
     TResult Function(ClientWantsToSeeAllSavedRuns value)?
         clientWantsToSeeAllSavedRuns,
@@ -2278,11 +2279,11 @@ class _$ClientWantsToLogARunImpl
     required TResult Function(String jwt) clientWantsToAuthenticateWithJwt,
     required TResult Function(String username, String email, String password)
         clientWantsToRegister,
-    required TResult Function(String email, String password)
-        clientWantsToSignIn,
+    required TResult Function(String username, String password)
+        clientWantsToLogIn,
     required TResult Function(String userId, String runId)
         clientWantsToDeleteARun,
-    required TResult Function(String userId) clientWantsToSeeAllSavedRuns,
+    required TResult Function(int userId) clientWantsToSeeAllSavedRuns,
     required TResult Function(DateTime runDateTime, String userId,
             double runDistance, String runTime)
         clientWantsToSaveARun,
@@ -2306,9 +2307,9 @@ class _$ClientWantsToLogARunImpl
     TResult? Function(String jwt)? clientWantsToAuthenticateWithJwt,
     TResult? Function(String username, String email, String password)?
         clientWantsToRegister,
-    TResult? Function(String email, String password)? clientWantsToSignIn,
+    TResult? Function(String username, String password)? clientWantsToLogIn,
     TResult? Function(String userId, String runId)? clientWantsToDeleteARun,
-    TResult? Function(String userId)? clientWantsToSeeAllSavedRuns,
+    TResult? Function(int userId)? clientWantsToSeeAllSavedRuns,
     TResult? Function(DateTime runDateTime, String userId, double runDistance,
             String runTime)?
         clientWantsToSaveARun,
@@ -2333,9 +2334,9 @@ class _$ClientWantsToLogARunImpl
     TResult Function(String jwt)? clientWantsToAuthenticateWithJwt,
     TResult Function(String username, String email, String password)?
         clientWantsToRegister,
-    TResult Function(String email, String password)? clientWantsToSignIn,
+    TResult Function(String username, String password)? clientWantsToLogIn,
     TResult Function(String userId, String runId)? clientWantsToDeleteARun,
-    TResult Function(String userId)? clientWantsToSeeAllSavedRuns,
+    TResult Function(int userId)? clientWantsToSeeAllSavedRuns,
     TResult Function(DateTime runDateTime, String userId, double runDistance,
             String runTime)?
         clientWantsToSaveARun,
@@ -2365,7 +2366,7 @@ class _$ClientWantsToLogARunImpl
         clientWantsToAuthenticateWithJwt,
     required TResult Function(ClientWantsToRegister value)
         clientWantsToRegister,
-    required TResult Function(ClientWantsToLogIn value) clientWantsToSignIn,
+    required TResult Function(ClientWantsToLogIn value) clientWantsToLogIn,
     required TResult Function(ClientWantsToDeleteARun value)
         clientWantsToDeleteARun,
     required TResult Function(ClientWantsToSeeAllSavedRuns value)
@@ -2389,7 +2390,7 @@ class _$ClientWantsToLogARunImpl
     TResult? Function(ClientWantsToAuthenticateWithJwt value)?
         clientWantsToAuthenticateWithJwt,
     TResult? Function(ClientWantsToRegister value)? clientWantsToRegister,
-    TResult? Function(ClientWantsToLogIn value)? clientWantsToSignIn,
+    TResult? Function(ClientWantsToLogIn value)? clientWantsToLogIn,
     TResult? Function(ClientWantsToDeleteARun value)? clientWantsToDeleteARun,
     TResult? Function(ClientWantsToSeeAllSavedRuns value)?
         clientWantsToSeeAllSavedRuns,
@@ -2410,7 +2411,7 @@ class _$ClientWantsToLogARunImpl
     TResult Function(ClientWantsToAuthenticateWithJwt value)?
         clientWantsToAuthenticateWithJwt,
     TResult Function(ClientWantsToRegister value)? clientWantsToRegister,
-    TResult Function(ClientWantsToLogIn value)? clientWantsToSignIn,
+    TResult Function(ClientWantsToLogIn value)? clientWantsToLogIn,
     TResult Function(ClientWantsToDeleteARun value)? clientWantsToDeleteARun,
     TResult Function(ClientWantsToSeeAllSavedRuns value)?
         clientWantsToSeeAllSavedRuns,
@@ -2581,11 +2582,11 @@ class _$ClientWantsToLogNewCoordinatesImpl
     required TResult Function(String jwt) clientWantsToAuthenticateWithJwt,
     required TResult Function(String username, String email, String password)
         clientWantsToRegister,
-    required TResult Function(String email, String password)
-        clientWantsToSignIn,
+    required TResult Function(String username, String password)
+        clientWantsToLogIn,
     required TResult Function(String userId, String runId)
         clientWantsToDeleteARun,
-    required TResult Function(String userId) clientWantsToSeeAllSavedRuns,
+    required TResult Function(int userId) clientWantsToSeeAllSavedRuns,
     required TResult Function(DateTime runDateTime, String userId,
             double runDistance, String runTime)
         clientWantsToSaveARun,
@@ -2609,9 +2610,9 @@ class _$ClientWantsToLogNewCoordinatesImpl
     TResult? Function(String jwt)? clientWantsToAuthenticateWithJwt,
     TResult? Function(String username, String email, String password)?
         clientWantsToRegister,
-    TResult? Function(String email, String password)? clientWantsToSignIn,
+    TResult? Function(String username, String password)? clientWantsToLogIn,
     TResult? Function(String userId, String runId)? clientWantsToDeleteARun,
-    TResult? Function(String userId)? clientWantsToSeeAllSavedRuns,
+    TResult? Function(int userId)? clientWantsToSeeAllSavedRuns,
     TResult? Function(DateTime runDateTime, String userId, double runDistance,
             String runTime)?
         clientWantsToSaveARun,
@@ -2635,9 +2636,9 @@ class _$ClientWantsToLogNewCoordinatesImpl
     TResult Function(String jwt)? clientWantsToAuthenticateWithJwt,
     TResult Function(String username, String email, String password)?
         clientWantsToRegister,
-    TResult Function(String email, String password)? clientWantsToSignIn,
+    TResult Function(String username, String password)? clientWantsToLogIn,
     TResult Function(String userId, String runId)? clientWantsToDeleteARun,
-    TResult Function(String userId)? clientWantsToSeeAllSavedRuns,
+    TResult Function(int userId)? clientWantsToSeeAllSavedRuns,
     TResult Function(DateTime runDateTime, String userId, double runDistance,
             String runTime)?
         clientWantsToSaveARun,
@@ -2666,7 +2667,7 @@ class _$ClientWantsToLogNewCoordinatesImpl
         clientWantsToAuthenticateWithJwt,
     required TResult Function(ClientWantsToRegister value)
         clientWantsToRegister,
-    required TResult Function(ClientWantsToLogIn value) clientWantsToSignIn,
+    required TResult Function(ClientWantsToLogIn value) clientWantsToLogIn,
     required TResult Function(ClientWantsToDeleteARun value)
         clientWantsToDeleteARun,
     required TResult Function(ClientWantsToSeeAllSavedRuns value)
@@ -2690,7 +2691,7 @@ class _$ClientWantsToLogNewCoordinatesImpl
     TResult? Function(ClientWantsToAuthenticateWithJwt value)?
         clientWantsToAuthenticateWithJwt,
     TResult? Function(ClientWantsToRegister value)? clientWantsToRegister,
-    TResult? Function(ClientWantsToLogIn value)? clientWantsToSignIn,
+    TResult? Function(ClientWantsToLogIn value)? clientWantsToLogIn,
     TResult? Function(ClientWantsToDeleteARun value)? clientWantsToDeleteARun,
     TResult? Function(ClientWantsToSeeAllSavedRuns value)?
         clientWantsToSeeAllSavedRuns,
@@ -2711,7 +2712,7 @@ class _$ClientWantsToLogNewCoordinatesImpl
     TResult Function(ClientWantsToAuthenticateWithJwt value)?
         clientWantsToAuthenticateWithJwt,
     TResult Function(ClientWantsToRegister value)? clientWantsToRegister,
-    TResult Function(ClientWantsToLogIn value)? clientWantsToSignIn,
+    TResult Function(ClientWantsToLogIn value)? clientWantsToLogIn,
     TResult Function(ClientWantsToDeleteARun value)? clientWantsToDeleteARun,
     TResult Function(ClientWantsToSeeAllSavedRuns value)?
         clientWantsToSeeAllSavedRuns,
@@ -2851,11 +2852,11 @@ class _$ClientWantsToSeeAProgressOfAllRunsImpl
     required TResult Function(String jwt) clientWantsToAuthenticateWithJwt,
     required TResult Function(String username, String email, String password)
         clientWantsToRegister,
-    required TResult Function(String email, String password)
-        clientWantsToSignIn,
+    required TResult Function(String username, String password)
+        clientWantsToLogIn,
     required TResult Function(String userId, String runId)
         clientWantsToDeleteARun,
-    required TResult Function(String userId) clientWantsToSeeAllSavedRuns,
+    required TResult Function(int userId) clientWantsToSeeAllSavedRuns,
     required TResult Function(DateTime runDateTime, String userId,
             double runDistance, String runTime)
         clientWantsToSaveARun,
@@ -2879,9 +2880,9 @@ class _$ClientWantsToSeeAProgressOfAllRunsImpl
     TResult? Function(String jwt)? clientWantsToAuthenticateWithJwt,
     TResult? Function(String username, String email, String password)?
         clientWantsToRegister,
-    TResult? Function(String email, String password)? clientWantsToSignIn,
+    TResult? Function(String username, String password)? clientWantsToLogIn,
     TResult? Function(String userId, String runId)? clientWantsToDeleteARun,
-    TResult? Function(String userId)? clientWantsToSeeAllSavedRuns,
+    TResult? Function(int userId)? clientWantsToSeeAllSavedRuns,
     TResult? Function(DateTime runDateTime, String userId, double runDistance,
             String runTime)?
         clientWantsToSaveARun,
@@ -2905,9 +2906,9 @@ class _$ClientWantsToSeeAProgressOfAllRunsImpl
     TResult Function(String jwt)? clientWantsToAuthenticateWithJwt,
     TResult Function(String username, String email, String password)?
         clientWantsToRegister,
-    TResult Function(String email, String password)? clientWantsToSignIn,
+    TResult Function(String username, String password)? clientWantsToLogIn,
     TResult Function(String userId, String runId)? clientWantsToDeleteARun,
-    TResult Function(String userId)? clientWantsToSeeAllSavedRuns,
+    TResult Function(int userId)? clientWantsToSeeAllSavedRuns,
     TResult Function(DateTime runDateTime, String userId, double runDistance,
             String runTime)?
         clientWantsToSaveARun,
@@ -2936,7 +2937,7 @@ class _$ClientWantsToSeeAProgressOfAllRunsImpl
         clientWantsToAuthenticateWithJwt,
     required TResult Function(ClientWantsToRegister value)
         clientWantsToRegister,
-    required TResult Function(ClientWantsToLogIn value) clientWantsToSignIn,
+    required TResult Function(ClientWantsToLogIn value) clientWantsToLogIn,
     required TResult Function(ClientWantsToDeleteARun value)
         clientWantsToDeleteARun,
     required TResult Function(ClientWantsToSeeAllSavedRuns value)
@@ -2960,7 +2961,7 @@ class _$ClientWantsToSeeAProgressOfAllRunsImpl
     TResult? Function(ClientWantsToAuthenticateWithJwt value)?
         clientWantsToAuthenticateWithJwt,
     TResult? Function(ClientWantsToRegister value)? clientWantsToRegister,
-    TResult? Function(ClientWantsToLogIn value)? clientWantsToSignIn,
+    TResult? Function(ClientWantsToLogIn value)? clientWantsToLogIn,
     TResult? Function(ClientWantsToDeleteARun value)? clientWantsToDeleteARun,
     TResult? Function(ClientWantsToSeeAllSavedRuns value)?
         clientWantsToSeeAllSavedRuns,
@@ -2981,7 +2982,7 @@ class _$ClientWantsToSeeAProgressOfAllRunsImpl
     TResult Function(ClientWantsToAuthenticateWithJwt value)?
         clientWantsToAuthenticateWithJwt,
     TResult Function(ClientWantsToRegister value)? clientWantsToRegister,
-    TResult Function(ClientWantsToLogIn value)? clientWantsToSignIn,
+    TResult Function(ClientWantsToLogIn value)? clientWantsToLogIn,
     TResult Function(ClientWantsToDeleteARun value)? clientWantsToDeleteARun,
     TResult Function(ClientWantsToSeeAllSavedRuns value)?
         clientWantsToSeeAllSavedRuns,
