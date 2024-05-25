@@ -41,7 +41,7 @@ class _UserPageScreenState extends State<UserPageScreen> {
           return CircularProgressIndicator();
         }
         else if (snapshot.data == PermissionStatus.granted) {
-          return RunList(channel: context.read<BroadcastWsChannel>(), userId: widget.userId);
+          return RunList(userId: widget.userId);
         }
         else {
           return Text('Location permission denied');

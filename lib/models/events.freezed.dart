@@ -36,6 +36,8 @@ ClientEvent _$ClientEventFromJson(Map<String, dynamic> json) {
       return ClientWantsToLogNewCoordinates.fromJson(json);
     case 'ClientWantsToSeeAProgressOfAllRuns':
       return ClientWantsToSeeAProgressOfAllRuns.fromJson(json);
+    case 'ClientWantsToSeeFullInfoOfRun':
+      return ClientWantsToSeeFullInfoOfRun.fromJson(json);
 
     default:
       throw CheckedFromJsonException(json, 'eventType', 'ClientEvent',
@@ -68,6 +70,8 @@ mixin _$ClientEvent {
             DateTime loggingTime, double lat, double lng, String runId)
         clientWantsToLogNewCoordinates,
     required TResult Function(String userId) clientWantsToSeeAProgressOfAllRuns,
+    required TResult Function(String runId, int userId)
+        clientWantsToSeeFullInfoOfRun,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -91,6 +95,7 @@ mixin _$ClientEvent {
             DateTime loggingTime, double lat, double lng, String runId)?
         clientWantsToLogNewCoordinates,
     TResult? Function(String userId)? clientWantsToSeeAProgressOfAllRuns,
+    TResult? Function(String runId, int userId)? clientWantsToSeeFullInfoOfRun,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -114,6 +119,7 @@ mixin _$ClientEvent {
             DateTime loggingTime, double lat, double lng, String runId)?
         clientWantsToLogNewCoordinates,
     TResult Function(String userId)? clientWantsToSeeAProgressOfAllRuns,
+    TResult Function(String runId, int userId)? clientWantsToSeeFullInfoOfRun,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -137,6 +143,8 @@ mixin _$ClientEvent {
         clientWantsToLogNewCoordinates,
     required TResult Function(ClientWantsToSeeAProgressOfAllRuns value)
         clientWantsToSeeAProgressOfAllRuns,
+    required TResult Function(ClientWantsToSeeFullInfoOfRun value)
+        clientWantsToSeeFullInfoOfRun,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -155,6 +163,8 @@ mixin _$ClientEvent {
         clientWantsToLogNewCoordinates,
     TResult? Function(ClientWantsToSeeAProgressOfAllRuns value)?
         clientWantsToSeeAProgressOfAllRuns,
+    TResult? Function(ClientWantsToSeeFullInfoOfRun value)?
+        clientWantsToSeeFullInfoOfRun,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -173,6 +183,8 @@ mixin _$ClientEvent {
         clientWantsToLogNewCoordinates,
     TResult Function(ClientWantsToSeeAProgressOfAllRuns value)?
         clientWantsToSeeAProgressOfAllRuns,
+    TResult Function(ClientWantsToSeeFullInfoOfRun value)?
+        clientWantsToSeeFullInfoOfRun,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -308,6 +320,8 @@ class _$ClientWantsToAuthenticateWithJwtImpl
             DateTime loggingTime, double lat, double lng, String runId)
         clientWantsToLogNewCoordinates,
     required TResult Function(String userId) clientWantsToSeeAProgressOfAllRuns,
+    required TResult Function(String runId, int userId)
+        clientWantsToSeeFullInfoOfRun,
   }) {
     return clientWantsToAuthenticateWithJwt(jwt);
   }
@@ -334,6 +348,7 @@ class _$ClientWantsToAuthenticateWithJwtImpl
             DateTime loggingTime, double lat, double lng, String runId)?
         clientWantsToLogNewCoordinates,
     TResult? Function(String userId)? clientWantsToSeeAProgressOfAllRuns,
+    TResult? Function(String runId, int userId)? clientWantsToSeeFullInfoOfRun,
   }) {
     return clientWantsToAuthenticateWithJwt?.call(jwt);
   }
@@ -360,6 +375,7 @@ class _$ClientWantsToAuthenticateWithJwtImpl
             DateTime loggingTime, double lat, double lng, String runId)?
         clientWantsToLogNewCoordinates,
     TResult Function(String userId)? clientWantsToSeeAProgressOfAllRuns,
+    TResult Function(String runId, int userId)? clientWantsToSeeFullInfoOfRun,
     required TResult orElse(),
   }) {
     if (clientWantsToAuthenticateWithJwt != null) {
@@ -389,6 +405,8 @@ class _$ClientWantsToAuthenticateWithJwtImpl
         clientWantsToLogNewCoordinates,
     required TResult Function(ClientWantsToSeeAProgressOfAllRuns value)
         clientWantsToSeeAProgressOfAllRuns,
+    required TResult Function(ClientWantsToSeeFullInfoOfRun value)
+        clientWantsToSeeFullInfoOfRun,
   }) {
     return clientWantsToAuthenticateWithJwt(this);
   }
@@ -410,6 +428,8 @@ class _$ClientWantsToAuthenticateWithJwtImpl
         clientWantsToLogNewCoordinates,
     TResult? Function(ClientWantsToSeeAProgressOfAllRuns value)?
         clientWantsToSeeAProgressOfAllRuns,
+    TResult? Function(ClientWantsToSeeFullInfoOfRun value)?
+        clientWantsToSeeFullInfoOfRun,
   }) {
     return clientWantsToAuthenticateWithJwt?.call(this);
   }
@@ -431,6 +451,8 @@ class _$ClientWantsToAuthenticateWithJwtImpl
         clientWantsToLogNewCoordinates,
     TResult Function(ClientWantsToSeeAProgressOfAllRuns value)?
         clientWantsToSeeAProgressOfAllRuns,
+    TResult Function(ClientWantsToSeeFullInfoOfRun value)?
+        clientWantsToSeeFullInfoOfRun,
     required TResult orElse(),
   }) {
     if (clientWantsToAuthenticateWithJwt != null) {
@@ -590,6 +612,8 @@ class _$ClientWantsToRegisterImpl
             DateTime loggingTime, double lat, double lng, String runId)
         clientWantsToLogNewCoordinates,
     required TResult Function(String userId) clientWantsToSeeAProgressOfAllRuns,
+    required TResult Function(String runId, int userId)
+        clientWantsToSeeFullInfoOfRun,
   }) {
     return clientWantsToRegister(username, email, password);
   }
@@ -616,6 +640,7 @@ class _$ClientWantsToRegisterImpl
             DateTime loggingTime, double lat, double lng, String runId)?
         clientWantsToLogNewCoordinates,
     TResult? Function(String userId)? clientWantsToSeeAProgressOfAllRuns,
+    TResult? Function(String runId, int userId)? clientWantsToSeeFullInfoOfRun,
   }) {
     return clientWantsToRegister?.call(username, email, password);
   }
@@ -642,6 +667,7 @@ class _$ClientWantsToRegisterImpl
             DateTime loggingTime, double lat, double lng, String runId)?
         clientWantsToLogNewCoordinates,
     TResult Function(String userId)? clientWantsToSeeAProgressOfAllRuns,
+    TResult Function(String runId, int userId)? clientWantsToSeeFullInfoOfRun,
     required TResult orElse(),
   }) {
     if (clientWantsToRegister != null) {
@@ -671,6 +697,8 @@ class _$ClientWantsToRegisterImpl
         clientWantsToLogNewCoordinates,
     required TResult Function(ClientWantsToSeeAProgressOfAllRuns value)
         clientWantsToSeeAProgressOfAllRuns,
+    required TResult Function(ClientWantsToSeeFullInfoOfRun value)
+        clientWantsToSeeFullInfoOfRun,
   }) {
     return clientWantsToRegister(this);
   }
@@ -692,6 +720,8 @@ class _$ClientWantsToRegisterImpl
         clientWantsToLogNewCoordinates,
     TResult? Function(ClientWantsToSeeAProgressOfAllRuns value)?
         clientWantsToSeeAProgressOfAllRuns,
+    TResult? Function(ClientWantsToSeeFullInfoOfRun value)?
+        clientWantsToSeeFullInfoOfRun,
   }) {
     return clientWantsToRegister?.call(this);
   }
@@ -713,6 +743,8 @@ class _$ClientWantsToRegisterImpl
         clientWantsToLogNewCoordinates,
     TResult Function(ClientWantsToSeeAProgressOfAllRuns value)?
         clientWantsToSeeAProgressOfAllRuns,
+    TResult Function(ClientWantsToSeeFullInfoOfRun value)?
+        clientWantsToSeeFullInfoOfRun,
     required TResult orElse(),
   }) {
     if (clientWantsToRegister != null) {
@@ -862,6 +894,8 @@ class _$ClientWantsToLogInImpl
             DateTime loggingTime, double lat, double lng, String runId)
         clientWantsToLogNewCoordinates,
     required TResult Function(String userId) clientWantsToSeeAProgressOfAllRuns,
+    required TResult Function(String runId, int userId)
+        clientWantsToSeeFullInfoOfRun,
   }) {
     return clientWantsToLogIn(username, password);
   }
@@ -888,6 +922,7 @@ class _$ClientWantsToLogInImpl
             DateTime loggingTime, double lat, double lng, String runId)?
         clientWantsToLogNewCoordinates,
     TResult? Function(String userId)? clientWantsToSeeAProgressOfAllRuns,
+    TResult? Function(String runId, int userId)? clientWantsToSeeFullInfoOfRun,
   }) {
     return clientWantsToLogIn?.call(username, password);
   }
@@ -914,6 +949,7 @@ class _$ClientWantsToLogInImpl
             DateTime loggingTime, double lat, double lng, String runId)?
         clientWantsToLogNewCoordinates,
     TResult Function(String userId)? clientWantsToSeeAProgressOfAllRuns,
+    TResult Function(String runId, int userId)? clientWantsToSeeFullInfoOfRun,
     required TResult orElse(),
   }) {
     if (clientWantsToLogIn != null) {
@@ -943,6 +979,8 @@ class _$ClientWantsToLogInImpl
         clientWantsToLogNewCoordinates,
     required TResult Function(ClientWantsToSeeAProgressOfAllRuns value)
         clientWantsToSeeAProgressOfAllRuns,
+    required TResult Function(ClientWantsToSeeFullInfoOfRun value)
+        clientWantsToSeeFullInfoOfRun,
   }) {
     return clientWantsToLogIn(this);
   }
@@ -964,6 +1002,8 @@ class _$ClientWantsToLogInImpl
         clientWantsToLogNewCoordinates,
     TResult? Function(ClientWantsToSeeAProgressOfAllRuns value)?
         clientWantsToSeeAProgressOfAllRuns,
+    TResult? Function(ClientWantsToSeeFullInfoOfRun value)?
+        clientWantsToSeeFullInfoOfRun,
   }) {
     return clientWantsToLogIn?.call(this);
   }
@@ -985,6 +1025,8 @@ class _$ClientWantsToLogInImpl
         clientWantsToLogNewCoordinates,
     TResult Function(ClientWantsToSeeAProgressOfAllRuns value)?
         clientWantsToSeeAProgressOfAllRuns,
+    TResult Function(ClientWantsToSeeFullInfoOfRun value)?
+        clientWantsToSeeFullInfoOfRun,
     required TResult orElse(),
   }) {
     if (clientWantsToLogIn != null) {
@@ -1132,6 +1174,8 @@ class _$ClientWantsToDeleteARunImpl
             DateTime loggingTime, double lat, double lng, String runId)
         clientWantsToLogNewCoordinates,
     required TResult Function(String userId) clientWantsToSeeAProgressOfAllRuns,
+    required TResult Function(String runId, int userId)
+        clientWantsToSeeFullInfoOfRun,
   }) {
     return clientWantsToDeleteARun(userId, runId);
   }
@@ -1158,6 +1202,7 @@ class _$ClientWantsToDeleteARunImpl
             DateTime loggingTime, double lat, double lng, String runId)?
         clientWantsToLogNewCoordinates,
     TResult? Function(String userId)? clientWantsToSeeAProgressOfAllRuns,
+    TResult? Function(String runId, int userId)? clientWantsToSeeFullInfoOfRun,
   }) {
     return clientWantsToDeleteARun?.call(userId, runId);
   }
@@ -1184,6 +1229,7 @@ class _$ClientWantsToDeleteARunImpl
             DateTime loggingTime, double lat, double lng, String runId)?
         clientWantsToLogNewCoordinates,
     TResult Function(String userId)? clientWantsToSeeAProgressOfAllRuns,
+    TResult Function(String runId, int userId)? clientWantsToSeeFullInfoOfRun,
     required TResult orElse(),
   }) {
     if (clientWantsToDeleteARun != null) {
@@ -1213,6 +1259,8 @@ class _$ClientWantsToDeleteARunImpl
         clientWantsToLogNewCoordinates,
     required TResult Function(ClientWantsToSeeAProgressOfAllRuns value)
         clientWantsToSeeAProgressOfAllRuns,
+    required TResult Function(ClientWantsToSeeFullInfoOfRun value)
+        clientWantsToSeeFullInfoOfRun,
   }) {
     return clientWantsToDeleteARun(this);
   }
@@ -1234,6 +1282,8 @@ class _$ClientWantsToDeleteARunImpl
         clientWantsToLogNewCoordinates,
     TResult? Function(ClientWantsToSeeAProgressOfAllRuns value)?
         clientWantsToSeeAProgressOfAllRuns,
+    TResult? Function(ClientWantsToSeeFullInfoOfRun value)?
+        clientWantsToSeeFullInfoOfRun,
   }) {
     return clientWantsToDeleteARun?.call(this);
   }
@@ -1255,6 +1305,8 @@ class _$ClientWantsToDeleteARunImpl
         clientWantsToLogNewCoordinates,
     TResult Function(ClientWantsToSeeAProgressOfAllRuns value)?
         clientWantsToSeeAProgressOfAllRuns,
+    TResult Function(ClientWantsToSeeFullInfoOfRun value)?
+        clientWantsToSeeFullInfoOfRun,
     required TResult orElse(),
   }) {
     if (clientWantsToDeleteARun != null) {
@@ -1396,6 +1448,8 @@ class _$ClientWantsToSeeAllSavedRunsImpl
             DateTime loggingTime, double lat, double lng, String runId)
         clientWantsToLogNewCoordinates,
     required TResult Function(String userId) clientWantsToSeeAProgressOfAllRuns,
+    required TResult Function(String runId, int userId)
+        clientWantsToSeeFullInfoOfRun,
   }) {
     return clientWantsToSeeAllSavedRuns(userId);
   }
@@ -1422,6 +1476,7 @@ class _$ClientWantsToSeeAllSavedRunsImpl
             DateTime loggingTime, double lat, double lng, String runId)?
         clientWantsToLogNewCoordinates,
     TResult? Function(String userId)? clientWantsToSeeAProgressOfAllRuns,
+    TResult? Function(String runId, int userId)? clientWantsToSeeFullInfoOfRun,
   }) {
     return clientWantsToSeeAllSavedRuns?.call(userId);
   }
@@ -1448,6 +1503,7 @@ class _$ClientWantsToSeeAllSavedRunsImpl
             DateTime loggingTime, double lat, double lng, String runId)?
         clientWantsToLogNewCoordinates,
     TResult Function(String userId)? clientWantsToSeeAProgressOfAllRuns,
+    TResult Function(String runId, int userId)? clientWantsToSeeFullInfoOfRun,
     required TResult orElse(),
   }) {
     if (clientWantsToSeeAllSavedRuns != null) {
@@ -1477,6 +1533,8 @@ class _$ClientWantsToSeeAllSavedRunsImpl
         clientWantsToLogNewCoordinates,
     required TResult Function(ClientWantsToSeeAProgressOfAllRuns value)
         clientWantsToSeeAProgressOfAllRuns,
+    required TResult Function(ClientWantsToSeeFullInfoOfRun value)
+        clientWantsToSeeFullInfoOfRun,
   }) {
     return clientWantsToSeeAllSavedRuns(this);
   }
@@ -1498,6 +1556,8 @@ class _$ClientWantsToSeeAllSavedRunsImpl
         clientWantsToLogNewCoordinates,
     TResult? Function(ClientWantsToSeeAProgressOfAllRuns value)?
         clientWantsToSeeAProgressOfAllRuns,
+    TResult? Function(ClientWantsToSeeFullInfoOfRun value)?
+        clientWantsToSeeFullInfoOfRun,
   }) {
     return clientWantsToSeeAllSavedRuns?.call(this);
   }
@@ -1519,6 +1579,8 @@ class _$ClientWantsToSeeAllSavedRunsImpl
         clientWantsToLogNewCoordinates,
     TResult Function(ClientWantsToSeeAProgressOfAllRuns value)?
         clientWantsToSeeAProgressOfAllRuns,
+    TResult Function(ClientWantsToSeeFullInfoOfRun value)?
+        clientWantsToSeeFullInfoOfRun,
     required TResult orElse(),
   }) {
     if (clientWantsToSeeAllSavedRuns != null) {
@@ -1693,6 +1755,8 @@ class _$ClientWantsToSaveARunImpl
             DateTime loggingTime, double lat, double lng, String runId)
         clientWantsToLogNewCoordinates,
     required TResult Function(String userId) clientWantsToSeeAProgressOfAllRuns,
+    required TResult Function(String runId, int userId)
+        clientWantsToSeeFullInfoOfRun,
   }) {
     return clientWantsToSaveARun(runDateTime, userId, runDistance, runTime);
   }
@@ -1719,6 +1783,7 @@ class _$ClientWantsToSaveARunImpl
             DateTime loggingTime, double lat, double lng, String runId)?
         clientWantsToLogNewCoordinates,
     TResult? Function(String userId)? clientWantsToSeeAProgressOfAllRuns,
+    TResult? Function(String runId, int userId)? clientWantsToSeeFullInfoOfRun,
   }) {
     return clientWantsToSaveARun?.call(
         runDateTime, userId, runDistance, runTime);
@@ -1746,6 +1811,7 @@ class _$ClientWantsToSaveARunImpl
             DateTime loggingTime, double lat, double lng, String runId)?
         clientWantsToLogNewCoordinates,
     TResult Function(String userId)? clientWantsToSeeAProgressOfAllRuns,
+    TResult Function(String runId, int userId)? clientWantsToSeeFullInfoOfRun,
     required TResult orElse(),
   }) {
     if (clientWantsToSaveARun != null) {
@@ -1775,6 +1841,8 @@ class _$ClientWantsToSaveARunImpl
         clientWantsToLogNewCoordinates,
     required TResult Function(ClientWantsToSeeAProgressOfAllRuns value)
         clientWantsToSeeAProgressOfAllRuns,
+    required TResult Function(ClientWantsToSeeFullInfoOfRun value)
+        clientWantsToSeeFullInfoOfRun,
   }) {
     return clientWantsToSaveARun(this);
   }
@@ -1796,6 +1864,8 @@ class _$ClientWantsToSaveARunImpl
         clientWantsToLogNewCoordinates,
     TResult? Function(ClientWantsToSeeAProgressOfAllRuns value)?
         clientWantsToSeeAProgressOfAllRuns,
+    TResult? Function(ClientWantsToSeeFullInfoOfRun value)?
+        clientWantsToSeeFullInfoOfRun,
   }) {
     return clientWantsToSaveARun?.call(this);
   }
@@ -1817,6 +1887,8 @@ class _$ClientWantsToSaveARunImpl
         clientWantsToLogNewCoordinates,
     TResult Function(ClientWantsToSeeAProgressOfAllRuns value)?
         clientWantsToSeeAProgressOfAllRuns,
+    TResult Function(ClientWantsToSeeFullInfoOfRun value)?
+        clientWantsToSeeFullInfoOfRun,
     required TResult orElse(),
   }) {
     if (clientWantsToSaveARun != null) {
@@ -1994,6 +2066,8 @@ class _$ClientWantsToStopARunImpl
             DateTime loggingTime, double lat, double lng, String runId)
         clientWantsToLogNewCoordinates,
     required TResult Function(String userId) clientWantsToSeeAProgressOfAllRuns,
+    required TResult Function(String runId, int userId)
+        clientWantsToSeeFullInfoOfRun,
   }) {
     return clientWantsToStopARun(runEndTime, endingLat, endingLng, runId);
   }
@@ -2020,6 +2094,7 @@ class _$ClientWantsToStopARunImpl
             DateTime loggingTime, double lat, double lng, String runId)?
         clientWantsToLogNewCoordinates,
     TResult? Function(String userId)? clientWantsToSeeAProgressOfAllRuns,
+    TResult? Function(String runId, int userId)? clientWantsToSeeFullInfoOfRun,
   }) {
     return clientWantsToStopARun?.call(runEndTime, endingLat, endingLng, runId);
   }
@@ -2046,6 +2121,7 @@ class _$ClientWantsToStopARunImpl
             DateTime loggingTime, double lat, double lng, String runId)?
         clientWantsToLogNewCoordinates,
     TResult Function(String userId)? clientWantsToSeeAProgressOfAllRuns,
+    TResult Function(String runId, int userId)? clientWantsToSeeFullInfoOfRun,
     required TResult orElse(),
   }) {
     if (clientWantsToStopARun != null) {
@@ -2075,6 +2151,8 @@ class _$ClientWantsToStopARunImpl
         clientWantsToLogNewCoordinates,
     required TResult Function(ClientWantsToSeeAProgressOfAllRuns value)
         clientWantsToSeeAProgressOfAllRuns,
+    required TResult Function(ClientWantsToSeeFullInfoOfRun value)
+        clientWantsToSeeFullInfoOfRun,
   }) {
     return clientWantsToStopARun(this);
   }
@@ -2096,6 +2174,8 @@ class _$ClientWantsToStopARunImpl
         clientWantsToLogNewCoordinates,
     TResult? Function(ClientWantsToSeeAProgressOfAllRuns value)?
         clientWantsToSeeAProgressOfAllRuns,
+    TResult? Function(ClientWantsToSeeFullInfoOfRun value)?
+        clientWantsToSeeFullInfoOfRun,
   }) {
     return clientWantsToStopARun?.call(this);
   }
@@ -2117,6 +2197,8 @@ class _$ClientWantsToStopARunImpl
         clientWantsToLogNewCoordinates,
     TResult Function(ClientWantsToSeeAProgressOfAllRuns value)?
         clientWantsToSeeAProgressOfAllRuns,
+    TResult Function(ClientWantsToSeeFullInfoOfRun value)?
+        clientWantsToSeeFullInfoOfRun,
     required TResult orElse(),
   }) {
     if (clientWantsToStopARun != null) {
@@ -2297,6 +2379,8 @@ class _$ClientWantsToLogARunImpl
             DateTime loggingTime, double lat, double lng, String runId)
         clientWantsToLogNewCoordinates,
     required TResult Function(String userId) clientWantsToSeeAProgressOfAllRuns,
+    required TResult Function(String runId, int userId)
+        clientWantsToSeeFullInfoOfRun,
   }) {
     return clientWantsToLogARun(runDateTime, startingLat, startingLng, userId);
   }
@@ -2323,6 +2407,7 @@ class _$ClientWantsToLogARunImpl
             DateTime loggingTime, double lat, double lng, String runId)?
         clientWantsToLogNewCoordinates,
     TResult? Function(String userId)? clientWantsToSeeAProgressOfAllRuns,
+    TResult? Function(String runId, int userId)? clientWantsToSeeFullInfoOfRun,
   }) {
     return clientWantsToLogARun?.call(
         runDateTime, startingLat, startingLng, userId);
@@ -2350,6 +2435,7 @@ class _$ClientWantsToLogARunImpl
             DateTime loggingTime, double lat, double lng, String runId)?
         clientWantsToLogNewCoordinates,
     TResult Function(String userId)? clientWantsToSeeAProgressOfAllRuns,
+    TResult Function(String runId, int userId)? clientWantsToSeeFullInfoOfRun,
     required TResult orElse(),
   }) {
     if (clientWantsToLogARun != null) {
@@ -2380,6 +2466,8 @@ class _$ClientWantsToLogARunImpl
         clientWantsToLogNewCoordinates,
     required TResult Function(ClientWantsToSeeAProgressOfAllRuns value)
         clientWantsToSeeAProgressOfAllRuns,
+    required TResult Function(ClientWantsToSeeFullInfoOfRun value)
+        clientWantsToSeeFullInfoOfRun,
   }) {
     return clientWantsToLogARun(this);
   }
@@ -2401,6 +2489,8 @@ class _$ClientWantsToLogARunImpl
         clientWantsToLogNewCoordinates,
     TResult? Function(ClientWantsToSeeAProgressOfAllRuns value)?
         clientWantsToSeeAProgressOfAllRuns,
+    TResult? Function(ClientWantsToSeeFullInfoOfRun value)?
+        clientWantsToSeeFullInfoOfRun,
   }) {
     return clientWantsToLogARun?.call(this);
   }
@@ -2422,6 +2512,8 @@ class _$ClientWantsToLogARunImpl
         clientWantsToLogNewCoordinates,
     TResult Function(ClientWantsToSeeAProgressOfAllRuns value)?
         clientWantsToSeeAProgressOfAllRuns,
+    TResult Function(ClientWantsToSeeFullInfoOfRun value)?
+        clientWantsToSeeFullInfoOfRun,
     required TResult orElse(),
   }) {
     if (clientWantsToLogARun != null) {
@@ -2600,6 +2692,8 @@ class _$ClientWantsToLogNewCoordinatesImpl
             DateTime loggingTime, double lat, double lng, String runId)
         clientWantsToLogNewCoordinates,
     required TResult Function(String userId) clientWantsToSeeAProgressOfAllRuns,
+    required TResult Function(String runId, int userId)
+        clientWantsToSeeFullInfoOfRun,
   }) {
     return clientWantsToLogNewCoordinates(loggingTime, lat, lng, runId);
   }
@@ -2626,6 +2720,7 @@ class _$ClientWantsToLogNewCoordinatesImpl
             DateTime loggingTime, double lat, double lng, String runId)?
         clientWantsToLogNewCoordinates,
     TResult? Function(String userId)? clientWantsToSeeAProgressOfAllRuns,
+    TResult? Function(String runId, int userId)? clientWantsToSeeFullInfoOfRun,
   }) {
     return clientWantsToLogNewCoordinates?.call(loggingTime, lat, lng, runId);
   }
@@ -2652,6 +2747,7 @@ class _$ClientWantsToLogNewCoordinatesImpl
             DateTime loggingTime, double lat, double lng, String runId)?
         clientWantsToLogNewCoordinates,
     TResult Function(String userId)? clientWantsToSeeAProgressOfAllRuns,
+    TResult Function(String runId, int userId)? clientWantsToSeeFullInfoOfRun,
     required TResult orElse(),
   }) {
     if (clientWantsToLogNewCoordinates != null) {
@@ -2681,6 +2777,8 @@ class _$ClientWantsToLogNewCoordinatesImpl
         clientWantsToLogNewCoordinates,
     required TResult Function(ClientWantsToSeeAProgressOfAllRuns value)
         clientWantsToSeeAProgressOfAllRuns,
+    required TResult Function(ClientWantsToSeeFullInfoOfRun value)
+        clientWantsToSeeFullInfoOfRun,
   }) {
     return clientWantsToLogNewCoordinates(this);
   }
@@ -2702,6 +2800,8 @@ class _$ClientWantsToLogNewCoordinatesImpl
         clientWantsToLogNewCoordinates,
     TResult? Function(ClientWantsToSeeAProgressOfAllRuns value)?
         clientWantsToSeeAProgressOfAllRuns,
+    TResult? Function(ClientWantsToSeeFullInfoOfRun value)?
+        clientWantsToSeeFullInfoOfRun,
   }) {
     return clientWantsToLogNewCoordinates?.call(this);
   }
@@ -2723,6 +2823,8 @@ class _$ClientWantsToLogNewCoordinatesImpl
         clientWantsToLogNewCoordinates,
     TResult Function(ClientWantsToSeeAProgressOfAllRuns value)?
         clientWantsToSeeAProgressOfAllRuns,
+    TResult Function(ClientWantsToSeeFullInfoOfRun value)?
+        clientWantsToSeeFullInfoOfRun,
     required TResult orElse(),
   }) {
     if (clientWantsToLogNewCoordinates != null) {
@@ -2870,6 +2972,8 @@ class _$ClientWantsToSeeAProgressOfAllRunsImpl
             DateTime loggingTime, double lat, double lng, String runId)
         clientWantsToLogNewCoordinates,
     required TResult Function(String userId) clientWantsToSeeAProgressOfAllRuns,
+    required TResult Function(String runId, int userId)
+        clientWantsToSeeFullInfoOfRun,
   }) {
     return clientWantsToSeeAProgressOfAllRuns(userId);
   }
@@ -2896,6 +3000,7 @@ class _$ClientWantsToSeeAProgressOfAllRunsImpl
             DateTime loggingTime, double lat, double lng, String runId)?
         clientWantsToLogNewCoordinates,
     TResult? Function(String userId)? clientWantsToSeeAProgressOfAllRuns,
+    TResult? Function(String runId, int userId)? clientWantsToSeeFullInfoOfRun,
   }) {
     return clientWantsToSeeAProgressOfAllRuns?.call(userId);
   }
@@ -2922,6 +3027,7 @@ class _$ClientWantsToSeeAProgressOfAllRunsImpl
             DateTime loggingTime, double lat, double lng, String runId)?
         clientWantsToLogNewCoordinates,
     TResult Function(String userId)? clientWantsToSeeAProgressOfAllRuns,
+    TResult Function(String runId, int userId)? clientWantsToSeeFullInfoOfRun,
     required TResult orElse(),
   }) {
     if (clientWantsToSeeAProgressOfAllRuns != null) {
@@ -2951,6 +3057,8 @@ class _$ClientWantsToSeeAProgressOfAllRunsImpl
         clientWantsToLogNewCoordinates,
     required TResult Function(ClientWantsToSeeAProgressOfAllRuns value)
         clientWantsToSeeAProgressOfAllRuns,
+    required TResult Function(ClientWantsToSeeFullInfoOfRun value)
+        clientWantsToSeeFullInfoOfRun,
   }) {
     return clientWantsToSeeAProgressOfAllRuns(this);
   }
@@ -2972,6 +3080,8 @@ class _$ClientWantsToSeeAProgressOfAllRunsImpl
         clientWantsToLogNewCoordinates,
     TResult? Function(ClientWantsToSeeAProgressOfAllRuns value)?
         clientWantsToSeeAProgressOfAllRuns,
+    TResult? Function(ClientWantsToSeeFullInfoOfRun value)?
+        clientWantsToSeeFullInfoOfRun,
   }) {
     return clientWantsToSeeAProgressOfAllRuns?.call(this);
   }
@@ -2993,6 +3103,8 @@ class _$ClientWantsToSeeAProgressOfAllRunsImpl
         clientWantsToLogNewCoordinates,
     TResult Function(ClientWantsToSeeAProgressOfAllRuns value)?
         clientWantsToSeeAProgressOfAllRuns,
+    TResult Function(ClientWantsToSeeFullInfoOfRun value)?
+        clientWantsToSeeFullInfoOfRun,
     required TResult orElse(),
   }) {
     if (clientWantsToSeeAProgressOfAllRuns != null) {
@@ -3024,6 +3136,290 @@ abstract class ClientWantsToSeeAProgressOfAllRuns implements ClientEvent {
       get copyWith => throw _privateConstructorUsedError;
 }
 
+/// @nodoc
+abstract class _$$ClientWantsToSeeFullInfoOfRunImplCopyWith<$Res> {
+  factory _$$ClientWantsToSeeFullInfoOfRunImplCopyWith(
+          _$ClientWantsToSeeFullInfoOfRunImpl value,
+          $Res Function(_$ClientWantsToSeeFullInfoOfRunImpl) then) =
+      __$$ClientWantsToSeeFullInfoOfRunImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String runId, int userId});
+}
+
+/// @nodoc
+class __$$ClientWantsToSeeFullInfoOfRunImplCopyWithImpl<$Res>
+    extends _$ClientEventCopyWithImpl<$Res, _$ClientWantsToSeeFullInfoOfRunImpl>
+    implements _$$ClientWantsToSeeFullInfoOfRunImplCopyWith<$Res> {
+  __$$ClientWantsToSeeFullInfoOfRunImplCopyWithImpl(
+      _$ClientWantsToSeeFullInfoOfRunImpl _value,
+      $Res Function(_$ClientWantsToSeeFullInfoOfRunImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? runId = null,
+    Object? userId = null,
+  }) {
+    return _then(_$ClientWantsToSeeFullInfoOfRunImpl(
+      runId: null == runId
+          ? _value.runId
+          : runId // ignore: cast_nullable_to_non_nullable
+              as String,
+      userId: null == userId
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$ClientWantsToSeeFullInfoOfRunImpl
+    with DiagnosticableTreeMixin
+    implements ClientWantsToSeeFullInfoOfRun {
+  _$ClientWantsToSeeFullInfoOfRunImpl(
+      {required this.runId, required this.userId, final String? $type})
+      : $type = $type ?? 'ClientWantsToSeeFullInfoOfRun';
+
+  factory _$ClientWantsToSeeFullInfoOfRunImpl.fromJson(
+          Map<String, dynamic> json) =>
+      _$$ClientWantsToSeeFullInfoOfRunImplFromJson(json);
+
+  @override
+  final String runId;
+  @override
+  final int userId;
+
+  @JsonKey(name: 'eventType')
+  final String $type;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'ClientEvent.clientWantsToSeeFullInfoOfRun(runId: $runId, userId: $userId)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty(
+          'type', 'ClientEvent.clientWantsToSeeFullInfoOfRun'))
+      ..add(DiagnosticsProperty('runId', runId))
+      ..add(DiagnosticsProperty('userId', userId));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ClientWantsToSeeFullInfoOfRunImpl &&
+            (identical(other.runId, runId) || other.runId == runId) &&
+            (identical(other.userId, userId) || other.userId == userId));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, runId, userId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ClientWantsToSeeFullInfoOfRunImplCopyWith<
+          _$ClientWantsToSeeFullInfoOfRunImpl>
+      get copyWith => __$$ClientWantsToSeeFullInfoOfRunImplCopyWithImpl<
+          _$ClientWantsToSeeFullInfoOfRunImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String jwt) clientWantsToAuthenticateWithJwt,
+    required TResult Function(String username, String email, String password)
+        clientWantsToRegister,
+    required TResult Function(String username, String password)
+        clientWantsToLogIn,
+    required TResult Function(String userId, String runId)
+        clientWantsToDeleteARun,
+    required TResult Function(int userId) clientWantsToSeeAllSavedRuns,
+    required TResult Function(DateTime runDateTime, String userId,
+            double runDistance, String runTime)
+        clientWantsToSaveARun,
+    required TResult Function(DateTime runEndTime, double endingLat,
+            double endingLng, String runId)
+        clientWantsToStopARun,
+    required TResult Function(DateTime runDateTime, double startingLat,
+            double startingLng, String userId)
+        clientWantsToLogARun,
+    required TResult Function(
+            DateTime loggingTime, double lat, double lng, String runId)
+        clientWantsToLogNewCoordinates,
+    required TResult Function(String userId) clientWantsToSeeAProgressOfAllRuns,
+    required TResult Function(String runId, int userId)
+        clientWantsToSeeFullInfoOfRun,
+  }) {
+    return clientWantsToSeeFullInfoOfRun(runId, userId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String jwt)? clientWantsToAuthenticateWithJwt,
+    TResult? Function(String username, String email, String password)?
+        clientWantsToRegister,
+    TResult? Function(String username, String password)? clientWantsToLogIn,
+    TResult? Function(String userId, String runId)? clientWantsToDeleteARun,
+    TResult? Function(int userId)? clientWantsToSeeAllSavedRuns,
+    TResult? Function(DateTime runDateTime, String userId, double runDistance,
+            String runTime)?
+        clientWantsToSaveARun,
+    TResult? Function(DateTime runEndTime, double endingLat, double endingLng,
+            String runId)?
+        clientWantsToStopARun,
+    TResult? Function(DateTime runDateTime, double startingLat,
+            double startingLng, String userId)?
+        clientWantsToLogARun,
+    TResult? Function(
+            DateTime loggingTime, double lat, double lng, String runId)?
+        clientWantsToLogNewCoordinates,
+    TResult? Function(String userId)? clientWantsToSeeAProgressOfAllRuns,
+    TResult? Function(String runId, int userId)? clientWantsToSeeFullInfoOfRun,
+  }) {
+    return clientWantsToSeeFullInfoOfRun?.call(runId, userId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String jwt)? clientWantsToAuthenticateWithJwt,
+    TResult Function(String username, String email, String password)?
+        clientWantsToRegister,
+    TResult Function(String username, String password)? clientWantsToLogIn,
+    TResult Function(String userId, String runId)? clientWantsToDeleteARun,
+    TResult Function(int userId)? clientWantsToSeeAllSavedRuns,
+    TResult Function(DateTime runDateTime, String userId, double runDistance,
+            String runTime)?
+        clientWantsToSaveARun,
+    TResult Function(DateTime runEndTime, double endingLat, double endingLng,
+            String runId)?
+        clientWantsToStopARun,
+    TResult Function(DateTime runDateTime, double startingLat,
+            double startingLng, String userId)?
+        clientWantsToLogARun,
+    TResult Function(
+            DateTime loggingTime, double lat, double lng, String runId)?
+        clientWantsToLogNewCoordinates,
+    TResult Function(String userId)? clientWantsToSeeAProgressOfAllRuns,
+    TResult Function(String runId, int userId)? clientWantsToSeeFullInfoOfRun,
+    required TResult orElse(),
+  }) {
+    if (clientWantsToSeeFullInfoOfRun != null) {
+      return clientWantsToSeeFullInfoOfRun(runId, userId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ClientWantsToAuthenticateWithJwt value)
+        clientWantsToAuthenticateWithJwt,
+    required TResult Function(ClientWantsToRegister value)
+        clientWantsToRegister,
+    required TResult Function(ClientWantsToLogIn value) clientWantsToLogIn,
+    required TResult Function(ClientWantsToDeleteARun value)
+        clientWantsToDeleteARun,
+    required TResult Function(ClientWantsToSeeAllSavedRuns value)
+        clientWantsToSeeAllSavedRuns,
+    required TResult Function(ClientWantsToSaveARun value)
+        clientWantsToSaveARun,
+    required TResult Function(ClientWantsToStopARun value)
+        clientWantsToStopARun,
+    required TResult Function(ClientWantsToLogARun value) clientWantsToLogARun,
+    required TResult Function(ClientWantsToLogNewCoordinates value)
+        clientWantsToLogNewCoordinates,
+    required TResult Function(ClientWantsToSeeAProgressOfAllRuns value)
+        clientWantsToSeeAProgressOfAllRuns,
+    required TResult Function(ClientWantsToSeeFullInfoOfRun value)
+        clientWantsToSeeFullInfoOfRun,
+  }) {
+    return clientWantsToSeeFullInfoOfRun(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ClientWantsToAuthenticateWithJwt value)?
+        clientWantsToAuthenticateWithJwt,
+    TResult? Function(ClientWantsToRegister value)? clientWantsToRegister,
+    TResult? Function(ClientWantsToLogIn value)? clientWantsToLogIn,
+    TResult? Function(ClientWantsToDeleteARun value)? clientWantsToDeleteARun,
+    TResult? Function(ClientWantsToSeeAllSavedRuns value)?
+        clientWantsToSeeAllSavedRuns,
+    TResult? Function(ClientWantsToSaveARun value)? clientWantsToSaveARun,
+    TResult? Function(ClientWantsToStopARun value)? clientWantsToStopARun,
+    TResult? Function(ClientWantsToLogARun value)? clientWantsToLogARun,
+    TResult? Function(ClientWantsToLogNewCoordinates value)?
+        clientWantsToLogNewCoordinates,
+    TResult? Function(ClientWantsToSeeAProgressOfAllRuns value)?
+        clientWantsToSeeAProgressOfAllRuns,
+    TResult? Function(ClientWantsToSeeFullInfoOfRun value)?
+        clientWantsToSeeFullInfoOfRun,
+  }) {
+    return clientWantsToSeeFullInfoOfRun?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ClientWantsToAuthenticateWithJwt value)?
+        clientWantsToAuthenticateWithJwt,
+    TResult Function(ClientWantsToRegister value)? clientWantsToRegister,
+    TResult Function(ClientWantsToLogIn value)? clientWantsToLogIn,
+    TResult Function(ClientWantsToDeleteARun value)? clientWantsToDeleteARun,
+    TResult Function(ClientWantsToSeeAllSavedRuns value)?
+        clientWantsToSeeAllSavedRuns,
+    TResult Function(ClientWantsToSaveARun value)? clientWantsToSaveARun,
+    TResult Function(ClientWantsToStopARun value)? clientWantsToStopARun,
+    TResult Function(ClientWantsToLogARun value)? clientWantsToLogARun,
+    TResult Function(ClientWantsToLogNewCoordinates value)?
+        clientWantsToLogNewCoordinates,
+    TResult Function(ClientWantsToSeeAProgressOfAllRuns value)?
+        clientWantsToSeeAProgressOfAllRuns,
+    TResult Function(ClientWantsToSeeFullInfoOfRun value)?
+        clientWantsToSeeFullInfoOfRun,
+    required TResult orElse(),
+  }) {
+    if (clientWantsToSeeFullInfoOfRun != null) {
+      return clientWantsToSeeFullInfoOfRun(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$ClientWantsToSeeFullInfoOfRunImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class ClientWantsToSeeFullInfoOfRun implements ClientEvent {
+  factory ClientWantsToSeeFullInfoOfRun(
+      {required final String runId,
+      required final int userId}) = _$ClientWantsToSeeFullInfoOfRunImpl;
+
+  factory ClientWantsToSeeFullInfoOfRun.fromJson(Map<String, dynamic> json) =
+      _$ClientWantsToSeeFullInfoOfRunImpl.fromJson;
+
+  String get runId;
+  int get userId;
+  @JsonKey(ignore: true)
+  _$$ClientWantsToSeeFullInfoOfRunImplCopyWith<
+          _$ClientWantsToSeeFullInfoOfRunImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
 ServerEvent _$ServerEventFromJson(Map<String, dynamic> json) {
   switch (json['eventType']) {
     case 'ServerSendsBackJwt':
@@ -3046,6 +3442,8 @@ ServerEvent _$ServerEventFromJson(Map<String, dynamic> json) {
       return ServerConfirmsLogin.fromJson(json);
     case 'ServerDeniesLogin':
       return ServerDeniesLogin.fromJson(json);
+    case 'ServerSendsBackFullRunInfo':
+      return ServerSendsBackFullRunInfo.fromJson(json);
 
     default:
       throw CheckedFromJsonException(json, 'eventType', 'ServerEvent',
@@ -3073,6 +3471,8 @@ mixin _$ServerEvent {
     required TResult Function(String message, Object token, int userId)
         serverConfirmsLogin,
     required TResult Function(String message) serverDeniesLogin,
+    required TResult Function(RunInfoWithMap runInfoWithMap)
+        serverSendsBackFullRunInfo,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -3091,6 +3491,8 @@ mixin _$ServerEvent {
     TResult? Function(String message, Object token, int userId)?
         serverConfirmsLogin,
     TResult? Function(String message)? serverDeniesLogin,
+    TResult? Function(RunInfoWithMap runInfoWithMap)?
+        serverSendsBackFullRunInfo,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -3109,6 +3511,7 @@ mixin _$ServerEvent {
     TResult Function(String message, Object token, int userId)?
         serverConfirmsLogin,
     TResult Function(String message)? serverDeniesLogin,
+    TResult Function(RunInfoWithMap runInfoWithMap)? serverSendsBackFullRunInfo,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -3129,6 +3532,8 @@ mixin _$ServerEvent {
         serverSendsBackRunWithMap,
     required TResult Function(ServerConfirmsLogin value) serverConfirmsLogin,
     required TResult Function(ServerDeniesLogin value) serverDeniesLogin,
+    required TResult Function(ServerSendsBackFullRunInfo value)
+        serverSendsBackFullRunInfo,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -3148,6 +3553,8 @@ mixin _$ServerEvent {
         serverSendsBackRunWithMap,
     TResult? Function(ServerConfirmsLogin value)? serverConfirmsLogin,
     TResult? Function(ServerDeniesLogin value)? serverDeniesLogin,
+    TResult? Function(ServerSendsBackFullRunInfo value)?
+        serverSendsBackFullRunInfo,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -3167,6 +3574,8 @@ mixin _$ServerEvent {
         serverSendsBackRunWithMap,
     TResult Function(ServerConfirmsLogin value)? serverConfirmsLogin,
     TResult Function(ServerDeniesLogin value)? serverDeniesLogin,
+    TResult Function(ServerSendsBackFullRunInfo value)?
+        serverSendsBackFullRunInfo,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -3290,6 +3699,8 @@ class _$ServerSendsBackJwtImpl
     required TResult Function(String message, Object token, int userId)
         serverConfirmsLogin,
     required TResult Function(String message) serverDeniesLogin,
+    required TResult Function(RunInfoWithMap runInfoWithMap)
+        serverSendsBackFullRunInfo,
   }) {
     return serverSendsBackJwt(jwt);
   }
@@ -3311,6 +3722,8 @@ class _$ServerSendsBackJwtImpl
     TResult? Function(String message, Object token, int userId)?
         serverConfirmsLogin,
     TResult? Function(String message)? serverDeniesLogin,
+    TResult? Function(RunInfoWithMap runInfoWithMap)?
+        serverSendsBackFullRunInfo,
   }) {
     return serverSendsBackJwt?.call(jwt);
   }
@@ -3332,6 +3745,7 @@ class _$ServerSendsBackJwtImpl
     TResult Function(String message, Object token, int userId)?
         serverConfirmsLogin,
     TResult Function(String message)? serverDeniesLogin,
+    TResult Function(RunInfoWithMap runInfoWithMap)? serverSendsBackFullRunInfo,
     required TResult orElse(),
   }) {
     if (serverSendsBackJwt != null) {
@@ -3358,6 +3772,8 @@ class _$ServerSendsBackJwtImpl
         serverSendsBackRunWithMap,
     required TResult Function(ServerConfirmsLogin value) serverConfirmsLogin,
     required TResult Function(ServerDeniesLogin value) serverDeniesLogin,
+    required TResult Function(ServerSendsBackFullRunInfo value)
+        serverSendsBackFullRunInfo,
   }) {
     return serverSendsBackJwt(this);
   }
@@ -3380,6 +3796,8 @@ class _$ServerSendsBackJwtImpl
         serverSendsBackRunWithMap,
     TResult? Function(ServerConfirmsLogin value)? serverConfirmsLogin,
     TResult? Function(ServerDeniesLogin value)? serverDeniesLogin,
+    TResult? Function(ServerSendsBackFullRunInfo value)?
+        serverSendsBackFullRunInfo,
   }) {
     return serverSendsBackJwt?.call(this);
   }
@@ -3402,6 +3820,8 @@ class _$ServerSendsBackJwtImpl
         serverSendsBackRunWithMap,
     TResult Function(ServerConfirmsLogin value)? serverConfirmsLogin,
     TResult Function(ServerDeniesLogin value)? serverDeniesLogin,
+    TResult Function(ServerSendsBackFullRunInfo value)?
+        serverSendsBackFullRunInfo,
     required TResult orElse(),
   }) {
     if (serverSendsBackJwt != null) {
@@ -3555,6 +3975,8 @@ class _$ServerSendsBackRunImpl
     required TResult Function(String message, Object token, int userId)
         serverConfirmsLogin,
     required TResult Function(String message) serverDeniesLogin,
+    required TResult Function(RunInfoWithMap runInfoWithMap)
+        serverSendsBackFullRunInfo,
   }) {
     return serverSendsBackRun(runDateTime, runDistance, runTime);
   }
@@ -3576,6 +3998,8 @@ class _$ServerSendsBackRunImpl
     TResult? Function(String message, Object token, int userId)?
         serverConfirmsLogin,
     TResult? Function(String message)? serverDeniesLogin,
+    TResult? Function(RunInfoWithMap runInfoWithMap)?
+        serverSendsBackFullRunInfo,
   }) {
     return serverSendsBackRun?.call(runDateTime, runDistance, runTime);
   }
@@ -3597,6 +4021,7 @@ class _$ServerSendsBackRunImpl
     TResult Function(String message, Object token, int userId)?
         serverConfirmsLogin,
     TResult Function(String message)? serverDeniesLogin,
+    TResult Function(RunInfoWithMap runInfoWithMap)? serverSendsBackFullRunInfo,
     required TResult orElse(),
   }) {
     if (serverSendsBackRun != null) {
@@ -3623,6 +4048,8 @@ class _$ServerSendsBackRunImpl
         serverSendsBackRunWithMap,
     required TResult Function(ServerConfirmsLogin value) serverConfirmsLogin,
     required TResult Function(ServerDeniesLogin value) serverDeniesLogin,
+    required TResult Function(ServerSendsBackFullRunInfo value)
+        serverSendsBackFullRunInfo,
   }) {
     return serverSendsBackRun(this);
   }
@@ -3645,6 +4072,8 @@ class _$ServerSendsBackRunImpl
         serverSendsBackRunWithMap,
     TResult? Function(ServerConfirmsLogin value)? serverConfirmsLogin,
     TResult? Function(ServerDeniesLogin value)? serverDeniesLogin,
+    TResult? Function(ServerSendsBackFullRunInfo value)?
+        serverSendsBackFullRunInfo,
   }) {
     return serverSendsBackRun?.call(this);
   }
@@ -3667,6 +4096,8 @@ class _$ServerSendsBackRunImpl
         serverSendsBackRunWithMap,
     TResult Function(ServerConfirmsLogin value)? serverConfirmsLogin,
     TResult Function(ServerDeniesLogin value)? serverDeniesLogin,
+    TResult Function(ServerSendsBackFullRunInfo value)?
+        serverSendsBackFullRunInfo,
     required TResult orElse(),
   }) {
     if (serverSendsBackRun != null) {
@@ -3811,6 +4242,8 @@ class _$ServerSendsBackAllSavedRunsImpl
     required TResult Function(String message, Object token, int userId)
         serverConfirmsLogin,
     required TResult Function(String message) serverDeniesLogin,
+    required TResult Function(RunInfoWithMap runInfoWithMap)
+        serverSendsBackFullRunInfo,
   }) {
     return serverSendsBackAllSavedRuns(runs);
   }
@@ -3832,6 +4265,8 @@ class _$ServerSendsBackAllSavedRunsImpl
     TResult? Function(String message, Object token, int userId)?
         serverConfirmsLogin,
     TResult? Function(String message)? serverDeniesLogin,
+    TResult? Function(RunInfoWithMap runInfoWithMap)?
+        serverSendsBackFullRunInfo,
   }) {
     return serverSendsBackAllSavedRuns?.call(runs);
   }
@@ -3853,6 +4288,7 @@ class _$ServerSendsBackAllSavedRunsImpl
     TResult Function(String message, Object token, int userId)?
         serverConfirmsLogin,
     TResult Function(String message)? serverDeniesLogin,
+    TResult Function(RunInfoWithMap runInfoWithMap)? serverSendsBackFullRunInfo,
     required TResult orElse(),
   }) {
     if (serverSendsBackAllSavedRuns != null) {
@@ -3879,6 +4315,8 @@ class _$ServerSendsBackAllSavedRunsImpl
         serverSendsBackRunWithMap,
     required TResult Function(ServerConfirmsLogin value) serverConfirmsLogin,
     required TResult Function(ServerDeniesLogin value) serverDeniesLogin,
+    required TResult Function(ServerSendsBackFullRunInfo value)
+        serverSendsBackFullRunInfo,
   }) {
     return serverSendsBackAllSavedRuns(this);
   }
@@ -3901,6 +4339,8 @@ class _$ServerSendsBackAllSavedRunsImpl
         serverSendsBackRunWithMap,
     TResult? Function(ServerConfirmsLogin value)? serverConfirmsLogin,
     TResult? Function(ServerDeniesLogin value)? serverDeniesLogin,
+    TResult? Function(ServerSendsBackFullRunInfo value)?
+        serverSendsBackFullRunInfo,
   }) {
     return serverSendsBackAllSavedRuns?.call(this);
   }
@@ -3923,6 +4363,8 @@ class _$ServerSendsBackAllSavedRunsImpl
         serverSendsBackRunWithMap,
     TResult Function(ServerConfirmsLogin value)? serverConfirmsLogin,
     TResult Function(ServerDeniesLogin value)? serverDeniesLogin,
+    TResult Function(ServerSendsBackFullRunInfo value)?
+        serverSendsBackFullRunInfo,
     required TResult orElse(),
   }) {
     if (serverSendsBackAllSavedRuns != null) {
@@ -4064,6 +4506,8 @@ class _$ServerSendsBackAllProgressImpl
     required TResult Function(String message, Object token, int userId)
         serverConfirmsLogin,
     required TResult Function(String message) serverDeniesLogin,
+    required TResult Function(RunInfoWithMap runInfoWithMap)
+        serverSendsBackFullRunInfo,
   }) {
     return serverSendsBackAllProgress(progressInfo);
   }
@@ -4085,6 +4529,8 @@ class _$ServerSendsBackAllProgressImpl
     TResult? Function(String message, Object token, int userId)?
         serverConfirmsLogin,
     TResult? Function(String message)? serverDeniesLogin,
+    TResult? Function(RunInfoWithMap runInfoWithMap)?
+        serverSendsBackFullRunInfo,
   }) {
     return serverSendsBackAllProgress?.call(progressInfo);
   }
@@ -4106,6 +4552,7 @@ class _$ServerSendsBackAllProgressImpl
     TResult Function(String message, Object token, int userId)?
         serverConfirmsLogin,
     TResult Function(String message)? serverDeniesLogin,
+    TResult Function(RunInfoWithMap runInfoWithMap)? serverSendsBackFullRunInfo,
     required TResult orElse(),
   }) {
     if (serverSendsBackAllProgress != null) {
@@ -4132,6 +4579,8 @@ class _$ServerSendsBackAllProgressImpl
         serverSendsBackRunWithMap,
     required TResult Function(ServerConfirmsLogin value) serverConfirmsLogin,
     required TResult Function(ServerDeniesLogin value) serverDeniesLogin,
+    required TResult Function(ServerSendsBackFullRunInfo value)
+        serverSendsBackFullRunInfo,
   }) {
     return serverSendsBackAllProgress(this);
   }
@@ -4154,6 +4603,8 @@ class _$ServerSendsBackAllProgressImpl
         serverSendsBackRunWithMap,
     TResult? Function(ServerConfirmsLogin value)? serverConfirmsLogin,
     TResult? Function(ServerDeniesLogin value)? serverDeniesLogin,
+    TResult? Function(ServerSendsBackFullRunInfo value)?
+        serverSendsBackFullRunInfo,
   }) {
     return serverSendsBackAllProgress?.call(this);
   }
@@ -4176,6 +4627,8 @@ class _$ServerSendsBackAllProgressImpl
         serverSendsBackRunWithMap,
     TResult Function(ServerConfirmsLogin value)? serverConfirmsLogin,
     TResult Function(ServerDeniesLogin value)? serverDeniesLogin,
+    TResult Function(ServerSendsBackFullRunInfo value)?
+        serverSendsBackFullRunInfo,
     required TResult orElse(),
   }) {
     if (serverSendsBackAllProgress != null) {
@@ -4311,6 +4764,8 @@ class _$ServerConfirmsDeletionOfRunImpl
     required TResult Function(String message, Object token, int userId)
         serverConfirmsLogin,
     required TResult Function(String message) serverDeniesLogin,
+    required TResult Function(RunInfoWithMap runInfoWithMap)
+        serverSendsBackFullRunInfo,
   }) {
     return serverConfirmsDeletionOfRun(runDeleted);
   }
@@ -4332,6 +4787,8 @@ class _$ServerConfirmsDeletionOfRunImpl
     TResult? Function(String message, Object token, int userId)?
         serverConfirmsLogin,
     TResult? Function(String message)? serverDeniesLogin,
+    TResult? Function(RunInfoWithMap runInfoWithMap)?
+        serverSendsBackFullRunInfo,
   }) {
     return serverConfirmsDeletionOfRun?.call(runDeleted);
   }
@@ -4353,6 +4810,7 @@ class _$ServerConfirmsDeletionOfRunImpl
     TResult Function(String message, Object token, int userId)?
         serverConfirmsLogin,
     TResult Function(String message)? serverDeniesLogin,
+    TResult Function(RunInfoWithMap runInfoWithMap)? serverSendsBackFullRunInfo,
     required TResult orElse(),
   }) {
     if (serverConfirmsDeletionOfRun != null) {
@@ -4379,6 +4837,8 @@ class _$ServerConfirmsDeletionOfRunImpl
         serverSendsBackRunWithMap,
     required TResult Function(ServerConfirmsLogin value) serverConfirmsLogin,
     required TResult Function(ServerDeniesLogin value) serverDeniesLogin,
+    required TResult Function(ServerSendsBackFullRunInfo value)
+        serverSendsBackFullRunInfo,
   }) {
     return serverConfirmsDeletionOfRun(this);
   }
@@ -4401,6 +4861,8 @@ class _$ServerConfirmsDeletionOfRunImpl
         serverSendsBackRunWithMap,
     TResult? Function(ServerConfirmsLogin value)? serverConfirmsLogin,
     TResult? Function(ServerDeniesLogin value)? serverDeniesLogin,
+    TResult? Function(ServerSendsBackFullRunInfo value)?
+        serverSendsBackFullRunInfo,
   }) {
     return serverConfirmsDeletionOfRun?.call(this);
   }
@@ -4423,6 +4885,8 @@ class _$ServerConfirmsDeletionOfRunImpl
         serverSendsBackRunWithMap,
     TResult Function(ServerConfirmsLogin value)? serverConfirmsLogin,
     TResult Function(ServerDeniesLogin value)? serverDeniesLogin,
+    TResult Function(ServerSendsBackFullRunInfo value)?
+        serverSendsBackFullRunInfo,
     required TResult orElse(),
   }) {
     if (serverConfirmsDeletionOfRun != null) {
@@ -4552,6 +5016,8 @@ class _$ServerSendsBackRunIdImpl
     required TResult Function(String message, Object token, int userId)
         serverConfirmsLogin,
     required TResult Function(String message) serverDeniesLogin,
+    required TResult Function(RunInfoWithMap runInfoWithMap)
+        serverSendsBackFullRunInfo,
   }) {
     return serverSendsBackRunId(runId);
   }
@@ -4573,6 +5039,8 @@ class _$ServerSendsBackRunIdImpl
     TResult? Function(String message, Object token, int userId)?
         serverConfirmsLogin,
     TResult? Function(String message)? serverDeniesLogin,
+    TResult? Function(RunInfoWithMap runInfoWithMap)?
+        serverSendsBackFullRunInfo,
   }) {
     return serverSendsBackRunId?.call(runId);
   }
@@ -4594,6 +5062,7 @@ class _$ServerSendsBackRunIdImpl
     TResult Function(String message, Object token, int userId)?
         serverConfirmsLogin,
     TResult Function(String message)? serverDeniesLogin,
+    TResult Function(RunInfoWithMap runInfoWithMap)? serverSendsBackFullRunInfo,
     required TResult orElse(),
   }) {
     if (serverSendsBackRunId != null) {
@@ -4620,6 +5089,8 @@ class _$ServerSendsBackRunIdImpl
         serverSendsBackRunWithMap,
     required TResult Function(ServerConfirmsLogin value) serverConfirmsLogin,
     required TResult Function(ServerDeniesLogin value) serverDeniesLogin,
+    required TResult Function(ServerSendsBackFullRunInfo value)
+        serverSendsBackFullRunInfo,
   }) {
     return serverSendsBackRunId(this);
   }
@@ -4642,6 +5113,8 @@ class _$ServerSendsBackRunIdImpl
         serverSendsBackRunWithMap,
     TResult? Function(ServerConfirmsLogin value)? serverConfirmsLogin,
     TResult? Function(ServerDeniesLogin value)? serverDeniesLogin,
+    TResult? Function(ServerSendsBackFullRunInfo value)?
+        serverSendsBackFullRunInfo,
   }) {
     return serverSendsBackRunId?.call(this);
   }
@@ -4664,6 +5137,8 @@ class _$ServerSendsBackRunIdImpl
         serverSendsBackRunWithMap,
     TResult Function(ServerConfirmsLogin value)? serverConfirmsLogin,
     TResult Function(ServerDeniesLogin value)? serverDeniesLogin,
+    TResult Function(ServerSendsBackFullRunInfo value)?
+        serverSendsBackFullRunInfo,
     required TResult orElse(),
   }) {
     if (serverSendsBackRunId != null) {
@@ -4806,6 +5281,8 @@ class _$ServerConfirmsRegistrationImpl
     required TResult Function(String message, Object token, int userId)
         serverConfirmsLogin,
     required TResult Function(String message) serverDeniesLogin,
+    required TResult Function(RunInfoWithMap runInfoWithMap)
+        serverSendsBackFullRunInfo,
   }) {
     return serverConfirmsRegistration(message, userId);
   }
@@ -4827,6 +5304,8 @@ class _$ServerConfirmsRegistrationImpl
     TResult? Function(String message, Object token, int userId)?
         serverConfirmsLogin,
     TResult? Function(String message)? serverDeniesLogin,
+    TResult? Function(RunInfoWithMap runInfoWithMap)?
+        serverSendsBackFullRunInfo,
   }) {
     return serverConfirmsRegistration?.call(message, userId);
   }
@@ -4848,6 +5327,7 @@ class _$ServerConfirmsRegistrationImpl
     TResult Function(String message, Object token, int userId)?
         serverConfirmsLogin,
     TResult Function(String message)? serverDeniesLogin,
+    TResult Function(RunInfoWithMap runInfoWithMap)? serverSendsBackFullRunInfo,
     required TResult orElse(),
   }) {
     if (serverConfirmsRegistration != null) {
@@ -4874,6 +5354,8 @@ class _$ServerConfirmsRegistrationImpl
         serverSendsBackRunWithMap,
     required TResult Function(ServerConfirmsLogin value) serverConfirmsLogin,
     required TResult Function(ServerDeniesLogin value) serverDeniesLogin,
+    required TResult Function(ServerSendsBackFullRunInfo value)
+        serverSendsBackFullRunInfo,
   }) {
     return serverConfirmsRegistration(this);
   }
@@ -4896,6 +5378,8 @@ class _$ServerConfirmsRegistrationImpl
         serverSendsBackRunWithMap,
     TResult? Function(ServerConfirmsLogin value)? serverConfirmsLogin,
     TResult? Function(ServerDeniesLogin value)? serverDeniesLogin,
+    TResult? Function(ServerSendsBackFullRunInfo value)?
+        serverSendsBackFullRunInfo,
   }) {
     return serverConfirmsRegistration?.call(this);
   }
@@ -4918,6 +5402,8 @@ class _$ServerConfirmsRegistrationImpl
         serverSendsBackRunWithMap,
     TResult Function(ServerConfirmsLogin value)? serverConfirmsLogin,
     TResult Function(ServerDeniesLogin value)? serverDeniesLogin,
+    TResult Function(ServerSendsBackFullRunInfo value)?
+        serverSendsBackFullRunInfo,
     required TResult orElse(),
   }) {
     if (serverConfirmsRegistration != null) {
@@ -5064,6 +5550,8 @@ class _$ServerSendsBackRunWithMapImpl
     required TResult Function(String message, Object token, int userId)
         serverConfirmsLogin,
     required TResult Function(String message) serverDeniesLogin,
+    required TResult Function(RunInfoWithMap runInfoWithMap)
+        serverSendsBackFullRunInfo,
   }) {
     return serverSendsBackRunWithMap(message, runInfoWithMap);
   }
@@ -5085,6 +5573,8 @@ class _$ServerSendsBackRunWithMapImpl
     TResult? Function(String message, Object token, int userId)?
         serverConfirmsLogin,
     TResult? Function(String message)? serverDeniesLogin,
+    TResult? Function(RunInfoWithMap runInfoWithMap)?
+        serverSendsBackFullRunInfo,
   }) {
     return serverSendsBackRunWithMap?.call(message, runInfoWithMap);
   }
@@ -5106,6 +5596,7 @@ class _$ServerSendsBackRunWithMapImpl
     TResult Function(String message, Object token, int userId)?
         serverConfirmsLogin,
     TResult Function(String message)? serverDeniesLogin,
+    TResult Function(RunInfoWithMap runInfoWithMap)? serverSendsBackFullRunInfo,
     required TResult orElse(),
   }) {
     if (serverSendsBackRunWithMap != null) {
@@ -5132,6 +5623,8 @@ class _$ServerSendsBackRunWithMapImpl
         serverSendsBackRunWithMap,
     required TResult Function(ServerConfirmsLogin value) serverConfirmsLogin,
     required TResult Function(ServerDeniesLogin value) serverDeniesLogin,
+    required TResult Function(ServerSendsBackFullRunInfo value)
+        serverSendsBackFullRunInfo,
   }) {
     return serverSendsBackRunWithMap(this);
   }
@@ -5154,6 +5647,8 @@ class _$ServerSendsBackRunWithMapImpl
         serverSendsBackRunWithMap,
     TResult? Function(ServerConfirmsLogin value)? serverConfirmsLogin,
     TResult? Function(ServerDeniesLogin value)? serverDeniesLogin,
+    TResult? Function(ServerSendsBackFullRunInfo value)?
+        serverSendsBackFullRunInfo,
   }) {
     return serverSendsBackRunWithMap?.call(this);
   }
@@ -5176,6 +5671,8 @@ class _$ServerSendsBackRunWithMapImpl
         serverSendsBackRunWithMap,
     TResult Function(ServerConfirmsLogin value)? serverConfirmsLogin,
     TResult Function(ServerDeniesLogin value)? serverDeniesLogin,
+    TResult Function(ServerSendsBackFullRunInfo value)?
+        serverSendsBackFullRunInfo,
     required TResult orElse(),
   }) {
     if (serverSendsBackRunWithMap != null) {
@@ -5327,6 +5824,8 @@ class _$ServerConfirmsLoginImpl
     required TResult Function(String message, Object token, int userId)
         serverConfirmsLogin,
     required TResult Function(String message) serverDeniesLogin,
+    required TResult Function(RunInfoWithMap runInfoWithMap)
+        serverSendsBackFullRunInfo,
   }) {
     return serverConfirmsLogin(message, token, userId);
   }
@@ -5348,6 +5847,8 @@ class _$ServerConfirmsLoginImpl
     TResult? Function(String message, Object token, int userId)?
         serverConfirmsLogin,
     TResult? Function(String message)? serverDeniesLogin,
+    TResult? Function(RunInfoWithMap runInfoWithMap)?
+        serverSendsBackFullRunInfo,
   }) {
     return serverConfirmsLogin?.call(message, token, userId);
   }
@@ -5369,6 +5870,7 @@ class _$ServerConfirmsLoginImpl
     TResult Function(String message, Object token, int userId)?
         serverConfirmsLogin,
     TResult Function(String message)? serverDeniesLogin,
+    TResult Function(RunInfoWithMap runInfoWithMap)? serverSendsBackFullRunInfo,
     required TResult orElse(),
   }) {
     if (serverConfirmsLogin != null) {
@@ -5395,6 +5897,8 @@ class _$ServerConfirmsLoginImpl
         serverSendsBackRunWithMap,
     required TResult Function(ServerConfirmsLogin value) serverConfirmsLogin,
     required TResult Function(ServerDeniesLogin value) serverDeniesLogin,
+    required TResult Function(ServerSendsBackFullRunInfo value)
+        serverSendsBackFullRunInfo,
   }) {
     return serverConfirmsLogin(this);
   }
@@ -5417,6 +5921,8 @@ class _$ServerConfirmsLoginImpl
         serverSendsBackRunWithMap,
     TResult? Function(ServerConfirmsLogin value)? serverConfirmsLogin,
     TResult? Function(ServerDeniesLogin value)? serverDeniesLogin,
+    TResult? Function(ServerSendsBackFullRunInfo value)?
+        serverSendsBackFullRunInfo,
   }) {
     return serverConfirmsLogin?.call(this);
   }
@@ -5439,6 +5945,8 @@ class _$ServerConfirmsLoginImpl
         serverSendsBackRunWithMap,
     TResult Function(ServerConfirmsLogin value)? serverConfirmsLogin,
     TResult Function(ServerDeniesLogin value)? serverDeniesLogin,
+    TResult Function(ServerSendsBackFullRunInfo value)?
+        serverSendsBackFullRunInfo,
     required TResult orElse(),
   }) {
     if (serverConfirmsLogin != null) {
@@ -5571,6 +6079,8 @@ class _$ServerDeniesLoginImpl
     required TResult Function(String message, Object token, int userId)
         serverConfirmsLogin,
     required TResult Function(String message) serverDeniesLogin,
+    required TResult Function(RunInfoWithMap runInfoWithMap)
+        serverSendsBackFullRunInfo,
   }) {
     return serverDeniesLogin(message);
   }
@@ -5592,6 +6102,8 @@ class _$ServerDeniesLoginImpl
     TResult? Function(String message, Object token, int userId)?
         serverConfirmsLogin,
     TResult? Function(String message)? serverDeniesLogin,
+    TResult? Function(RunInfoWithMap runInfoWithMap)?
+        serverSendsBackFullRunInfo,
   }) {
     return serverDeniesLogin?.call(message);
   }
@@ -5613,6 +6125,7 @@ class _$ServerDeniesLoginImpl
     TResult Function(String message, Object token, int userId)?
         serverConfirmsLogin,
     TResult Function(String message)? serverDeniesLogin,
+    TResult Function(RunInfoWithMap runInfoWithMap)? serverSendsBackFullRunInfo,
     required TResult orElse(),
   }) {
     if (serverDeniesLogin != null) {
@@ -5639,6 +6152,8 @@ class _$ServerDeniesLoginImpl
         serverSendsBackRunWithMap,
     required TResult Function(ServerConfirmsLogin value) serverConfirmsLogin,
     required TResult Function(ServerDeniesLogin value) serverDeniesLogin,
+    required TResult Function(ServerSendsBackFullRunInfo value)
+        serverSendsBackFullRunInfo,
   }) {
     return serverDeniesLogin(this);
   }
@@ -5661,6 +6176,8 @@ class _$ServerDeniesLoginImpl
         serverSendsBackRunWithMap,
     TResult? Function(ServerConfirmsLogin value)? serverConfirmsLogin,
     TResult? Function(ServerDeniesLogin value)? serverDeniesLogin,
+    TResult? Function(ServerSendsBackFullRunInfo value)?
+        serverSendsBackFullRunInfo,
   }) {
     return serverDeniesLogin?.call(this);
   }
@@ -5683,6 +6200,8 @@ class _$ServerDeniesLoginImpl
         serverSendsBackRunWithMap,
     TResult Function(ServerConfirmsLogin value)? serverConfirmsLogin,
     TResult Function(ServerDeniesLogin value)? serverDeniesLogin,
+    TResult Function(ServerSendsBackFullRunInfo value)?
+        serverSendsBackFullRunInfo,
     required TResult orElse(),
   }) {
     if (serverDeniesLogin != null) {
@@ -5710,4 +6229,262 @@ abstract class ServerDeniesLogin implements ServerEvent {
   @JsonKey(ignore: true)
   _$$ServerDeniesLoginImplCopyWith<_$ServerDeniesLoginImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ServerSendsBackFullRunInfoImplCopyWith<$Res> {
+  factory _$$ServerSendsBackFullRunInfoImplCopyWith(
+          _$ServerSendsBackFullRunInfoImpl value,
+          $Res Function(_$ServerSendsBackFullRunInfoImpl) then) =
+      __$$ServerSendsBackFullRunInfoImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({RunInfoWithMap runInfoWithMap});
+}
+
+/// @nodoc
+class __$$ServerSendsBackFullRunInfoImplCopyWithImpl<$Res>
+    extends _$ServerEventCopyWithImpl<$Res, _$ServerSendsBackFullRunInfoImpl>
+    implements _$$ServerSendsBackFullRunInfoImplCopyWith<$Res> {
+  __$$ServerSendsBackFullRunInfoImplCopyWithImpl(
+      _$ServerSendsBackFullRunInfoImpl _value,
+      $Res Function(_$ServerSendsBackFullRunInfoImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? runInfoWithMap = null,
+  }) {
+    return _then(_$ServerSendsBackFullRunInfoImpl(
+      runInfoWithMap: null == runInfoWithMap
+          ? _value.runInfoWithMap
+          : runInfoWithMap // ignore: cast_nullable_to_non_nullable
+              as RunInfoWithMap,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$ServerSendsBackFullRunInfoImpl
+    with DiagnosticableTreeMixin
+    implements ServerSendsBackFullRunInfo {
+  _$ServerSendsBackFullRunInfoImpl(
+      {required this.runInfoWithMap, final String? $type})
+      : $type = $type ?? 'ServerSendsBackFullRunInfo';
+
+  factory _$ServerSendsBackFullRunInfoImpl.fromJson(
+          Map<String, dynamic> json) =>
+      _$$ServerSendsBackFullRunInfoImplFromJson(json);
+
+  @override
+  final RunInfoWithMap runInfoWithMap;
+
+  @JsonKey(name: 'eventType')
+  final String $type;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'ServerEvent.serverSendsBackFullRunInfo(runInfoWithMap: $runInfoWithMap)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(
+          DiagnosticsProperty('type', 'ServerEvent.serverSendsBackFullRunInfo'))
+      ..add(DiagnosticsProperty('runInfoWithMap', runInfoWithMap));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ServerSendsBackFullRunInfoImpl &&
+            (identical(other.runInfoWithMap, runInfoWithMap) ||
+                other.runInfoWithMap == runInfoWithMap));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, runInfoWithMap);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ServerSendsBackFullRunInfoImplCopyWith<_$ServerSendsBackFullRunInfoImpl>
+      get copyWith => __$$ServerSendsBackFullRunInfoImplCopyWithImpl<
+          _$ServerSendsBackFullRunInfoImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String jwt) serverSendsBackJwt,
+    required TResult Function(
+            DateTime runDateTime, double runDistance, String runTime)
+        serverSendsBackRun,
+    required TResult Function(List<Run> runs) serverSendsBackAllSavedRuns,
+    required TResult Function(List<ProgressInfo> progressInfo)
+        serverSendsBackAllProgress,
+    required TResult Function(String runDeleted) serverConfirmsDeletionOfRun,
+    required TResult Function(String runId) serverSendsBackRunId,
+    required TResult Function(String message, int userId)
+        serverConfirmsRegistration,
+    required TResult Function(String message, RunInfoWithMap runInfoWithMap)
+        serverSendsBackRunWithMap,
+    required TResult Function(String message, Object token, int userId)
+        serverConfirmsLogin,
+    required TResult Function(String message) serverDeniesLogin,
+    required TResult Function(RunInfoWithMap runInfoWithMap)
+        serverSendsBackFullRunInfo,
+  }) {
+    return serverSendsBackFullRunInfo(runInfoWithMap);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String jwt)? serverSendsBackJwt,
+    TResult? Function(DateTime runDateTime, double runDistance, String runTime)?
+        serverSendsBackRun,
+    TResult? Function(List<Run> runs)? serverSendsBackAllSavedRuns,
+    TResult? Function(List<ProgressInfo> progressInfo)?
+        serverSendsBackAllProgress,
+    TResult? Function(String runDeleted)? serverConfirmsDeletionOfRun,
+    TResult? Function(String runId)? serverSendsBackRunId,
+    TResult? Function(String message, int userId)? serverConfirmsRegistration,
+    TResult? Function(String message, RunInfoWithMap runInfoWithMap)?
+        serverSendsBackRunWithMap,
+    TResult? Function(String message, Object token, int userId)?
+        serverConfirmsLogin,
+    TResult? Function(String message)? serverDeniesLogin,
+    TResult? Function(RunInfoWithMap runInfoWithMap)?
+        serverSendsBackFullRunInfo,
+  }) {
+    return serverSendsBackFullRunInfo?.call(runInfoWithMap);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String jwt)? serverSendsBackJwt,
+    TResult Function(DateTime runDateTime, double runDistance, String runTime)?
+        serverSendsBackRun,
+    TResult Function(List<Run> runs)? serverSendsBackAllSavedRuns,
+    TResult Function(List<ProgressInfo> progressInfo)?
+        serverSendsBackAllProgress,
+    TResult Function(String runDeleted)? serverConfirmsDeletionOfRun,
+    TResult Function(String runId)? serverSendsBackRunId,
+    TResult Function(String message, int userId)? serverConfirmsRegistration,
+    TResult Function(String message, RunInfoWithMap runInfoWithMap)?
+        serverSendsBackRunWithMap,
+    TResult Function(String message, Object token, int userId)?
+        serverConfirmsLogin,
+    TResult Function(String message)? serverDeniesLogin,
+    TResult Function(RunInfoWithMap runInfoWithMap)? serverSendsBackFullRunInfo,
+    required TResult orElse(),
+  }) {
+    if (serverSendsBackFullRunInfo != null) {
+      return serverSendsBackFullRunInfo(runInfoWithMap);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ServerSendsBackJwt value) serverSendsBackJwt,
+    required TResult Function(ServerSendsBackRun value) serverSendsBackRun,
+    required TResult Function(ServerSendsBackAllSavedRuns value)
+        serverSendsBackAllSavedRuns,
+    required TResult Function(ServerSendsBackAllProgress value)
+        serverSendsBackAllProgress,
+    required TResult Function(ServerConfirmsDeletionOfRun value)
+        serverConfirmsDeletionOfRun,
+    required TResult Function(ServerSendsBackRunId value) serverSendsBackRunId,
+    required TResult Function(ServerConfirmsRegistration value)
+        serverConfirmsRegistration,
+    required TResult Function(ServerSendsBackRunWithMap value)
+        serverSendsBackRunWithMap,
+    required TResult Function(ServerConfirmsLogin value) serverConfirmsLogin,
+    required TResult Function(ServerDeniesLogin value) serverDeniesLogin,
+    required TResult Function(ServerSendsBackFullRunInfo value)
+        serverSendsBackFullRunInfo,
+  }) {
+    return serverSendsBackFullRunInfo(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ServerSendsBackJwt value)? serverSendsBackJwt,
+    TResult? Function(ServerSendsBackRun value)? serverSendsBackRun,
+    TResult? Function(ServerSendsBackAllSavedRuns value)?
+        serverSendsBackAllSavedRuns,
+    TResult? Function(ServerSendsBackAllProgress value)?
+        serverSendsBackAllProgress,
+    TResult? Function(ServerConfirmsDeletionOfRun value)?
+        serverConfirmsDeletionOfRun,
+    TResult? Function(ServerSendsBackRunId value)? serverSendsBackRunId,
+    TResult? Function(ServerConfirmsRegistration value)?
+        serverConfirmsRegistration,
+    TResult? Function(ServerSendsBackRunWithMap value)?
+        serverSendsBackRunWithMap,
+    TResult? Function(ServerConfirmsLogin value)? serverConfirmsLogin,
+    TResult? Function(ServerDeniesLogin value)? serverDeniesLogin,
+    TResult? Function(ServerSendsBackFullRunInfo value)?
+        serverSendsBackFullRunInfo,
+  }) {
+    return serverSendsBackFullRunInfo?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ServerSendsBackJwt value)? serverSendsBackJwt,
+    TResult Function(ServerSendsBackRun value)? serverSendsBackRun,
+    TResult Function(ServerSendsBackAllSavedRuns value)?
+        serverSendsBackAllSavedRuns,
+    TResult Function(ServerSendsBackAllProgress value)?
+        serverSendsBackAllProgress,
+    TResult Function(ServerConfirmsDeletionOfRun value)?
+        serverConfirmsDeletionOfRun,
+    TResult Function(ServerSendsBackRunId value)? serverSendsBackRunId,
+    TResult Function(ServerConfirmsRegistration value)?
+        serverConfirmsRegistration,
+    TResult Function(ServerSendsBackRunWithMap value)?
+        serverSendsBackRunWithMap,
+    TResult Function(ServerConfirmsLogin value)? serverConfirmsLogin,
+    TResult Function(ServerDeniesLogin value)? serverDeniesLogin,
+    TResult Function(ServerSendsBackFullRunInfo value)?
+        serverSendsBackFullRunInfo,
+    required TResult orElse(),
+  }) {
+    if (serverSendsBackFullRunInfo != null) {
+      return serverSendsBackFullRunInfo(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$ServerSendsBackFullRunInfoImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class ServerSendsBackFullRunInfo implements ServerEvent {
+  factory ServerSendsBackFullRunInfo(
+          {required final RunInfoWithMap runInfoWithMap}) =
+      _$ServerSendsBackFullRunInfoImpl;
+
+  factory ServerSendsBackFullRunInfo.fromJson(Map<String, dynamic> json) =
+      _$ServerSendsBackFullRunInfoImpl.fromJson;
+
+  RunInfoWithMap get runInfoWithMap;
+  @JsonKey(ignore: true)
+  _$$ServerSendsBackFullRunInfoImplCopyWith<_$ServerSendsBackFullRunInfoImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

@@ -68,6 +68,11 @@ sealed class ClientEvent with _$ClientEvent implements BaseEvent {
     required String userId,
   }) = ClientWantsToSeeAProgressOfAllRuns;
 
+  factory ClientEvent.clientWantsToSeeFullInfoOfRun({
+    required String runId,
+    required int userId,
+  }) = ClientWantsToSeeFullInfoOfRun;
+
   factory ClientEvent.fromJson(Map<String, dynamic> json) =>
       _$ClientEventFromJson(json);
 }
@@ -119,6 +124,11 @@ sealed class ServerEvent with _$ServerEvent implements BaseEvent {
   factory ServerEvent.serverDeniesLogin({
     required String message,
   }) = ServerDeniesLogin;
+
+  factory ServerEvent.serverSendsBackFullRunInfo({
+    required RunInfoWithMap runInfoWithMap
+  }) = ServerSendsBackFullRunInfo;
+
 
   factory ServerEvent.fromJson(Map<String, dynamic> json) =>
       _$ServerEventFromJson(json);
