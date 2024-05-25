@@ -26,9 +26,11 @@ class RunCubit extends Cubit<RunState> {
     );
     final serverEventFuture = channel.stream
         .map((event) => ServerEvent.fromJson(jsonDecode(event)))
-        .firstWhere((event) => event is ServerSendsBackRun);
+        .firstWhere((event) => event is ServerSendsBackRunId);
     channel.sink.add(jsonEncode(event.toJson()));
     final serverEvent = await serverEventFuture.timeout(Duration(seconds: 5));
-    emit(state.copyWith(runId: "${serverEvent.runId}"));
+    if (serverEvent is ServerSendsBackRunId) {
+      emit(state.copyWith(runId: serverEvent.runId));
+    }
   }
 }
