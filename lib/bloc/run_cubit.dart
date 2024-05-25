@@ -1,7 +1,9 @@
 import 'dart:convert';
 
 import 'package:corsa/BroadcastWsChannel.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
 import '../models/events.dart';
 import 'run_state.dart';
@@ -10,18 +12,27 @@ class RunCubit extends Cubit<RunState> {
   RunCubit(this.channel) : super(RunState.empty());
 
   final BroadcastWsChannel channel;
+  GoogleMapController? _mapController;
+
+  void setMapController(GoogleMapController controller) {
+    _mapController = controller;
+  }
+
+  Future<LatLng> getCurrentLocation() async {
+    final locationData = await Location.instance.getLocation();
+    if (locationData.latitude == null || locationData.longitude == null) {
+      return LatLng(0, 0); // Default location
+    }
+    return LatLng(locationData.latitude!, locationData.longitude!);
+  }
 
   void startRun() async {
     emit(state.copyWith(status: RunStatus.inProgress));
-    final location = await Location.instance.getLocation();
-    if (location.latitude == null || location.longitude == null) {
-      emit(state.copyWith(status: RunStatus.notStarted));
-      return;
-    }
+    final location = await getCurrentLocation();
     final event = ClientEvent.clientWantsToLogARun(
       runDateTime: DateTime.now(),
-      startingLat: location.latitude!,
-      startingLng: location.longitude!,
+      startingLat: location.latitude,
+      startingLng: location.longitude,
       userId: '1',
     );
     final serverEventFuture = channel.stream
@@ -35,33 +46,48 @@ class RunCubit extends Cubit<RunState> {
   }
 
   void stopRun() async {
-    final location = await Location.instance.getLocation();
-    if (location.latitude == null || location.longitude == null) {
-      emit(state.copyWith(status: RunStatus.inProgress));
-      return;
-    } else {
-      emit(state.copyWith(status: RunStatus.finished));
-      final event = ClientEvent.clientWantsToStopARun(
-        runEndTime: DateTime.now(),
-        endingLat: location.latitude!,
-        endingLng: location.longitude!,
-        runId: state.runId!,
-      );
-      channel.sink.add(jsonEncode(event.toJson()));
-    }
+    final location = await getCurrentLocation();
+    emit(state.copyWith(status: RunStatus.finished));
+    final event = ClientEvent.clientWantsToStopARun(
+      runEndTime: DateTime.now(),
+      endingLat: location.latitude,
+      endingLng: location.longitude,
+      runId: state.runId!,
+    );
+    channel.sink.add(jsonEncode(event.toJson()));
   }
 
   void logCoordinates() async {
-    final location = await Location.instance.getLocation();
-    if (location.latitude == null || location.longitude == null) {
-      return;
-    }
+    final location = await getCurrentLocation();
     final event = ClientEvent.clientWantsToLogNewCoordinates(
       runId: state.runId!,
-      lat: location.latitude!,
-      lng: location.longitude!,
+      lat: location.latitude,
+      lng: location.longitude,
       loggingTime: DateTime.now(),
     );
     channel.sink.add(jsonEncode(event.toJson()));
+  }
+
+  Future<void> resetRun() async {
+    final event = ClientEvent.clientWantsToDeleteARun(
+      userId: '1',
+      runId: state.runId!,
+    );
+    channel.sink.add(jsonEncode(event.toJson()));
+    emit(RunState.empty());
+  }
+
+  Set<Polyline> getPolylines() {
+    final coordinates = state.coordinates;
+    if (coordinates.length < 2) {
+      return {};
+    }
+    final polyline = Polyline(
+      polylineId: PolylineId('run'),
+      points: coordinates,
+      color: Colors.blue,
+      width: 5,
+    );
+    return {polyline};
   }
 }
