@@ -6,7 +6,7 @@ import '../models/run_info_with_map.dart';
 class SavedRunMap extends StatefulWidget {
   final RunInfoWithMap? runInfoWithMap;
 
-  const SavedRunMap({super.key, this.runInfoWithMap});
+  const SavedRunMap({super.key, required this.runInfoWithMap});
 
   @override
   _SavedRunMapState createState() => _SavedRunMapState();
