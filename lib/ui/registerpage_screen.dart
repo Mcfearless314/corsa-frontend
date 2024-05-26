@@ -138,6 +138,7 @@ class RegisterPageScreen extends StatelessWidget {
                       ],
                     ),
                     child: TextField(
+                      obscureText: true,
                       controller:
                           context.read<RegisterCubit>().passwordController,
                       style: const TextStyle(
@@ -154,12 +155,12 @@ class RegisterPageScreen extends StatelessWidget {
                   ),
                 ),
                 Text(
+                  textAlign: TextAlign.center,
                   state.isPasswordValid == null
                       ? ''
                       : state.isPasswordValid!
                           ? 'Password is valid'
-                          : 'Password is not valid',
-                  style: const TextStyle(
+                          : 'Password needs to be at least 8 characters long and contain at least 1 upper case letter from A-Z and a number',                style: const TextStyle(
                       color: Colors.white,
                       fontSize: 12.0,
                       fontFamily: 'PoetsenOne',
@@ -180,6 +181,7 @@ class RegisterPageScreen extends StatelessWidget {
                       ],
                     ),
                     child: TextField(
+                      obscureText: true,
                       controller: context
                           .read<RegisterCubit>()
                           .confirmPasswordController,

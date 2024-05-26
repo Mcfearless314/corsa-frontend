@@ -6,7 +6,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../models/events.dart';
 
 class RegisterCubit extends Cubit<RegisterState> {
-  RegisterCubit(this.channel) : super(RegisterState.empty());
+  RegisterCubit(this.channel) : super(RegisterState.empty()) {
+  emailController.addListener(checkEmail);
+  usernameController.addListener(checkUsername);
+  passwordController.addListener(checkPassword);
+  confirmPasswordController.addListener(checkPasswordsMatch);
+}
 
   final BroadcastWsChannel channel;
 
@@ -41,14 +46,22 @@ class RegisterCubit extends Cubit<RegisterState> {
     }
   }
 
+  checkPasswordsMatch() {
+    if (passwordController.text != confirmPasswordController.text) {
+      emit(state.copyWith(isConfirmPasswordValid: false));
+    } else {
+      emit(state.copyWith(isConfirmPasswordValid: true));
+    }
+  }
+
   checkForm() {
     checkEmail();
     checkUsername();
     checkPassword();
+    checkPasswordsMatch();
   }
 
   signUp() async {
-    checkForm();
     if (state.isFormValid) {
       emit(state.copyWith(isSubmitting: true));
       final event = ClientEvent.clientWantsToRegister(
@@ -68,5 +81,14 @@ class RegisterCubit extends Cubit<RegisterState> {
         emit(state.copyWith(isFailure: true));
       }
     }
+  }
+
+  @override
+  Future<void> close() {
+    emailController.dispose();
+    usernameController.dispose();
+    passwordController.dispose();
+    confirmPasswordController.dispose();
+    return super.close();
   }
 }
