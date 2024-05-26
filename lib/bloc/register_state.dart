@@ -8,12 +8,12 @@ class RegisterState {
   final bool isSubmitting;
   final bool isSuccess;
   final bool isFailure;
-  final bool isEmailValid;
-  final bool isUsernameValid;
-  final bool isPasswordValid;
+  final bool? isEmailValid;
+  final bool? isUsernameValid;
+  final bool? isPasswordValid;
   final int? userId;
 
-  bool get isFormValid => isEmailValid && isUsernameValid && isPasswordValid;
+  bool get isFormValid => isEmailValid! && isUsernameValid! && isPasswordValid!;
 
   const RegisterState({
     this.email = '',
@@ -22,9 +22,9 @@ class RegisterState {
     this.isSubmitting = false,
     this.isSuccess = false,
     this.isFailure = false,
-    this.isEmailValid = false,
-    this.isUsernameValid = false,
-    this.isPasswordValid = false,
+    this.isEmailValid,
+    this.isUsernameValid,
+    this.isPasswordValid,
     this.userId,
   });
 
@@ -61,9 +61,9 @@ class RegisterState {
       isSubmitting: false,
       isSuccess: false,
       isFailure: false,
-      isEmailValid: false,
-      isUsernameValid: false,
-      isPasswordValid: false,
+      isEmailValid: null,
+      isUsernameValid: null,
+      isPasswordValid: null,
       userId: null,
     );
   }
@@ -71,9 +71,6 @@ class RegisterState {
   factory RegisterState.isSuccess() {
     return const RegisterState(
       isSuccess: true,
-      isEmailValid: true,
-      isUsernameValid: true,
-      isPasswordValid: true,
     );
   }
 
