@@ -44,32 +44,62 @@ class HomePageScreen extends StatelessWidget {
                 children: [
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: TextField(
-                      controller:
-                          context.read<HomepageCubit>().usernameController,
-                      decoration: const InputDecoration(
-                        border: OutlineInputBorder(),
-                        hintText: 'Username',
-                        hintStyle: TextStyle(
-                            fontFamily: 'PoetsenOne',
-                            fontSize: 14.0,
-                            color: Colors.white),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Colors.orange,
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.5),
+                            spreadRadius: 5,
+                            blurRadius: 7,
+                            offset: const Offset(0, 3), // changes position of shadow
+                          ),
+                        ],
+                      ),
+                      child: TextField(
+                        style: const TextStyle(
+                            color: Colors.white, fontFamily: 'PoetsenOne'),
+                        controller:
+                            context.read<HomepageCubit>().usernameController,
+                        decoration: const InputDecoration(
+                          border: OutlineInputBorder(),
+                          hintText: 'Username',
+                          hintStyle: TextStyle(
+                              fontFamily: 'PoetsenOne',
+                              fontSize: 14.0,
+                              color: Colors.white),
+                        ),
                       ),
                     ),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: TextField(
-                      controller:
-                          context.read<HomepageCubit>().passwordController,
-                      obscureText: true,
-                      decoration: const InputDecoration(
-                          border: OutlineInputBorder(),
-                          hintText: 'Password',
-                          hintStyle: TextStyle(
-                              fontFamily: 'PoetsenOne',
-                              fontSize: 14.0,
-                              color: Colors.white)),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Colors.orange,
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.5),
+                            spreadRadius: 5,
+                            blurRadius: 7,
+                            offset: const Offset(0, 3), // changes position of shadow
+                          ),
+                        ],
+                      ),
+                      child: TextField(
+                        style: const TextStyle(
+                            color: Colors.white, fontFamily: 'PoetsenOne'),
+                        controller:
+                            context.read<HomepageCubit>().passwordController,
+                        obscureText: true,
+                        decoration: const InputDecoration(
+                            border: OutlineInputBorder(),
+                            hintText: 'Password',
+                            hintStyle: TextStyle(
+                                fontFamily: 'PoetsenOne',
+                                fontSize: 14.0,
+                                color: Colors.white)),
+                      ),
                     ),
                   ),
                   Row(

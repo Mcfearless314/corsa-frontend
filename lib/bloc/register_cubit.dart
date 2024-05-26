@@ -56,10 +56,10 @@ class RegisterCubit extends Cubit<RegisterState> {
         username: usernameController.text,
         password: passwordController.text,
       );
+      channel.sink.add(event.toJson());
       final serverEventFuture = channel.stream
           .map((event) => ServerEvent.fromJson(event))
-          .firstWhere((event) => event is ServerConfirmsRegistration);
-      channel.sink.add(event.toJson());
+          .firstWhere((event) => event is ServerConfirmsRegistration, orElse: () => throw Exception('Server did not confirm registration'));
       final serverEvent =
           await serverEventFuture.timeout(const Duration(seconds: 5));
       if (serverEvent is ServerConfirmsRegistration) {

@@ -42,15 +42,30 @@ class RegisterPageScreen extends StatelessWidget {
               children: [
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: TextField(
-                    controller: context.read<RegisterCubit>().emailController,
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      hintText: 'Email',
-                      hintStyle: TextStyle(
-                          fontFamily: 'PoetsenOne',
-                          fontSize: 14.0,
-                          color: Colors.white),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.orange,
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.5),
+                          spreadRadius: 5,
+                          blurRadius: 7,
+                          offset: Offset(0, 3), // changes position of shadow
+                        ),
+                      ],
+                    ),
+                    child: TextField(
+                      controller: context.read<RegisterCubit>().emailController,
+                      style: const TextStyle(
+                          color: Colors.white, fontFamily: 'PoetsenOne'),
+                      decoration: const InputDecoration(
+                        border: OutlineInputBorder(),
+                        hintText: 'Email',
+                        hintStyle: TextStyle(
+                            fontFamily: 'PoetsenOne',
+                            fontSize: 14.0,
+                            color: Colors.white),
+                      ),
                     ),
                   ),
                 ),
@@ -60,20 +75,39 @@ class RegisterPageScreen extends StatelessWidget {
                       : state.isEmailValid!
                           ? 'Email is valid'
                           : 'Email is not valid',
-                  style: const TextStyle(color: Colors.red, fontSize: 12.0, fontFamily: 'PoetsenOne', fontWeight: FontWeight.bold),
+                  style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 12.0,
+                      fontFamily: 'PoetsenOne',
+                      fontWeight: FontWeight.bold),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: TextField(
-                    controller:
-                        context.read<RegisterCubit>().usernameController,
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      hintText: 'Username',
-                      hintStyle: TextStyle(
-                          fontFamily: 'PoetsenOne',
-                          fontSize: 14.0,
-                          color: Colors.white),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.orange,
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.5),
+                          spreadRadius: 5,
+                          blurRadius: 7,
+                          offset: Offset(0, 3), // changes position of shadow
+                        ),
+                      ],
+                    ),
+                    child: TextField(
+                      controller:
+                          context.read<RegisterCubit>().usernameController,
+                      style: const TextStyle(
+                          color: Colors.white, fontFamily: 'PoetsenOne'),
+                      decoration: const InputDecoration(
+                        border: OutlineInputBorder(),
+                        hintText: 'Username',
+                        hintStyle: TextStyle(
+                            fontFamily: 'PoetsenOne',
+                            fontSize: 14.0,
+                            color: Colors.white),
+                      ),
                     ),
                   ),
                 ),
@@ -81,22 +115,41 @@ class RegisterPageScreen extends StatelessWidget {
                   state.isUsernameValid == null
                       ? ''
                       : state.isUsernameValid!
-                      ? 'Username is valid'
-                      : 'Username is not valid',
-                  style: const TextStyle(color: Colors.red, fontSize: 12.0, fontFamily: 'PoetsenOne', fontWeight: FontWeight.bold),
+                          ? 'Username is valid'
+                          : 'Username is not valid',
+                  style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 12.0,
+                      fontFamily: 'PoetsenOne',
+                      fontWeight: FontWeight.bold),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: TextField(
-                    controller:
-                        context.read<RegisterCubit>().passwordController,
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      hintText: 'Password',
-                      hintStyle: TextStyle(
-                          fontFamily: 'PoetsenOne',
-                          fontSize: 14.0,
-                          color: Colors.white),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.orange,
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.5),
+                          spreadRadius: 5,
+                          blurRadius: 7,
+                          offset: Offset(0, 3), // changes position of shadow
+                        ),
+                      ],
+                    ),
+                    child: TextField(
+                      controller:
+                          context.read<RegisterCubit>().passwordController,
+                      style: const TextStyle(
+                          color: Colors.white, fontFamily: 'PoetsenOne'),
+                      decoration: const InputDecoration(
+                        border: OutlineInputBorder(),
+                        hintText: 'Password',
+                        hintStyle: TextStyle(
+                            fontFamily: 'PoetsenOne',
+                            fontSize: 14.0,
+                            color: Colors.white),
+                      ),
                     ),
                   ),
                 ),
@@ -104,31 +157,56 @@ class RegisterPageScreen extends StatelessWidget {
                   state.isPasswordValid == null
                       ? ''
                       : state.isPasswordValid!
-                      ? 'Password is valid'
-                      : 'Password is not valid',
-                  style: const TextStyle(color: Colors.red, fontSize: 12.0, fontFamily: 'PoetsenOne', fontWeight: FontWeight.bold),
+                          ? 'Password is valid'
+                          : 'Password is not valid',
+                  style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 12.0,
+                      fontFamily: 'PoetsenOne',
+                      fontWeight: FontWeight.bold),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: TextField(
-                    controller: context.read<RegisterCubit>().confirmPasswordController,
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      hintText: 'Confirm Password',
-                      hintStyle: TextStyle(
-                          fontFamily: 'PoetsenOne',
-                          fontSize: 14.0,
-                          color: Colors.white),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.orange,
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.5),
+                          spreadRadius: 5,
+                          blurRadius: 7,
+                          offset: Offset(0, 3), // changes position of shadow
+                        ),
+                      ],
+                    ),
+                    child: TextField(
+                      controller: context
+                          .read<RegisterCubit>()
+                          .confirmPasswordController,
+                      style: const TextStyle(
+                          color: Colors.white, fontFamily: 'PoetsenOne'),
+                      decoration: const InputDecoration(
+                        border: OutlineInputBorder(),
+                        hintText: 'Confirm Password',
+                        hintStyle: TextStyle(
+                            fontFamily: 'PoetsenOne',
+                            fontSize: 14.0,
+                            color: Colors.white),
+                      ),
                     ),
                   ),
                 ),
                 Text(
-                  state.isPasswordValid == null
+                  state.isConfirmPasswordValid == null
                       ? ''
                       : state.isConfirmPasswordValid!
-                      ? 'Passwords match'
-                      : 'Password does not match',
-                  style: const TextStyle(color: Colors.red, fontSize: 12.0, fontFamily: 'PoetsenOne', fontWeight: FontWeight.bold),
+                          ? 'Passwords match'
+                          : 'Password does not match',
+                  style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 12.0,
+                      fontFamily: 'PoetsenOne',
+                      fontWeight: FontWeight.bold),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -149,5 +227,4 @@ class RegisterPageScreen extends StatelessWidget {
       ),
     );
   }
-
 }
