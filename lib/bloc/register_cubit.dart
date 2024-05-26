@@ -13,6 +13,7 @@ class RegisterCubit extends Cubit<RegisterState> {
   TextEditingController emailController = TextEditingController();
   TextEditingController usernameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  TextEditingController confirmPasswordController = TextEditingController();
 
   checkEmail() {
     if (emailController.text.contains('@')) {

@@ -5,26 +5,31 @@ class RegisterState {
   final String email;
   final String username;
   final String password;
+  final String confirmPassword;
   final bool isSubmitting;
   final bool isSuccess;
   final bool isFailure;
   final bool? isEmailValid;
   final bool? isUsernameValid;
   final bool? isPasswordValid;
+  final bool? isConfirmPasswordValid;
   final int? userId;
 
   bool get isFormValid => isEmailValid! && isUsernameValid! && isPasswordValid!;
+  bool get isPasswordMatch => isPasswordValid! && isConfirmPasswordValid! && password == confirmPassword;
 
   const RegisterState({
     this.email = '',
     this.username = '',
     this.password = '',
+    this.confirmPassword = '',
     this.isSubmitting = false,
     this.isSuccess = false,
     this.isFailure = false,
     this.isEmailValid,
     this.isUsernameValid,
     this.isPasswordValid,
+    this.isConfirmPasswordValid,
     this.userId,
   });
 
@@ -32,24 +37,28 @@ class RegisterState {
     String? email,
     String? username,
     String? password,
+    String? confirmPassword,
     bool? isSubmitting,
     bool? isSuccess,
     bool? isFailure,
     bool? isEmailValid,
     bool? isUsernameValid,
     bool? isPasswordValid,
+    bool? isConfirmPasswordValid,
     int? userId,
   }) {
     return RegisterState(
       email: email ?? this.email,
       username: username ?? this.username,
       password: password ?? this.password,
+      confirmPassword: confirmPassword ?? this.confirmPassword,
       isSubmitting: isSubmitting ?? this.isSubmitting,
       isSuccess: isSuccess ?? this.isSuccess,
       isFailure: isFailure ?? this.isFailure,
       isEmailValid: isEmailValid ?? this.isEmailValid,
       isUsernameValid: isUsernameValid ?? this.isUsernameValid,
       isPasswordValid: isPasswordValid ?? this.isPasswordValid,
+      isConfirmPasswordValid: isConfirmPasswordValid ?? this.isConfirmPasswordValid,
       userId: userId ?? this.userId,
     );
   }
@@ -58,12 +67,14 @@ class RegisterState {
       email: '',
       username: '',
       password: '',
+      confirmPassword: '',
       isSubmitting: false,
       isSuccess: false,
       isFailure: false,
       isEmailValid: null,
       isUsernameValid: null,
       isPasswordValid: null,
+      isConfirmPasswordValid: null,
       userId: null,
     );
   }

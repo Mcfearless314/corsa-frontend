@@ -9,7 +9,6 @@ import '../bloc/register_state.dart';
 class RegisterPageScreen extends StatelessWidget {
   const RegisterPageScreen({super.key});
 
-
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -20,7 +19,8 @@ class RegisterPageScreen extends StatelessWidget {
             Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => UserPageScreen(userId: state.userId!)));
+                    builder: (context) =>
+                        UserPageScreen(userId: state.userId!)));
           }
         },
         builder: (context, state) {
@@ -45,7 +45,7 @@ class RegisterPageScreen extends StatelessWidget {
                   child: TextField(
                     controller: context.read<RegisterCubit>().emailController,
                     decoration: const InputDecoration(
-                      border:  OutlineInputBorder(),
+                      border: OutlineInputBorder(),
                       hintText: 'Email',
                       hintStyle: TextStyle(
                           fontFamily: 'PoetsenOne',
@@ -54,10 +54,19 @@ class RegisterPageScreen extends StatelessWidget {
                     ),
                   ),
                 ),
+                Text(
+                  state.isEmailValid == null
+                      ? ''
+                      : state.isEmailValid!
+                          ? 'Email is valid'
+                          : 'Email is not valid',
+                  style: const TextStyle(color: Colors.red, fontSize: 12.0, fontFamily: 'PoetsenOne', fontWeight: FontWeight.bold),
+                ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: TextField(
-                    controller: context.read<RegisterCubit>().usernameController,
+                    controller:
+                        context.read<RegisterCubit>().usernameController,
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       hintText: 'Username',
@@ -68,10 +77,19 @@ class RegisterPageScreen extends StatelessWidget {
                     ),
                   ),
                 ),
+                Text(
+                  state.isUsernameValid == null
+                      ? ''
+                      : state.isUsernameValid!
+                      ? 'Username is valid'
+                      : 'Username is not valid',
+                  style: const TextStyle(color: Colors.red, fontSize: 12.0, fontFamily: 'PoetsenOne', fontWeight: FontWeight.bold),
+                ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: TextField(
-                    controller: context.read<RegisterCubit>().passwordController,
+                    controller:
+                        context.read<RegisterCubit>().passwordController,
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       hintText: 'Password',
@@ -82,10 +100,19 @@ class RegisterPageScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                const Padding(
-                  padding: EdgeInsets.all(8.0),
+                Text(
+                  state.isPasswordValid == null
+                      ? ''
+                      : state.isPasswordValid!
+                      ? 'Password is valid'
+                      : 'Password is not valid',
+                  style: const TextStyle(color: Colors.red, fontSize: 12.0, fontFamily: 'PoetsenOne', fontWeight: FontWeight.bold),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
                   child: TextField(
-                    decoration: InputDecoration(
+                    controller: context.read<RegisterCubit>().confirmPasswordController,
+                    decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       hintText: 'Confirm Password',
                       hintStyle: TextStyle(
@@ -95,13 +122,21 @@ class RegisterPageScreen extends StatelessWidget {
                     ),
                   ),
                 ),
+                Text(
+                  state.isPasswordValid == null
+                      ? ''
+                      : state.isConfirmPasswordValid!
+                      ? 'Passwords match'
+                      : 'Password does not match',
+                  style: const TextStyle(color: Colors.red, fontSize: 12.0, fontFamily: 'PoetsenOne', fontWeight: FontWeight.bold),
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: ElevatedButton(
-                          onPressed: signUp,
+                          onPressed: context.read<RegisterCubit>().signUp,
                           child: Text("Sign up",
                               style: Theme.of(context).textTheme.displaySmall)),
                     ),
@@ -115,5 +150,4 @@ class RegisterPageScreen extends StatelessWidget {
     );
   }
 
-  void signUp() {}
 }
