@@ -8,7 +8,8 @@ import '../bloc/run_cubit.dart';
 import '../bloc/run_state.dart';
 
 class GoogleMaps extends StatelessWidget {
-  const GoogleMaps({super.key});
+  final int userId;
+  const GoogleMaps({super.key, required this.userId});
 
   @override
   Widget build(BuildContext context) {
@@ -68,7 +69,7 @@ class GoogleMaps extends StatelessWidget {
       builder: (context, state) {
         if (state.status == RunStatus.notStarted) {
           return FloatingActionButton(
-            onPressed: () => context.read<RunCubit>().startRun(),
+            onPressed: () => context.read<RunCubit>().startRun(userId),
             child: const Icon(Icons.directions_run),
           );
         } else if (state.status == RunStatus.inProgress) {
@@ -80,14 +81,14 @@ class GoogleMaps extends StatelessWidget {
                 child: const Icon(Icons.save),
               ),
               FloatingActionButton(
-                onPressed: () => context.read<RunCubit>().resetRun(),
+                onPressed: () => context.read<RunCubit>().resetRun(userId),
                 child: const Icon(Icons.refresh),
               ),
             ],
           );
         } else {
           return FloatingActionButton(
-            onPressed: () => context.read<RunCubit>().startRun(),
+            onPressed: () => context.read<RunCubit>().startRun(userId),
             child: const Icon(Icons.directions_run),
           );
         }

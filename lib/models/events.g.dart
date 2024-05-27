@@ -10,32 +10,32 @@ _$ClientWantsToAuthenticateWithJwtImpl
     _$$ClientWantsToAuthenticateWithJwtImplFromJson(
             Map<String, dynamic> json) =>
         _$ClientWantsToAuthenticateWithJwtImpl(
-          jwt: json['jwt'] as String,
+          jwt: json['Jwt'] as String,
           $type: json['eventType'] as String?,
         );
 
 Map<String, dynamic> _$$ClientWantsToAuthenticateWithJwtImplToJson(
         _$ClientWantsToAuthenticateWithJwtImpl instance) =>
     <String, dynamic>{
-      'jwt': instance.jwt,
+      'Jwt': instance.jwt,
       'eventType': instance.$type,
     };
 
 _$ClientWantsToRegisterImpl _$$ClientWantsToRegisterImplFromJson(
         Map<String, dynamic> json) =>
     _$ClientWantsToRegisterImpl(
-      Username: json['Username'] as String,
-      Email: json['Email'] as String,
-      Password: json['Password'] as String,
+      username: json['Username'] as String,
+      email: json['Email'] as String,
+      password: json['Password'] as String,
       $type: json['eventType'] as String?,
     );
 
 Map<String, dynamic> _$$ClientWantsToRegisterImplToJson(
         _$ClientWantsToRegisterImpl instance) =>
     <String, dynamic>{
-      'Username': instance.Username,
-      'Email': instance.Email,
-      'Password': instance.Password,
+      'Username': instance.username,
+      'Email': instance.email,
+      'Password': instance.password,
       'eventType': instance.$type,
     };
 
@@ -58,110 +58,110 @@ Map<String, dynamic> _$$ClientWantsToLogInImplToJson(
 _$ClientWantsToDeleteARunImpl _$$ClientWantsToDeleteARunImplFromJson(
         Map<String, dynamic> json) =>
     _$ClientWantsToDeleteARunImpl(
-      userId: json['userId'] as String,
-      runId: json['runId'] as String,
+      userId: (json['UserId'] as num).toInt(),
+      runId: json['RunId'] as String,
       $type: json['eventType'] as String?,
     );
 
 Map<String, dynamic> _$$ClientWantsToDeleteARunImplToJson(
         _$ClientWantsToDeleteARunImpl instance) =>
     <String, dynamic>{
-      'userId': instance.userId,
-      'runId': instance.runId,
+      'UserId': instance.userId,
+      'RunId': instance.runId,
       'eventType': instance.$type,
     };
 
 _$ClientWantsToSeeAllSavedRunsImpl _$$ClientWantsToSeeAllSavedRunsImplFromJson(
         Map<String, dynamic> json) =>
     _$ClientWantsToSeeAllSavedRunsImpl(
-      userId: (json['userId'] as num).toInt(),
+      userId: (json['UserId'] as num).toInt(),
       $type: json['eventType'] as String?,
     );
 
 Map<String, dynamic> _$$ClientWantsToSeeAllSavedRunsImplToJson(
         _$ClientWantsToSeeAllSavedRunsImpl instance) =>
     <String, dynamic>{
-      'userId': instance.userId,
+      'UserId': instance.userId,
       'eventType': instance.$type,
     };
 
 _$ClientWantsToSaveARunImpl _$$ClientWantsToSaveARunImplFromJson(
         Map<String, dynamic> json) =>
     _$ClientWantsToSaveARunImpl(
-      runDateTime: DateTime.parse(json['runDateTime'] as String),
-      userId: json['userId'] as String,
-      runDistance: (json['runDistance'] as num).toDouble(),
-      runTime: json['runTime'] as String,
+      runDateTime: DateTime.parse(json['RunDateTime'] as String),
+      userId: (json['UserId'] as num).toInt(),
+      runDistance: (json['RunDistance'] as num).toDouble(),
+      runTime: json['RunTime'] as String,
       $type: json['eventType'] as String?,
     );
 
 Map<String, dynamic> _$$ClientWantsToSaveARunImplToJson(
         _$ClientWantsToSaveARunImpl instance) =>
     <String, dynamic>{
-      'runDateTime': instance.runDateTime.toIso8601String(),
-      'userId': instance.userId,
-      'runDistance': instance.runDistance,
-      'runTime': instance.runTime,
+      'RunDateTime': instance.runDateTime.toIso8601String(),
+      'UserId': instance.userId,
+      'RunDistance': instance.runDistance,
+      'RunTime': instance.runTime,
       'eventType': instance.$type,
     };
 
 _$ClientWantsToStopARunImpl _$$ClientWantsToStopARunImplFromJson(
         Map<String, dynamic> json) =>
     _$ClientWantsToStopARunImpl(
-      runEndTime: DateTime.parse(json['runEndTime'] as String),
-      endingLat: (json['endingLat'] as num).toDouble(),
-      endingLng: (json['endingLng'] as num).toDouble(),
-      runId: json['runId'] as String,
+      runEndTime: DateTime.parse(json['RunEndTime'] as String),
+      endingLat: (json['EndingLat'] as num).toDouble(),
+      endingLng: (json['EndingLng'] as num).toDouble(),
+      runId: json['RunId'] as String,
       $type: json['eventType'] as String?,
     );
 
 Map<String, dynamic> _$$ClientWantsToStopARunImplToJson(
         _$ClientWantsToStopARunImpl instance) =>
     <String, dynamic>{
-      'runEndTime': instance.runEndTime.toIso8601String(),
-      'endingLat': instance.endingLat,
-      'endingLng': instance.endingLng,
-      'runId': instance.runId,
+      'RunEndTime': instance.runEndTime.toIso8601String(),
+      'EndingLat': instance.endingLat,
+      'EndingLng': instance.endingLng,
+      'RunId': instance.runId,
       'eventType': instance.$type,
     };
 
 _$ClientWantsToLogARunImpl _$$ClientWantsToLogARunImplFromJson(
         Map<String, dynamic> json) =>
     _$ClientWantsToLogARunImpl(
-      runDateTime: DateTime.parse(json['runDateTime'] as String),
-      startingLat: (json['startingLat'] as num).toDouble(),
-      startingLng: (json['startingLng'] as num).toDouble(),
-      userId: json['userId'] as String,
+      runStartTime: DateTime.parse(json['RunStartTime'] as String),
+      startingLat: (json['StartingLat'] as num).toDouble(),
+      startingLng: (json['StartingLng'] as num).toDouble(),
+      userId: (json['UserId'] as num).toInt(),
       $type: json['eventType'] as String?,
     );
 
 Map<String, dynamic> _$$ClientWantsToLogARunImplToJson(
         _$ClientWantsToLogARunImpl instance) =>
     <String, dynamic>{
-      'runDateTime': instance.runDateTime.toIso8601String(),
-      'startingLat': instance.startingLat,
-      'startingLng': instance.startingLng,
-      'userId': instance.userId,
+      'RunStartTime': instance.runStartTime.toIso8601String(),
+      'StartingLat': instance.startingLat,
+      'StartingLng': instance.startingLng,
+      'UserId': instance.userId,
       'eventType': instance.$type,
     };
 
 _$ClientWantsToLogNewCoordinatesImpl
     _$$ClientWantsToLogNewCoordinatesImplFromJson(Map<String, dynamic> json) =>
         _$ClientWantsToLogNewCoordinatesImpl(
-          loggingTime: DateTime.parse(json['loggingTime'] as String),
-          lat: (json['lat'] as num).toDouble(),
-          lng: (json['lng'] as num).toDouble(),
-          runId: json['runId'] as String,
+          loggingTime: DateTime.parse(json['LoggingTime'] as String),
+          lat: (json['Lat'] as num).toDouble(),
+          lng: (json['Lng'] as num).toDouble(),
+          runId: json['RunId'] as String,
           $type: json['eventType'] as String?,
         );
 
 Map<String, dynamic> _$$ClientWantsToLogNewCoordinatesImplToJson(
         _$ClientWantsToLogNewCoordinatesImpl instance) =>
     <String, dynamic>{
-      'loggingTime': instance.loggingTime.toIso8601String(),
-      'lat': instance.lat,
-      'lng': instance.lng,
-      'runId': instance.runId,
+      'LoggingTime': instance.loggingTime.toIso8601String(),
+      'Lat': instance.lat,
+      'Lng': instance.lng,
+      'RunId': instance.runId,
       'eventType': instance.$type,
     };
 
@@ -169,69 +169,69 @@ _$ClientWantsToSeeAProgressOfAllRunsImpl
     _$$ClientWantsToSeeAProgressOfAllRunsImplFromJson(
             Map<String, dynamic> json) =>
         _$ClientWantsToSeeAProgressOfAllRunsImpl(
-          userId: json['userId'] as String,
+          userId: (json['UserId'] as num).toInt(),
           $type: json['eventType'] as String?,
         );
 
 Map<String, dynamic> _$$ClientWantsToSeeAProgressOfAllRunsImplToJson(
         _$ClientWantsToSeeAProgressOfAllRunsImpl instance) =>
     <String, dynamic>{
-      'userId': instance.userId,
+      'UserId': instance.userId,
       'eventType': instance.$type,
     };
 
 _$ClientWantsToSeeFullInfoOfRunImpl
     _$$ClientWantsToSeeFullInfoOfRunImplFromJson(Map<String, dynamic> json) =>
         _$ClientWantsToSeeFullInfoOfRunImpl(
-          runId: json['runId'] as String,
-          userId: (json['userId'] as num).toInt(),
+          runId: json['RunId'] as String,
+          userId: (json['UserId'] as num).toInt(),
           $type: json['eventType'] as String?,
         );
 
 Map<String, dynamic> _$$ClientWantsToSeeFullInfoOfRunImplToJson(
         _$ClientWantsToSeeFullInfoOfRunImpl instance) =>
     <String, dynamic>{
-      'runId': instance.runId,
-      'userId': instance.userId,
+      'RunId': instance.runId,
+      'UserId': instance.userId,
       'eventType': instance.$type,
     };
 
 _$ServerSendsBackJwtImpl _$$ServerSendsBackJwtImplFromJson(
         Map<String, dynamic> json) =>
     _$ServerSendsBackJwtImpl(
-      jwt: json['jwt'] as String,
+      jwt: json['Jwt'] as String,
       $type: json['eventType'] as String?,
     );
 
 Map<String, dynamic> _$$ServerSendsBackJwtImplToJson(
         _$ServerSendsBackJwtImpl instance) =>
     <String, dynamic>{
-      'jwt': instance.jwt,
+      'Jwt': instance.jwt,
       'eventType': instance.$type,
     };
 
 _$ServerSendsBackRunImpl _$$ServerSendsBackRunImplFromJson(
         Map<String, dynamic> json) =>
     _$ServerSendsBackRunImpl(
-      runDateTime: DateTime.parse(json['runDateTime'] as String),
-      runDistance: (json['runDistance'] as num).toDouble(),
-      runTime: json['runTime'] as String,
+      runDateTime: DateTime.parse(json['RunDateTime'] as String),
+      runDistance: (json['UserId'] as num).toDouble(),
+      runTime: json['RunDistance'] as String,
       $type: json['eventType'] as String?,
     );
 
 Map<String, dynamic> _$$ServerSendsBackRunImplToJson(
         _$ServerSendsBackRunImpl instance) =>
     <String, dynamic>{
-      'runDateTime': instance.runDateTime.toIso8601String(),
-      'runDistance': instance.runDistance,
-      'runTime': instance.runTime,
+      'RunDateTime': instance.runDateTime.toIso8601String(),
+      'UserId': instance.runDistance,
+      'RunDistance': instance.runTime,
       'eventType': instance.$type,
     };
 
 _$ServerSendsBackAllSavedRunsImpl _$$ServerSendsBackAllSavedRunsImplFromJson(
         Map<String, dynamic> json) =>
     _$ServerSendsBackAllSavedRunsImpl(
-      runs: (json['runs'] as List<dynamic>)
+      allRuns: (json['AllRuns'] as List<dynamic>)
           .map((e) => Run.fromJson(e as Map<String, dynamic>))
           .toList(),
       $type: json['eventType'] as String?,
@@ -240,14 +240,14 @@ _$ServerSendsBackAllSavedRunsImpl _$$ServerSendsBackAllSavedRunsImplFromJson(
 Map<String, dynamic> _$$ServerSendsBackAllSavedRunsImplToJson(
         _$ServerSendsBackAllSavedRunsImpl instance) =>
     <String, dynamic>{
-      'runs': instance.runs,
+      'AllRuns': instance.allRuns,
       'eventType': instance.$type,
     };
 
 _$ServerSendsBackAllProgressImpl _$$ServerSendsBackAllProgressImplFromJson(
         Map<String, dynamic> json) =>
     _$ServerSendsBackAllProgressImpl(
-      progressInfo: (json['progressInfo'] as List<dynamic>)
+      allProgress: (json['AllProgress'] as List<dynamic>)
           .map((e) => ProgressInfo.fromJson(e as Map<String, dynamic>))
           .toList(),
       $type: json['eventType'] as String?,
@@ -256,35 +256,35 @@ _$ServerSendsBackAllProgressImpl _$$ServerSendsBackAllProgressImplFromJson(
 Map<String, dynamic> _$$ServerSendsBackAllProgressImplToJson(
         _$ServerSendsBackAllProgressImpl instance) =>
     <String, dynamic>{
-      'progressInfo': instance.progressInfo,
+      'AllProgress': instance.allProgress,
       'eventType': instance.$type,
     };
 
 _$ServerConfirmsDeletionOfRunImpl _$$ServerConfirmsDeletionOfRunImplFromJson(
         Map<String, dynamic> json) =>
     _$ServerConfirmsDeletionOfRunImpl(
-      runDeleted: json['runDeleted'] as String,
+      runDeleted: json['RunDeleted'] as String,
       $type: json['eventType'] as String?,
     );
 
 Map<String, dynamic> _$$ServerConfirmsDeletionOfRunImplToJson(
         _$ServerConfirmsDeletionOfRunImpl instance) =>
     <String, dynamic>{
-      'runDeleted': instance.runDeleted,
+      'RunDeleted': instance.runDeleted,
       'eventType': instance.$type,
     };
 
 _$ServerSendsBackRunIdImpl _$$ServerSendsBackRunIdImplFromJson(
         Map<String, dynamic> json) =>
     _$ServerSendsBackRunIdImpl(
-      runId: json['runId'] as String,
+      runId: json['RunId'] as String,
       $type: json['eventType'] as String?,
     );
 
 Map<String, dynamic> _$$ServerSendsBackRunIdImplToJson(
         _$ServerSendsBackRunIdImpl instance) =>
     <String, dynamic>{
-      'runId': instance.runId,
+      'RunId': instance.runId,
       'eventType': instance.$type,
     };
 
@@ -307,17 +307,17 @@ Map<String, dynamic> _$$ServerConfirmsRegistrationImplToJson(
 _$ServerSendsBackRunWithMapImpl _$$ServerSendsBackRunWithMapImplFromJson(
         Map<String, dynamic> json) =>
     _$ServerSendsBackRunWithMapImpl(
-      message: json['message'] as String,
+      message: json['Message'] as String,
       runInfoWithMap: RunInfoWithMap.fromJson(
-          json['runInfoWithMap'] as Map<String, dynamic>),
+          json['RunInfoWithMap'] as Map<String, dynamic>),
       $type: json['eventType'] as String?,
     );
 
 Map<String, dynamic> _$$ServerSendsBackRunWithMapImplToJson(
         _$ServerSendsBackRunWithMapImpl instance) =>
     <String, dynamic>{
-      'message': instance.message,
-      'runInfoWithMap': instance.runInfoWithMap,
+      'Message': instance.message,
+      'RunInfoWithMap': instance.runInfoWithMap,
       'eventType': instance.$type,
     };
 
@@ -342,14 +342,14 @@ Map<String, dynamic> _$$ServerConfirmsLoginImplToJson(
 _$ServerDeniesLoginImpl _$$ServerDeniesLoginImplFromJson(
         Map<String, dynamic> json) =>
     _$ServerDeniesLoginImpl(
-      message: json['message'] as String,
+      message: json['Message'] as String,
       $type: json['eventType'] as String?,
     );
 
 Map<String, dynamic> _$$ServerDeniesLoginImplToJson(
         _$ServerDeniesLoginImpl instance) =>
     <String, dynamic>{
-      'message': instance.message,
+      'Message': instance.message,
       'eventType': instance.$type,
     };
 
@@ -357,13 +357,13 @@ _$ServerSendsBackFullRunInfoImpl _$$ServerSendsBackFullRunInfoImplFromJson(
         Map<String, dynamic> json) =>
     _$ServerSendsBackFullRunInfoImpl(
       runInfoWithMap: RunInfoWithMap.fromJson(
-          json['runInfoWithMap'] as Map<String, dynamic>),
+          json['RunInfoWithMap'] as Map<String, dynamic>),
       $type: json['eventType'] as String?,
     );
 
 Map<String, dynamic> _$$ServerSendsBackFullRunInfoImplToJson(
         _$ServerSendsBackFullRunInfoImpl instance) =>
     <String, dynamic>{
-      'runInfoWithMap': instance.runInfoWithMap,
+      'RunInfoWithMap': instance.runInfoWithMap,
       'eventType': instance.$type,
     };

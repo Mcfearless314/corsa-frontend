@@ -14,7 +14,7 @@ class RunState {
   LatLng get currentPosition => coordinates.last;
 
   const RunState(
-      {required this.status,
+      {      required this.status,
       required this.coordinates,
       required this.runId,
       required this.runInfoWithMap});

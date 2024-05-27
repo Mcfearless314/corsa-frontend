@@ -28,14 +28,14 @@ class RunCubit extends Cubit<RunState> {
     return LatLng(locationData.latitude!, locationData.longitude!);
   }
 
-  void startRun() async {
+  void startRun(int userId) async {
     emit(state.copyWith(status: RunStatus.inProgress));
     final location = await getCurrentLocation();
     final event = ClientEvent.clientWantsToLogARun(
-      runDateTime: DateTime.now(),
+      runStartTime: DateTime.now(),
       startingLat: location.latitude,
       startingLng: location.longitude,
-      userId: '1',
+      userId: userId,
     );
     final serverEventFuture = channel.stream
         .map((event) => ServerEvent.fromJson(jsonDecode(event)))
@@ -84,9 +84,9 @@ class RunCubit extends Cubit<RunState> {
     emit(state.copyWith(coordinates: updatedCoordinates));
   }
 
-  Future<void> resetRun() async {
+  Future<void> resetRun(int userId) async {
     final event = ClientEvent.clientWantsToDeleteARun(
-      userId: '1',
+      userId: userId,
       runId: state.runId!,
     );
     channel.sink.add(jsonEncode(event.toJson()));

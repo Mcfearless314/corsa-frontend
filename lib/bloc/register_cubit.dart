@@ -57,9 +57,9 @@ class RegisterCubit extends Cubit<RegisterState> {
   signUp(String email, String username, String password) async {
     emit(state.copyWith(isSubmitting: true));
     final event = ClientEvent.clientWantsToRegister(
-      Email: email,
-      Username: username,
-      Password: password,
+      email: email,
+      username: username,
+      password: password,
     );
     channel.sink.add(jsonEncode(event.toJson()));
     final serverEventFuture = channel.stream

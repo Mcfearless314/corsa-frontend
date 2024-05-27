@@ -13,13 +13,13 @@ interface class BaseEvent {}
 @Freezed(unionKey: 'eventType', unionValueCase: FreezedUnionCase.pascal)
 sealed class ClientEvent with _$ClientEvent implements BaseEvent {
   factory ClientEvent.clientWantsToAuthenticateWithJwt({
-    required String jwt,
+    @JsonKey(name: 'Jwt') required String jwt,
   }) = ClientWantsToAuthenticateWithJwt;
 
   factory ClientEvent.clientWantsToRegister({
-    required String Username,
-    required String Email,
-    required String Password,
+    @JsonKey(name: 'Username') required String username,
+    @JsonKey(name: 'Email') required String email,
+    @JsonKey(name: 'Password') required String password,
   }) = ClientWantsToRegister;
 
   factory ClientEvent.clientWantsToLogIn({
@@ -28,49 +28,49 @@ sealed class ClientEvent with _$ClientEvent implements BaseEvent {
   }) = ClientWantsToLogIn;
 
   factory ClientEvent.clientWantsToDeleteARun({
-    required String userId,
-    required String runId,
+    @JsonKey(name: 'UserId') required int userId,
+    @JsonKey(name: 'RunId') required String runId,
   }) = ClientWantsToDeleteARun;
 
   factory ClientEvent.clientWantsToSeeAllSavedRuns({
-    required int userId,
+    @JsonKey(name: 'UserId') required int userId,
   }) = ClientWantsToSeeAllSavedRuns;
 
   factory ClientEvent.clientWantsToSaveARun({
-    required DateTime runDateTime,
-    required String userId,
-    required double runDistance,
-    required String runTime,
+    @JsonKey(name: 'RunDateTime') required DateTime runDateTime,
+    @JsonKey(name: 'UserId') required int userId,
+    @JsonKey(name: 'RunDistance') required double runDistance,
+    @JsonKey(name: 'RunTime') required String runTime,
   }) = ClientWantsToSaveARun;
 
   factory ClientEvent.clientWantsToStopARun({
-    required DateTime runEndTime,
-    required double endingLat,
-    required double endingLng,
-    required String runId,
+    @JsonKey(name: 'RunEndTime') required DateTime runEndTime,
+    @JsonKey(name: 'EndingLat') required double endingLat,
+    @JsonKey(name: 'EndingLng') required double endingLng,
+    @JsonKey(name: 'RunId') required String runId,
   }) = ClientWantsToStopARun;
 
   factory ClientEvent.clientWantsToLogARun({
-    required DateTime runDateTime,
-    required double startingLat,
-    required double startingLng,
-    required String userId,
+    @JsonKey(name: 'RunStartTime') required DateTime runStartTime,
+    @JsonKey(name: 'StartingLat') required double startingLat,
+    @JsonKey(name: 'StartingLng') required double startingLng,
+    @JsonKey(name: 'UserId') required int userId,
   }) = ClientWantsToLogARun;
 
   factory ClientEvent.clientWantsToLogNewCoordinates({
-    required DateTime loggingTime,
-    required double lat,
-    required double lng,
-    required String runId,
+    @JsonKey(name: 'LoggingTime') required DateTime loggingTime,
+    @JsonKey(name: 'Lat') required double lat,
+    @JsonKey(name: 'Lng') required double lng,
+    @JsonKey(name: 'RunId') required String runId,
   }) = ClientWantsToLogNewCoordinates;
 
   factory ClientEvent.clientWantsToSeeAProgressOfAllRuns({
-    required String userId,
+    @JsonKey(name: 'UserId') required int userId,
   }) = ClientWantsToSeeAProgressOfAllRuns;
 
   factory ClientEvent.clientWantsToSeeFullInfoOfRun({
-    required String runId,
-    required int userId,
+    @JsonKey(name: 'RunId') required String runId,
+    @JsonKey(name: 'UserId') required int userId,
   }) = ClientWantsToSeeFullInfoOfRun;
 
   factory ClientEvent.fromJson(Map<String, dynamic> json) =>
@@ -80,29 +80,30 @@ sealed class ClientEvent with _$ClientEvent implements BaseEvent {
 @Freezed(unionKey: 'eventType', unionValueCase: FreezedUnionCase.pascal)
 sealed class ServerEvent with _$ServerEvent implements BaseEvent {
   factory ServerEvent.serverSendsBackJwt({
-    required String jwt,
+    @JsonKey(name: 'Jwt') required String jwt,
   }) = ServerSendsBackJwt;
 
   factory ServerEvent.serverSendsBackRun({
-    required DateTime runDateTime,
-    required double runDistance,
-    required String runTime,
+    @JsonKey(name: 'RunDateTime') required DateTime runDateTime,
+    @JsonKey(name: 'UserId') required double runDistance,
+    @JsonKey(name: 'RunDistance') required String runTime,
   }) = ServerSendsBackRun;
 
   factory ServerEvent.serverSendsBackAllSavedRuns({
-    required List<Run> runs,
+    @JsonKey(name: 'AllRuns') required List<Run> allRuns,
   }) = ServerSendsBackAllSavedRuns;
 
   factory ServerEvent.serverSendsBackAllProgress({
-    required List<ProgressInfo> progressInfo,
+    @JsonKey(name: 'AllProgress') required List<ProgressInfo> allProgress,
   }) = ServerSendsBackAllProgress;
 
   factory ServerEvent.serverConfirmsDeletionOfRun({
-    required String runDeleted,
+    @JsonKey(name: 'RunDeleted') required String runDeleted,
   }) = ServerConfirmsDeletionOfRun;
 
-  factory ServerEvent.serverSendsBackRunId({required String runId}) =
-      ServerSendsBackRunId;
+  factory ServerEvent.serverSendsBackRunId({
+    @JsonKey(name: 'RunId') required String runId,
+  }) = ServerSendsBackRunId;
 
   factory ServerEvent.serverConfirmsRegistration({
     @JsonKey(name: 'Message') required String message,
@@ -110,8 +111,8 @@ sealed class ServerEvent with _$ServerEvent implements BaseEvent {
   }) = ServerConfirmsRegistration;
 
   factory ServerEvent.serverSendsBackRunWithMap({
-    required String message,
-    required RunInfoWithMap runInfoWithMap,
+    @JsonKey(name: 'Message') required String message,
+    @JsonKey(name: 'RunInfoWithMap') required RunInfoWithMap runInfoWithMap,
   }) = ServerSendsBackRunWithMap;
 
   factory ServerEvent.serverConfirmsLogin({
@@ -121,11 +122,12 @@ sealed class ServerEvent with _$ServerEvent implements BaseEvent {
   }) = ServerConfirmsLogin;
 
   factory ServerEvent.serverDeniesLogin({
-    required String message,
+    @JsonKey(name: 'Message') required String message,
   }) = ServerDeniesLogin;
 
-  factory ServerEvent.serverSendsBackFullRunInfo(
-      {required RunInfoWithMap runInfoWithMap}) = ServerSendsBackFullRunInfo;
+  factory ServerEvent.serverSendsBackFullRunInfo({
+    @JsonKey(name: 'RunInfoWithMap') required RunInfoWithMap runInfoWithMap,
+  }) = ServerSendsBackFullRunInfo;
 
   factory ServerEvent.fromJson(Map<String, dynamic> json) =>
       _$ServerEventFromJson(json);

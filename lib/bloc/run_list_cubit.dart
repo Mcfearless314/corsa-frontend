@@ -7,10 +7,9 @@ import '../BroadcastWsChannel.dart';
 import '../models/events.dart';
 
 class RunListCubit extends Cubit<RunListState> {
-  RunListCubit(this.channel, this.userId) : super(RunListState.empty());
+  RunListCubit(this.channel) : super(RunListState.empty());
 
   final BroadcastWsChannel channel;
-  final int userId;
 
   void getRuns() async {
     final event =
@@ -21,14 +20,14 @@ class RunListCubit extends Cubit<RunListState> {
     channel.sink.add(jsonEncode(event.toJson()));
     final serverEvent = await serverEventFuture.timeout(Duration(seconds: 5));
     if (serverEvent is ServerSendsBackAllSavedRuns) {
-      emit(state.copyWith(runs: serverEvent.runs));
+      emit(state.copyWith(runs: serverEvent.allRuns));
     }
 
 
   }
 
   getFullInfoOfRun(id) {
-    final event = ClientEvent.clientWantsToSeeFullInfoOfRun(runId: id, userId: userId);
+    final event = ClientEvent.clientWantsToSeeFullInfoOfRun(runId: id, userId: 1);
     final serverEventFuture = channel.stream
         .map((event) => ServerEvent.fromJson(jsonDecode(event)))
         .firstWhere((event) => event is ServerSendsBackFullRunInfo);
