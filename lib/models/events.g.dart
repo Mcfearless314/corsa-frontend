@@ -367,3 +367,31 @@ Map<String, dynamic> _$$ServerSendsBackFullRunInfoImplToJson(
       'RunInfoWithMap': instance.runInfoWithMap,
       'eventType': instance.$type,
     };
+
+_$AuthenticationFailureExceptionImpl
+    _$$AuthenticationFailureExceptionImplFromJson(Map<String, dynamic> json) =>
+        _$AuthenticationFailureExceptionImpl(
+          errorMessage: json['errorMessage'] as String,
+          $type: json['eventType'] as String?,
+        );
+
+Map<String, dynamic> _$$AuthenticationFailureExceptionImplToJson(
+        _$AuthenticationFailureExceptionImpl instance) =>
+    <String, dynamic>{
+      'errorMessage': instance.errorMessage,
+      'eventType': instance.$type,
+    };
+
+_$UserAlreadyExistsExceptionImpl _$$UserAlreadyExistsExceptionImplFromJson(
+        Map<String, dynamic> json) =>
+    _$UserAlreadyExistsExceptionImpl(
+      errorMessage: json['errorMessage'] as String,
+      $type: json['eventType'] as String?,
+    );
+
+Map<String, dynamic> _$$UserAlreadyExistsExceptionImplToJson(
+        _$UserAlreadyExistsExceptionImpl instance) =>
+    <String, dynamic>{
+      'errorMessage': instance.errorMessage,
+      'eventType': instance.$type,
+    };

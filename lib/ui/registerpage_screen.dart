@@ -34,6 +34,10 @@ class _RegisterPageScreenState extends State<RegisterPageScreen> {
                     builder: (context) =>
                         UserPageScreen(userId: state.userId!)));
           }
+          else if (state.isFailure) {
+            ScaffoldMessenger.of(context)
+                .showSnackBar(SnackBar(content: Text(state.errorMessage!)));
+          }
         },
         builder: (context, state) {
           return Scaffold(

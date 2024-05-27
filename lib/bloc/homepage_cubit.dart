@@ -26,12 +26,17 @@ class HomepageCubit extends Cubit<HomepageState> {
     channel.sink.add(jsonEncode(event.toJson()));
     final serverEventFuture = channel.stream
         .map((event) => ServerEvent.fromJson(jsonDecode(event)))
-        .firstWhere((event) => event is ServerConfirmsLogin);
+        .firstWhere(
+          (event) => event is ServerConfirmsLogin || event is AuthenticationFailureException,
+      orElse: () => ServerEvent.serverDeniesLogin(message: 'Timeout'),
+    );
     final serverEvent = await serverEventFuture.timeout(Duration(seconds: 5));
     if (serverEvent is ServerConfirmsLogin) {
       emit(state.copyWith(isSuccess: true, userId: serverEvent.userId));
+    } else if (serverEvent is AuthenticationFailureException) {
+      emit(HomepageState.failure(errorMessage: serverEvent.errorMessage));
     } else {
-      emit(HomepageState.failure());
+      emit(HomepageState.failure(errorMessage: 'Request timed out'));
     }
   }
 }

@@ -65,15 +65,18 @@ class RegisterCubit extends Cubit<RegisterState> {
     final serverEventFuture = channel.stream
     .map((event) => jsonDecode(event))
         .map((event) => ServerEvent.fromJson(event))
-        .firstWhere((event) => event is ServerConfirmsRegistration,
+        .firstWhere((event) => event is ServerConfirmsRegistration || event is UserAlreadyExistsException,
             orElse: () =>
                 throw Exception('Server did not confirm registration'));
     final serverEvent =
         await serverEventFuture.timeout(const Duration(seconds: 5));
     if (serverEvent is ServerConfirmsRegistration) {
       emit(state.copyWith(userId: serverEvent.userId, isSuccess: true));
-    } else {
-      emit(state.copyWith(isFailure: true));
+    } else if (serverEvent is UserAlreadyExistsException){
+      emit(state.copyWith(isFailure: true, errorMessage: serverEvent.errorMessage));
+    }
+    else {
+      emit(state.copyWith(isFailure: true, errorMessage: 'Request timed out'));
     }
   }
 }

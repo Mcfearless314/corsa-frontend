@@ -14,11 +14,12 @@ class RegisterState {
   final bool? isPasswordValid;
   final bool? isConfirmPasswordValid;
   final int? userId;
+  final String? errorMessage;
 
   bool get isFormValid => isEmailValid! && isUsernameValid! && isPasswordValid!;
   bool get isPasswordMatch => isPasswordValid! && isConfirmPasswordValid! && password == confirmPassword;
 
-  const RegisterState({
+  RegisterState({
     this.email = '',
     this.username = '',
     this.password = '',
@@ -31,6 +32,7 @@ class RegisterState {
     this.isPasswordValid,
     this.isConfirmPasswordValid,
     this.userId,
+    this.errorMessage,
   });
 
   RegisterState copyWith({
@@ -46,6 +48,7 @@ class RegisterState {
     bool? isPasswordValid,
     bool? isConfirmPasswordValid,
     int? userId,
+    String? errorMessage,
   }) {
     return RegisterState(
       email: email ?? this.email,
@@ -60,10 +63,11 @@ class RegisterState {
       isPasswordValid: isPasswordValid ?? this.isPasswordValid,
       isConfirmPasswordValid: isConfirmPasswordValid ?? this.isConfirmPasswordValid,
       userId: userId ?? this.userId,
+      errorMessage: errorMessage ?? this.errorMessage,
     );
   }
   factory RegisterState.empty() {
-    return const RegisterState(
+    return RegisterState(
       email: '',
       username: '',
       password: '',
@@ -76,17 +80,18 @@ class RegisterState {
       isPasswordValid: null,
       isConfirmPasswordValid: null,
       userId: null,
+      errorMessage: null,
     );
   }
 
   factory RegisterState.isSuccess() {
-    return const RegisterState(
+    return RegisterState(
       isSuccess: true,
     );
   }
 
   factory RegisterState.isFailure() {
-    return const RegisterState(
+    return RegisterState(
       isFailure: true,
     );
   }

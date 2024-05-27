@@ -6,6 +6,7 @@ class HomepageState {
   final bool isSuccess;
   final bool isFailure;
   final bool isSignUp;
+  final String? errorMessage;
 
   bool get isFormValid => username.isNotEmpty && password.isNotEmpty;
 
@@ -13,7 +14,7 @@ class HomepageState {
   final String password;
   final int? userId;
 
-  HomepageState({
+  const HomepageState({
     required this.isSubmitting,
     required this.isSuccess,
     required this.isFailure,
@@ -21,10 +22,11 @@ class HomepageState {
     required this.username,
     required this.password,
     this.userId,
+    this.errorMessage,
   });
 
   factory HomepageState.empty() {
-    return HomepageState(
+    return const HomepageState(
       isSubmitting: false,
       isSuccess: false,
       isFailure: false,
@@ -36,7 +38,7 @@ class HomepageState {
   }
 
   factory HomepageState.loading() {
-    return HomepageState(
+    return const HomepageState(
       isSubmitting: true,
       isSuccess: false,
       isFailure: false,
@@ -47,7 +49,7 @@ class HomepageState {
     );
   }
 
-  factory HomepageState.failure() {
+  factory HomepageState.failure({required String errorMessage}) {
     return HomepageState(
       isSubmitting: false,
       isSuccess: false,
@@ -56,11 +58,12 @@ class HomepageState {
       username: '',
       password: '',
       userId: null,
+      errorMessage: errorMessage,
     );
   }
 
   factory HomepageState.success() {
-    return HomepageState(
+    return const HomepageState(
       isSubmitting: false,
       isSuccess: true,
       isFailure: false,
@@ -71,7 +74,7 @@ class HomepageState {
   }
 
   factory HomepageState.signUp() {
-    return HomepageState(
+    return const HomepageState(
       isSubmitting: false,
       isSuccess: false,
       isFailure: false,
@@ -100,6 +103,7 @@ class HomepageState {
     bool? isFailure,
     bool? isSignUp,
     int? userId,
+    String? errorMessage,
   }) {
     return HomepageState(
       username: username ?? this.username,
@@ -109,6 +113,7 @@ class HomepageState {
       isFailure: isFailure ?? this.isFailure,
       isSignUp: isSignUp ?? this.isSignUp,
       userId: userId ?? this.userId,
+      errorMessage: errorMessage ?? this.errorMessage,
     );
   }
 

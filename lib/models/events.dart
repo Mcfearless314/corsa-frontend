@@ -129,6 +129,14 @@ sealed class ServerEvent with _$ServerEvent implements BaseEvent {
     @JsonKey(name: 'RunInfoWithMap') required RunInfoWithMap runInfoWithMap,
   }) = ServerSendsBackFullRunInfo;
 
+  factory ServerEvent.authenticationFailureException({
+    required String errorMessage,
+  }) = AuthenticationFailureException;
+
+  factory ServerEvent.userAlreadyExistsException({
+    required String errorMessage,
+  }) = UserAlreadyExistsException;
+
   factory ServerEvent.fromJson(Map<String, dynamic> json) =>
       _$ServerEventFromJson(json);
 }
