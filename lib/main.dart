@@ -8,7 +8,7 @@ import 'BroadcastWsChannel.dart';
 
 
 void main() {
-  final wsUrl = Uri.parse('ws://10.0.2.2:8181');
+  final wsUrl = Uri.parse('ws://localhost:8181');
   final broadcastChannel = BroadcastWsChannel(wsUrl);
   runApp(Provider<BroadcastWsChannel>.value(value: broadcastChannel, child: const MyApp()));
 }

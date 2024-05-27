@@ -7,8 +7,16 @@ import '../BroadcastWsChannel.dart';
 import '../bloc/homepage_cubit.dart';
 import '../bloc/homepage_state.dart';
 
-class HomePageScreen extends StatelessWidget {
+class HomePageScreen extends StatefulWidget {
   const HomePageScreen({super.key});
+
+  @override
+  State<HomePageScreen> createState() => _HomePageScreenState();
+}
+
+class _HomePageScreenState extends State<HomePageScreen> {
+  TextEditingController usernameController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -60,7 +68,7 @@ class HomePageScreen extends StatelessWidget {
                         style: const TextStyle(
                             color: Colors.white, fontFamily: 'PoetsenOne'),
                         controller:
-                            context.read<HomepageCubit>().usernameController,
+                            usernameController,
                         decoration: const InputDecoration(
                           border: OutlineInputBorder(),
                           hintText: 'Username',
@@ -90,7 +98,7 @@ class HomePageScreen extends StatelessWidget {
                         style: const TextStyle(
                             color: Colors.white, fontFamily: 'PoetsenOne'),
                         controller:
-                            context.read<HomepageCubit>().passwordController,
+                            passwordController,
                         obscureText: true,
                         decoration: const InputDecoration(
                             border: OutlineInputBorder(),
@@ -108,7 +116,7 @@ class HomePageScreen extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: ElevatedButton(
-                          onPressed: () => context.read<HomepageCubit>().logIn(),
+                          onPressed: () => context.read<HomepageCubit>().logIn(usernameController.text, passwordController.text),
                           child: Text("Login",
                               style: Theme.of(context).textTheme.displaySmall),
                         ),

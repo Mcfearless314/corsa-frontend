@@ -50,9 +50,10 @@ mixin _$ClientEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String jwt) clientWantsToAuthenticateWithJwt,
-    required TResult Function(String username, String email, String password)
+    required TResult Function(String Username, String Email, String Password)
         clientWantsToRegister,
-    required TResult Function(String username, String password)
+    required TResult Function(@JsonKey(name: 'Username') String username,
+            @JsonKey(name: 'Password') String password)
         clientWantsToLogIn,
     required TResult Function(String userId, String runId)
         clientWantsToDeleteARun,
@@ -77,9 +78,11 @@ mixin _$ClientEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String jwt)? clientWantsToAuthenticateWithJwt,
-    TResult? Function(String username, String email, String password)?
+    TResult? Function(String Username, String Email, String Password)?
         clientWantsToRegister,
-    TResult? Function(String username, String password)? clientWantsToLogIn,
+    TResult? Function(@JsonKey(name: 'Username') String username,
+            @JsonKey(name: 'Password') String password)?
+        clientWantsToLogIn,
     TResult? Function(String userId, String runId)? clientWantsToDeleteARun,
     TResult? Function(int userId)? clientWantsToSeeAllSavedRuns,
     TResult? Function(DateTime runDateTime, String userId, double runDistance,
@@ -101,9 +104,11 @@ mixin _$ClientEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String jwt)? clientWantsToAuthenticateWithJwt,
-    TResult Function(String username, String email, String password)?
+    TResult Function(String Username, String Email, String Password)?
         clientWantsToRegister,
-    TResult Function(String username, String password)? clientWantsToLogIn,
+    TResult Function(@JsonKey(name: 'Username') String username,
+            @JsonKey(name: 'Password') String password)?
+        clientWantsToLogIn,
     TResult Function(String userId, String runId)? clientWantsToDeleteARun,
     TResult Function(int userId)? clientWantsToSeeAllSavedRuns,
     TResult Function(DateTime runDateTime, String userId, double runDistance,
@@ -300,9 +305,10 @@ class _$ClientWantsToAuthenticateWithJwtImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String jwt) clientWantsToAuthenticateWithJwt,
-    required TResult Function(String username, String email, String password)
+    required TResult Function(String Username, String Email, String Password)
         clientWantsToRegister,
-    required TResult Function(String username, String password)
+    required TResult Function(@JsonKey(name: 'Username') String username,
+            @JsonKey(name: 'Password') String password)
         clientWantsToLogIn,
     required TResult Function(String userId, String runId)
         clientWantsToDeleteARun,
@@ -330,9 +336,11 @@ class _$ClientWantsToAuthenticateWithJwtImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String jwt)? clientWantsToAuthenticateWithJwt,
-    TResult? Function(String username, String email, String password)?
+    TResult? Function(String Username, String Email, String Password)?
         clientWantsToRegister,
-    TResult? Function(String username, String password)? clientWantsToLogIn,
+    TResult? Function(@JsonKey(name: 'Username') String username,
+            @JsonKey(name: 'Password') String password)?
+        clientWantsToLogIn,
     TResult? Function(String userId, String runId)? clientWantsToDeleteARun,
     TResult? Function(int userId)? clientWantsToSeeAllSavedRuns,
     TResult? Function(DateTime runDateTime, String userId, double runDistance,
@@ -357,9 +365,11 @@ class _$ClientWantsToAuthenticateWithJwtImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String jwt)? clientWantsToAuthenticateWithJwt,
-    TResult Function(String username, String email, String password)?
+    TResult Function(String Username, String Email, String Password)?
         clientWantsToRegister,
-    TResult Function(String username, String password)? clientWantsToLogIn,
+    TResult Function(@JsonKey(name: 'Username') String username,
+            @JsonKey(name: 'Password') String password)?
+        clientWantsToLogIn,
     TResult Function(String userId, String runId)? clientWantsToDeleteARun,
     TResult Function(int userId)? clientWantsToSeeAllSavedRuns,
     TResult Function(DateTime runDateTime, String userId, double runDistance,
@@ -490,7 +500,7 @@ abstract class _$$ClientWantsToRegisterImplCopyWith<$Res> {
           $Res Function(_$ClientWantsToRegisterImpl) then) =
       __$$ClientWantsToRegisterImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String username, String email, String password});
+  $Res call({String Username, String Email, String Password});
 }
 
 /// @nodoc
@@ -504,22 +514,22 @@ class __$$ClientWantsToRegisterImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? username = null,
-    Object? email = null,
-    Object? password = null,
+    Object? Username = null,
+    Object? Email = null,
+    Object? Password = null,
   }) {
     return _then(_$ClientWantsToRegisterImpl(
-      username: null == username
-          ? _value.username
-          : username // ignore: cast_nullable_to_non_nullable
+      Username: null == Username
+          ? _value.Username
+          : Username // ignore: cast_nullable_to_non_nullable
               as String,
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
+      Email: null == Email
+          ? _value.Email
+          : Email // ignore: cast_nullable_to_non_nullable
               as String,
-      password: null == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
+      Password: null == Password
+          ? _value.Password
+          : Password // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -531,9 +541,9 @@ class _$ClientWantsToRegisterImpl
     with DiagnosticableTreeMixin
     implements ClientWantsToRegister {
   _$ClientWantsToRegisterImpl(
-      {required this.username,
-      required this.email,
-      required this.password,
+      {required this.Username,
+      required this.Email,
+      required this.Password,
       final String? $type})
       : $type = $type ?? 'ClientWantsToRegister';
 
@@ -541,18 +551,18 @@ class _$ClientWantsToRegisterImpl
       _$$ClientWantsToRegisterImplFromJson(json);
 
   @override
-  final String username;
+  final String Username;
   @override
-  final String email;
+  final String Email;
   @override
-  final String password;
+  final String Password;
 
   @JsonKey(name: 'eventType')
   final String $type;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'ClientEvent.clientWantsToRegister(username: $username, email: $email, password: $password)';
+    return 'ClientEvent.clientWantsToRegister(Username: $Username, Email: $Email, Password: $Password)';
   }
 
   @override
@@ -560,9 +570,9 @@ class _$ClientWantsToRegisterImpl
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'ClientEvent.clientWantsToRegister'))
-      ..add(DiagnosticsProperty('username', username))
-      ..add(DiagnosticsProperty('email', email))
-      ..add(DiagnosticsProperty('password', password));
+      ..add(DiagnosticsProperty('Username', Username))
+      ..add(DiagnosticsProperty('Email', Email))
+      ..add(DiagnosticsProperty('Password', Password));
   }
 
   @override
@@ -570,16 +580,16 @@ class _$ClientWantsToRegisterImpl
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ClientWantsToRegisterImpl &&
-            (identical(other.username, username) ||
-                other.username == username) &&
-            (identical(other.email, email) || other.email == email) &&
-            (identical(other.password, password) ||
-                other.password == password));
+            (identical(other.Username, Username) ||
+                other.Username == Username) &&
+            (identical(other.Email, Email) || other.Email == Email) &&
+            (identical(other.Password, Password) ||
+                other.Password == Password));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, username, email, password);
+  int get hashCode => Object.hash(runtimeType, Username, Email, Password);
 
   @JsonKey(ignore: true)
   @override
@@ -592,9 +602,10 @@ class _$ClientWantsToRegisterImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String jwt) clientWantsToAuthenticateWithJwt,
-    required TResult Function(String username, String email, String password)
+    required TResult Function(String Username, String Email, String Password)
         clientWantsToRegister,
-    required TResult Function(String username, String password)
+    required TResult Function(@JsonKey(name: 'Username') String username,
+            @JsonKey(name: 'Password') String password)
         clientWantsToLogIn,
     required TResult Function(String userId, String runId)
         clientWantsToDeleteARun,
@@ -615,16 +626,18 @@ class _$ClientWantsToRegisterImpl
     required TResult Function(String runId, int userId)
         clientWantsToSeeFullInfoOfRun,
   }) {
-    return clientWantsToRegister(username, email, password);
+    return clientWantsToRegister(Username, Email, Password);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String jwt)? clientWantsToAuthenticateWithJwt,
-    TResult? Function(String username, String email, String password)?
+    TResult? Function(String Username, String Email, String Password)?
         clientWantsToRegister,
-    TResult? Function(String username, String password)? clientWantsToLogIn,
+    TResult? Function(@JsonKey(name: 'Username') String username,
+            @JsonKey(name: 'Password') String password)?
+        clientWantsToLogIn,
     TResult? Function(String userId, String runId)? clientWantsToDeleteARun,
     TResult? Function(int userId)? clientWantsToSeeAllSavedRuns,
     TResult? Function(DateTime runDateTime, String userId, double runDistance,
@@ -642,16 +655,18 @@ class _$ClientWantsToRegisterImpl
     TResult? Function(String userId)? clientWantsToSeeAProgressOfAllRuns,
     TResult? Function(String runId, int userId)? clientWantsToSeeFullInfoOfRun,
   }) {
-    return clientWantsToRegister?.call(username, email, password);
+    return clientWantsToRegister?.call(Username, Email, Password);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String jwt)? clientWantsToAuthenticateWithJwt,
-    TResult Function(String username, String email, String password)?
+    TResult Function(String Username, String Email, String Password)?
         clientWantsToRegister,
-    TResult Function(String username, String password)? clientWantsToLogIn,
+    TResult Function(@JsonKey(name: 'Username') String username,
+            @JsonKey(name: 'Password') String password)?
+        clientWantsToLogIn,
     TResult Function(String userId, String runId)? clientWantsToDeleteARun,
     TResult Function(int userId)? clientWantsToSeeAllSavedRuns,
     TResult Function(DateTime runDateTime, String userId, double runDistance,
@@ -671,7 +686,7 @@ class _$ClientWantsToRegisterImpl
     required TResult orElse(),
   }) {
     if (clientWantsToRegister != null) {
-      return clientWantsToRegister(username, email, password);
+      return clientWantsToRegister(Username, Email, Password);
     }
     return orElse();
   }
@@ -763,16 +778,16 @@ class _$ClientWantsToRegisterImpl
 
 abstract class ClientWantsToRegister implements ClientEvent {
   factory ClientWantsToRegister(
-      {required final String username,
-      required final String email,
-      required final String password}) = _$ClientWantsToRegisterImpl;
+      {required final String Username,
+      required final String Email,
+      required final String Password}) = _$ClientWantsToRegisterImpl;
 
   factory ClientWantsToRegister.fromJson(Map<String, dynamic> json) =
       _$ClientWantsToRegisterImpl.fromJson;
 
-  String get username;
-  String get email;
-  String get password;
+  String get Username;
+  String get Email;
+  String get Password;
   @JsonKey(ignore: true)
   _$$ClientWantsToRegisterImplCopyWith<_$ClientWantsToRegisterImpl>
       get copyWith => throw _privateConstructorUsedError;
@@ -784,7 +799,9 @@ abstract class _$$ClientWantsToLogInImplCopyWith<$Res> {
           $Res Function(_$ClientWantsToLogInImpl) then) =
       __$$ClientWantsToLogInImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String username, String password});
+  $Res call(
+      {@JsonKey(name: 'Username') String username,
+      @JsonKey(name: 'Password') String password});
 }
 
 /// @nodoc
@@ -820,15 +837,19 @@ class _$ClientWantsToLogInImpl
     with DiagnosticableTreeMixin
     implements ClientWantsToLogIn {
   _$ClientWantsToLogInImpl(
-      {required this.username, required this.password, final String? $type})
+      {@JsonKey(name: 'Username') required this.username,
+      @JsonKey(name: 'Password') required this.password,
+      final String? $type})
       : $type = $type ?? 'ClientWantsToLogIn';
 
   factory _$ClientWantsToLogInImpl.fromJson(Map<String, dynamic> json) =>
       _$$ClientWantsToLogInImplFromJson(json);
 
   @override
+  @JsonKey(name: 'Username')
   final String username;
   @override
+  @JsonKey(name: 'Password')
   final String password;
 
   @JsonKey(name: 'eventType')
@@ -874,9 +895,10 @@ class _$ClientWantsToLogInImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String jwt) clientWantsToAuthenticateWithJwt,
-    required TResult Function(String username, String email, String password)
+    required TResult Function(String Username, String Email, String Password)
         clientWantsToRegister,
-    required TResult Function(String username, String password)
+    required TResult Function(@JsonKey(name: 'Username') String username,
+            @JsonKey(name: 'Password') String password)
         clientWantsToLogIn,
     required TResult Function(String userId, String runId)
         clientWantsToDeleteARun,
@@ -904,9 +926,11 @@ class _$ClientWantsToLogInImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String jwt)? clientWantsToAuthenticateWithJwt,
-    TResult? Function(String username, String email, String password)?
+    TResult? Function(String Username, String Email, String Password)?
         clientWantsToRegister,
-    TResult? Function(String username, String password)? clientWantsToLogIn,
+    TResult? Function(@JsonKey(name: 'Username') String username,
+            @JsonKey(name: 'Password') String password)?
+        clientWantsToLogIn,
     TResult? Function(String userId, String runId)? clientWantsToDeleteARun,
     TResult? Function(int userId)? clientWantsToSeeAllSavedRuns,
     TResult? Function(DateTime runDateTime, String userId, double runDistance,
@@ -931,9 +955,11 @@ class _$ClientWantsToLogInImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String jwt)? clientWantsToAuthenticateWithJwt,
-    TResult Function(String username, String email, String password)?
+    TResult Function(String Username, String Email, String Password)?
         clientWantsToRegister,
-    TResult Function(String username, String password)? clientWantsToLogIn,
+    TResult Function(@JsonKey(name: 'Username') String username,
+            @JsonKey(name: 'Password') String password)?
+        clientWantsToLogIn,
     TResult Function(String userId, String runId)? clientWantsToDeleteARun,
     TResult Function(int userId)? clientWantsToSeeAllSavedRuns,
     TResult Function(DateTime runDateTime, String userId, double runDistance,
@@ -1045,13 +1071,16 @@ class _$ClientWantsToLogInImpl
 
 abstract class ClientWantsToLogIn implements ClientEvent {
   factory ClientWantsToLogIn(
-      {required final String username,
-      required final String password}) = _$ClientWantsToLogInImpl;
+          {@JsonKey(name: 'Username') required final String username,
+          @JsonKey(name: 'Password') required final String password}) =
+      _$ClientWantsToLogInImpl;
 
   factory ClientWantsToLogIn.fromJson(Map<String, dynamic> json) =
       _$ClientWantsToLogInImpl.fromJson;
 
+  @JsonKey(name: 'Username')
   String get username;
+  @JsonKey(name: 'Password')
   String get password;
   @JsonKey(ignore: true)
   _$$ClientWantsToLogInImplCopyWith<_$ClientWantsToLogInImpl> get copyWith =>
@@ -1154,9 +1183,10 @@ class _$ClientWantsToDeleteARunImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String jwt) clientWantsToAuthenticateWithJwt,
-    required TResult Function(String username, String email, String password)
+    required TResult Function(String Username, String Email, String Password)
         clientWantsToRegister,
-    required TResult Function(String username, String password)
+    required TResult Function(@JsonKey(name: 'Username') String username,
+            @JsonKey(name: 'Password') String password)
         clientWantsToLogIn,
     required TResult Function(String userId, String runId)
         clientWantsToDeleteARun,
@@ -1184,9 +1214,11 @@ class _$ClientWantsToDeleteARunImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String jwt)? clientWantsToAuthenticateWithJwt,
-    TResult? Function(String username, String email, String password)?
+    TResult? Function(String Username, String Email, String Password)?
         clientWantsToRegister,
-    TResult? Function(String username, String password)? clientWantsToLogIn,
+    TResult? Function(@JsonKey(name: 'Username') String username,
+            @JsonKey(name: 'Password') String password)?
+        clientWantsToLogIn,
     TResult? Function(String userId, String runId)? clientWantsToDeleteARun,
     TResult? Function(int userId)? clientWantsToSeeAllSavedRuns,
     TResult? Function(DateTime runDateTime, String userId, double runDistance,
@@ -1211,9 +1243,11 @@ class _$ClientWantsToDeleteARunImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String jwt)? clientWantsToAuthenticateWithJwt,
-    TResult Function(String username, String email, String password)?
+    TResult Function(String Username, String Email, String Password)?
         clientWantsToRegister,
-    TResult Function(String username, String password)? clientWantsToLogIn,
+    TResult Function(@JsonKey(name: 'Username') String username,
+            @JsonKey(name: 'Password') String password)?
+        clientWantsToLogIn,
     TResult Function(String userId, String runId)? clientWantsToDeleteARun,
     TResult Function(int userId)? clientWantsToSeeAllSavedRuns,
     TResult Function(DateTime runDateTime, String userId, double runDistance,
@@ -1428,9 +1462,10 @@ class _$ClientWantsToSeeAllSavedRunsImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String jwt) clientWantsToAuthenticateWithJwt,
-    required TResult Function(String username, String email, String password)
+    required TResult Function(String Username, String Email, String Password)
         clientWantsToRegister,
-    required TResult Function(String username, String password)
+    required TResult Function(@JsonKey(name: 'Username') String username,
+            @JsonKey(name: 'Password') String password)
         clientWantsToLogIn,
     required TResult Function(String userId, String runId)
         clientWantsToDeleteARun,
@@ -1458,9 +1493,11 @@ class _$ClientWantsToSeeAllSavedRunsImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String jwt)? clientWantsToAuthenticateWithJwt,
-    TResult? Function(String username, String email, String password)?
+    TResult? Function(String Username, String Email, String Password)?
         clientWantsToRegister,
-    TResult? Function(String username, String password)? clientWantsToLogIn,
+    TResult? Function(@JsonKey(name: 'Username') String username,
+            @JsonKey(name: 'Password') String password)?
+        clientWantsToLogIn,
     TResult? Function(String userId, String runId)? clientWantsToDeleteARun,
     TResult? Function(int userId)? clientWantsToSeeAllSavedRuns,
     TResult? Function(DateTime runDateTime, String userId, double runDistance,
@@ -1485,9 +1522,11 @@ class _$ClientWantsToSeeAllSavedRunsImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String jwt)? clientWantsToAuthenticateWithJwt,
-    TResult Function(String username, String email, String password)?
+    TResult Function(String Username, String Email, String Password)?
         clientWantsToRegister,
-    TResult Function(String username, String password)? clientWantsToLogIn,
+    TResult Function(@JsonKey(name: 'Username') String username,
+            @JsonKey(name: 'Password') String password)?
+        clientWantsToLogIn,
     TResult Function(String userId, String runId)? clientWantsToDeleteARun,
     TResult Function(int userId)? clientWantsToSeeAllSavedRuns,
     TResult Function(DateTime runDateTime, String userId, double runDistance,
@@ -1735,9 +1774,10 @@ class _$ClientWantsToSaveARunImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String jwt) clientWantsToAuthenticateWithJwt,
-    required TResult Function(String username, String email, String password)
+    required TResult Function(String Username, String Email, String Password)
         clientWantsToRegister,
-    required TResult Function(String username, String password)
+    required TResult Function(@JsonKey(name: 'Username') String username,
+            @JsonKey(name: 'Password') String password)
         clientWantsToLogIn,
     required TResult Function(String userId, String runId)
         clientWantsToDeleteARun,
@@ -1765,9 +1805,11 @@ class _$ClientWantsToSaveARunImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String jwt)? clientWantsToAuthenticateWithJwt,
-    TResult? Function(String username, String email, String password)?
+    TResult? Function(String Username, String Email, String Password)?
         clientWantsToRegister,
-    TResult? Function(String username, String password)? clientWantsToLogIn,
+    TResult? Function(@JsonKey(name: 'Username') String username,
+            @JsonKey(name: 'Password') String password)?
+        clientWantsToLogIn,
     TResult? Function(String userId, String runId)? clientWantsToDeleteARun,
     TResult? Function(int userId)? clientWantsToSeeAllSavedRuns,
     TResult? Function(DateTime runDateTime, String userId, double runDistance,
@@ -1793,9 +1835,11 @@ class _$ClientWantsToSaveARunImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String jwt)? clientWantsToAuthenticateWithJwt,
-    TResult Function(String username, String email, String password)?
+    TResult Function(String Username, String Email, String Password)?
         clientWantsToRegister,
-    TResult Function(String username, String password)? clientWantsToLogIn,
+    TResult Function(@JsonKey(name: 'Username') String username,
+            @JsonKey(name: 'Password') String password)?
+        clientWantsToLogIn,
     TResult Function(String userId, String runId)? clientWantsToDeleteARun,
     TResult Function(int userId)? clientWantsToSeeAllSavedRuns,
     TResult Function(DateTime runDateTime, String userId, double runDistance,
@@ -2046,9 +2090,10 @@ class _$ClientWantsToStopARunImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String jwt) clientWantsToAuthenticateWithJwt,
-    required TResult Function(String username, String email, String password)
+    required TResult Function(String Username, String Email, String Password)
         clientWantsToRegister,
-    required TResult Function(String username, String password)
+    required TResult Function(@JsonKey(name: 'Username') String username,
+            @JsonKey(name: 'Password') String password)
         clientWantsToLogIn,
     required TResult Function(String userId, String runId)
         clientWantsToDeleteARun,
@@ -2076,9 +2121,11 @@ class _$ClientWantsToStopARunImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String jwt)? clientWantsToAuthenticateWithJwt,
-    TResult? Function(String username, String email, String password)?
+    TResult? Function(String Username, String Email, String Password)?
         clientWantsToRegister,
-    TResult? Function(String username, String password)? clientWantsToLogIn,
+    TResult? Function(@JsonKey(name: 'Username') String username,
+            @JsonKey(name: 'Password') String password)?
+        clientWantsToLogIn,
     TResult? Function(String userId, String runId)? clientWantsToDeleteARun,
     TResult? Function(int userId)? clientWantsToSeeAllSavedRuns,
     TResult? Function(DateTime runDateTime, String userId, double runDistance,
@@ -2103,9 +2150,11 @@ class _$ClientWantsToStopARunImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String jwt)? clientWantsToAuthenticateWithJwt,
-    TResult Function(String username, String email, String password)?
+    TResult Function(String Username, String Email, String Password)?
         clientWantsToRegister,
-    TResult Function(String username, String password)? clientWantsToLogIn,
+    TResult Function(@JsonKey(name: 'Username') String username,
+            @JsonKey(name: 'Password') String password)?
+        clientWantsToLogIn,
     TResult Function(String userId, String runId)? clientWantsToDeleteARun,
     TResult Function(int userId)? clientWantsToSeeAllSavedRuns,
     TResult Function(DateTime runDateTime, String userId, double runDistance,
@@ -2359,9 +2408,10 @@ class _$ClientWantsToLogARunImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String jwt) clientWantsToAuthenticateWithJwt,
-    required TResult Function(String username, String email, String password)
+    required TResult Function(String Username, String Email, String Password)
         clientWantsToRegister,
-    required TResult Function(String username, String password)
+    required TResult Function(@JsonKey(name: 'Username') String username,
+            @JsonKey(name: 'Password') String password)
         clientWantsToLogIn,
     required TResult Function(String userId, String runId)
         clientWantsToDeleteARun,
@@ -2389,9 +2439,11 @@ class _$ClientWantsToLogARunImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String jwt)? clientWantsToAuthenticateWithJwt,
-    TResult? Function(String username, String email, String password)?
+    TResult? Function(String Username, String Email, String Password)?
         clientWantsToRegister,
-    TResult? Function(String username, String password)? clientWantsToLogIn,
+    TResult? Function(@JsonKey(name: 'Username') String username,
+            @JsonKey(name: 'Password') String password)?
+        clientWantsToLogIn,
     TResult? Function(String userId, String runId)? clientWantsToDeleteARun,
     TResult? Function(int userId)? clientWantsToSeeAllSavedRuns,
     TResult? Function(DateTime runDateTime, String userId, double runDistance,
@@ -2417,9 +2469,11 @@ class _$ClientWantsToLogARunImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String jwt)? clientWantsToAuthenticateWithJwt,
-    TResult Function(String username, String email, String password)?
+    TResult Function(String Username, String Email, String Password)?
         clientWantsToRegister,
-    TResult Function(String username, String password)? clientWantsToLogIn,
+    TResult Function(@JsonKey(name: 'Username') String username,
+            @JsonKey(name: 'Password') String password)?
+        clientWantsToLogIn,
     TResult Function(String userId, String runId)? clientWantsToDeleteARun,
     TResult Function(int userId)? clientWantsToSeeAllSavedRuns,
     TResult Function(DateTime runDateTime, String userId, double runDistance,
@@ -2672,9 +2726,10 @@ class _$ClientWantsToLogNewCoordinatesImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String jwt) clientWantsToAuthenticateWithJwt,
-    required TResult Function(String username, String email, String password)
+    required TResult Function(String Username, String Email, String Password)
         clientWantsToRegister,
-    required TResult Function(String username, String password)
+    required TResult Function(@JsonKey(name: 'Username') String username,
+            @JsonKey(name: 'Password') String password)
         clientWantsToLogIn,
     required TResult Function(String userId, String runId)
         clientWantsToDeleteARun,
@@ -2702,9 +2757,11 @@ class _$ClientWantsToLogNewCoordinatesImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String jwt)? clientWantsToAuthenticateWithJwt,
-    TResult? Function(String username, String email, String password)?
+    TResult? Function(String Username, String Email, String Password)?
         clientWantsToRegister,
-    TResult? Function(String username, String password)? clientWantsToLogIn,
+    TResult? Function(@JsonKey(name: 'Username') String username,
+            @JsonKey(name: 'Password') String password)?
+        clientWantsToLogIn,
     TResult? Function(String userId, String runId)? clientWantsToDeleteARun,
     TResult? Function(int userId)? clientWantsToSeeAllSavedRuns,
     TResult? Function(DateTime runDateTime, String userId, double runDistance,
@@ -2729,9 +2786,11 @@ class _$ClientWantsToLogNewCoordinatesImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String jwt)? clientWantsToAuthenticateWithJwt,
-    TResult Function(String username, String email, String password)?
+    TResult Function(String Username, String Email, String Password)?
         clientWantsToRegister,
-    TResult Function(String username, String password)? clientWantsToLogIn,
+    TResult Function(@JsonKey(name: 'Username') String username,
+            @JsonKey(name: 'Password') String password)?
+        clientWantsToLogIn,
     TResult Function(String userId, String runId)? clientWantsToDeleteARun,
     TResult Function(int userId)? clientWantsToSeeAllSavedRuns,
     TResult Function(DateTime runDateTime, String userId, double runDistance,
@@ -2952,9 +3011,10 @@ class _$ClientWantsToSeeAProgressOfAllRunsImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String jwt) clientWantsToAuthenticateWithJwt,
-    required TResult Function(String username, String email, String password)
+    required TResult Function(String Username, String Email, String Password)
         clientWantsToRegister,
-    required TResult Function(String username, String password)
+    required TResult Function(@JsonKey(name: 'Username') String username,
+            @JsonKey(name: 'Password') String password)
         clientWantsToLogIn,
     required TResult Function(String userId, String runId)
         clientWantsToDeleteARun,
@@ -2982,9 +3042,11 @@ class _$ClientWantsToSeeAProgressOfAllRunsImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String jwt)? clientWantsToAuthenticateWithJwt,
-    TResult? Function(String username, String email, String password)?
+    TResult? Function(String Username, String Email, String Password)?
         clientWantsToRegister,
-    TResult? Function(String username, String password)? clientWantsToLogIn,
+    TResult? Function(@JsonKey(name: 'Username') String username,
+            @JsonKey(name: 'Password') String password)?
+        clientWantsToLogIn,
     TResult? Function(String userId, String runId)? clientWantsToDeleteARun,
     TResult? Function(int userId)? clientWantsToSeeAllSavedRuns,
     TResult? Function(DateTime runDateTime, String userId, double runDistance,
@@ -3009,9 +3071,11 @@ class _$ClientWantsToSeeAProgressOfAllRunsImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String jwt)? clientWantsToAuthenticateWithJwt,
-    TResult Function(String username, String email, String password)?
+    TResult Function(String Username, String Email, String Password)?
         clientWantsToRegister,
-    TResult Function(String username, String password)? clientWantsToLogIn,
+    TResult Function(@JsonKey(name: 'Username') String username,
+            @JsonKey(name: 'Password') String password)?
+        clientWantsToLogIn,
     TResult Function(String userId, String runId)? clientWantsToDeleteARun,
     TResult Function(int userId)? clientWantsToSeeAllSavedRuns,
     TResult Function(DateTime runDateTime, String userId, double runDistance,
@@ -3235,9 +3299,10 @@ class _$ClientWantsToSeeFullInfoOfRunImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String jwt) clientWantsToAuthenticateWithJwt,
-    required TResult Function(String username, String email, String password)
+    required TResult Function(String Username, String Email, String Password)
         clientWantsToRegister,
-    required TResult Function(String username, String password)
+    required TResult Function(@JsonKey(name: 'Username') String username,
+            @JsonKey(name: 'Password') String password)
         clientWantsToLogIn,
     required TResult Function(String userId, String runId)
         clientWantsToDeleteARun,
@@ -3265,9 +3330,11 @@ class _$ClientWantsToSeeFullInfoOfRunImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String jwt)? clientWantsToAuthenticateWithJwt,
-    TResult? Function(String username, String email, String password)?
+    TResult? Function(String Username, String Email, String Password)?
         clientWantsToRegister,
-    TResult? Function(String username, String password)? clientWantsToLogIn,
+    TResult? Function(@JsonKey(name: 'Username') String username,
+            @JsonKey(name: 'Password') String password)?
+        clientWantsToLogIn,
     TResult? Function(String userId, String runId)? clientWantsToDeleteARun,
     TResult? Function(int userId)? clientWantsToSeeAllSavedRuns,
     TResult? Function(DateTime runDateTime, String userId, double runDistance,
@@ -3292,9 +3359,11 @@ class _$ClientWantsToSeeFullInfoOfRunImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String jwt)? clientWantsToAuthenticateWithJwt,
-    TResult Function(String username, String email, String password)?
+    TResult Function(String Username, String Email, String Password)?
         clientWantsToRegister,
-    TResult Function(String username, String password)? clientWantsToLogIn,
+    TResult Function(@JsonKey(name: 'Username') String username,
+            @JsonKey(name: 'Password') String password)?
+        clientWantsToLogIn,
     TResult Function(String userId, String runId)? clientWantsToDeleteARun,
     TResult Function(int userId)? clientWantsToSeeAllSavedRuns,
     TResult Function(DateTime runDateTime, String userId, double runDistance,
@@ -3464,11 +3533,15 @@ mixin _$ServerEvent {
         serverSendsBackAllProgress,
     required TResult Function(String runDeleted) serverConfirmsDeletionOfRun,
     required TResult Function(String runId) serverSendsBackRunId,
-    required TResult Function(String message, int userId)
+    required TResult Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'UserId') int userId)
         serverConfirmsRegistration,
     required TResult Function(String message, RunInfoWithMap runInfoWithMap)
         serverSendsBackRunWithMap,
-    required TResult Function(String message, Object token, int userId)
+    required TResult Function(
+            @JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'Token') Object token,
+            @JsonKey(name: 'UserId') int userId)
         serverConfirmsLogin,
     required TResult Function(String message) serverDeniesLogin,
     required TResult Function(RunInfoWithMap runInfoWithMap)
@@ -3485,10 +3558,15 @@ mixin _$ServerEvent {
         serverSendsBackAllProgress,
     TResult? Function(String runDeleted)? serverConfirmsDeletionOfRun,
     TResult? Function(String runId)? serverSendsBackRunId,
-    TResult? Function(String message, int userId)? serverConfirmsRegistration,
+    TResult? Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'UserId') int userId)?
+        serverConfirmsRegistration,
     TResult? Function(String message, RunInfoWithMap runInfoWithMap)?
         serverSendsBackRunWithMap,
-    TResult? Function(String message, Object token, int userId)?
+    TResult? Function(
+            @JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'Token') Object token,
+            @JsonKey(name: 'UserId') int userId)?
         serverConfirmsLogin,
     TResult? Function(String message)? serverDeniesLogin,
     TResult? Function(RunInfoWithMap runInfoWithMap)?
@@ -3505,10 +3583,15 @@ mixin _$ServerEvent {
         serverSendsBackAllProgress,
     TResult Function(String runDeleted)? serverConfirmsDeletionOfRun,
     TResult Function(String runId)? serverSendsBackRunId,
-    TResult Function(String message, int userId)? serverConfirmsRegistration,
+    TResult Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'UserId') int userId)?
+        serverConfirmsRegistration,
     TResult Function(String message, RunInfoWithMap runInfoWithMap)?
         serverSendsBackRunWithMap,
-    TResult Function(String message, Object token, int userId)?
+    TResult Function(
+            @JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'Token') Object token,
+            @JsonKey(name: 'UserId') int userId)?
         serverConfirmsLogin,
     TResult Function(String message)? serverDeniesLogin,
     TResult Function(RunInfoWithMap runInfoWithMap)? serverSendsBackFullRunInfo,
@@ -3692,11 +3775,15 @@ class _$ServerSendsBackJwtImpl
         serverSendsBackAllProgress,
     required TResult Function(String runDeleted) serverConfirmsDeletionOfRun,
     required TResult Function(String runId) serverSendsBackRunId,
-    required TResult Function(String message, int userId)
+    required TResult Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'UserId') int userId)
         serverConfirmsRegistration,
     required TResult Function(String message, RunInfoWithMap runInfoWithMap)
         serverSendsBackRunWithMap,
-    required TResult Function(String message, Object token, int userId)
+    required TResult Function(
+            @JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'Token') Object token,
+            @JsonKey(name: 'UserId') int userId)
         serverConfirmsLogin,
     required TResult Function(String message) serverDeniesLogin,
     required TResult Function(RunInfoWithMap runInfoWithMap)
@@ -3716,10 +3803,15 @@ class _$ServerSendsBackJwtImpl
         serverSendsBackAllProgress,
     TResult? Function(String runDeleted)? serverConfirmsDeletionOfRun,
     TResult? Function(String runId)? serverSendsBackRunId,
-    TResult? Function(String message, int userId)? serverConfirmsRegistration,
+    TResult? Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'UserId') int userId)?
+        serverConfirmsRegistration,
     TResult? Function(String message, RunInfoWithMap runInfoWithMap)?
         serverSendsBackRunWithMap,
-    TResult? Function(String message, Object token, int userId)?
+    TResult? Function(
+            @JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'Token') Object token,
+            @JsonKey(name: 'UserId') int userId)?
         serverConfirmsLogin,
     TResult? Function(String message)? serverDeniesLogin,
     TResult? Function(RunInfoWithMap runInfoWithMap)?
@@ -3739,10 +3831,15 @@ class _$ServerSendsBackJwtImpl
         serverSendsBackAllProgress,
     TResult Function(String runDeleted)? serverConfirmsDeletionOfRun,
     TResult Function(String runId)? serverSendsBackRunId,
-    TResult Function(String message, int userId)? serverConfirmsRegistration,
+    TResult Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'UserId') int userId)?
+        serverConfirmsRegistration,
     TResult Function(String message, RunInfoWithMap runInfoWithMap)?
         serverSendsBackRunWithMap,
-    TResult Function(String message, Object token, int userId)?
+    TResult Function(
+            @JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'Token') Object token,
+            @JsonKey(name: 'UserId') int userId)?
         serverConfirmsLogin,
     TResult Function(String message)? serverDeniesLogin,
     TResult Function(RunInfoWithMap runInfoWithMap)? serverSendsBackFullRunInfo,
@@ -3968,11 +4065,15 @@ class _$ServerSendsBackRunImpl
         serverSendsBackAllProgress,
     required TResult Function(String runDeleted) serverConfirmsDeletionOfRun,
     required TResult Function(String runId) serverSendsBackRunId,
-    required TResult Function(String message, int userId)
+    required TResult Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'UserId') int userId)
         serverConfirmsRegistration,
     required TResult Function(String message, RunInfoWithMap runInfoWithMap)
         serverSendsBackRunWithMap,
-    required TResult Function(String message, Object token, int userId)
+    required TResult Function(
+            @JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'Token') Object token,
+            @JsonKey(name: 'UserId') int userId)
         serverConfirmsLogin,
     required TResult Function(String message) serverDeniesLogin,
     required TResult Function(RunInfoWithMap runInfoWithMap)
@@ -3992,10 +4093,15 @@ class _$ServerSendsBackRunImpl
         serverSendsBackAllProgress,
     TResult? Function(String runDeleted)? serverConfirmsDeletionOfRun,
     TResult? Function(String runId)? serverSendsBackRunId,
-    TResult? Function(String message, int userId)? serverConfirmsRegistration,
+    TResult? Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'UserId') int userId)?
+        serverConfirmsRegistration,
     TResult? Function(String message, RunInfoWithMap runInfoWithMap)?
         serverSendsBackRunWithMap,
-    TResult? Function(String message, Object token, int userId)?
+    TResult? Function(
+            @JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'Token') Object token,
+            @JsonKey(name: 'UserId') int userId)?
         serverConfirmsLogin,
     TResult? Function(String message)? serverDeniesLogin,
     TResult? Function(RunInfoWithMap runInfoWithMap)?
@@ -4015,10 +4121,15 @@ class _$ServerSendsBackRunImpl
         serverSendsBackAllProgress,
     TResult Function(String runDeleted)? serverConfirmsDeletionOfRun,
     TResult Function(String runId)? serverSendsBackRunId,
-    TResult Function(String message, int userId)? serverConfirmsRegistration,
+    TResult Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'UserId') int userId)?
+        serverConfirmsRegistration,
     TResult Function(String message, RunInfoWithMap runInfoWithMap)?
         serverSendsBackRunWithMap,
-    TResult Function(String message, Object token, int userId)?
+    TResult Function(
+            @JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'Token') Object token,
+            @JsonKey(name: 'UserId') int userId)?
         serverConfirmsLogin,
     TResult Function(String message)? serverDeniesLogin,
     TResult Function(RunInfoWithMap runInfoWithMap)? serverSendsBackFullRunInfo,
@@ -4235,11 +4346,15 @@ class _$ServerSendsBackAllSavedRunsImpl
         serverSendsBackAllProgress,
     required TResult Function(String runDeleted) serverConfirmsDeletionOfRun,
     required TResult Function(String runId) serverSendsBackRunId,
-    required TResult Function(String message, int userId)
+    required TResult Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'UserId') int userId)
         serverConfirmsRegistration,
     required TResult Function(String message, RunInfoWithMap runInfoWithMap)
         serverSendsBackRunWithMap,
-    required TResult Function(String message, Object token, int userId)
+    required TResult Function(
+            @JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'Token') Object token,
+            @JsonKey(name: 'UserId') int userId)
         serverConfirmsLogin,
     required TResult Function(String message) serverDeniesLogin,
     required TResult Function(RunInfoWithMap runInfoWithMap)
@@ -4259,10 +4374,15 @@ class _$ServerSendsBackAllSavedRunsImpl
         serverSendsBackAllProgress,
     TResult? Function(String runDeleted)? serverConfirmsDeletionOfRun,
     TResult? Function(String runId)? serverSendsBackRunId,
-    TResult? Function(String message, int userId)? serverConfirmsRegistration,
+    TResult? Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'UserId') int userId)?
+        serverConfirmsRegistration,
     TResult? Function(String message, RunInfoWithMap runInfoWithMap)?
         serverSendsBackRunWithMap,
-    TResult? Function(String message, Object token, int userId)?
+    TResult? Function(
+            @JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'Token') Object token,
+            @JsonKey(name: 'UserId') int userId)?
         serverConfirmsLogin,
     TResult? Function(String message)? serverDeniesLogin,
     TResult? Function(RunInfoWithMap runInfoWithMap)?
@@ -4282,10 +4402,15 @@ class _$ServerSendsBackAllSavedRunsImpl
         serverSendsBackAllProgress,
     TResult Function(String runDeleted)? serverConfirmsDeletionOfRun,
     TResult Function(String runId)? serverSendsBackRunId,
-    TResult Function(String message, int userId)? serverConfirmsRegistration,
+    TResult Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'UserId') int userId)?
+        serverConfirmsRegistration,
     TResult Function(String message, RunInfoWithMap runInfoWithMap)?
         serverSendsBackRunWithMap,
-    TResult Function(String message, Object token, int userId)?
+    TResult Function(
+            @JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'Token') Object token,
+            @JsonKey(name: 'UserId') int userId)?
         serverConfirmsLogin,
     TResult Function(String message)? serverDeniesLogin,
     TResult Function(RunInfoWithMap runInfoWithMap)? serverSendsBackFullRunInfo,
@@ -4499,11 +4624,15 @@ class _$ServerSendsBackAllProgressImpl
         serverSendsBackAllProgress,
     required TResult Function(String runDeleted) serverConfirmsDeletionOfRun,
     required TResult Function(String runId) serverSendsBackRunId,
-    required TResult Function(String message, int userId)
+    required TResult Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'UserId') int userId)
         serverConfirmsRegistration,
     required TResult Function(String message, RunInfoWithMap runInfoWithMap)
         serverSendsBackRunWithMap,
-    required TResult Function(String message, Object token, int userId)
+    required TResult Function(
+            @JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'Token') Object token,
+            @JsonKey(name: 'UserId') int userId)
         serverConfirmsLogin,
     required TResult Function(String message) serverDeniesLogin,
     required TResult Function(RunInfoWithMap runInfoWithMap)
@@ -4523,10 +4652,15 @@ class _$ServerSendsBackAllProgressImpl
         serverSendsBackAllProgress,
     TResult? Function(String runDeleted)? serverConfirmsDeletionOfRun,
     TResult? Function(String runId)? serverSendsBackRunId,
-    TResult? Function(String message, int userId)? serverConfirmsRegistration,
+    TResult? Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'UserId') int userId)?
+        serverConfirmsRegistration,
     TResult? Function(String message, RunInfoWithMap runInfoWithMap)?
         serverSendsBackRunWithMap,
-    TResult? Function(String message, Object token, int userId)?
+    TResult? Function(
+            @JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'Token') Object token,
+            @JsonKey(name: 'UserId') int userId)?
         serverConfirmsLogin,
     TResult? Function(String message)? serverDeniesLogin,
     TResult? Function(RunInfoWithMap runInfoWithMap)?
@@ -4546,10 +4680,15 @@ class _$ServerSendsBackAllProgressImpl
         serverSendsBackAllProgress,
     TResult Function(String runDeleted)? serverConfirmsDeletionOfRun,
     TResult Function(String runId)? serverSendsBackRunId,
-    TResult Function(String message, int userId)? serverConfirmsRegistration,
+    TResult Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'UserId') int userId)?
+        serverConfirmsRegistration,
     TResult Function(String message, RunInfoWithMap runInfoWithMap)?
         serverSendsBackRunWithMap,
-    TResult Function(String message, Object token, int userId)?
+    TResult Function(
+            @JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'Token') Object token,
+            @JsonKey(name: 'UserId') int userId)?
         serverConfirmsLogin,
     TResult Function(String message)? serverDeniesLogin,
     TResult Function(RunInfoWithMap runInfoWithMap)? serverSendsBackFullRunInfo,
@@ -4757,11 +4896,15 @@ class _$ServerConfirmsDeletionOfRunImpl
         serverSendsBackAllProgress,
     required TResult Function(String runDeleted) serverConfirmsDeletionOfRun,
     required TResult Function(String runId) serverSendsBackRunId,
-    required TResult Function(String message, int userId)
+    required TResult Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'UserId') int userId)
         serverConfirmsRegistration,
     required TResult Function(String message, RunInfoWithMap runInfoWithMap)
         serverSendsBackRunWithMap,
-    required TResult Function(String message, Object token, int userId)
+    required TResult Function(
+            @JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'Token') Object token,
+            @JsonKey(name: 'UserId') int userId)
         serverConfirmsLogin,
     required TResult Function(String message) serverDeniesLogin,
     required TResult Function(RunInfoWithMap runInfoWithMap)
@@ -4781,10 +4924,15 @@ class _$ServerConfirmsDeletionOfRunImpl
         serverSendsBackAllProgress,
     TResult? Function(String runDeleted)? serverConfirmsDeletionOfRun,
     TResult? Function(String runId)? serverSendsBackRunId,
-    TResult? Function(String message, int userId)? serverConfirmsRegistration,
+    TResult? Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'UserId') int userId)?
+        serverConfirmsRegistration,
     TResult? Function(String message, RunInfoWithMap runInfoWithMap)?
         serverSendsBackRunWithMap,
-    TResult? Function(String message, Object token, int userId)?
+    TResult? Function(
+            @JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'Token') Object token,
+            @JsonKey(name: 'UserId') int userId)?
         serverConfirmsLogin,
     TResult? Function(String message)? serverDeniesLogin,
     TResult? Function(RunInfoWithMap runInfoWithMap)?
@@ -4804,10 +4952,15 @@ class _$ServerConfirmsDeletionOfRunImpl
         serverSendsBackAllProgress,
     TResult Function(String runDeleted)? serverConfirmsDeletionOfRun,
     TResult Function(String runId)? serverSendsBackRunId,
-    TResult Function(String message, int userId)? serverConfirmsRegistration,
+    TResult Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'UserId') int userId)?
+        serverConfirmsRegistration,
     TResult Function(String message, RunInfoWithMap runInfoWithMap)?
         serverSendsBackRunWithMap,
-    TResult Function(String message, Object token, int userId)?
+    TResult Function(
+            @JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'Token') Object token,
+            @JsonKey(name: 'UserId') int userId)?
         serverConfirmsLogin,
     TResult Function(String message)? serverDeniesLogin,
     TResult Function(RunInfoWithMap runInfoWithMap)? serverSendsBackFullRunInfo,
@@ -5009,11 +5162,15 @@ class _$ServerSendsBackRunIdImpl
         serverSendsBackAllProgress,
     required TResult Function(String runDeleted) serverConfirmsDeletionOfRun,
     required TResult Function(String runId) serverSendsBackRunId,
-    required TResult Function(String message, int userId)
+    required TResult Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'UserId') int userId)
         serverConfirmsRegistration,
     required TResult Function(String message, RunInfoWithMap runInfoWithMap)
         serverSendsBackRunWithMap,
-    required TResult Function(String message, Object token, int userId)
+    required TResult Function(
+            @JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'Token') Object token,
+            @JsonKey(name: 'UserId') int userId)
         serverConfirmsLogin,
     required TResult Function(String message) serverDeniesLogin,
     required TResult Function(RunInfoWithMap runInfoWithMap)
@@ -5033,10 +5190,15 @@ class _$ServerSendsBackRunIdImpl
         serverSendsBackAllProgress,
     TResult? Function(String runDeleted)? serverConfirmsDeletionOfRun,
     TResult? Function(String runId)? serverSendsBackRunId,
-    TResult? Function(String message, int userId)? serverConfirmsRegistration,
+    TResult? Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'UserId') int userId)?
+        serverConfirmsRegistration,
     TResult? Function(String message, RunInfoWithMap runInfoWithMap)?
         serverSendsBackRunWithMap,
-    TResult? Function(String message, Object token, int userId)?
+    TResult? Function(
+            @JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'Token') Object token,
+            @JsonKey(name: 'UserId') int userId)?
         serverConfirmsLogin,
     TResult? Function(String message)? serverDeniesLogin,
     TResult? Function(RunInfoWithMap runInfoWithMap)?
@@ -5056,10 +5218,15 @@ class _$ServerSendsBackRunIdImpl
         serverSendsBackAllProgress,
     TResult Function(String runDeleted)? serverConfirmsDeletionOfRun,
     TResult Function(String runId)? serverSendsBackRunId,
-    TResult Function(String message, int userId)? serverConfirmsRegistration,
+    TResult Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'UserId') int userId)?
+        serverConfirmsRegistration,
     TResult Function(String message, RunInfoWithMap runInfoWithMap)?
         serverSendsBackRunWithMap,
-    TResult Function(String message, Object token, int userId)?
+    TResult Function(
+            @JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'Token') Object token,
+            @JsonKey(name: 'UserId') int userId)?
         serverConfirmsLogin,
     TResult Function(String message)? serverDeniesLogin,
     TResult Function(RunInfoWithMap runInfoWithMap)? serverSendsBackFullRunInfo,
@@ -5175,7 +5342,9 @@ abstract class _$$ServerConfirmsRegistrationImplCopyWith<$Res> {
           $Res Function(_$ServerConfirmsRegistrationImpl) then) =
       __$$ServerConfirmsRegistrationImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String message, int userId});
+  $Res call(
+      {@JsonKey(name: 'Message') String message,
+      @JsonKey(name: 'UserId') int userId});
 }
 
 /// @nodoc
@@ -5212,7 +5381,9 @@ class _$ServerConfirmsRegistrationImpl
     with DiagnosticableTreeMixin
     implements ServerConfirmsRegistration {
   _$ServerConfirmsRegistrationImpl(
-      {required this.message, required this.userId, final String? $type})
+      {@JsonKey(name: 'Message') required this.message,
+      @JsonKey(name: 'UserId') required this.userId,
+      final String? $type})
       : $type = $type ?? 'ServerConfirmsRegistration';
 
   factory _$ServerConfirmsRegistrationImpl.fromJson(
@@ -5220,8 +5391,10 @@ class _$ServerConfirmsRegistrationImpl
       _$$ServerConfirmsRegistrationImplFromJson(json);
 
   @override
+  @JsonKey(name: 'Message')
   final String message;
   @override
+  @JsonKey(name: 'UserId')
   final int userId;
 
   @JsonKey(name: 'eventType')
@@ -5274,11 +5447,15 @@ class _$ServerConfirmsRegistrationImpl
         serverSendsBackAllProgress,
     required TResult Function(String runDeleted) serverConfirmsDeletionOfRun,
     required TResult Function(String runId) serverSendsBackRunId,
-    required TResult Function(String message, int userId)
+    required TResult Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'UserId') int userId)
         serverConfirmsRegistration,
     required TResult Function(String message, RunInfoWithMap runInfoWithMap)
         serverSendsBackRunWithMap,
-    required TResult Function(String message, Object token, int userId)
+    required TResult Function(
+            @JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'Token') Object token,
+            @JsonKey(name: 'UserId') int userId)
         serverConfirmsLogin,
     required TResult Function(String message) serverDeniesLogin,
     required TResult Function(RunInfoWithMap runInfoWithMap)
@@ -5298,10 +5475,15 @@ class _$ServerConfirmsRegistrationImpl
         serverSendsBackAllProgress,
     TResult? Function(String runDeleted)? serverConfirmsDeletionOfRun,
     TResult? Function(String runId)? serverSendsBackRunId,
-    TResult? Function(String message, int userId)? serverConfirmsRegistration,
+    TResult? Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'UserId') int userId)?
+        serverConfirmsRegistration,
     TResult? Function(String message, RunInfoWithMap runInfoWithMap)?
         serverSendsBackRunWithMap,
-    TResult? Function(String message, Object token, int userId)?
+    TResult? Function(
+            @JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'Token') Object token,
+            @JsonKey(name: 'UserId') int userId)?
         serverConfirmsLogin,
     TResult? Function(String message)? serverDeniesLogin,
     TResult? Function(RunInfoWithMap runInfoWithMap)?
@@ -5321,10 +5503,15 @@ class _$ServerConfirmsRegistrationImpl
         serverSendsBackAllProgress,
     TResult Function(String runDeleted)? serverConfirmsDeletionOfRun,
     TResult Function(String runId)? serverSendsBackRunId,
-    TResult Function(String message, int userId)? serverConfirmsRegistration,
+    TResult Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'UserId') int userId)?
+        serverConfirmsRegistration,
     TResult Function(String message, RunInfoWithMap runInfoWithMap)?
         serverSendsBackRunWithMap,
-    TResult Function(String message, Object token, int userId)?
+    TResult Function(
+            @JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'Token') Object token,
+            @JsonKey(name: 'UserId') int userId)?
         serverConfirmsLogin,
     TResult Function(String message)? serverDeniesLogin,
     TResult Function(RunInfoWithMap runInfoWithMap)? serverSendsBackFullRunInfo,
@@ -5422,13 +5609,16 @@ class _$ServerConfirmsRegistrationImpl
 
 abstract class ServerConfirmsRegistration implements ServerEvent {
   factory ServerConfirmsRegistration(
-      {required final String message,
-      required final int userId}) = _$ServerConfirmsRegistrationImpl;
+          {@JsonKey(name: 'Message') required final String message,
+          @JsonKey(name: 'UserId') required final int userId}) =
+      _$ServerConfirmsRegistrationImpl;
 
   factory ServerConfirmsRegistration.fromJson(Map<String, dynamic> json) =
       _$ServerConfirmsRegistrationImpl.fromJson;
 
+  @JsonKey(name: 'Message')
   String get message;
+  @JsonKey(name: 'UserId')
   int get userId;
   @JsonKey(ignore: true)
   _$$ServerConfirmsRegistrationImplCopyWith<_$ServerConfirmsRegistrationImpl>
@@ -5543,11 +5733,15 @@ class _$ServerSendsBackRunWithMapImpl
         serverSendsBackAllProgress,
     required TResult Function(String runDeleted) serverConfirmsDeletionOfRun,
     required TResult Function(String runId) serverSendsBackRunId,
-    required TResult Function(String message, int userId)
+    required TResult Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'UserId') int userId)
         serverConfirmsRegistration,
     required TResult Function(String message, RunInfoWithMap runInfoWithMap)
         serverSendsBackRunWithMap,
-    required TResult Function(String message, Object token, int userId)
+    required TResult Function(
+            @JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'Token') Object token,
+            @JsonKey(name: 'UserId') int userId)
         serverConfirmsLogin,
     required TResult Function(String message) serverDeniesLogin,
     required TResult Function(RunInfoWithMap runInfoWithMap)
@@ -5567,10 +5761,15 @@ class _$ServerSendsBackRunWithMapImpl
         serverSendsBackAllProgress,
     TResult? Function(String runDeleted)? serverConfirmsDeletionOfRun,
     TResult? Function(String runId)? serverSendsBackRunId,
-    TResult? Function(String message, int userId)? serverConfirmsRegistration,
+    TResult? Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'UserId') int userId)?
+        serverConfirmsRegistration,
     TResult? Function(String message, RunInfoWithMap runInfoWithMap)?
         serverSendsBackRunWithMap,
-    TResult? Function(String message, Object token, int userId)?
+    TResult? Function(
+            @JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'Token') Object token,
+            @JsonKey(name: 'UserId') int userId)?
         serverConfirmsLogin,
     TResult? Function(String message)? serverDeniesLogin,
     TResult? Function(RunInfoWithMap runInfoWithMap)?
@@ -5590,10 +5789,15 @@ class _$ServerSendsBackRunWithMapImpl
         serverSendsBackAllProgress,
     TResult Function(String runDeleted)? serverConfirmsDeletionOfRun,
     TResult Function(String runId)? serverSendsBackRunId,
-    TResult Function(String message, int userId)? serverConfirmsRegistration,
+    TResult Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'UserId') int userId)?
+        serverConfirmsRegistration,
     TResult Function(String message, RunInfoWithMap runInfoWithMap)?
         serverSendsBackRunWithMap,
-    TResult Function(String message, Object token, int userId)?
+    TResult Function(
+            @JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'Token') Object token,
+            @JsonKey(name: 'UserId') int userId)?
         serverConfirmsLogin,
     TResult Function(String message)? serverDeniesLogin,
     TResult Function(RunInfoWithMap runInfoWithMap)? serverSendsBackFullRunInfo,
@@ -5711,7 +5915,10 @@ abstract class _$$ServerConfirmsLoginImplCopyWith<$Res> {
           $Res Function(_$ServerConfirmsLoginImpl) then) =
       __$$ServerConfirmsLoginImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String message, Object token, int userId});
+  $Res call(
+      {@JsonKey(name: 'Message') String message,
+      @JsonKey(name: 'Token') Object token,
+      @JsonKey(name: 'UserId') int userId});
 }
 
 /// @nodoc
@@ -5749,9 +5956,9 @@ class _$ServerConfirmsLoginImpl
     with DiagnosticableTreeMixin
     implements ServerConfirmsLogin {
   _$ServerConfirmsLoginImpl(
-      {required this.message,
-      required this.token,
-      required this.userId,
+      {@JsonKey(name: 'Message') required this.message,
+      @JsonKey(name: 'Token') required this.token,
+      @JsonKey(name: 'UserId') required this.userId,
       final String? $type})
       : $type = $type ?? 'ServerConfirmsLogin';
 
@@ -5759,10 +5966,13 @@ class _$ServerConfirmsLoginImpl
       _$$ServerConfirmsLoginImplFromJson(json);
 
   @override
+  @JsonKey(name: 'Message')
   final String message;
   @override
+  @JsonKey(name: 'Token')
   final Object token;
   @override
+  @JsonKey(name: 'UserId')
   final int userId;
 
   @JsonKey(name: 'eventType')
@@ -5817,11 +6027,15 @@ class _$ServerConfirmsLoginImpl
         serverSendsBackAllProgress,
     required TResult Function(String runDeleted) serverConfirmsDeletionOfRun,
     required TResult Function(String runId) serverSendsBackRunId,
-    required TResult Function(String message, int userId)
+    required TResult Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'UserId') int userId)
         serverConfirmsRegistration,
     required TResult Function(String message, RunInfoWithMap runInfoWithMap)
         serverSendsBackRunWithMap,
-    required TResult Function(String message, Object token, int userId)
+    required TResult Function(
+            @JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'Token') Object token,
+            @JsonKey(name: 'UserId') int userId)
         serverConfirmsLogin,
     required TResult Function(String message) serverDeniesLogin,
     required TResult Function(RunInfoWithMap runInfoWithMap)
@@ -5841,10 +6055,15 @@ class _$ServerConfirmsLoginImpl
         serverSendsBackAllProgress,
     TResult? Function(String runDeleted)? serverConfirmsDeletionOfRun,
     TResult? Function(String runId)? serverSendsBackRunId,
-    TResult? Function(String message, int userId)? serverConfirmsRegistration,
+    TResult? Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'UserId') int userId)?
+        serverConfirmsRegistration,
     TResult? Function(String message, RunInfoWithMap runInfoWithMap)?
         serverSendsBackRunWithMap,
-    TResult? Function(String message, Object token, int userId)?
+    TResult? Function(
+            @JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'Token') Object token,
+            @JsonKey(name: 'UserId') int userId)?
         serverConfirmsLogin,
     TResult? Function(String message)? serverDeniesLogin,
     TResult? Function(RunInfoWithMap runInfoWithMap)?
@@ -5864,10 +6083,15 @@ class _$ServerConfirmsLoginImpl
         serverSendsBackAllProgress,
     TResult Function(String runDeleted)? serverConfirmsDeletionOfRun,
     TResult Function(String runId)? serverSendsBackRunId,
-    TResult Function(String message, int userId)? serverConfirmsRegistration,
+    TResult Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'UserId') int userId)?
+        serverConfirmsRegistration,
     TResult Function(String message, RunInfoWithMap runInfoWithMap)?
         serverSendsBackRunWithMap,
-    TResult Function(String message, Object token, int userId)?
+    TResult Function(
+            @JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'Token') Object token,
+            @JsonKey(name: 'UserId') int userId)?
         serverConfirmsLogin,
     TResult Function(String message)? serverDeniesLogin,
     TResult Function(RunInfoWithMap runInfoWithMap)? serverSendsBackFullRunInfo,
@@ -5965,15 +6189,19 @@ class _$ServerConfirmsLoginImpl
 
 abstract class ServerConfirmsLogin implements ServerEvent {
   factory ServerConfirmsLogin(
-      {required final String message,
-      required final Object token,
-      required final int userId}) = _$ServerConfirmsLoginImpl;
+          {@JsonKey(name: 'Message') required final String message,
+          @JsonKey(name: 'Token') required final Object token,
+          @JsonKey(name: 'UserId') required final int userId}) =
+      _$ServerConfirmsLoginImpl;
 
   factory ServerConfirmsLogin.fromJson(Map<String, dynamic> json) =
       _$ServerConfirmsLoginImpl.fromJson;
 
+  @JsonKey(name: 'Message')
   String get message;
+  @JsonKey(name: 'Token')
   Object get token;
+  @JsonKey(name: 'UserId')
   int get userId;
   @JsonKey(ignore: true)
   _$$ServerConfirmsLoginImplCopyWith<_$ServerConfirmsLoginImpl> get copyWith =>
@@ -6072,11 +6300,15 @@ class _$ServerDeniesLoginImpl
         serverSendsBackAllProgress,
     required TResult Function(String runDeleted) serverConfirmsDeletionOfRun,
     required TResult Function(String runId) serverSendsBackRunId,
-    required TResult Function(String message, int userId)
+    required TResult Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'UserId') int userId)
         serverConfirmsRegistration,
     required TResult Function(String message, RunInfoWithMap runInfoWithMap)
         serverSendsBackRunWithMap,
-    required TResult Function(String message, Object token, int userId)
+    required TResult Function(
+            @JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'Token') Object token,
+            @JsonKey(name: 'UserId') int userId)
         serverConfirmsLogin,
     required TResult Function(String message) serverDeniesLogin,
     required TResult Function(RunInfoWithMap runInfoWithMap)
@@ -6096,10 +6328,15 @@ class _$ServerDeniesLoginImpl
         serverSendsBackAllProgress,
     TResult? Function(String runDeleted)? serverConfirmsDeletionOfRun,
     TResult? Function(String runId)? serverSendsBackRunId,
-    TResult? Function(String message, int userId)? serverConfirmsRegistration,
+    TResult? Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'UserId') int userId)?
+        serverConfirmsRegistration,
     TResult? Function(String message, RunInfoWithMap runInfoWithMap)?
         serverSendsBackRunWithMap,
-    TResult? Function(String message, Object token, int userId)?
+    TResult? Function(
+            @JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'Token') Object token,
+            @JsonKey(name: 'UserId') int userId)?
         serverConfirmsLogin,
     TResult? Function(String message)? serverDeniesLogin,
     TResult? Function(RunInfoWithMap runInfoWithMap)?
@@ -6119,10 +6356,15 @@ class _$ServerDeniesLoginImpl
         serverSendsBackAllProgress,
     TResult Function(String runDeleted)? serverConfirmsDeletionOfRun,
     TResult Function(String runId)? serverSendsBackRunId,
-    TResult Function(String message, int userId)? serverConfirmsRegistration,
+    TResult Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'UserId') int userId)?
+        serverConfirmsRegistration,
     TResult Function(String message, RunInfoWithMap runInfoWithMap)?
         serverSendsBackRunWithMap,
-    TResult Function(String message, Object token, int userId)?
+    TResult Function(
+            @JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'Token') Object token,
+            @JsonKey(name: 'UserId') int userId)?
         serverConfirmsLogin,
     TResult Function(String message)? serverDeniesLogin,
     TResult Function(RunInfoWithMap runInfoWithMap)? serverSendsBackFullRunInfo,
@@ -6329,11 +6571,15 @@ class _$ServerSendsBackFullRunInfoImpl
         serverSendsBackAllProgress,
     required TResult Function(String runDeleted) serverConfirmsDeletionOfRun,
     required TResult Function(String runId) serverSendsBackRunId,
-    required TResult Function(String message, int userId)
+    required TResult Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'UserId') int userId)
         serverConfirmsRegistration,
     required TResult Function(String message, RunInfoWithMap runInfoWithMap)
         serverSendsBackRunWithMap,
-    required TResult Function(String message, Object token, int userId)
+    required TResult Function(
+            @JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'Token') Object token,
+            @JsonKey(name: 'UserId') int userId)
         serverConfirmsLogin,
     required TResult Function(String message) serverDeniesLogin,
     required TResult Function(RunInfoWithMap runInfoWithMap)
@@ -6353,10 +6599,15 @@ class _$ServerSendsBackFullRunInfoImpl
         serverSendsBackAllProgress,
     TResult? Function(String runDeleted)? serverConfirmsDeletionOfRun,
     TResult? Function(String runId)? serverSendsBackRunId,
-    TResult? Function(String message, int userId)? serverConfirmsRegistration,
+    TResult? Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'UserId') int userId)?
+        serverConfirmsRegistration,
     TResult? Function(String message, RunInfoWithMap runInfoWithMap)?
         serverSendsBackRunWithMap,
-    TResult? Function(String message, Object token, int userId)?
+    TResult? Function(
+            @JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'Token') Object token,
+            @JsonKey(name: 'UserId') int userId)?
         serverConfirmsLogin,
     TResult? Function(String message)? serverDeniesLogin,
     TResult? Function(RunInfoWithMap runInfoWithMap)?
@@ -6376,10 +6627,15 @@ class _$ServerSendsBackFullRunInfoImpl
         serverSendsBackAllProgress,
     TResult Function(String runDeleted)? serverConfirmsDeletionOfRun,
     TResult Function(String runId)? serverSendsBackRunId,
-    TResult Function(String message, int userId)? serverConfirmsRegistration,
+    TResult Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'UserId') int userId)?
+        serverConfirmsRegistration,
     TResult Function(String message, RunInfoWithMap runInfoWithMap)?
         serverSendsBackRunWithMap,
-    TResult Function(String message, Object token, int userId)?
+    TResult Function(
+            @JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'Token') Object token,
+            @JsonKey(name: 'UserId') int userId)?
         serverConfirmsLogin,
     TResult Function(String message)? serverDeniesLogin,
     TResult Function(RunInfoWithMap runInfoWithMap)? serverSendsBackFullRunInfo,

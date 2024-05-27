@@ -12,20 +12,18 @@ class HomepageCubit extends Cubit<HomepageState> {
 
   final BroadcastWsChannel channel;
 
-  TextEditingController usernameController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
 
   signUp() {
     emit(HomepageState.signUp());
   }
 
-  logIn() async {
+  logIn(String username, String password) async {
     emit(HomepageState.loading());
     final event = ClientEvent.clientWantsToLogIn(
-      username: usernameController.text,
-      password: passwordController.text,
+      username: username,
+      password: password,
     );
-    channel.sink.add(event.toJson());
+    channel.sink.add(jsonEncode(event.toJson()));
     final serverEventFuture = channel.stream
         .map((event) => ServerEvent.fromJson(jsonDecode(event)))
         .firstWhere((event) => event is ServerConfirmsLogin);

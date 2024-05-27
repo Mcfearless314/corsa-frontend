@@ -20,6 +20,10 @@ class _UserPageScreenState extends State<UserPageScreen> {
   @override
   void initState() {
     super.initState();
+    Location.instance.requestPermission().then((status) {
+      controller.add(status);
+    });
+    /*
     Location.instance.hasPermission().then((status) {
       controller.add(status);
     }).then((value) => {
@@ -29,15 +33,17 @@ class _UserPageScreenState extends State<UserPageScreen> {
         })
       }
     });
+
+     */
   }
 
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<PermissionStatus>(
-      stream: null,
+      stream: controller.stream,
       builder: (context, snapshot) {
         if (!snapshot.hasData) {
-          return const CircularProgressIndicator();
+          return Center(child: const CircularProgressIndicator());
         }
         else if (snapshot.data == PermissionStatus.granted) {
           return RunList(userId: widget.userId);

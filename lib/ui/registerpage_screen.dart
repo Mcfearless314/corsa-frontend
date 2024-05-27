@@ -6,8 +6,20 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../BroadcastWsChannel.dart';
 import '../bloc/register_state.dart';
 
-class RegisterPageScreen extends StatelessWidget {
+class RegisterPageScreen extends StatefulWidget {
   const RegisterPageScreen({super.key});
+
+  @override
+  State<RegisterPageScreen> createState() => _RegisterPageScreenState();
+}
+
+class _RegisterPageScreenState extends State<RegisterPageScreen> {
+  TextEditingController emailController = TextEditingController();
+  TextEditingController usernameController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  TextEditingController confirmPasswordController = TextEditingController();
+
+  final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -38,195 +50,188 @@ class RegisterPageScreen extends StatelessWidget {
                       color: Colors.white)),
               centerTitle: true,
             ),
-            body: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.orange,
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withOpacity(0.5),
-                          spreadRadius: 5,
-                          blurRadius: 7,
-                          offset: Offset(0, 3), // changes position of shadow
+            body: Form(
+              key: _formKey,
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Colors.orange,
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.5),
+                            spreadRadius: 5,
+                            blurRadius: 7,
+                            offset: Offset(0, 3), // changes position of shadow
+                          ),
+                        ],
+                      ),
+                      child: TextFormField(
+                        controller: emailController,
+                        validator: validateEmail,
+                        style: const TextStyle(
+                            color: Colors.white, fontFamily: 'PoetsenOne'),
+                        decoration: const InputDecoration(
+                          border: OutlineInputBorder(),
+                          hintText: 'Email',
+                          hintStyle: TextStyle(
+                              fontFamily: 'PoetsenOne',
+                              fontSize: 14.0,
+                              color: Colors.white),
                         ),
-                      ],
-                    ),
-                    child: TextField(
-                      controller: context.read<RegisterCubit>().emailController,
-                      style: const TextStyle(
-                          color: Colors.white, fontFamily: 'PoetsenOne'),
-                      decoration: const InputDecoration(
-                        border: OutlineInputBorder(),
-                        hintText: 'Email',
-                        hintStyle: TextStyle(
-                            fontFamily: 'PoetsenOne',
-                            fontSize: 14.0,
-                            color: Colors.white),
                       ),
                     ),
                   ),
-                ),
-                Text(
-                  state.isEmailValid == null
-                      ? ''
-                      : state.isEmailValid!
-                          ? 'Email is valid'
-                          : 'Email is not valid',
-                  style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 12.0,
-                      fontFamily: 'PoetsenOne',
-                      fontWeight: FontWeight.bold),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.orange,
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withOpacity(0.5),
-                          spreadRadius: 5,
-                          blurRadius: 7,
-                          offset: Offset(0, 3), // changes position of shadow
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Colors.orange,
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.5),
+                            spreadRadius: 5,
+                            blurRadius: 7,
+                            offset: Offset(0, 3), // changes position of shadow
+                          ),
+                        ],
+                      ),
+                      child: TextFormField(
+                        validator: validateUsername,
+                        controller: usernameController,
+                        style: const TextStyle(
+                            color: Colors.white, fontFamily: 'PoetsenOne'),
+                        decoration: const InputDecoration(
+                          border: OutlineInputBorder(),
+                          hintText: 'Username',
+                          hintStyle: TextStyle(
+                              fontFamily: 'PoetsenOne',
+                              fontSize: 14.0,
+                              color: Colors.white),
                         ),
-                      ],
-                    ),
-                    child: TextField(
-                      controller:
-                          context.read<RegisterCubit>().usernameController,
-                      style: const TextStyle(
-                          color: Colors.white, fontFamily: 'PoetsenOne'),
-                      decoration: const InputDecoration(
-                        border: OutlineInputBorder(),
-                        hintText: 'Username',
-                        hintStyle: TextStyle(
-                            fontFamily: 'PoetsenOne',
-                            fontSize: 14.0,
-                            color: Colors.white),
                       ),
                     ),
                   ),
-                ),
-                Text(
-                  state.isUsernameValid == null
-                      ? ''
-                      : state.isUsernameValid!
-                          ? 'Username is valid'
-                          : 'Username is not valid',
-                  style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 12.0,
-                      fontFamily: 'PoetsenOne',
-                      fontWeight: FontWeight.bold),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.orange,
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withOpacity(0.5),
-                          spreadRadius: 5,
-                          blurRadius: 7,
-                          offset: Offset(0, 3), // changes position of shadow
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Colors.orange,
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.5),
+                            spreadRadius: 5,
+                            blurRadius: 7,
+                            offset: Offset(0, 3), // changes position of shadow
+                          ),
+                        ],
+                      ),
+                      child: TextFormField(
+                        obscureText: true,
+                        controller: passwordController,
+                        validator: validatePassword,
+                        style: const TextStyle(
+                            color: Colors.white, fontFamily: 'PoetsenOne'),
+                        decoration: const InputDecoration(
+                          border: OutlineInputBorder(),
+                          hintText: 'Password',
+                          hintStyle: TextStyle(
+                              fontFamily: 'PoetsenOne',
+                              fontSize: 14.0,
+                              color: Colors.white),
                         ),
-                      ],
-                    ),
-                    child: TextField(
-                      obscureText: true,
-                      controller:
-                          context.read<RegisterCubit>().passwordController,
-                      style: const TextStyle(
-                          color: Colors.white, fontFamily: 'PoetsenOne'),
-                      decoration: const InputDecoration(
-                        border: OutlineInputBorder(),
-                        hintText: 'Password',
-                        hintStyle: TextStyle(
-                            fontFamily: 'PoetsenOne',
-                            fontSize: 14.0,
-                            color: Colors.white),
                       ),
                     ),
                   ),
-                ),
-                Text(
-                  textAlign: TextAlign.center,
-                  state.isPasswordValid == null
-                      ? ''
-                      : state.isPasswordValid!
-                          ? 'Password is valid'
-                          : 'Password needs to be at least 8 characters long and contain at least 1 upper case letter from A-Z and a number',                style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 12.0,
-                      fontFamily: 'PoetsenOne',
-                      fontWeight: FontWeight.bold),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.orange,
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withOpacity(0.5),
-                          spreadRadius: 5,
-                          blurRadius: 7,
-                          offset: Offset(0, 3), // changes position of shadow
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Colors.orange,
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.5),
+                            spreadRadius: 5,
+                            blurRadius: 7,
+                            offset: Offset(0, 3), // changes position of shadow
+                          ),
+                        ],
+                      ),
+                      child: TextFormField(
+                        obscureText: true,
+                        controller: confirmPasswordController,
+                        validator: validateConfirmPassword,
+                        style: const TextStyle(
+                            color: Colors.white, fontFamily: 'PoetsenOne'),
+                        decoration: const InputDecoration(
+                          border: OutlineInputBorder(),
+                          hintText: 'Confirm Password',
+                          hintStyle: TextStyle(
+                              fontFamily: 'PoetsenOne',
+                              fontSize: 14.0,
+                              color: Colors.white),
                         ),
-                      ],
-                    ),
-                    child: TextField(
-                      obscureText: true,
-                      controller: context
-                          .read<RegisterCubit>()
-                          .confirmPasswordController,
-                      style: const TextStyle(
-                          color: Colors.white, fontFamily: 'PoetsenOne'),
-                      decoration: const InputDecoration(
-                        border: OutlineInputBorder(),
-                        hintText: 'Confirm Password',
-                        hintStyle: TextStyle(
-                            fontFamily: 'PoetsenOne',
-                            fontSize: 14.0,
-                            color: Colors.white),
                       ),
                     ),
                   ),
-                ),
-                Text(
-                  state.isConfirmPasswordValid == null
-                      ? ''
-                      : state.isConfirmPasswordValid!
-                          ? 'Passwords match'
-                          : 'Password does not match',
-                  style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 12.0,
-                      fontFamily: 'PoetsenOne',
-                      fontWeight: FontWeight.bold),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: ElevatedButton(
-                          onPressed: context.read<RegisterCubit>().signUp,
-                          child: Text("Sign up",
-                              style: Theme.of(context).textTheme.displaySmall)),
-                    ),
-                  ],
-                ),
-              ],
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: ElevatedButton(
+                            onPressed: () {
+                              if (_formKey.currentState!.validate()) {
+                                context.read<RegisterCubit>().signUp(
+                                    emailController.text,
+                                    usernameController.text,
+                                    passwordController.text);
+                              }
+                            },
+                            child: Text("Sign up",
+                                style:
+                                    Theme.of(context).textTheme.displaySmall)),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
           );
         },
       ),
     );
+  }
+
+  String? validateUsername(value) {
+    if ((value ?? "").length > 3) {
+      return null;
+    }
+    return 'Username must be at least 4 characters long';
+  }
+
+  String? validatePassword(value) {
+    if ((value ?? "").length > 8 &&
+        ((value ?? "").contains(RegExp(r'[0-9]'))) &&
+        ((value ?? "").contains(RegExp(r'[A-Z]')))) {
+      return null;
+    }
+    return 'Password needs to be at least 8 characters long and contain at least 1 upper case letter from A-Z and a number';
+  }
+
+  String? validateEmail(value) {
+    if ((value ?? "").contains('@')) {
+      return null;
+    }
+    return 'Please enter some text';
+  }
+
+  String? validateConfirmPassword(value) {
+    if (value == passwordController.text) {
+      return null;
+    }
+    return 'Passwords do not match';
   }
 }

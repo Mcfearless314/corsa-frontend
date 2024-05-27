@@ -17,14 +17,14 @@ sealed class ClientEvent with _$ClientEvent implements BaseEvent {
   }) = ClientWantsToAuthenticateWithJwt;
 
   factory ClientEvent.clientWantsToRegister({
-    required String username,
-    required String email,
-    required String password,
+    required String Username,
+    required String Email,
+    required String Password,
   }) = ClientWantsToRegister;
 
   factory ClientEvent.clientWantsToLogIn({
-    required String username,
-    required String password,
+    @JsonKey(name: 'Username') required String username,
+    @JsonKey(name: 'Password') required String password,
   }) = ClientWantsToLogIn;
 
   factory ClientEvent.clientWantsToDeleteARun({
@@ -101,13 +101,12 @@ sealed class ServerEvent with _$ServerEvent implements BaseEvent {
     required String runDeleted,
   }) = ServerConfirmsDeletionOfRun;
 
-  factory ServerEvent.serverSendsBackRunId({
-    required String runId
-  }) = ServerSendsBackRunId;
+  factory ServerEvent.serverSendsBackRunId({required String runId}) =
+      ServerSendsBackRunId;
 
   factory ServerEvent.serverConfirmsRegistration({
-    required String message,
-    required int userId,
+    @JsonKey(name: 'Message') required String message,
+    @JsonKey(name: 'UserId') required int userId,
   }) = ServerConfirmsRegistration;
 
   factory ServerEvent.serverSendsBackRunWithMap({
@@ -116,19 +115,17 @@ sealed class ServerEvent with _$ServerEvent implements BaseEvent {
   }) = ServerSendsBackRunWithMap;
 
   factory ServerEvent.serverConfirmsLogin({
-    required String message,
-    required Object token,
-    required int userId,
+    @JsonKey(name: 'Message') required String message,
+    @JsonKey(name: 'Token') required Object token,
+    @JsonKey(name: 'UserId') required int userId,
   }) = ServerConfirmsLogin;
 
   factory ServerEvent.serverDeniesLogin({
     required String message,
   }) = ServerDeniesLogin;
 
-  factory ServerEvent.serverSendsBackFullRunInfo({
-    required RunInfoWithMap runInfoWithMap
-  }) = ServerSendsBackFullRunInfo;
-
+  factory ServerEvent.serverSendsBackFullRunInfo(
+      {required RunInfoWithMap runInfoWithMap}) = ServerSendsBackFullRunInfo;
 
   factory ServerEvent.fromJson(Map<String, dynamic> json) =>
       _$ServerEventFromJson(json);
