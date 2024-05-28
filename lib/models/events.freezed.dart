@@ -38,6 +38,8 @@ ClientEvent _$ClientEventFromJson(Map<String, dynamic> json) {
       return ClientWantsToSeeAProgressOfAllRuns.fromJson(json);
     case 'ClientWantsToSeeFullInfoOfRun':
       return ClientWantsToSeeFullInfoOfRun.fromJson(json);
+    case 'ClientWantsToRegisterADevice':
+      return ClientWantsToRegisterADevice.fromJson(json);
 
     default:
       throw CheckedFromJsonException(json, 'eventType', 'ClientEvent',
@@ -93,6 +95,9 @@ mixin _$ClientEvent {
     required TResult Function(@JsonKey(name: 'RunId') String runId,
             @JsonKey(name: 'UserId') int userId)
         clientWantsToSeeFullInfoOfRun,
+    required TResult Function(@JsonKey(name: 'DeviceId') String deviceId,
+            @JsonKey(name: 'UserId') int userId)
+        clientWantsToRegisterADevice,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -141,6 +146,9 @@ mixin _$ClientEvent {
     TResult? Function(@JsonKey(name: 'RunId') String runId,
             @JsonKey(name: 'UserId') int userId)?
         clientWantsToSeeFullInfoOfRun,
+    TResult? Function(@JsonKey(name: 'DeviceId') String deviceId,
+            @JsonKey(name: 'UserId') int userId)?
+        clientWantsToRegisterADevice,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -189,6 +197,9 @@ mixin _$ClientEvent {
     TResult Function(@JsonKey(name: 'RunId') String runId,
             @JsonKey(name: 'UserId') int userId)?
         clientWantsToSeeFullInfoOfRun,
+    TResult Function(@JsonKey(name: 'DeviceId') String deviceId,
+            @JsonKey(name: 'UserId') int userId)?
+        clientWantsToRegisterADevice,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -214,6 +225,8 @@ mixin _$ClientEvent {
         clientWantsToSeeAProgressOfAllRuns,
     required TResult Function(ClientWantsToSeeFullInfoOfRun value)
         clientWantsToSeeFullInfoOfRun,
+    required TResult Function(ClientWantsToRegisterADevice value)
+        clientWantsToRegisterADevice,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -234,6 +247,8 @@ mixin _$ClientEvent {
         clientWantsToSeeAProgressOfAllRuns,
     TResult? Function(ClientWantsToSeeFullInfoOfRun value)?
         clientWantsToSeeFullInfoOfRun,
+    TResult? Function(ClientWantsToRegisterADevice value)?
+        clientWantsToRegisterADevice,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -254,6 +269,8 @@ mixin _$ClientEvent {
         clientWantsToSeeAProgressOfAllRuns,
     TResult Function(ClientWantsToSeeFullInfoOfRun value)?
         clientWantsToSeeFullInfoOfRun,
+    TResult Function(ClientWantsToRegisterADevice value)?
+        clientWantsToRegisterADevice,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -413,6 +430,9 @@ class _$ClientWantsToAuthenticateWithJwtImpl
     required TResult Function(@JsonKey(name: 'RunId') String runId,
             @JsonKey(name: 'UserId') int userId)
         clientWantsToSeeFullInfoOfRun,
+    required TResult Function(@JsonKey(name: 'DeviceId') String deviceId,
+            @JsonKey(name: 'UserId') int userId)
+        clientWantsToRegisterADevice,
   }) {
     return clientWantsToAuthenticateWithJwt(jwt);
   }
@@ -464,6 +484,9 @@ class _$ClientWantsToAuthenticateWithJwtImpl
     TResult? Function(@JsonKey(name: 'RunId') String runId,
             @JsonKey(name: 'UserId') int userId)?
         clientWantsToSeeFullInfoOfRun,
+    TResult? Function(@JsonKey(name: 'DeviceId') String deviceId,
+            @JsonKey(name: 'UserId') int userId)?
+        clientWantsToRegisterADevice,
   }) {
     return clientWantsToAuthenticateWithJwt?.call(jwt);
   }
@@ -515,6 +538,9 @@ class _$ClientWantsToAuthenticateWithJwtImpl
     TResult Function(@JsonKey(name: 'RunId') String runId,
             @JsonKey(name: 'UserId') int userId)?
         clientWantsToSeeFullInfoOfRun,
+    TResult Function(@JsonKey(name: 'DeviceId') String deviceId,
+            @JsonKey(name: 'UserId') int userId)?
+        clientWantsToRegisterADevice,
     required TResult orElse(),
   }) {
     if (clientWantsToAuthenticateWithJwt != null) {
@@ -546,6 +572,8 @@ class _$ClientWantsToAuthenticateWithJwtImpl
         clientWantsToSeeAProgressOfAllRuns,
     required TResult Function(ClientWantsToSeeFullInfoOfRun value)
         clientWantsToSeeFullInfoOfRun,
+    required TResult Function(ClientWantsToRegisterADevice value)
+        clientWantsToRegisterADevice,
   }) {
     return clientWantsToAuthenticateWithJwt(this);
   }
@@ -569,6 +597,8 @@ class _$ClientWantsToAuthenticateWithJwtImpl
         clientWantsToSeeAProgressOfAllRuns,
     TResult? Function(ClientWantsToSeeFullInfoOfRun value)?
         clientWantsToSeeFullInfoOfRun,
+    TResult? Function(ClientWantsToRegisterADevice value)?
+        clientWantsToRegisterADevice,
   }) {
     return clientWantsToAuthenticateWithJwt?.call(this);
   }
@@ -592,6 +622,8 @@ class _$ClientWantsToAuthenticateWithJwtImpl
         clientWantsToSeeAProgressOfAllRuns,
     TResult Function(ClientWantsToSeeFullInfoOfRun value)?
         clientWantsToSeeFullInfoOfRun,
+    TResult Function(ClientWantsToRegisterADevice value)?
+        clientWantsToRegisterADevice,
     required TResult orElse(),
   }) {
     if (clientWantsToAuthenticateWithJwt != null) {
@@ -782,6 +814,9 @@ class _$ClientWantsToRegisterImpl
     required TResult Function(@JsonKey(name: 'RunId') String runId,
             @JsonKey(name: 'UserId') int userId)
         clientWantsToSeeFullInfoOfRun,
+    required TResult Function(@JsonKey(name: 'DeviceId') String deviceId,
+            @JsonKey(name: 'UserId') int userId)
+        clientWantsToRegisterADevice,
   }) {
     return clientWantsToRegister(username, email, password);
   }
@@ -833,6 +868,9 @@ class _$ClientWantsToRegisterImpl
     TResult? Function(@JsonKey(name: 'RunId') String runId,
             @JsonKey(name: 'UserId') int userId)?
         clientWantsToSeeFullInfoOfRun,
+    TResult? Function(@JsonKey(name: 'DeviceId') String deviceId,
+            @JsonKey(name: 'UserId') int userId)?
+        clientWantsToRegisterADevice,
   }) {
     return clientWantsToRegister?.call(username, email, password);
   }
@@ -884,6 +922,9 @@ class _$ClientWantsToRegisterImpl
     TResult Function(@JsonKey(name: 'RunId') String runId,
             @JsonKey(name: 'UserId') int userId)?
         clientWantsToSeeFullInfoOfRun,
+    TResult Function(@JsonKey(name: 'DeviceId') String deviceId,
+            @JsonKey(name: 'UserId') int userId)?
+        clientWantsToRegisterADevice,
     required TResult orElse(),
   }) {
     if (clientWantsToRegister != null) {
@@ -915,6 +956,8 @@ class _$ClientWantsToRegisterImpl
         clientWantsToSeeAProgressOfAllRuns,
     required TResult Function(ClientWantsToSeeFullInfoOfRun value)
         clientWantsToSeeFullInfoOfRun,
+    required TResult Function(ClientWantsToRegisterADevice value)
+        clientWantsToRegisterADevice,
   }) {
     return clientWantsToRegister(this);
   }
@@ -938,6 +981,8 @@ class _$ClientWantsToRegisterImpl
         clientWantsToSeeAProgressOfAllRuns,
     TResult? Function(ClientWantsToSeeFullInfoOfRun value)?
         clientWantsToSeeFullInfoOfRun,
+    TResult? Function(ClientWantsToRegisterADevice value)?
+        clientWantsToRegisterADevice,
   }) {
     return clientWantsToRegister?.call(this);
   }
@@ -961,6 +1006,8 @@ class _$ClientWantsToRegisterImpl
         clientWantsToSeeAProgressOfAllRuns,
     TResult Function(ClientWantsToSeeFullInfoOfRun value)?
         clientWantsToSeeFullInfoOfRun,
+    TResult Function(ClientWantsToRegisterADevice value)?
+        clientWantsToRegisterADevice,
     required TResult orElse(),
   }) {
     if (clientWantsToRegister != null) {
@@ -1143,6 +1190,9 @@ class _$ClientWantsToLogInImpl
     required TResult Function(@JsonKey(name: 'RunId') String runId,
             @JsonKey(name: 'UserId') int userId)
         clientWantsToSeeFullInfoOfRun,
+    required TResult Function(@JsonKey(name: 'DeviceId') String deviceId,
+            @JsonKey(name: 'UserId') int userId)
+        clientWantsToRegisterADevice,
   }) {
     return clientWantsToLogIn(username, password);
   }
@@ -1194,6 +1244,9 @@ class _$ClientWantsToLogInImpl
     TResult? Function(@JsonKey(name: 'RunId') String runId,
             @JsonKey(name: 'UserId') int userId)?
         clientWantsToSeeFullInfoOfRun,
+    TResult? Function(@JsonKey(name: 'DeviceId') String deviceId,
+            @JsonKey(name: 'UserId') int userId)?
+        clientWantsToRegisterADevice,
   }) {
     return clientWantsToLogIn?.call(username, password);
   }
@@ -1245,6 +1298,9 @@ class _$ClientWantsToLogInImpl
     TResult Function(@JsonKey(name: 'RunId') String runId,
             @JsonKey(name: 'UserId') int userId)?
         clientWantsToSeeFullInfoOfRun,
+    TResult Function(@JsonKey(name: 'DeviceId') String deviceId,
+            @JsonKey(name: 'UserId') int userId)?
+        clientWantsToRegisterADevice,
     required TResult orElse(),
   }) {
     if (clientWantsToLogIn != null) {
@@ -1276,6 +1332,8 @@ class _$ClientWantsToLogInImpl
         clientWantsToSeeAProgressOfAllRuns,
     required TResult Function(ClientWantsToSeeFullInfoOfRun value)
         clientWantsToSeeFullInfoOfRun,
+    required TResult Function(ClientWantsToRegisterADevice value)
+        clientWantsToRegisterADevice,
   }) {
     return clientWantsToLogIn(this);
   }
@@ -1299,6 +1357,8 @@ class _$ClientWantsToLogInImpl
         clientWantsToSeeAProgressOfAllRuns,
     TResult? Function(ClientWantsToSeeFullInfoOfRun value)?
         clientWantsToSeeFullInfoOfRun,
+    TResult? Function(ClientWantsToRegisterADevice value)?
+        clientWantsToRegisterADevice,
   }) {
     return clientWantsToLogIn?.call(this);
   }
@@ -1322,6 +1382,8 @@ class _$ClientWantsToLogInImpl
         clientWantsToSeeAProgressOfAllRuns,
     TResult Function(ClientWantsToSeeFullInfoOfRun value)?
         clientWantsToSeeFullInfoOfRun,
+    TResult Function(ClientWantsToRegisterADevice value)?
+        clientWantsToRegisterADevice,
     required TResult orElse(),
   }) {
     if (clientWantsToLogIn != null) {
@@ -1501,6 +1563,9 @@ class _$ClientWantsToDeleteARunImpl
     required TResult Function(@JsonKey(name: 'RunId') String runId,
             @JsonKey(name: 'UserId') int userId)
         clientWantsToSeeFullInfoOfRun,
+    required TResult Function(@JsonKey(name: 'DeviceId') String deviceId,
+            @JsonKey(name: 'UserId') int userId)
+        clientWantsToRegisterADevice,
   }) {
     return clientWantsToDeleteARun(userId, runId);
   }
@@ -1552,6 +1617,9 @@ class _$ClientWantsToDeleteARunImpl
     TResult? Function(@JsonKey(name: 'RunId') String runId,
             @JsonKey(name: 'UserId') int userId)?
         clientWantsToSeeFullInfoOfRun,
+    TResult? Function(@JsonKey(name: 'DeviceId') String deviceId,
+            @JsonKey(name: 'UserId') int userId)?
+        clientWantsToRegisterADevice,
   }) {
     return clientWantsToDeleteARun?.call(userId, runId);
   }
@@ -1603,6 +1671,9 @@ class _$ClientWantsToDeleteARunImpl
     TResult Function(@JsonKey(name: 'RunId') String runId,
             @JsonKey(name: 'UserId') int userId)?
         clientWantsToSeeFullInfoOfRun,
+    TResult Function(@JsonKey(name: 'DeviceId') String deviceId,
+            @JsonKey(name: 'UserId') int userId)?
+        clientWantsToRegisterADevice,
     required TResult orElse(),
   }) {
     if (clientWantsToDeleteARun != null) {
@@ -1634,6 +1705,8 @@ class _$ClientWantsToDeleteARunImpl
         clientWantsToSeeAProgressOfAllRuns,
     required TResult Function(ClientWantsToSeeFullInfoOfRun value)
         clientWantsToSeeFullInfoOfRun,
+    required TResult Function(ClientWantsToRegisterADevice value)
+        clientWantsToRegisterADevice,
   }) {
     return clientWantsToDeleteARun(this);
   }
@@ -1657,6 +1730,8 @@ class _$ClientWantsToDeleteARunImpl
         clientWantsToSeeAProgressOfAllRuns,
     TResult? Function(ClientWantsToSeeFullInfoOfRun value)?
         clientWantsToSeeFullInfoOfRun,
+    TResult? Function(ClientWantsToRegisterADevice value)?
+        clientWantsToRegisterADevice,
   }) {
     return clientWantsToDeleteARun?.call(this);
   }
@@ -1680,6 +1755,8 @@ class _$ClientWantsToDeleteARunImpl
         clientWantsToSeeAProgressOfAllRuns,
     TResult Function(ClientWantsToSeeFullInfoOfRun value)?
         clientWantsToSeeFullInfoOfRun,
+    TResult Function(ClientWantsToRegisterADevice value)?
+        clientWantsToRegisterADevice,
     required TResult orElse(),
   }) {
     if (clientWantsToDeleteARun != null) {
@@ -1848,6 +1925,9 @@ class _$ClientWantsToSeeAllSavedRunsImpl
     required TResult Function(@JsonKey(name: 'RunId') String runId,
             @JsonKey(name: 'UserId') int userId)
         clientWantsToSeeFullInfoOfRun,
+    required TResult Function(@JsonKey(name: 'DeviceId') String deviceId,
+            @JsonKey(name: 'UserId') int userId)
+        clientWantsToRegisterADevice,
   }) {
     return clientWantsToSeeAllSavedRuns(userId);
   }
@@ -1899,6 +1979,9 @@ class _$ClientWantsToSeeAllSavedRunsImpl
     TResult? Function(@JsonKey(name: 'RunId') String runId,
             @JsonKey(name: 'UserId') int userId)?
         clientWantsToSeeFullInfoOfRun,
+    TResult? Function(@JsonKey(name: 'DeviceId') String deviceId,
+            @JsonKey(name: 'UserId') int userId)?
+        clientWantsToRegisterADevice,
   }) {
     return clientWantsToSeeAllSavedRuns?.call(userId);
   }
@@ -1950,6 +2033,9 @@ class _$ClientWantsToSeeAllSavedRunsImpl
     TResult Function(@JsonKey(name: 'RunId') String runId,
             @JsonKey(name: 'UserId') int userId)?
         clientWantsToSeeFullInfoOfRun,
+    TResult Function(@JsonKey(name: 'DeviceId') String deviceId,
+            @JsonKey(name: 'UserId') int userId)?
+        clientWantsToRegisterADevice,
     required TResult orElse(),
   }) {
     if (clientWantsToSeeAllSavedRuns != null) {
@@ -1981,6 +2067,8 @@ class _$ClientWantsToSeeAllSavedRunsImpl
         clientWantsToSeeAProgressOfAllRuns,
     required TResult Function(ClientWantsToSeeFullInfoOfRun value)
         clientWantsToSeeFullInfoOfRun,
+    required TResult Function(ClientWantsToRegisterADevice value)
+        clientWantsToRegisterADevice,
   }) {
     return clientWantsToSeeAllSavedRuns(this);
   }
@@ -2004,6 +2092,8 @@ class _$ClientWantsToSeeAllSavedRunsImpl
         clientWantsToSeeAProgressOfAllRuns,
     TResult? Function(ClientWantsToSeeFullInfoOfRun value)?
         clientWantsToSeeFullInfoOfRun,
+    TResult? Function(ClientWantsToRegisterADevice value)?
+        clientWantsToRegisterADevice,
   }) {
     return clientWantsToSeeAllSavedRuns?.call(this);
   }
@@ -2027,6 +2117,8 @@ class _$ClientWantsToSeeAllSavedRunsImpl
         clientWantsToSeeAProgressOfAllRuns,
     TResult Function(ClientWantsToSeeFullInfoOfRun value)?
         clientWantsToSeeFullInfoOfRun,
+    TResult Function(ClientWantsToRegisterADevice value)?
+        clientWantsToRegisterADevice,
     required TResult orElse(),
   }) {
     if (clientWantsToSeeAllSavedRuns != null) {
@@ -2230,6 +2322,9 @@ class _$ClientWantsToSaveARunImpl
     required TResult Function(@JsonKey(name: 'RunId') String runId,
             @JsonKey(name: 'UserId') int userId)
         clientWantsToSeeFullInfoOfRun,
+    required TResult Function(@JsonKey(name: 'DeviceId') String deviceId,
+            @JsonKey(name: 'UserId') int userId)
+        clientWantsToRegisterADevice,
   }) {
     return clientWantsToSaveARun(runDateTime, userId, runDistance, runTime);
   }
@@ -2281,6 +2376,9 @@ class _$ClientWantsToSaveARunImpl
     TResult? Function(@JsonKey(name: 'RunId') String runId,
             @JsonKey(name: 'UserId') int userId)?
         clientWantsToSeeFullInfoOfRun,
+    TResult? Function(@JsonKey(name: 'DeviceId') String deviceId,
+            @JsonKey(name: 'UserId') int userId)?
+        clientWantsToRegisterADevice,
   }) {
     return clientWantsToSaveARun?.call(
         runDateTime, userId, runDistance, runTime);
@@ -2333,6 +2431,9 @@ class _$ClientWantsToSaveARunImpl
     TResult Function(@JsonKey(name: 'RunId') String runId,
             @JsonKey(name: 'UserId') int userId)?
         clientWantsToSeeFullInfoOfRun,
+    TResult Function(@JsonKey(name: 'DeviceId') String deviceId,
+            @JsonKey(name: 'UserId') int userId)?
+        clientWantsToRegisterADevice,
     required TResult orElse(),
   }) {
     if (clientWantsToSaveARun != null) {
@@ -2364,6 +2465,8 @@ class _$ClientWantsToSaveARunImpl
         clientWantsToSeeAProgressOfAllRuns,
     required TResult Function(ClientWantsToSeeFullInfoOfRun value)
         clientWantsToSeeFullInfoOfRun,
+    required TResult Function(ClientWantsToRegisterADevice value)
+        clientWantsToRegisterADevice,
   }) {
     return clientWantsToSaveARun(this);
   }
@@ -2387,6 +2490,8 @@ class _$ClientWantsToSaveARunImpl
         clientWantsToSeeAProgressOfAllRuns,
     TResult? Function(ClientWantsToSeeFullInfoOfRun value)?
         clientWantsToSeeFullInfoOfRun,
+    TResult? Function(ClientWantsToRegisterADevice value)?
+        clientWantsToRegisterADevice,
   }) {
     return clientWantsToSaveARun?.call(this);
   }
@@ -2410,6 +2515,8 @@ class _$ClientWantsToSaveARunImpl
         clientWantsToSeeAProgressOfAllRuns,
     TResult Function(ClientWantsToSeeFullInfoOfRun value)?
         clientWantsToSeeFullInfoOfRun,
+    TResult Function(ClientWantsToRegisterADevice value)?
+        clientWantsToRegisterADevice,
     required TResult orElse(),
   }) {
     if (clientWantsToSaveARun != null) {
@@ -2622,6 +2729,9 @@ class _$ClientWantsToStopARunImpl
     required TResult Function(@JsonKey(name: 'RunId') String runId,
             @JsonKey(name: 'UserId') int userId)
         clientWantsToSeeFullInfoOfRun,
+    required TResult Function(@JsonKey(name: 'DeviceId') String deviceId,
+            @JsonKey(name: 'UserId') int userId)
+        clientWantsToRegisterADevice,
   }) {
     return clientWantsToStopARun(runEndTime, endingLat, endingLng, runId);
   }
@@ -2673,6 +2783,9 @@ class _$ClientWantsToStopARunImpl
     TResult? Function(@JsonKey(name: 'RunId') String runId,
             @JsonKey(name: 'UserId') int userId)?
         clientWantsToSeeFullInfoOfRun,
+    TResult? Function(@JsonKey(name: 'DeviceId') String deviceId,
+            @JsonKey(name: 'UserId') int userId)?
+        clientWantsToRegisterADevice,
   }) {
     return clientWantsToStopARun?.call(runEndTime, endingLat, endingLng, runId);
   }
@@ -2724,6 +2837,9 @@ class _$ClientWantsToStopARunImpl
     TResult Function(@JsonKey(name: 'RunId') String runId,
             @JsonKey(name: 'UserId') int userId)?
         clientWantsToSeeFullInfoOfRun,
+    TResult Function(@JsonKey(name: 'DeviceId') String deviceId,
+            @JsonKey(name: 'UserId') int userId)?
+        clientWantsToRegisterADevice,
     required TResult orElse(),
   }) {
     if (clientWantsToStopARun != null) {
@@ -2755,6 +2871,8 @@ class _$ClientWantsToStopARunImpl
         clientWantsToSeeAProgressOfAllRuns,
     required TResult Function(ClientWantsToSeeFullInfoOfRun value)
         clientWantsToSeeFullInfoOfRun,
+    required TResult Function(ClientWantsToRegisterADevice value)
+        clientWantsToRegisterADevice,
   }) {
     return clientWantsToStopARun(this);
   }
@@ -2778,6 +2896,8 @@ class _$ClientWantsToStopARunImpl
         clientWantsToSeeAProgressOfAllRuns,
     TResult? Function(ClientWantsToSeeFullInfoOfRun value)?
         clientWantsToSeeFullInfoOfRun,
+    TResult? Function(ClientWantsToRegisterADevice value)?
+        clientWantsToRegisterADevice,
   }) {
     return clientWantsToStopARun?.call(this);
   }
@@ -2801,6 +2921,8 @@ class _$ClientWantsToStopARunImpl
         clientWantsToSeeAProgressOfAllRuns,
     TResult Function(ClientWantsToSeeFullInfoOfRun value)?
         clientWantsToSeeFullInfoOfRun,
+    TResult Function(ClientWantsToRegisterADevice value)?
+        clientWantsToRegisterADevice,
     required TResult orElse(),
   }) {
     if (clientWantsToStopARun != null) {
@@ -3013,6 +3135,9 @@ class _$ClientWantsToLogARunImpl
     required TResult Function(@JsonKey(name: 'RunId') String runId,
             @JsonKey(name: 'UserId') int userId)
         clientWantsToSeeFullInfoOfRun,
+    required TResult Function(@JsonKey(name: 'DeviceId') String deviceId,
+            @JsonKey(name: 'UserId') int userId)
+        clientWantsToRegisterADevice,
   }) {
     return clientWantsToLogARun(runStartTime, startingLat, startingLng, userId);
   }
@@ -3064,6 +3189,9 @@ class _$ClientWantsToLogARunImpl
     TResult? Function(@JsonKey(name: 'RunId') String runId,
             @JsonKey(name: 'UserId') int userId)?
         clientWantsToSeeFullInfoOfRun,
+    TResult? Function(@JsonKey(name: 'DeviceId') String deviceId,
+            @JsonKey(name: 'UserId') int userId)?
+        clientWantsToRegisterADevice,
   }) {
     return clientWantsToLogARun?.call(
         runStartTime, startingLat, startingLng, userId);
@@ -3116,6 +3244,9 @@ class _$ClientWantsToLogARunImpl
     TResult Function(@JsonKey(name: 'RunId') String runId,
             @JsonKey(name: 'UserId') int userId)?
         clientWantsToSeeFullInfoOfRun,
+    TResult Function(@JsonKey(name: 'DeviceId') String deviceId,
+            @JsonKey(name: 'UserId') int userId)?
+        clientWantsToRegisterADevice,
     required TResult orElse(),
   }) {
     if (clientWantsToLogARun != null) {
@@ -3148,6 +3279,8 @@ class _$ClientWantsToLogARunImpl
         clientWantsToSeeAProgressOfAllRuns,
     required TResult Function(ClientWantsToSeeFullInfoOfRun value)
         clientWantsToSeeFullInfoOfRun,
+    required TResult Function(ClientWantsToRegisterADevice value)
+        clientWantsToRegisterADevice,
   }) {
     return clientWantsToLogARun(this);
   }
@@ -3171,6 +3304,8 @@ class _$ClientWantsToLogARunImpl
         clientWantsToSeeAProgressOfAllRuns,
     TResult? Function(ClientWantsToSeeFullInfoOfRun value)?
         clientWantsToSeeFullInfoOfRun,
+    TResult? Function(ClientWantsToRegisterADevice value)?
+        clientWantsToRegisterADevice,
   }) {
     return clientWantsToLogARun?.call(this);
   }
@@ -3194,6 +3329,8 @@ class _$ClientWantsToLogARunImpl
         clientWantsToSeeAProgressOfAllRuns,
     TResult Function(ClientWantsToSeeFullInfoOfRun value)?
         clientWantsToSeeFullInfoOfRun,
+    TResult Function(ClientWantsToRegisterADevice value)?
+        clientWantsToRegisterADevice,
     required TResult orElse(),
   }) {
     if (clientWantsToLogARun != null) {
@@ -3408,6 +3545,9 @@ class _$ClientWantsToLogNewCoordinatesImpl
     required TResult Function(@JsonKey(name: 'RunId') String runId,
             @JsonKey(name: 'UserId') int userId)
         clientWantsToSeeFullInfoOfRun,
+    required TResult Function(@JsonKey(name: 'DeviceId') String deviceId,
+            @JsonKey(name: 'UserId') int userId)
+        clientWantsToRegisterADevice,
   }) {
     return clientWantsToLogNewCoordinates(loggingTime, lat, lng, runId);
   }
@@ -3459,6 +3599,9 @@ class _$ClientWantsToLogNewCoordinatesImpl
     TResult? Function(@JsonKey(name: 'RunId') String runId,
             @JsonKey(name: 'UserId') int userId)?
         clientWantsToSeeFullInfoOfRun,
+    TResult? Function(@JsonKey(name: 'DeviceId') String deviceId,
+            @JsonKey(name: 'UserId') int userId)?
+        clientWantsToRegisterADevice,
   }) {
     return clientWantsToLogNewCoordinates?.call(loggingTime, lat, lng, runId);
   }
@@ -3510,6 +3653,9 @@ class _$ClientWantsToLogNewCoordinatesImpl
     TResult Function(@JsonKey(name: 'RunId') String runId,
             @JsonKey(name: 'UserId') int userId)?
         clientWantsToSeeFullInfoOfRun,
+    TResult Function(@JsonKey(name: 'DeviceId') String deviceId,
+            @JsonKey(name: 'UserId') int userId)?
+        clientWantsToRegisterADevice,
     required TResult orElse(),
   }) {
     if (clientWantsToLogNewCoordinates != null) {
@@ -3541,6 +3687,8 @@ class _$ClientWantsToLogNewCoordinatesImpl
         clientWantsToSeeAProgressOfAllRuns,
     required TResult Function(ClientWantsToSeeFullInfoOfRun value)
         clientWantsToSeeFullInfoOfRun,
+    required TResult Function(ClientWantsToRegisterADevice value)
+        clientWantsToRegisterADevice,
   }) {
     return clientWantsToLogNewCoordinates(this);
   }
@@ -3564,6 +3712,8 @@ class _$ClientWantsToLogNewCoordinatesImpl
         clientWantsToSeeAProgressOfAllRuns,
     TResult? Function(ClientWantsToSeeFullInfoOfRun value)?
         clientWantsToSeeFullInfoOfRun,
+    TResult? Function(ClientWantsToRegisterADevice value)?
+        clientWantsToRegisterADevice,
   }) {
     return clientWantsToLogNewCoordinates?.call(this);
   }
@@ -3587,6 +3737,8 @@ class _$ClientWantsToLogNewCoordinatesImpl
         clientWantsToSeeAProgressOfAllRuns,
     TResult Function(ClientWantsToSeeFullInfoOfRun value)?
         clientWantsToSeeFullInfoOfRun,
+    TResult Function(ClientWantsToRegisterADevice value)?
+        clientWantsToRegisterADevice,
     required TResult orElse(),
   }) {
     if (clientWantsToLogNewCoordinates != null) {
@@ -3763,6 +3915,9 @@ class _$ClientWantsToSeeAProgressOfAllRunsImpl
     required TResult Function(@JsonKey(name: 'RunId') String runId,
             @JsonKey(name: 'UserId') int userId)
         clientWantsToSeeFullInfoOfRun,
+    required TResult Function(@JsonKey(name: 'DeviceId') String deviceId,
+            @JsonKey(name: 'UserId') int userId)
+        clientWantsToRegisterADevice,
   }) {
     return clientWantsToSeeAProgressOfAllRuns(userId);
   }
@@ -3814,6 +3969,9 @@ class _$ClientWantsToSeeAProgressOfAllRunsImpl
     TResult? Function(@JsonKey(name: 'RunId') String runId,
             @JsonKey(name: 'UserId') int userId)?
         clientWantsToSeeFullInfoOfRun,
+    TResult? Function(@JsonKey(name: 'DeviceId') String deviceId,
+            @JsonKey(name: 'UserId') int userId)?
+        clientWantsToRegisterADevice,
   }) {
     return clientWantsToSeeAProgressOfAllRuns?.call(userId);
   }
@@ -3865,6 +4023,9 @@ class _$ClientWantsToSeeAProgressOfAllRunsImpl
     TResult Function(@JsonKey(name: 'RunId') String runId,
             @JsonKey(name: 'UserId') int userId)?
         clientWantsToSeeFullInfoOfRun,
+    TResult Function(@JsonKey(name: 'DeviceId') String deviceId,
+            @JsonKey(name: 'UserId') int userId)?
+        clientWantsToRegisterADevice,
     required TResult orElse(),
   }) {
     if (clientWantsToSeeAProgressOfAllRuns != null) {
@@ -3896,6 +4057,8 @@ class _$ClientWantsToSeeAProgressOfAllRunsImpl
         clientWantsToSeeAProgressOfAllRuns,
     required TResult Function(ClientWantsToSeeFullInfoOfRun value)
         clientWantsToSeeFullInfoOfRun,
+    required TResult Function(ClientWantsToRegisterADevice value)
+        clientWantsToRegisterADevice,
   }) {
     return clientWantsToSeeAProgressOfAllRuns(this);
   }
@@ -3919,6 +4082,8 @@ class _$ClientWantsToSeeAProgressOfAllRunsImpl
         clientWantsToSeeAProgressOfAllRuns,
     TResult? Function(ClientWantsToSeeFullInfoOfRun value)?
         clientWantsToSeeFullInfoOfRun,
+    TResult? Function(ClientWantsToRegisterADevice value)?
+        clientWantsToRegisterADevice,
   }) {
     return clientWantsToSeeAProgressOfAllRuns?.call(this);
   }
@@ -3942,6 +4107,8 @@ class _$ClientWantsToSeeAProgressOfAllRunsImpl
         clientWantsToSeeAProgressOfAllRuns,
     TResult Function(ClientWantsToSeeFullInfoOfRun value)?
         clientWantsToSeeFullInfoOfRun,
+    TResult Function(ClientWantsToRegisterADevice value)?
+        clientWantsToRegisterADevice,
     required TResult orElse(),
   }) {
     if (clientWantsToSeeAProgressOfAllRuns != null) {
@@ -4123,6 +4290,9 @@ class _$ClientWantsToSeeFullInfoOfRunImpl
     required TResult Function(@JsonKey(name: 'RunId') String runId,
             @JsonKey(name: 'UserId') int userId)
         clientWantsToSeeFullInfoOfRun,
+    required TResult Function(@JsonKey(name: 'DeviceId') String deviceId,
+            @JsonKey(name: 'UserId') int userId)
+        clientWantsToRegisterADevice,
   }) {
     return clientWantsToSeeFullInfoOfRun(runId, userId);
   }
@@ -4174,6 +4344,9 @@ class _$ClientWantsToSeeFullInfoOfRunImpl
     TResult? Function(@JsonKey(name: 'RunId') String runId,
             @JsonKey(name: 'UserId') int userId)?
         clientWantsToSeeFullInfoOfRun,
+    TResult? Function(@JsonKey(name: 'DeviceId') String deviceId,
+            @JsonKey(name: 'UserId') int userId)?
+        clientWantsToRegisterADevice,
   }) {
     return clientWantsToSeeFullInfoOfRun?.call(runId, userId);
   }
@@ -4225,6 +4398,9 @@ class _$ClientWantsToSeeFullInfoOfRunImpl
     TResult Function(@JsonKey(name: 'RunId') String runId,
             @JsonKey(name: 'UserId') int userId)?
         clientWantsToSeeFullInfoOfRun,
+    TResult Function(@JsonKey(name: 'DeviceId') String deviceId,
+            @JsonKey(name: 'UserId') int userId)?
+        clientWantsToRegisterADevice,
     required TResult orElse(),
   }) {
     if (clientWantsToSeeFullInfoOfRun != null) {
@@ -4256,6 +4432,8 @@ class _$ClientWantsToSeeFullInfoOfRunImpl
         clientWantsToSeeAProgressOfAllRuns,
     required TResult Function(ClientWantsToSeeFullInfoOfRun value)
         clientWantsToSeeFullInfoOfRun,
+    required TResult Function(ClientWantsToRegisterADevice value)
+        clientWantsToRegisterADevice,
   }) {
     return clientWantsToSeeFullInfoOfRun(this);
   }
@@ -4279,6 +4457,8 @@ class _$ClientWantsToSeeFullInfoOfRunImpl
         clientWantsToSeeAProgressOfAllRuns,
     TResult? Function(ClientWantsToSeeFullInfoOfRun value)?
         clientWantsToSeeFullInfoOfRun,
+    TResult? Function(ClientWantsToRegisterADevice value)?
+        clientWantsToRegisterADevice,
   }) {
     return clientWantsToSeeFullInfoOfRun?.call(this);
   }
@@ -4302,6 +4482,8 @@ class _$ClientWantsToSeeFullInfoOfRunImpl
         clientWantsToSeeAProgressOfAllRuns,
     TResult Function(ClientWantsToSeeFullInfoOfRun value)?
         clientWantsToSeeFullInfoOfRun,
+    TResult Function(ClientWantsToRegisterADevice value)?
+        clientWantsToRegisterADevice,
     required TResult orElse(),
   }) {
     if (clientWantsToSeeFullInfoOfRun != null) {
@@ -4337,6 +4519,384 @@ abstract class ClientWantsToSeeFullInfoOfRun implements ClientEvent {
       get copyWith => throw _privateConstructorUsedError;
 }
 
+/// @nodoc
+abstract class _$$ClientWantsToRegisterADeviceImplCopyWith<$Res> {
+  factory _$$ClientWantsToRegisterADeviceImplCopyWith(
+          _$ClientWantsToRegisterADeviceImpl value,
+          $Res Function(_$ClientWantsToRegisterADeviceImpl) then) =
+      __$$ClientWantsToRegisterADeviceImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'DeviceId') String deviceId,
+      @JsonKey(name: 'UserId') int userId});
+}
+
+/// @nodoc
+class __$$ClientWantsToRegisterADeviceImplCopyWithImpl<$Res>
+    extends _$ClientEventCopyWithImpl<$Res, _$ClientWantsToRegisterADeviceImpl>
+    implements _$$ClientWantsToRegisterADeviceImplCopyWith<$Res> {
+  __$$ClientWantsToRegisterADeviceImplCopyWithImpl(
+      _$ClientWantsToRegisterADeviceImpl _value,
+      $Res Function(_$ClientWantsToRegisterADeviceImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? deviceId = null,
+    Object? userId = null,
+  }) {
+    return _then(_$ClientWantsToRegisterADeviceImpl(
+      deviceId: null == deviceId
+          ? _value.deviceId
+          : deviceId // ignore: cast_nullable_to_non_nullable
+              as String,
+      userId: null == userId
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$ClientWantsToRegisterADeviceImpl
+    with DiagnosticableTreeMixin
+    implements ClientWantsToRegisterADevice {
+  _$ClientWantsToRegisterADeviceImpl(
+      {@JsonKey(name: 'DeviceId') required this.deviceId,
+      @JsonKey(name: 'UserId') required this.userId,
+      final String? $type})
+      : $type = $type ?? 'ClientWantsToRegisterADevice';
+
+  factory _$ClientWantsToRegisterADeviceImpl.fromJson(
+          Map<String, dynamic> json) =>
+      _$$ClientWantsToRegisterADeviceImplFromJson(json);
+
+  @override
+  @JsonKey(name: 'DeviceId')
+  final String deviceId;
+  @override
+  @JsonKey(name: 'UserId')
+  final int userId;
+
+  @JsonKey(name: 'eventType')
+  final String $type;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'ClientEvent.clientWantsToRegisterADevice(deviceId: $deviceId, userId: $userId)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty(
+          'type', 'ClientEvent.clientWantsToRegisterADevice'))
+      ..add(DiagnosticsProperty('deviceId', deviceId))
+      ..add(DiagnosticsProperty('userId', userId));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ClientWantsToRegisterADeviceImpl &&
+            (identical(other.deviceId, deviceId) ||
+                other.deviceId == deviceId) &&
+            (identical(other.userId, userId) || other.userId == userId));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, deviceId, userId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ClientWantsToRegisterADeviceImplCopyWith<
+          _$ClientWantsToRegisterADeviceImpl>
+      get copyWith => __$$ClientWantsToRegisterADeviceImplCopyWithImpl<
+          _$ClientWantsToRegisterADeviceImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(@JsonKey(name: 'Jwt') String jwt)
+        clientWantsToAuthenticateWithJwt,
+    required TResult Function(
+            @JsonKey(name: 'Username') String username,
+            @JsonKey(name: 'Email') String email,
+            @JsonKey(name: 'Password') String password)
+        clientWantsToRegister,
+    required TResult Function(@JsonKey(name: 'Username') String username,
+            @JsonKey(name: 'Password') String password)
+        clientWantsToLogIn,
+    required TResult Function(@JsonKey(name: 'UserId') int userId,
+            @JsonKey(name: 'RunId') String runId)
+        clientWantsToDeleteARun,
+    required TResult Function(@JsonKey(name: 'UserId') int userId)
+        clientWantsToSeeAllSavedRuns,
+    required TResult Function(
+            @JsonKey(name: 'RunDateTime') DateTime runDateTime,
+            @JsonKey(name: 'UserId') int userId,
+            @JsonKey(name: 'RunDistance') double runDistance,
+            @JsonKey(name: 'RunTime') String runTime)
+        clientWantsToSaveARun,
+    required TResult Function(
+            @JsonKey(name: 'RunEndTime') DateTime runEndTime,
+            @JsonKey(name: 'EndingLat') double endingLat,
+            @JsonKey(name: 'EndingLng') double endingLng,
+            @JsonKey(name: 'RunId') String runId)
+        clientWantsToStopARun,
+    required TResult Function(
+            @JsonKey(name: 'RunStartTime') DateTime runStartTime,
+            @JsonKey(name: 'StartingLat') double startingLat,
+            @JsonKey(name: 'StartingLng') double startingLng,
+            @JsonKey(name: 'UserId') int userId)
+        clientWantsToLogARun,
+    required TResult Function(
+            @JsonKey(name: 'LoggingTime') DateTime loggingTime,
+            @JsonKey(name: 'Lat') double lat,
+            @JsonKey(name: 'Lng') double lng,
+            @JsonKey(name: 'RunId') String runId)
+        clientWantsToLogNewCoordinates,
+    required TResult Function(@JsonKey(name: 'UserId') int userId)
+        clientWantsToSeeAProgressOfAllRuns,
+    required TResult Function(@JsonKey(name: 'RunId') String runId,
+            @JsonKey(name: 'UserId') int userId)
+        clientWantsToSeeFullInfoOfRun,
+    required TResult Function(@JsonKey(name: 'DeviceId') String deviceId,
+            @JsonKey(name: 'UserId') int userId)
+        clientWantsToRegisterADevice,
+  }) {
+    return clientWantsToRegisterADevice(deviceId, userId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(@JsonKey(name: 'Jwt') String jwt)?
+        clientWantsToAuthenticateWithJwt,
+    TResult? Function(
+            @JsonKey(name: 'Username') String username,
+            @JsonKey(name: 'Email') String email,
+            @JsonKey(name: 'Password') String password)?
+        clientWantsToRegister,
+    TResult? Function(@JsonKey(name: 'Username') String username,
+            @JsonKey(name: 'Password') String password)?
+        clientWantsToLogIn,
+    TResult? Function(@JsonKey(name: 'UserId') int userId,
+            @JsonKey(name: 'RunId') String runId)?
+        clientWantsToDeleteARun,
+    TResult? Function(@JsonKey(name: 'UserId') int userId)?
+        clientWantsToSeeAllSavedRuns,
+    TResult? Function(
+            @JsonKey(name: 'RunDateTime') DateTime runDateTime,
+            @JsonKey(name: 'UserId') int userId,
+            @JsonKey(name: 'RunDistance') double runDistance,
+            @JsonKey(name: 'RunTime') String runTime)?
+        clientWantsToSaveARun,
+    TResult? Function(
+            @JsonKey(name: 'RunEndTime') DateTime runEndTime,
+            @JsonKey(name: 'EndingLat') double endingLat,
+            @JsonKey(name: 'EndingLng') double endingLng,
+            @JsonKey(name: 'RunId') String runId)?
+        clientWantsToStopARun,
+    TResult? Function(
+            @JsonKey(name: 'RunStartTime') DateTime runStartTime,
+            @JsonKey(name: 'StartingLat') double startingLat,
+            @JsonKey(name: 'StartingLng') double startingLng,
+            @JsonKey(name: 'UserId') int userId)?
+        clientWantsToLogARun,
+    TResult? Function(
+            @JsonKey(name: 'LoggingTime') DateTime loggingTime,
+            @JsonKey(name: 'Lat') double lat,
+            @JsonKey(name: 'Lng') double lng,
+            @JsonKey(name: 'RunId') String runId)?
+        clientWantsToLogNewCoordinates,
+    TResult? Function(@JsonKey(name: 'UserId') int userId)?
+        clientWantsToSeeAProgressOfAllRuns,
+    TResult? Function(@JsonKey(name: 'RunId') String runId,
+            @JsonKey(name: 'UserId') int userId)?
+        clientWantsToSeeFullInfoOfRun,
+    TResult? Function(@JsonKey(name: 'DeviceId') String deviceId,
+            @JsonKey(name: 'UserId') int userId)?
+        clientWantsToRegisterADevice,
+  }) {
+    return clientWantsToRegisterADevice?.call(deviceId, userId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(@JsonKey(name: 'Jwt') String jwt)?
+        clientWantsToAuthenticateWithJwt,
+    TResult Function(
+            @JsonKey(name: 'Username') String username,
+            @JsonKey(name: 'Email') String email,
+            @JsonKey(name: 'Password') String password)?
+        clientWantsToRegister,
+    TResult Function(@JsonKey(name: 'Username') String username,
+            @JsonKey(name: 'Password') String password)?
+        clientWantsToLogIn,
+    TResult Function(@JsonKey(name: 'UserId') int userId,
+            @JsonKey(name: 'RunId') String runId)?
+        clientWantsToDeleteARun,
+    TResult Function(@JsonKey(name: 'UserId') int userId)?
+        clientWantsToSeeAllSavedRuns,
+    TResult Function(
+            @JsonKey(name: 'RunDateTime') DateTime runDateTime,
+            @JsonKey(name: 'UserId') int userId,
+            @JsonKey(name: 'RunDistance') double runDistance,
+            @JsonKey(name: 'RunTime') String runTime)?
+        clientWantsToSaveARun,
+    TResult Function(
+            @JsonKey(name: 'RunEndTime') DateTime runEndTime,
+            @JsonKey(name: 'EndingLat') double endingLat,
+            @JsonKey(name: 'EndingLng') double endingLng,
+            @JsonKey(name: 'RunId') String runId)?
+        clientWantsToStopARun,
+    TResult Function(
+            @JsonKey(name: 'RunStartTime') DateTime runStartTime,
+            @JsonKey(name: 'StartingLat') double startingLat,
+            @JsonKey(name: 'StartingLng') double startingLng,
+            @JsonKey(name: 'UserId') int userId)?
+        clientWantsToLogARun,
+    TResult Function(
+            @JsonKey(name: 'LoggingTime') DateTime loggingTime,
+            @JsonKey(name: 'Lat') double lat,
+            @JsonKey(name: 'Lng') double lng,
+            @JsonKey(name: 'RunId') String runId)?
+        clientWantsToLogNewCoordinates,
+    TResult Function(@JsonKey(name: 'UserId') int userId)?
+        clientWantsToSeeAProgressOfAllRuns,
+    TResult Function(@JsonKey(name: 'RunId') String runId,
+            @JsonKey(name: 'UserId') int userId)?
+        clientWantsToSeeFullInfoOfRun,
+    TResult Function(@JsonKey(name: 'DeviceId') String deviceId,
+            @JsonKey(name: 'UserId') int userId)?
+        clientWantsToRegisterADevice,
+    required TResult orElse(),
+  }) {
+    if (clientWantsToRegisterADevice != null) {
+      return clientWantsToRegisterADevice(deviceId, userId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ClientWantsToAuthenticateWithJwt value)
+        clientWantsToAuthenticateWithJwt,
+    required TResult Function(ClientWantsToRegister value)
+        clientWantsToRegister,
+    required TResult Function(ClientWantsToLogIn value) clientWantsToLogIn,
+    required TResult Function(ClientWantsToDeleteARun value)
+        clientWantsToDeleteARun,
+    required TResult Function(ClientWantsToSeeAllSavedRuns value)
+        clientWantsToSeeAllSavedRuns,
+    required TResult Function(ClientWantsToSaveARun value)
+        clientWantsToSaveARun,
+    required TResult Function(ClientWantsToStopARun value)
+        clientWantsToStopARun,
+    required TResult Function(ClientWantsToLogARun value) clientWantsToLogARun,
+    required TResult Function(ClientWantsToLogNewCoordinates value)
+        clientWantsToLogNewCoordinates,
+    required TResult Function(ClientWantsToSeeAProgressOfAllRuns value)
+        clientWantsToSeeAProgressOfAllRuns,
+    required TResult Function(ClientWantsToSeeFullInfoOfRun value)
+        clientWantsToSeeFullInfoOfRun,
+    required TResult Function(ClientWantsToRegisterADevice value)
+        clientWantsToRegisterADevice,
+  }) {
+    return clientWantsToRegisterADevice(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ClientWantsToAuthenticateWithJwt value)?
+        clientWantsToAuthenticateWithJwt,
+    TResult? Function(ClientWantsToRegister value)? clientWantsToRegister,
+    TResult? Function(ClientWantsToLogIn value)? clientWantsToLogIn,
+    TResult? Function(ClientWantsToDeleteARun value)? clientWantsToDeleteARun,
+    TResult? Function(ClientWantsToSeeAllSavedRuns value)?
+        clientWantsToSeeAllSavedRuns,
+    TResult? Function(ClientWantsToSaveARun value)? clientWantsToSaveARun,
+    TResult? Function(ClientWantsToStopARun value)? clientWantsToStopARun,
+    TResult? Function(ClientWantsToLogARun value)? clientWantsToLogARun,
+    TResult? Function(ClientWantsToLogNewCoordinates value)?
+        clientWantsToLogNewCoordinates,
+    TResult? Function(ClientWantsToSeeAProgressOfAllRuns value)?
+        clientWantsToSeeAProgressOfAllRuns,
+    TResult? Function(ClientWantsToSeeFullInfoOfRun value)?
+        clientWantsToSeeFullInfoOfRun,
+    TResult? Function(ClientWantsToRegisterADevice value)?
+        clientWantsToRegisterADevice,
+  }) {
+    return clientWantsToRegisterADevice?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ClientWantsToAuthenticateWithJwt value)?
+        clientWantsToAuthenticateWithJwt,
+    TResult Function(ClientWantsToRegister value)? clientWantsToRegister,
+    TResult Function(ClientWantsToLogIn value)? clientWantsToLogIn,
+    TResult Function(ClientWantsToDeleteARun value)? clientWantsToDeleteARun,
+    TResult Function(ClientWantsToSeeAllSavedRuns value)?
+        clientWantsToSeeAllSavedRuns,
+    TResult Function(ClientWantsToSaveARun value)? clientWantsToSaveARun,
+    TResult Function(ClientWantsToStopARun value)? clientWantsToStopARun,
+    TResult Function(ClientWantsToLogARun value)? clientWantsToLogARun,
+    TResult Function(ClientWantsToLogNewCoordinates value)?
+        clientWantsToLogNewCoordinates,
+    TResult Function(ClientWantsToSeeAProgressOfAllRuns value)?
+        clientWantsToSeeAProgressOfAllRuns,
+    TResult Function(ClientWantsToSeeFullInfoOfRun value)?
+        clientWantsToSeeFullInfoOfRun,
+    TResult Function(ClientWantsToRegisterADevice value)?
+        clientWantsToRegisterADevice,
+    required TResult orElse(),
+  }) {
+    if (clientWantsToRegisterADevice != null) {
+      return clientWantsToRegisterADevice(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$ClientWantsToRegisterADeviceImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class ClientWantsToRegisterADevice implements ClientEvent {
+  factory ClientWantsToRegisterADevice(
+          {@JsonKey(name: 'DeviceId') required final String deviceId,
+          @JsonKey(name: 'UserId') required final int userId}) =
+      _$ClientWantsToRegisterADeviceImpl;
+
+  factory ClientWantsToRegisterADevice.fromJson(Map<String, dynamic> json) =
+      _$ClientWantsToRegisterADeviceImpl.fromJson;
+
+  @JsonKey(name: 'DeviceId')
+  String get deviceId;
+  @JsonKey(name: 'UserId')
+  int get userId;
+  @JsonKey(ignore: true)
+  _$$ClientWantsToRegisterADeviceImplCopyWith<
+          _$ClientWantsToRegisterADeviceImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
 ServerEvent _$ServerEventFromJson(Map<String, dynamic> json) {
   switch (json['eventType']) {
     case 'ServerSendsBackJwt':
@@ -4365,6 +4925,10 @@ ServerEvent _$ServerEventFromJson(Map<String, dynamic> json) {
       return AuthenticationFailureException.fromJson(json);
     case 'UserAlreadyExistsException':
       return UserAlreadyExistsException.fromJson(json);
+    case 'ServerConfirmsDeviceRegistration':
+      return ServerConfirmsDeviceRegistration.fromJson(json);
+    case 'DeviceAlreadyRegisteredException':
+      return DeviceAlreadyRegisteredException.fromJson(json);
 
     default:
       throw CheckedFromJsonException(json, 'eventType', 'ServerEvent',
@@ -4411,6 +4975,11 @@ mixin _$ServerEvent {
     required TResult Function(String errorMessage)
         authenticationFailureException,
     required TResult Function(String errorMessage) userAlreadyExistsException,
+    required TResult Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'DeviceId') String deviceId)
+        serverConfirmsDeviceRegistration,
+    required TResult Function(String errorMessage)
+        deviceAlreadyRegisteredException,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -4448,6 +5017,10 @@ mixin _$ServerEvent {
         serverSendsBackFullRunInfo,
     TResult? Function(String errorMessage)? authenticationFailureException,
     TResult? Function(String errorMessage)? userAlreadyExistsException,
+    TResult? Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'DeviceId') String deviceId)?
+        serverConfirmsDeviceRegistration,
+    TResult? Function(String errorMessage)? deviceAlreadyRegisteredException,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -4485,6 +5058,10 @@ mixin _$ServerEvent {
         serverSendsBackFullRunInfo,
     TResult Function(String errorMessage)? authenticationFailureException,
     TResult Function(String errorMessage)? userAlreadyExistsException,
+    TResult Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'DeviceId') String deviceId)?
+        serverConfirmsDeviceRegistration,
+    TResult Function(String errorMessage)? deviceAlreadyRegisteredException,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -4511,6 +5088,10 @@ mixin _$ServerEvent {
         authenticationFailureException,
     required TResult Function(UserAlreadyExistsException value)
         userAlreadyExistsException,
+    required TResult Function(ServerConfirmsDeviceRegistration value)
+        serverConfirmsDeviceRegistration,
+    required TResult Function(DeviceAlreadyRegisteredException value)
+        deviceAlreadyRegisteredException,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -4536,6 +5117,10 @@ mixin _$ServerEvent {
         authenticationFailureException,
     TResult? Function(UserAlreadyExistsException value)?
         userAlreadyExistsException,
+    TResult? Function(ServerConfirmsDeviceRegistration value)?
+        serverConfirmsDeviceRegistration,
+    TResult? Function(DeviceAlreadyRegisteredException value)?
+        deviceAlreadyRegisteredException,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -4561,6 +5146,10 @@ mixin _$ServerEvent {
         authenticationFailureException,
     TResult Function(UserAlreadyExistsException value)?
         userAlreadyExistsException,
+    TResult Function(ServerConfirmsDeviceRegistration value)?
+        serverConfirmsDeviceRegistration,
+    TResult Function(DeviceAlreadyRegisteredException value)?
+        deviceAlreadyRegisteredException,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -4705,6 +5294,11 @@ class _$ServerSendsBackJwtImpl
     required TResult Function(String errorMessage)
         authenticationFailureException,
     required TResult Function(String errorMessage) userAlreadyExistsException,
+    required TResult Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'DeviceId') String deviceId)
+        serverConfirmsDeviceRegistration,
+    required TResult Function(String errorMessage)
+        deviceAlreadyRegisteredException,
   }) {
     return serverSendsBackJwt(jwt);
   }
@@ -4745,6 +5339,10 @@ class _$ServerSendsBackJwtImpl
         serverSendsBackFullRunInfo,
     TResult? Function(String errorMessage)? authenticationFailureException,
     TResult? Function(String errorMessage)? userAlreadyExistsException,
+    TResult? Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'DeviceId') String deviceId)?
+        serverConfirmsDeviceRegistration,
+    TResult? Function(String errorMessage)? deviceAlreadyRegisteredException,
   }) {
     return serverSendsBackJwt?.call(jwt);
   }
@@ -4785,6 +5383,10 @@ class _$ServerSendsBackJwtImpl
         serverSendsBackFullRunInfo,
     TResult Function(String errorMessage)? authenticationFailureException,
     TResult Function(String errorMessage)? userAlreadyExistsException,
+    TResult Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'DeviceId') String deviceId)?
+        serverConfirmsDeviceRegistration,
+    TResult Function(String errorMessage)? deviceAlreadyRegisteredException,
     required TResult orElse(),
   }) {
     if (serverSendsBackJwt != null) {
@@ -4817,6 +5419,10 @@ class _$ServerSendsBackJwtImpl
         authenticationFailureException,
     required TResult Function(UserAlreadyExistsException value)
         userAlreadyExistsException,
+    required TResult Function(ServerConfirmsDeviceRegistration value)
+        serverConfirmsDeviceRegistration,
+    required TResult Function(DeviceAlreadyRegisteredException value)
+        deviceAlreadyRegisteredException,
   }) {
     return serverSendsBackJwt(this);
   }
@@ -4845,6 +5451,10 @@ class _$ServerSendsBackJwtImpl
         authenticationFailureException,
     TResult? Function(UserAlreadyExistsException value)?
         userAlreadyExistsException,
+    TResult? Function(ServerConfirmsDeviceRegistration value)?
+        serverConfirmsDeviceRegistration,
+    TResult? Function(DeviceAlreadyRegisteredException value)?
+        deviceAlreadyRegisteredException,
   }) {
     return serverSendsBackJwt?.call(this);
   }
@@ -4873,6 +5483,10 @@ class _$ServerSendsBackJwtImpl
         authenticationFailureException,
     TResult Function(UserAlreadyExistsException value)?
         userAlreadyExistsException,
+    TResult Function(ServerConfirmsDeviceRegistration value)?
+        serverConfirmsDeviceRegistration,
+    TResult Function(DeviceAlreadyRegisteredException value)?
+        deviceAlreadyRegisteredException,
     required TResult orElse(),
   }) {
     if (serverSendsBackJwt != null) {
@@ -5053,6 +5667,11 @@ class _$ServerSendsBackRunImpl
     required TResult Function(String errorMessage)
         authenticationFailureException,
     required TResult Function(String errorMessage) userAlreadyExistsException,
+    required TResult Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'DeviceId') String deviceId)
+        serverConfirmsDeviceRegistration,
+    required TResult Function(String errorMessage)
+        deviceAlreadyRegisteredException,
   }) {
     return serverSendsBackRun(runDateTime, runDistance, runTime);
   }
@@ -5093,6 +5712,10 @@ class _$ServerSendsBackRunImpl
         serverSendsBackFullRunInfo,
     TResult? Function(String errorMessage)? authenticationFailureException,
     TResult? Function(String errorMessage)? userAlreadyExistsException,
+    TResult? Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'DeviceId') String deviceId)?
+        serverConfirmsDeviceRegistration,
+    TResult? Function(String errorMessage)? deviceAlreadyRegisteredException,
   }) {
     return serverSendsBackRun?.call(runDateTime, runDistance, runTime);
   }
@@ -5133,6 +5756,10 @@ class _$ServerSendsBackRunImpl
         serverSendsBackFullRunInfo,
     TResult Function(String errorMessage)? authenticationFailureException,
     TResult Function(String errorMessage)? userAlreadyExistsException,
+    TResult Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'DeviceId') String deviceId)?
+        serverConfirmsDeviceRegistration,
+    TResult Function(String errorMessage)? deviceAlreadyRegisteredException,
     required TResult orElse(),
   }) {
     if (serverSendsBackRun != null) {
@@ -5165,6 +5792,10 @@ class _$ServerSendsBackRunImpl
         authenticationFailureException,
     required TResult Function(UserAlreadyExistsException value)
         userAlreadyExistsException,
+    required TResult Function(ServerConfirmsDeviceRegistration value)
+        serverConfirmsDeviceRegistration,
+    required TResult Function(DeviceAlreadyRegisteredException value)
+        deviceAlreadyRegisteredException,
   }) {
     return serverSendsBackRun(this);
   }
@@ -5193,6 +5824,10 @@ class _$ServerSendsBackRunImpl
         authenticationFailureException,
     TResult? Function(UserAlreadyExistsException value)?
         userAlreadyExistsException,
+    TResult? Function(ServerConfirmsDeviceRegistration value)?
+        serverConfirmsDeviceRegistration,
+    TResult? Function(DeviceAlreadyRegisteredException value)?
+        deviceAlreadyRegisteredException,
   }) {
     return serverSendsBackRun?.call(this);
   }
@@ -5221,6 +5856,10 @@ class _$ServerSendsBackRunImpl
         authenticationFailureException,
     TResult Function(UserAlreadyExistsException value)?
         userAlreadyExistsException,
+    TResult Function(ServerConfirmsDeviceRegistration value)?
+        serverConfirmsDeviceRegistration,
+    TResult Function(DeviceAlreadyRegisteredException value)?
+        deviceAlreadyRegisteredException,
     required TResult orElse(),
   }) {
     if (serverSendsBackRun != null) {
@@ -5390,6 +6029,11 @@ class _$ServerSendsBackAllSavedRunsImpl
     required TResult Function(String errorMessage)
         authenticationFailureException,
     required TResult Function(String errorMessage) userAlreadyExistsException,
+    required TResult Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'DeviceId') String deviceId)
+        serverConfirmsDeviceRegistration,
+    required TResult Function(String errorMessage)
+        deviceAlreadyRegisteredException,
   }) {
     return serverSendsBackAllSavedRuns(allRuns);
   }
@@ -5430,6 +6074,10 @@ class _$ServerSendsBackAllSavedRunsImpl
         serverSendsBackFullRunInfo,
     TResult? Function(String errorMessage)? authenticationFailureException,
     TResult? Function(String errorMessage)? userAlreadyExistsException,
+    TResult? Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'DeviceId') String deviceId)?
+        serverConfirmsDeviceRegistration,
+    TResult? Function(String errorMessage)? deviceAlreadyRegisteredException,
   }) {
     return serverSendsBackAllSavedRuns?.call(allRuns);
   }
@@ -5470,6 +6118,10 @@ class _$ServerSendsBackAllSavedRunsImpl
         serverSendsBackFullRunInfo,
     TResult Function(String errorMessage)? authenticationFailureException,
     TResult Function(String errorMessage)? userAlreadyExistsException,
+    TResult Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'DeviceId') String deviceId)?
+        serverConfirmsDeviceRegistration,
+    TResult Function(String errorMessage)? deviceAlreadyRegisteredException,
     required TResult orElse(),
   }) {
     if (serverSendsBackAllSavedRuns != null) {
@@ -5502,6 +6154,10 @@ class _$ServerSendsBackAllSavedRunsImpl
         authenticationFailureException,
     required TResult Function(UserAlreadyExistsException value)
         userAlreadyExistsException,
+    required TResult Function(ServerConfirmsDeviceRegistration value)
+        serverConfirmsDeviceRegistration,
+    required TResult Function(DeviceAlreadyRegisteredException value)
+        deviceAlreadyRegisteredException,
   }) {
     return serverSendsBackAllSavedRuns(this);
   }
@@ -5530,6 +6186,10 @@ class _$ServerSendsBackAllSavedRunsImpl
         authenticationFailureException,
     TResult? Function(UserAlreadyExistsException value)?
         userAlreadyExistsException,
+    TResult? Function(ServerConfirmsDeviceRegistration value)?
+        serverConfirmsDeviceRegistration,
+    TResult? Function(DeviceAlreadyRegisteredException value)?
+        deviceAlreadyRegisteredException,
   }) {
     return serverSendsBackAllSavedRuns?.call(this);
   }
@@ -5558,6 +6218,10 @@ class _$ServerSendsBackAllSavedRunsImpl
         authenticationFailureException,
     TResult Function(UserAlreadyExistsException value)?
         userAlreadyExistsException,
+    TResult Function(ServerConfirmsDeviceRegistration value)?
+        serverConfirmsDeviceRegistration,
+    TResult Function(DeviceAlreadyRegisteredException value)?
+        deviceAlreadyRegisteredException,
     required TResult orElse(),
   }) {
     if (serverSendsBackAllSavedRuns != null) {
@@ -5723,6 +6387,11 @@ class _$ServerSendsBackAllProgressImpl
     required TResult Function(String errorMessage)
         authenticationFailureException,
     required TResult Function(String errorMessage) userAlreadyExistsException,
+    required TResult Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'DeviceId') String deviceId)
+        serverConfirmsDeviceRegistration,
+    required TResult Function(String errorMessage)
+        deviceAlreadyRegisteredException,
   }) {
     return serverSendsBackAllProgress(allProgress);
   }
@@ -5763,6 +6432,10 @@ class _$ServerSendsBackAllProgressImpl
         serverSendsBackFullRunInfo,
     TResult? Function(String errorMessage)? authenticationFailureException,
     TResult? Function(String errorMessage)? userAlreadyExistsException,
+    TResult? Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'DeviceId') String deviceId)?
+        serverConfirmsDeviceRegistration,
+    TResult? Function(String errorMessage)? deviceAlreadyRegisteredException,
   }) {
     return serverSendsBackAllProgress?.call(allProgress);
   }
@@ -5803,6 +6476,10 @@ class _$ServerSendsBackAllProgressImpl
         serverSendsBackFullRunInfo,
     TResult Function(String errorMessage)? authenticationFailureException,
     TResult Function(String errorMessage)? userAlreadyExistsException,
+    TResult Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'DeviceId') String deviceId)?
+        serverConfirmsDeviceRegistration,
+    TResult Function(String errorMessage)? deviceAlreadyRegisteredException,
     required TResult orElse(),
   }) {
     if (serverSendsBackAllProgress != null) {
@@ -5835,6 +6512,10 @@ class _$ServerSendsBackAllProgressImpl
         authenticationFailureException,
     required TResult Function(UserAlreadyExistsException value)
         userAlreadyExistsException,
+    required TResult Function(ServerConfirmsDeviceRegistration value)
+        serverConfirmsDeviceRegistration,
+    required TResult Function(DeviceAlreadyRegisteredException value)
+        deviceAlreadyRegisteredException,
   }) {
     return serverSendsBackAllProgress(this);
   }
@@ -5863,6 +6544,10 @@ class _$ServerSendsBackAllProgressImpl
         authenticationFailureException,
     TResult? Function(UserAlreadyExistsException value)?
         userAlreadyExistsException,
+    TResult? Function(ServerConfirmsDeviceRegistration value)?
+        serverConfirmsDeviceRegistration,
+    TResult? Function(DeviceAlreadyRegisteredException value)?
+        deviceAlreadyRegisteredException,
   }) {
     return serverSendsBackAllProgress?.call(this);
   }
@@ -5891,6 +6576,10 @@ class _$ServerSendsBackAllProgressImpl
         authenticationFailureException,
     TResult Function(UserAlreadyExistsException value)?
         userAlreadyExistsException,
+    TResult Function(ServerConfirmsDeviceRegistration value)?
+        serverConfirmsDeviceRegistration,
+    TResult Function(DeviceAlreadyRegisteredException value)?
+        deviceAlreadyRegisteredException,
     required TResult orElse(),
   }) {
     if (serverSendsBackAllProgress != null) {
@@ -6049,6 +6738,11 @@ class _$ServerConfirmsDeletionOfRunImpl
     required TResult Function(String errorMessage)
         authenticationFailureException,
     required TResult Function(String errorMessage) userAlreadyExistsException,
+    required TResult Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'DeviceId') String deviceId)
+        serverConfirmsDeviceRegistration,
+    required TResult Function(String errorMessage)
+        deviceAlreadyRegisteredException,
   }) {
     return serverConfirmsDeletionOfRun(runDeleted);
   }
@@ -6089,6 +6783,10 @@ class _$ServerConfirmsDeletionOfRunImpl
         serverSendsBackFullRunInfo,
     TResult? Function(String errorMessage)? authenticationFailureException,
     TResult? Function(String errorMessage)? userAlreadyExistsException,
+    TResult? Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'DeviceId') String deviceId)?
+        serverConfirmsDeviceRegistration,
+    TResult? Function(String errorMessage)? deviceAlreadyRegisteredException,
   }) {
     return serverConfirmsDeletionOfRun?.call(runDeleted);
   }
@@ -6129,6 +6827,10 @@ class _$ServerConfirmsDeletionOfRunImpl
         serverSendsBackFullRunInfo,
     TResult Function(String errorMessage)? authenticationFailureException,
     TResult Function(String errorMessage)? userAlreadyExistsException,
+    TResult Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'DeviceId') String deviceId)?
+        serverConfirmsDeviceRegistration,
+    TResult Function(String errorMessage)? deviceAlreadyRegisteredException,
     required TResult orElse(),
   }) {
     if (serverConfirmsDeletionOfRun != null) {
@@ -6161,6 +6863,10 @@ class _$ServerConfirmsDeletionOfRunImpl
         authenticationFailureException,
     required TResult Function(UserAlreadyExistsException value)
         userAlreadyExistsException,
+    required TResult Function(ServerConfirmsDeviceRegistration value)
+        serverConfirmsDeviceRegistration,
+    required TResult Function(DeviceAlreadyRegisteredException value)
+        deviceAlreadyRegisteredException,
   }) {
     return serverConfirmsDeletionOfRun(this);
   }
@@ -6189,6 +6895,10 @@ class _$ServerConfirmsDeletionOfRunImpl
         authenticationFailureException,
     TResult? Function(UserAlreadyExistsException value)?
         userAlreadyExistsException,
+    TResult? Function(ServerConfirmsDeviceRegistration value)?
+        serverConfirmsDeviceRegistration,
+    TResult? Function(DeviceAlreadyRegisteredException value)?
+        deviceAlreadyRegisteredException,
   }) {
     return serverConfirmsDeletionOfRun?.call(this);
   }
@@ -6217,6 +6927,10 @@ class _$ServerConfirmsDeletionOfRunImpl
         authenticationFailureException,
     TResult Function(UserAlreadyExistsException value)?
         userAlreadyExistsException,
+    TResult Function(ServerConfirmsDeviceRegistration value)?
+        serverConfirmsDeviceRegistration,
+    TResult Function(DeviceAlreadyRegisteredException value)?
+        deviceAlreadyRegisteredException,
     required TResult orElse(),
   }) {
     if (serverConfirmsDeletionOfRun != null) {
@@ -6369,6 +7083,11 @@ class _$ServerSendsBackRunIdImpl
     required TResult Function(String errorMessage)
         authenticationFailureException,
     required TResult Function(String errorMessage) userAlreadyExistsException,
+    required TResult Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'DeviceId') String deviceId)
+        serverConfirmsDeviceRegistration,
+    required TResult Function(String errorMessage)
+        deviceAlreadyRegisteredException,
   }) {
     return serverSendsBackRunId(runId);
   }
@@ -6409,6 +7128,10 @@ class _$ServerSendsBackRunIdImpl
         serverSendsBackFullRunInfo,
     TResult? Function(String errorMessage)? authenticationFailureException,
     TResult? Function(String errorMessage)? userAlreadyExistsException,
+    TResult? Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'DeviceId') String deviceId)?
+        serverConfirmsDeviceRegistration,
+    TResult? Function(String errorMessage)? deviceAlreadyRegisteredException,
   }) {
     return serverSendsBackRunId?.call(runId);
   }
@@ -6449,6 +7172,10 @@ class _$ServerSendsBackRunIdImpl
         serverSendsBackFullRunInfo,
     TResult Function(String errorMessage)? authenticationFailureException,
     TResult Function(String errorMessage)? userAlreadyExistsException,
+    TResult Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'DeviceId') String deviceId)?
+        serverConfirmsDeviceRegistration,
+    TResult Function(String errorMessage)? deviceAlreadyRegisteredException,
     required TResult orElse(),
   }) {
     if (serverSendsBackRunId != null) {
@@ -6481,6 +7208,10 @@ class _$ServerSendsBackRunIdImpl
         authenticationFailureException,
     required TResult Function(UserAlreadyExistsException value)
         userAlreadyExistsException,
+    required TResult Function(ServerConfirmsDeviceRegistration value)
+        serverConfirmsDeviceRegistration,
+    required TResult Function(DeviceAlreadyRegisteredException value)
+        deviceAlreadyRegisteredException,
   }) {
     return serverSendsBackRunId(this);
   }
@@ -6509,6 +7240,10 @@ class _$ServerSendsBackRunIdImpl
         authenticationFailureException,
     TResult? Function(UserAlreadyExistsException value)?
         userAlreadyExistsException,
+    TResult? Function(ServerConfirmsDeviceRegistration value)?
+        serverConfirmsDeviceRegistration,
+    TResult? Function(DeviceAlreadyRegisteredException value)?
+        deviceAlreadyRegisteredException,
   }) {
     return serverSendsBackRunId?.call(this);
   }
@@ -6537,6 +7272,10 @@ class _$ServerSendsBackRunIdImpl
         authenticationFailureException,
     TResult Function(UserAlreadyExistsException value)?
         userAlreadyExistsException,
+    TResult Function(ServerConfirmsDeviceRegistration value)?
+        serverConfirmsDeviceRegistration,
+    TResult Function(DeviceAlreadyRegisteredException value)?
+        deviceAlreadyRegisteredException,
     required TResult orElse(),
   }) {
     if (serverSendsBackRunId != null) {
@@ -6706,6 +7445,11 @@ class _$ServerConfirmsRegistrationImpl
     required TResult Function(String errorMessage)
         authenticationFailureException,
     required TResult Function(String errorMessage) userAlreadyExistsException,
+    required TResult Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'DeviceId') String deviceId)
+        serverConfirmsDeviceRegistration,
+    required TResult Function(String errorMessage)
+        deviceAlreadyRegisteredException,
   }) {
     return serverConfirmsRegistration(message, userId);
   }
@@ -6746,6 +7490,10 @@ class _$ServerConfirmsRegistrationImpl
         serverSendsBackFullRunInfo,
     TResult? Function(String errorMessage)? authenticationFailureException,
     TResult? Function(String errorMessage)? userAlreadyExistsException,
+    TResult? Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'DeviceId') String deviceId)?
+        serverConfirmsDeviceRegistration,
+    TResult? Function(String errorMessage)? deviceAlreadyRegisteredException,
   }) {
     return serverConfirmsRegistration?.call(message, userId);
   }
@@ -6786,6 +7534,10 @@ class _$ServerConfirmsRegistrationImpl
         serverSendsBackFullRunInfo,
     TResult Function(String errorMessage)? authenticationFailureException,
     TResult Function(String errorMessage)? userAlreadyExistsException,
+    TResult Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'DeviceId') String deviceId)?
+        serverConfirmsDeviceRegistration,
+    TResult Function(String errorMessage)? deviceAlreadyRegisteredException,
     required TResult orElse(),
   }) {
     if (serverConfirmsRegistration != null) {
@@ -6818,6 +7570,10 @@ class _$ServerConfirmsRegistrationImpl
         authenticationFailureException,
     required TResult Function(UserAlreadyExistsException value)
         userAlreadyExistsException,
+    required TResult Function(ServerConfirmsDeviceRegistration value)
+        serverConfirmsDeviceRegistration,
+    required TResult Function(DeviceAlreadyRegisteredException value)
+        deviceAlreadyRegisteredException,
   }) {
     return serverConfirmsRegistration(this);
   }
@@ -6846,6 +7602,10 @@ class _$ServerConfirmsRegistrationImpl
         authenticationFailureException,
     TResult? Function(UserAlreadyExistsException value)?
         userAlreadyExistsException,
+    TResult? Function(ServerConfirmsDeviceRegistration value)?
+        serverConfirmsDeviceRegistration,
+    TResult? Function(DeviceAlreadyRegisteredException value)?
+        deviceAlreadyRegisteredException,
   }) {
     return serverConfirmsRegistration?.call(this);
   }
@@ -6874,6 +7634,10 @@ class _$ServerConfirmsRegistrationImpl
         authenticationFailureException,
     TResult Function(UserAlreadyExistsException value)?
         userAlreadyExistsException,
+    TResult Function(ServerConfirmsDeviceRegistration value)?
+        serverConfirmsDeviceRegistration,
+    TResult Function(DeviceAlreadyRegisteredException value)?
+        deviceAlreadyRegisteredException,
     required TResult orElse(),
   }) {
     if (serverConfirmsRegistration != null) {
@@ -7046,6 +7810,11 @@ class _$ServerSendsBackRunWithMapImpl
     required TResult Function(String errorMessage)
         authenticationFailureException,
     required TResult Function(String errorMessage) userAlreadyExistsException,
+    required TResult Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'DeviceId') String deviceId)
+        serverConfirmsDeviceRegistration,
+    required TResult Function(String errorMessage)
+        deviceAlreadyRegisteredException,
   }) {
     return serverSendsBackRunWithMap(message, runInfoWithMap);
   }
@@ -7086,6 +7855,10 @@ class _$ServerSendsBackRunWithMapImpl
         serverSendsBackFullRunInfo,
     TResult? Function(String errorMessage)? authenticationFailureException,
     TResult? Function(String errorMessage)? userAlreadyExistsException,
+    TResult? Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'DeviceId') String deviceId)?
+        serverConfirmsDeviceRegistration,
+    TResult? Function(String errorMessage)? deviceAlreadyRegisteredException,
   }) {
     return serverSendsBackRunWithMap?.call(message, runInfoWithMap);
   }
@@ -7126,6 +7899,10 @@ class _$ServerSendsBackRunWithMapImpl
         serverSendsBackFullRunInfo,
     TResult Function(String errorMessage)? authenticationFailureException,
     TResult Function(String errorMessage)? userAlreadyExistsException,
+    TResult Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'DeviceId') String deviceId)?
+        serverConfirmsDeviceRegistration,
+    TResult Function(String errorMessage)? deviceAlreadyRegisteredException,
     required TResult orElse(),
   }) {
     if (serverSendsBackRunWithMap != null) {
@@ -7158,6 +7935,10 @@ class _$ServerSendsBackRunWithMapImpl
         authenticationFailureException,
     required TResult Function(UserAlreadyExistsException value)
         userAlreadyExistsException,
+    required TResult Function(ServerConfirmsDeviceRegistration value)
+        serverConfirmsDeviceRegistration,
+    required TResult Function(DeviceAlreadyRegisteredException value)
+        deviceAlreadyRegisteredException,
   }) {
     return serverSendsBackRunWithMap(this);
   }
@@ -7186,6 +7967,10 @@ class _$ServerSendsBackRunWithMapImpl
         authenticationFailureException,
     TResult? Function(UserAlreadyExistsException value)?
         userAlreadyExistsException,
+    TResult? Function(ServerConfirmsDeviceRegistration value)?
+        serverConfirmsDeviceRegistration,
+    TResult? Function(DeviceAlreadyRegisteredException value)?
+        deviceAlreadyRegisteredException,
   }) {
     return serverSendsBackRunWithMap?.call(this);
   }
@@ -7214,6 +7999,10 @@ class _$ServerSendsBackRunWithMapImpl
         authenticationFailureException,
     TResult Function(UserAlreadyExistsException value)?
         userAlreadyExistsException,
+    TResult Function(ServerConfirmsDeviceRegistration value)?
+        serverConfirmsDeviceRegistration,
+    TResult Function(DeviceAlreadyRegisteredException value)?
+        deviceAlreadyRegisteredException,
     required TResult orElse(),
   }) {
     if (serverSendsBackRunWithMap != null) {
@@ -7393,6 +8182,11 @@ class _$ServerConfirmsLoginImpl
     required TResult Function(String errorMessage)
         authenticationFailureException,
     required TResult Function(String errorMessage) userAlreadyExistsException,
+    required TResult Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'DeviceId') String deviceId)
+        serverConfirmsDeviceRegistration,
+    required TResult Function(String errorMessage)
+        deviceAlreadyRegisteredException,
   }) {
     return serverConfirmsLogin(message, token, userId);
   }
@@ -7433,6 +8227,10 @@ class _$ServerConfirmsLoginImpl
         serverSendsBackFullRunInfo,
     TResult? Function(String errorMessage)? authenticationFailureException,
     TResult? Function(String errorMessage)? userAlreadyExistsException,
+    TResult? Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'DeviceId') String deviceId)?
+        serverConfirmsDeviceRegistration,
+    TResult? Function(String errorMessage)? deviceAlreadyRegisteredException,
   }) {
     return serverConfirmsLogin?.call(message, token, userId);
   }
@@ -7473,6 +8271,10 @@ class _$ServerConfirmsLoginImpl
         serverSendsBackFullRunInfo,
     TResult Function(String errorMessage)? authenticationFailureException,
     TResult Function(String errorMessage)? userAlreadyExistsException,
+    TResult Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'DeviceId') String deviceId)?
+        serverConfirmsDeviceRegistration,
+    TResult Function(String errorMessage)? deviceAlreadyRegisteredException,
     required TResult orElse(),
   }) {
     if (serverConfirmsLogin != null) {
@@ -7505,6 +8307,10 @@ class _$ServerConfirmsLoginImpl
         authenticationFailureException,
     required TResult Function(UserAlreadyExistsException value)
         userAlreadyExistsException,
+    required TResult Function(ServerConfirmsDeviceRegistration value)
+        serverConfirmsDeviceRegistration,
+    required TResult Function(DeviceAlreadyRegisteredException value)
+        deviceAlreadyRegisteredException,
   }) {
     return serverConfirmsLogin(this);
   }
@@ -7533,6 +8339,10 @@ class _$ServerConfirmsLoginImpl
         authenticationFailureException,
     TResult? Function(UserAlreadyExistsException value)?
         userAlreadyExistsException,
+    TResult? Function(ServerConfirmsDeviceRegistration value)?
+        serverConfirmsDeviceRegistration,
+    TResult? Function(DeviceAlreadyRegisteredException value)?
+        deviceAlreadyRegisteredException,
   }) {
     return serverConfirmsLogin?.call(this);
   }
@@ -7561,6 +8371,10 @@ class _$ServerConfirmsLoginImpl
         authenticationFailureException,
     TResult Function(UserAlreadyExistsException value)?
         userAlreadyExistsException,
+    TResult Function(ServerConfirmsDeviceRegistration value)?
+        serverConfirmsDeviceRegistration,
+    TResult Function(DeviceAlreadyRegisteredException value)?
+        deviceAlreadyRegisteredException,
     required TResult orElse(),
   }) {
     if (serverConfirmsLogin != null) {
@@ -7718,6 +8532,11 @@ class _$ServerDeniesLoginImpl
     required TResult Function(String errorMessage)
         authenticationFailureException,
     required TResult Function(String errorMessage) userAlreadyExistsException,
+    required TResult Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'DeviceId') String deviceId)
+        serverConfirmsDeviceRegistration,
+    required TResult Function(String errorMessage)
+        deviceAlreadyRegisteredException,
   }) {
     return serverDeniesLogin(message);
   }
@@ -7758,6 +8577,10 @@ class _$ServerDeniesLoginImpl
         serverSendsBackFullRunInfo,
     TResult? Function(String errorMessage)? authenticationFailureException,
     TResult? Function(String errorMessage)? userAlreadyExistsException,
+    TResult? Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'DeviceId') String deviceId)?
+        serverConfirmsDeviceRegistration,
+    TResult? Function(String errorMessage)? deviceAlreadyRegisteredException,
   }) {
     return serverDeniesLogin?.call(message);
   }
@@ -7798,6 +8621,10 @@ class _$ServerDeniesLoginImpl
         serverSendsBackFullRunInfo,
     TResult Function(String errorMessage)? authenticationFailureException,
     TResult Function(String errorMessage)? userAlreadyExistsException,
+    TResult Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'DeviceId') String deviceId)?
+        serverConfirmsDeviceRegistration,
+    TResult Function(String errorMessage)? deviceAlreadyRegisteredException,
     required TResult orElse(),
   }) {
     if (serverDeniesLogin != null) {
@@ -7830,6 +8657,10 @@ class _$ServerDeniesLoginImpl
         authenticationFailureException,
     required TResult Function(UserAlreadyExistsException value)
         userAlreadyExistsException,
+    required TResult Function(ServerConfirmsDeviceRegistration value)
+        serverConfirmsDeviceRegistration,
+    required TResult Function(DeviceAlreadyRegisteredException value)
+        deviceAlreadyRegisteredException,
   }) {
     return serverDeniesLogin(this);
   }
@@ -7858,6 +8689,10 @@ class _$ServerDeniesLoginImpl
         authenticationFailureException,
     TResult? Function(UserAlreadyExistsException value)?
         userAlreadyExistsException,
+    TResult? Function(ServerConfirmsDeviceRegistration value)?
+        serverConfirmsDeviceRegistration,
+    TResult? Function(DeviceAlreadyRegisteredException value)?
+        deviceAlreadyRegisteredException,
   }) {
     return serverDeniesLogin?.call(this);
   }
@@ -7886,6 +8721,10 @@ class _$ServerDeniesLoginImpl
         authenticationFailureException,
     TResult Function(UserAlreadyExistsException value)?
         userAlreadyExistsException,
+    TResult Function(ServerConfirmsDeviceRegistration value)?
+        serverConfirmsDeviceRegistration,
+    TResult Function(DeviceAlreadyRegisteredException value)?
+        deviceAlreadyRegisteredException,
     required TResult orElse(),
   }) {
     if (serverDeniesLogin != null) {
@@ -8043,6 +8882,11 @@ class _$ServerSendsBackFullRunInfoImpl
     required TResult Function(String errorMessage)
         authenticationFailureException,
     required TResult Function(String errorMessage) userAlreadyExistsException,
+    required TResult Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'DeviceId') String deviceId)
+        serverConfirmsDeviceRegistration,
+    required TResult Function(String errorMessage)
+        deviceAlreadyRegisteredException,
   }) {
     return serverSendsBackFullRunInfo(runInfoWithMap);
   }
@@ -8083,6 +8927,10 @@ class _$ServerSendsBackFullRunInfoImpl
         serverSendsBackFullRunInfo,
     TResult? Function(String errorMessage)? authenticationFailureException,
     TResult? Function(String errorMessage)? userAlreadyExistsException,
+    TResult? Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'DeviceId') String deviceId)?
+        serverConfirmsDeviceRegistration,
+    TResult? Function(String errorMessage)? deviceAlreadyRegisteredException,
   }) {
     return serverSendsBackFullRunInfo?.call(runInfoWithMap);
   }
@@ -8123,6 +8971,10 @@ class _$ServerSendsBackFullRunInfoImpl
         serverSendsBackFullRunInfo,
     TResult Function(String errorMessage)? authenticationFailureException,
     TResult Function(String errorMessage)? userAlreadyExistsException,
+    TResult Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'DeviceId') String deviceId)?
+        serverConfirmsDeviceRegistration,
+    TResult Function(String errorMessage)? deviceAlreadyRegisteredException,
     required TResult orElse(),
   }) {
     if (serverSendsBackFullRunInfo != null) {
@@ -8155,6 +9007,10 @@ class _$ServerSendsBackFullRunInfoImpl
         authenticationFailureException,
     required TResult Function(UserAlreadyExistsException value)
         userAlreadyExistsException,
+    required TResult Function(ServerConfirmsDeviceRegistration value)
+        serverConfirmsDeviceRegistration,
+    required TResult Function(DeviceAlreadyRegisteredException value)
+        deviceAlreadyRegisteredException,
   }) {
     return serverSendsBackFullRunInfo(this);
   }
@@ -8183,6 +9039,10 @@ class _$ServerSendsBackFullRunInfoImpl
         authenticationFailureException,
     TResult? Function(UserAlreadyExistsException value)?
         userAlreadyExistsException,
+    TResult? Function(ServerConfirmsDeviceRegistration value)?
+        serverConfirmsDeviceRegistration,
+    TResult? Function(DeviceAlreadyRegisteredException value)?
+        deviceAlreadyRegisteredException,
   }) {
     return serverSendsBackFullRunInfo?.call(this);
   }
@@ -8211,6 +9071,10 @@ class _$ServerSendsBackFullRunInfoImpl
         authenticationFailureException,
     TResult Function(UserAlreadyExistsException value)?
         userAlreadyExistsException,
+    TResult Function(ServerConfirmsDeviceRegistration value)?
+        serverConfirmsDeviceRegistration,
+    TResult Function(DeviceAlreadyRegisteredException value)?
+        deviceAlreadyRegisteredException,
     required TResult orElse(),
   }) {
     if (serverSendsBackFullRunInfo != null) {
@@ -8369,6 +9233,11 @@ class _$AuthenticationFailureExceptionImpl
     required TResult Function(String errorMessage)
         authenticationFailureException,
     required TResult Function(String errorMessage) userAlreadyExistsException,
+    required TResult Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'DeviceId') String deviceId)
+        serverConfirmsDeviceRegistration,
+    required TResult Function(String errorMessage)
+        deviceAlreadyRegisteredException,
   }) {
     return authenticationFailureException(errorMessage);
   }
@@ -8409,6 +9278,10 @@ class _$AuthenticationFailureExceptionImpl
         serverSendsBackFullRunInfo,
     TResult? Function(String errorMessage)? authenticationFailureException,
     TResult? Function(String errorMessage)? userAlreadyExistsException,
+    TResult? Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'DeviceId') String deviceId)?
+        serverConfirmsDeviceRegistration,
+    TResult? Function(String errorMessage)? deviceAlreadyRegisteredException,
   }) {
     return authenticationFailureException?.call(errorMessage);
   }
@@ -8449,6 +9322,10 @@ class _$AuthenticationFailureExceptionImpl
         serverSendsBackFullRunInfo,
     TResult Function(String errorMessage)? authenticationFailureException,
     TResult Function(String errorMessage)? userAlreadyExistsException,
+    TResult Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'DeviceId') String deviceId)?
+        serverConfirmsDeviceRegistration,
+    TResult Function(String errorMessage)? deviceAlreadyRegisteredException,
     required TResult orElse(),
   }) {
     if (authenticationFailureException != null) {
@@ -8481,6 +9358,10 @@ class _$AuthenticationFailureExceptionImpl
         authenticationFailureException,
     required TResult Function(UserAlreadyExistsException value)
         userAlreadyExistsException,
+    required TResult Function(ServerConfirmsDeviceRegistration value)
+        serverConfirmsDeviceRegistration,
+    required TResult Function(DeviceAlreadyRegisteredException value)
+        deviceAlreadyRegisteredException,
   }) {
     return authenticationFailureException(this);
   }
@@ -8509,6 +9390,10 @@ class _$AuthenticationFailureExceptionImpl
         authenticationFailureException,
     TResult? Function(UserAlreadyExistsException value)?
         userAlreadyExistsException,
+    TResult? Function(ServerConfirmsDeviceRegistration value)?
+        serverConfirmsDeviceRegistration,
+    TResult? Function(DeviceAlreadyRegisteredException value)?
+        deviceAlreadyRegisteredException,
   }) {
     return authenticationFailureException?.call(this);
   }
@@ -8537,6 +9422,10 @@ class _$AuthenticationFailureExceptionImpl
         authenticationFailureException,
     TResult Function(UserAlreadyExistsException value)?
         userAlreadyExistsException,
+    TResult Function(ServerConfirmsDeviceRegistration value)?
+        serverConfirmsDeviceRegistration,
+    TResult Function(DeviceAlreadyRegisteredException value)?
+        deviceAlreadyRegisteredException,
     required TResult orElse(),
   }) {
     if (authenticationFailureException != null) {
@@ -8691,6 +9580,11 @@ class _$UserAlreadyExistsExceptionImpl
     required TResult Function(String errorMessage)
         authenticationFailureException,
     required TResult Function(String errorMessage) userAlreadyExistsException,
+    required TResult Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'DeviceId') String deviceId)
+        serverConfirmsDeviceRegistration,
+    required TResult Function(String errorMessage)
+        deviceAlreadyRegisteredException,
   }) {
     return userAlreadyExistsException(errorMessage);
   }
@@ -8731,6 +9625,10 @@ class _$UserAlreadyExistsExceptionImpl
         serverSendsBackFullRunInfo,
     TResult? Function(String errorMessage)? authenticationFailureException,
     TResult? Function(String errorMessage)? userAlreadyExistsException,
+    TResult? Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'DeviceId') String deviceId)?
+        serverConfirmsDeviceRegistration,
+    TResult? Function(String errorMessage)? deviceAlreadyRegisteredException,
   }) {
     return userAlreadyExistsException?.call(errorMessage);
   }
@@ -8771,6 +9669,10 @@ class _$UserAlreadyExistsExceptionImpl
         serverSendsBackFullRunInfo,
     TResult Function(String errorMessage)? authenticationFailureException,
     TResult Function(String errorMessage)? userAlreadyExistsException,
+    TResult Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'DeviceId') String deviceId)?
+        serverConfirmsDeviceRegistration,
+    TResult Function(String errorMessage)? deviceAlreadyRegisteredException,
     required TResult orElse(),
   }) {
     if (userAlreadyExistsException != null) {
@@ -8803,6 +9705,10 @@ class _$UserAlreadyExistsExceptionImpl
         authenticationFailureException,
     required TResult Function(UserAlreadyExistsException value)
         userAlreadyExistsException,
+    required TResult Function(ServerConfirmsDeviceRegistration value)
+        serverConfirmsDeviceRegistration,
+    required TResult Function(DeviceAlreadyRegisteredException value)
+        deviceAlreadyRegisteredException,
   }) {
     return userAlreadyExistsException(this);
   }
@@ -8831,6 +9737,10 @@ class _$UserAlreadyExistsExceptionImpl
         authenticationFailureException,
     TResult? Function(UserAlreadyExistsException value)?
         userAlreadyExistsException,
+    TResult? Function(ServerConfirmsDeviceRegistration value)?
+        serverConfirmsDeviceRegistration,
+    TResult? Function(DeviceAlreadyRegisteredException value)?
+        deviceAlreadyRegisteredException,
   }) {
     return userAlreadyExistsException?.call(this);
   }
@@ -8859,6 +9769,10 @@ class _$UserAlreadyExistsExceptionImpl
         authenticationFailureException,
     TResult Function(UserAlreadyExistsException value)?
         userAlreadyExistsException,
+    TResult Function(ServerConfirmsDeviceRegistration value)?
+        serverConfirmsDeviceRegistration,
+    TResult Function(DeviceAlreadyRegisteredException value)?
+        deviceAlreadyRegisteredException,
     required TResult orElse(),
   }) {
     if (userAlreadyExistsException != null) {
@@ -8885,5 +9799,724 @@ abstract class UserAlreadyExistsException implements ServerEvent {
   String get errorMessage;
   @JsonKey(ignore: true)
   _$$UserAlreadyExistsExceptionImplCopyWith<_$UserAlreadyExistsExceptionImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ServerConfirmsDeviceRegistrationImplCopyWith<$Res> {
+  factory _$$ServerConfirmsDeviceRegistrationImplCopyWith(
+          _$ServerConfirmsDeviceRegistrationImpl value,
+          $Res Function(_$ServerConfirmsDeviceRegistrationImpl) then) =
+      __$$ServerConfirmsDeviceRegistrationImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'Message') String message,
+      @JsonKey(name: 'DeviceId') String deviceId});
+}
+
+/// @nodoc
+class __$$ServerConfirmsDeviceRegistrationImplCopyWithImpl<$Res>
+    extends _$ServerEventCopyWithImpl<$Res,
+        _$ServerConfirmsDeviceRegistrationImpl>
+    implements _$$ServerConfirmsDeviceRegistrationImplCopyWith<$Res> {
+  __$$ServerConfirmsDeviceRegistrationImplCopyWithImpl(
+      _$ServerConfirmsDeviceRegistrationImpl _value,
+      $Res Function(_$ServerConfirmsDeviceRegistrationImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+    Object? deviceId = null,
+  }) {
+    return _then(_$ServerConfirmsDeviceRegistrationImpl(
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+      deviceId: null == deviceId
+          ? _value.deviceId
+          : deviceId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$ServerConfirmsDeviceRegistrationImpl
+    with DiagnosticableTreeMixin
+    implements ServerConfirmsDeviceRegistration {
+  _$ServerConfirmsDeviceRegistrationImpl(
+      {@JsonKey(name: 'Message') required this.message,
+      @JsonKey(name: 'DeviceId') required this.deviceId,
+      final String? $type})
+      : $type = $type ?? 'ServerConfirmsDeviceRegistration';
+
+  factory _$ServerConfirmsDeviceRegistrationImpl.fromJson(
+          Map<String, dynamic> json) =>
+      _$$ServerConfirmsDeviceRegistrationImplFromJson(json);
+
+  @override
+  @JsonKey(name: 'Message')
+  final String message;
+  @override
+  @JsonKey(name: 'DeviceId')
+  final String deviceId;
+
+  @JsonKey(name: 'eventType')
+  final String $type;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'ServerEvent.serverConfirmsDeviceRegistration(message: $message, deviceId: $deviceId)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty(
+          'type', 'ServerEvent.serverConfirmsDeviceRegistration'))
+      ..add(DiagnosticsProperty('message', message))
+      ..add(DiagnosticsProperty('deviceId', deviceId));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ServerConfirmsDeviceRegistrationImpl &&
+            (identical(other.message, message) || other.message == message) &&
+            (identical(other.deviceId, deviceId) ||
+                other.deviceId == deviceId));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, message, deviceId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ServerConfirmsDeviceRegistrationImplCopyWith<
+          _$ServerConfirmsDeviceRegistrationImpl>
+      get copyWith => __$$ServerConfirmsDeviceRegistrationImplCopyWithImpl<
+          _$ServerConfirmsDeviceRegistrationImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(@JsonKey(name: 'Jwt') String jwt)
+        serverSendsBackJwt,
+    required TResult Function(
+            @JsonKey(name: 'RunDateTime') DateTime runDateTime,
+            @JsonKey(name: 'UserId') double runDistance,
+            @JsonKey(name: 'RunDistance') String runTime)
+        serverSendsBackRun,
+    required TResult Function(@JsonKey(name: 'AllRuns') List<Run> allRuns)
+        serverSendsBackAllSavedRuns,
+    required TResult Function(
+            @JsonKey(name: 'AllProgress') List<ProgressInfo> allProgress)
+        serverSendsBackAllProgress,
+    required TResult Function(@JsonKey(name: 'RunDeleted') String runDeleted)
+        serverConfirmsDeletionOfRun,
+    required TResult Function(@JsonKey(name: 'RunId') String runId)
+        serverSendsBackRunId,
+    required TResult Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'UserId') int userId)
+        serverConfirmsRegistration,
+    required TResult Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)
+        serverSendsBackRunWithMap,
+    required TResult Function(
+            @JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'Token') Object token,
+            @JsonKey(name: 'UserId') int userId)
+        serverConfirmsLogin,
+    required TResult Function(@JsonKey(name: 'Message') String message)
+        serverDeniesLogin,
+    required TResult Function(
+            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)
+        serverSendsBackFullRunInfo,
+    required TResult Function(String errorMessage)
+        authenticationFailureException,
+    required TResult Function(String errorMessage) userAlreadyExistsException,
+    required TResult Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'DeviceId') String deviceId)
+        serverConfirmsDeviceRegistration,
+    required TResult Function(String errorMessage)
+        deviceAlreadyRegisteredException,
+  }) {
+    return serverConfirmsDeviceRegistration(message, deviceId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(@JsonKey(name: 'Jwt') String jwt)? serverSendsBackJwt,
+    TResult? Function(
+            @JsonKey(name: 'RunDateTime') DateTime runDateTime,
+            @JsonKey(name: 'UserId') double runDistance,
+            @JsonKey(name: 'RunDistance') String runTime)?
+        serverSendsBackRun,
+    TResult? Function(@JsonKey(name: 'AllRuns') List<Run> allRuns)?
+        serverSendsBackAllSavedRuns,
+    TResult? Function(
+            @JsonKey(name: 'AllProgress') List<ProgressInfo> allProgress)?
+        serverSendsBackAllProgress,
+    TResult? Function(@JsonKey(name: 'RunDeleted') String runDeleted)?
+        serverConfirmsDeletionOfRun,
+    TResult? Function(@JsonKey(name: 'RunId') String runId)?
+        serverSendsBackRunId,
+    TResult? Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'UserId') int userId)?
+        serverConfirmsRegistration,
+    TResult? Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)?
+        serverSendsBackRunWithMap,
+    TResult? Function(
+            @JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'Token') Object token,
+            @JsonKey(name: 'UserId') int userId)?
+        serverConfirmsLogin,
+    TResult? Function(@JsonKey(name: 'Message') String message)?
+        serverDeniesLogin,
+    TResult? Function(
+            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)?
+        serverSendsBackFullRunInfo,
+    TResult? Function(String errorMessage)? authenticationFailureException,
+    TResult? Function(String errorMessage)? userAlreadyExistsException,
+    TResult? Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'DeviceId') String deviceId)?
+        serverConfirmsDeviceRegistration,
+    TResult? Function(String errorMessage)? deviceAlreadyRegisteredException,
+  }) {
+    return serverConfirmsDeviceRegistration?.call(message, deviceId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(@JsonKey(name: 'Jwt') String jwt)? serverSendsBackJwt,
+    TResult Function(
+            @JsonKey(name: 'RunDateTime') DateTime runDateTime,
+            @JsonKey(name: 'UserId') double runDistance,
+            @JsonKey(name: 'RunDistance') String runTime)?
+        serverSendsBackRun,
+    TResult Function(@JsonKey(name: 'AllRuns') List<Run> allRuns)?
+        serverSendsBackAllSavedRuns,
+    TResult Function(
+            @JsonKey(name: 'AllProgress') List<ProgressInfo> allProgress)?
+        serverSendsBackAllProgress,
+    TResult Function(@JsonKey(name: 'RunDeleted') String runDeleted)?
+        serverConfirmsDeletionOfRun,
+    TResult Function(@JsonKey(name: 'RunId') String runId)?
+        serverSendsBackRunId,
+    TResult Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'UserId') int userId)?
+        serverConfirmsRegistration,
+    TResult Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)?
+        serverSendsBackRunWithMap,
+    TResult Function(
+            @JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'Token') Object token,
+            @JsonKey(name: 'UserId') int userId)?
+        serverConfirmsLogin,
+    TResult Function(@JsonKey(name: 'Message') String message)?
+        serverDeniesLogin,
+    TResult Function(
+            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)?
+        serverSendsBackFullRunInfo,
+    TResult Function(String errorMessage)? authenticationFailureException,
+    TResult Function(String errorMessage)? userAlreadyExistsException,
+    TResult Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'DeviceId') String deviceId)?
+        serverConfirmsDeviceRegistration,
+    TResult Function(String errorMessage)? deviceAlreadyRegisteredException,
+    required TResult orElse(),
+  }) {
+    if (serverConfirmsDeviceRegistration != null) {
+      return serverConfirmsDeviceRegistration(message, deviceId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ServerSendsBackJwt value) serverSendsBackJwt,
+    required TResult Function(ServerSendsBackRun value) serverSendsBackRun,
+    required TResult Function(ServerSendsBackAllSavedRuns value)
+        serverSendsBackAllSavedRuns,
+    required TResult Function(ServerSendsBackAllProgress value)
+        serverSendsBackAllProgress,
+    required TResult Function(ServerConfirmsDeletionOfRun value)
+        serverConfirmsDeletionOfRun,
+    required TResult Function(ServerSendsBackRunId value) serverSendsBackRunId,
+    required TResult Function(ServerConfirmsRegistration value)
+        serverConfirmsRegistration,
+    required TResult Function(ServerSendsBackRunWithMap value)
+        serverSendsBackRunWithMap,
+    required TResult Function(ServerConfirmsLogin value) serverConfirmsLogin,
+    required TResult Function(ServerDeniesLogin value) serverDeniesLogin,
+    required TResult Function(ServerSendsBackFullRunInfo value)
+        serverSendsBackFullRunInfo,
+    required TResult Function(AuthenticationFailureException value)
+        authenticationFailureException,
+    required TResult Function(UserAlreadyExistsException value)
+        userAlreadyExistsException,
+    required TResult Function(ServerConfirmsDeviceRegistration value)
+        serverConfirmsDeviceRegistration,
+    required TResult Function(DeviceAlreadyRegisteredException value)
+        deviceAlreadyRegisteredException,
+  }) {
+    return serverConfirmsDeviceRegistration(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ServerSendsBackJwt value)? serverSendsBackJwt,
+    TResult? Function(ServerSendsBackRun value)? serverSendsBackRun,
+    TResult? Function(ServerSendsBackAllSavedRuns value)?
+        serverSendsBackAllSavedRuns,
+    TResult? Function(ServerSendsBackAllProgress value)?
+        serverSendsBackAllProgress,
+    TResult? Function(ServerConfirmsDeletionOfRun value)?
+        serverConfirmsDeletionOfRun,
+    TResult? Function(ServerSendsBackRunId value)? serverSendsBackRunId,
+    TResult? Function(ServerConfirmsRegistration value)?
+        serverConfirmsRegistration,
+    TResult? Function(ServerSendsBackRunWithMap value)?
+        serverSendsBackRunWithMap,
+    TResult? Function(ServerConfirmsLogin value)? serverConfirmsLogin,
+    TResult? Function(ServerDeniesLogin value)? serverDeniesLogin,
+    TResult? Function(ServerSendsBackFullRunInfo value)?
+        serverSendsBackFullRunInfo,
+    TResult? Function(AuthenticationFailureException value)?
+        authenticationFailureException,
+    TResult? Function(UserAlreadyExistsException value)?
+        userAlreadyExistsException,
+    TResult? Function(ServerConfirmsDeviceRegistration value)?
+        serverConfirmsDeviceRegistration,
+    TResult? Function(DeviceAlreadyRegisteredException value)?
+        deviceAlreadyRegisteredException,
+  }) {
+    return serverConfirmsDeviceRegistration?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ServerSendsBackJwt value)? serverSendsBackJwt,
+    TResult Function(ServerSendsBackRun value)? serverSendsBackRun,
+    TResult Function(ServerSendsBackAllSavedRuns value)?
+        serverSendsBackAllSavedRuns,
+    TResult Function(ServerSendsBackAllProgress value)?
+        serverSendsBackAllProgress,
+    TResult Function(ServerConfirmsDeletionOfRun value)?
+        serverConfirmsDeletionOfRun,
+    TResult Function(ServerSendsBackRunId value)? serverSendsBackRunId,
+    TResult Function(ServerConfirmsRegistration value)?
+        serverConfirmsRegistration,
+    TResult Function(ServerSendsBackRunWithMap value)?
+        serverSendsBackRunWithMap,
+    TResult Function(ServerConfirmsLogin value)? serverConfirmsLogin,
+    TResult Function(ServerDeniesLogin value)? serverDeniesLogin,
+    TResult Function(ServerSendsBackFullRunInfo value)?
+        serverSendsBackFullRunInfo,
+    TResult Function(AuthenticationFailureException value)?
+        authenticationFailureException,
+    TResult Function(UserAlreadyExistsException value)?
+        userAlreadyExistsException,
+    TResult Function(ServerConfirmsDeviceRegistration value)?
+        serverConfirmsDeviceRegistration,
+    TResult Function(DeviceAlreadyRegisteredException value)?
+        deviceAlreadyRegisteredException,
+    required TResult orElse(),
+  }) {
+    if (serverConfirmsDeviceRegistration != null) {
+      return serverConfirmsDeviceRegistration(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$ServerConfirmsDeviceRegistrationImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class ServerConfirmsDeviceRegistration implements ServerEvent {
+  factory ServerConfirmsDeviceRegistration(
+          {@JsonKey(name: 'Message') required final String message,
+          @JsonKey(name: 'DeviceId') required final String deviceId}) =
+      _$ServerConfirmsDeviceRegistrationImpl;
+
+  factory ServerConfirmsDeviceRegistration.fromJson(Map<String, dynamic> json) =
+      _$ServerConfirmsDeviceRegistrationImpl.fromJson;
+
+  @JsonKey(name: 'Message')
+  String get message;
+  @JsonKey(name: 'DeviceId')
+  String get deviceId;
+  @JsonKey(ignore: true)
+  _$$ServerConfirmsDeviceRegistrationImplCopyWith<
+          _$ServerConfirmsDeviceRegistrationImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$DeviceAlreadyRegisteredExceptionImplCopyWith<$Res> {
+  factory _$$DeviceAlreadyRegisteredExceptionImplCopyWith(
+          _$DeviceAlreadyRegisteredExceptionImpl value,
+          $Res Function(_$DeviceAlreadyRegisteredExceptionImpl) then) =
+      __$$DeviceAlreadyRegisteredExceptionImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String errorMessage});
+}
+
+/// @nodoc
+class __$$DeviceAlreadyRegisteredExceptionImplCopyWithImpl<$Res>
+    extends _$ServerEventCopyWithImpl<$Res,
+        _$DeviceAlreadyRegisteredExceptionImpl>
+    implements _$$DeviceAlreadyRegisteredExceptionImplCopyWith<$Res> {
+  __$$DeviceAlreadyRegisteredExceptionImplCopyWithImpl(
+      _$DeviceAlreadyRegisteredExceptionImpl _value,
+      $Res Function(_$DeviceAlreadyRegisteredExceptionImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? errorMessage = null,
+  }) {
+    return _then(_$DeviceAlreadyRegisteredExceptionImpl(
+      errorMessage: null == errorMessage
+          ? _value.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$DeviceAlreadyRegisteredExceptionImpl
+    with DiagnosticableTreeMixin
+    implements DeviceAlreadyRegisteredException {
+  _$DeviceAlreadyRegisteredExceptionImpl(
+      {required this.errorMessage, final String? $type})
+      : $type = $type ?? 'DeviceAlreadyRegisteredException';
+
+  factory _$DeviceAlreadyRegisteredExceptionImpl.fromJson(
+          Map<String, dynamic> json) =>
+      _$$DeviceAlreadyRegisteredExceptionImplFromJson(json);
+
+  @override
+  final String errorMessage;
+
+  @JsonKey(name: 'eventType')
+  final String $type;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'ServerEvent.deviceAlreadyRegisteredException(errorMessage: $errorMessage)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty(
+          'type', 'ServerEvent.deviceAlreadyRegisteredException'))
+      ..add(DiagnosticsProperty('errorMessage', errorMessage));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DeviceAlreadyRegisteredExceptionImpl &&
+            (identical(other.errorMessage, errorMessage) ||
+                other.errorMessage == errorMessage));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, errorMessage);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DeviceAlreadyRegisteredExceptionImplCopyWith<
+          _$DeviceAlreadyRegisteredExceptionImpl>
+      get copyWith => __$$DeviceAlreadyRegisteredExceptionImplCopyWithImpl<
+          _$DeviceAlreadyRegisteredExceptionImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(@JsonKey(name: 'Jwt') String jwt)
+        serverSendsBackJwt,
+    required TResult Function(
+            @JsonKey(name: 'RunDateTime') DateTime runDateTime,
+            @JsonKey(name: 'UserId') double runDistance,
+            @JsonKey(name: 'RunDistance') String runTime)
+        serverSendsBackRun,
+    required TResult Function(@JsonKey(name: 'AllRuns') List<Run> allRuns)
+        serverSendsBackAllSavedRuns,
+    required TResult Function(
+            @JsonKey(name: 'AllProgress') List<ProgressInfo> allProgress)
+        serverSendsBackAllProgress,
+    required TResult Function(@JsonKey(name: 'RunDeleted') String runDeleted)
+        serverConfirmsDeletionOfRun,
+    required TResult Function(@JsonKey(name: 'RunId') String runId)
+        serverSendsBackRunId,
+    required TResult Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'UserId') int userId)
+        serverConfirmsRegistration,
+    required TResult Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)
+        serverSendsBackRunWithMap,
+    required TResult Function(
+            @JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'Token') Object token,
+            @JsonKey(name: 'UserId') int userId)
+        serverConfirmsLogin,
+    required TResult Function(@JsonKey(name: 'Message') String message)
+        serverDeniesLogin,
+    required TResult Function(
+            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)
+        serverSendsBackFullRunInfo,
+    required TResult Function(String errorMessage)
+        authenticationFailureException,
+    required TResult Function(String errorMessage) userAlreadyExistsException,
+    required TResult Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'DeviceId') String deviceId)
+        serverConfirmsDeviceRegistration,
+    required TResult Function(String errorMessage)
+        deviceAlreadyRegisteredException,
+  }) {
+    return deviceAlreadyRegisteredException(errorMessage);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(@JsonKey(name: 'Jwt') String jwt)? serverSendsBackJwt,
+    TResult? Function(
+            @JsonKey(name: 'RunDateTime') DateTime runDateTime,
+            @JsonKey(name: 'UserId') double runDistance,
+            @JsonKey(name: 'RunDistance') String runTime)?
+        serverSendsBackRun,
+    TResult? Function(@JsonKey(name: 'AllRuns') List<Run> allRuns)?
+        serverSendsBackAllSavedRuns,
+    TResult? Function(
+            @JsonKey(name: 'AllProgress') List<ProgressInfo> allProgress)?
+        serverSendsBackAllProgress,
+    TResult? Function(@JsonKey(name: 'RunDeleted') String runDeleted)?
+        serverConfirmsDeletionOfRun,
+    TResult? Function(@JsonKey(name: 'RunId') String runId)?
+        serverSendsBackRunId,
+    TResult? Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'UserId') int userId)?
+        serverConfirmsRegistration,
+    TResult? Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)?
+        serverSendsBackRunWithMap,
+    TResult? Function(
+            @JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'Token') Object token,
+            @JsonKey(name: 'UserId') int userId)?
+        serverConfirmsLogin,
+    TResult? Function(@JsonKey(name: 'Message') String message)?
+        serverDeniesLogin,
+    TResult? Function(
+            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)?
+        serverSendsBackFullRunInfo,
+    TResult? Function(String errorMessage)? authenticationFailureException,
+    TResult? Function(String errorMessage)? userAlreadyExistsException,
+    TResult? Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'DeviceId') String deviceId)?
+        serverConfirmsDeviceRegistration,
+    TResult? Function(String errorMessage)? deviceAlreadyRegisteredException,
+  }) {
+    return deviceAlreadyRegisteredException?.call(errorMessage);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(@JsonKey(name: 'Jwt') String jwt)? serverSendsBackJwt,
+    TResult Function(
+            @JsonKey(name: 'RunDateTime') DateTime runDateTime,
+            @JsonKey(name: 'UserId') double runDistance,
+            @JsonKey(name: 'RunDistance') String runTime)?
+        serverSendsBackRun,
+    TResult Function(@JsonKey(name: 'AllRuns') List<Run> allRuns)?
+        serverSendsBackAllSavedRuns,
+    TResult Function(
+            @JsonKey(name: 'AllProgress') List<ProgressInfo> allProgress)?
+        serverSendsBackAllProgress,
+    TResult Function(@JsonKey(name: 'RunDeleted') String runDeleted)?
+        serverConfirmsDeletionOfRun,
+    TResult Function(@JsonKey(name: 'RunId') String runId)?
+        serverSendsBackRunId,
+    TResult Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'UserId') int userId)?
+        serverConfirmsRegistration,
+    TResult Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)?
+        serverSendsBackRunWithMap,
+    TResult Function(
+            @JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'Token') Object token,
+            @JsonKey(name: 'UserId') int userId)?
+        serverConfirmsLogin,
+    TResult Function(@JsonKey(name: 'Message') String message)?
+        serverDeniesLogin,
+    TResult Function(
+            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)?
+        serverSendsBackFullRunInfo,
+    TResult Function(String errorMessage)? authenticationFailureException,
+    TResult Function(String errorMessage)? userAlreadyExistsException,
+    TResult Function(@JsonKey(name: 'Message') String message,
+            @JsonKey(name: 'DeviceId') String deviceId)?
+        serverConfirmsDeviceRegistration,
+    TResult Function(String errorMessage)? deviceAlreadyRegisteredException,
+    required TResult orElse(),
+  }) {
+    if (deviceAlreadyRegisteredException != null) {
+      return deviceAlreadyRegisteredException(errorMessage);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ServerSendsBackJwt value) serverSendsBackJwt,
+    required TResult Function(ServerSendsBackRun value) serverSendsBackRun,
+    required TResult Function(ServerSendsBackAllSavedRuns value)
+        serverSendsBackAllSavedRuns,
+    required TResult Function(ServerSendsBackAllProgress value)
+        serverSendsBackAllProgress,
+    required TResult Function(ServerConfirmsDeletionOfRun value)
+        serverConfirmsDeletionOfRun,
+    required TResult Function(ServerSendsBackRunId value) serverSendsBackRunId,
+    required TResult Function(ServerConfirmsRegistration value)
+        serverConfirmsRegistration,
+    required TResult Function(ServerSendsBackRunWithMap value)
+        serverSendsBackRunWithMap,
+    required TResult Function(ServerConfirmsLogin value) serverConfirmsLogin,
+    required TResult Function(ServerDeniesLogin value) serverDeniesLogin,
+    required TResult Function(ServerSendsBackFullRunInfo value)
+        serverSendsBackFullRunInfo,
+    required TResult Function(AuthenticationFailureException value)
+        authenticationFailureException,
+    required TResult Function(UserAlreadyExistsException value)
+        userAlreadyExistsException,
+    required TResult Function(ServerConfirmsDeviceRegistration value)
+        serverConfirmsDeviceRegistration,
+    required TResult Function(DeviceAlreadyRegisteredException value)
+        deviceAlreadyRegisteredException,
+  }) {
+    return deviceAlreadyRegisteredException(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ServerSendsBackJwt value)? serverSendsBackJwt,
+    TResult? Function(ServerSendsBackRun value)? serverSendsBackRun,
+    TResult? Function(ServerSendsBackAllSavedRuns value)?
+        serverSendsBackAllSavedRuns,
+    TResult? Function(ServerSendsBackAllProgress value)?
+        serverSendsBackAllProgress,
+    TResult? Function(ServerConfirmsDeletionOfRun value)?
+        serverConfirmsDeletionOfRun,
+    TResult? Function(ServerSendsBackRunId value)? serverSendsBackRunId,
+    TResult? Function(ServerConfirmsRegistration value)?
+        serverConfirmsRegistration,
+    TResult? Function(ServerSendsBackRunWithMap value)?
+        serverSendsBackRunWithMap,
+    TResult? Function(ServerConfirmsLogin value)? serverConfirmsLogin,
+    TResult? Function(ServerDeniesLogin value)? serverDeniesLogin,
+    TResult? Function(ServerSendsBackFullRunInfo value)?
+        serverSendsBackFullRunInfo,
+    TResult? Function(AuthenticationFailureException value)?
+        authenticationFailureException,
+    TResult? Function(UserAlreadyExistsException value)?
+        userAlreadyExistsException,
+    TResult? Function(ServerConfirmsDeviceRegistration value)?
+        serverConfirmsDeviceRegistration,
+    TResult? Function(DeviceAlreadyRegisteredException value)?
+        deviceAlreadyRegisteredException,
+  }) {
+    return deviceAlreadyRegisteredException?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ServerSendsBackJwt value)? serverSendsBackJwt,
+    TResult Function(ServerSendsBackRun value)? serverSendsBackRun,
+    TResult Function(ServerSendsBackAllSavedRuns value)?
+        serverSendsBackAllSavedRuns,
+    TResult Function(ServerSendsBackAllProgress value)?
+        serverSendsBackAllProgress,
+    TResult Function(ServerConfirmsDeletionOfRun value)?
+        serverConfirmsDeletionOfRun,
+    TResult Function(ServerSendsBackRunId value)? serverSendsBackRunId,
+    TResult Function(ServerConfirmsRegistration value)?
+        serverConfirmsRegistration,
+    TResult Function(ServerSendsBackRunWithMap value)?
+        serverSendsBackRunWithMap,
+    TResult Function(ServerConfirmsLogin value)? serverConfirmsLogin,
+    TResult Function(ServerDeniesLogin value)? serverDeniesLogin,
+    TResult Function(ServerSendsBackFullRunInfo value)?
+        serverSendsBackFullRunInfo,
+    TResult Function(AuthenticationFailureException value)?
+        authenticationFailureException,
+    TResult Function(UserAlreadyExistsException value)?
+        userAlreadyExistsException,
+    TResult Function(ServerConfirmsDeviceRegistration value)?
+        serverConfirmsDeviceRegistration,
+    TResult Function(DeviceAlreadyRegisteredException value)?
+        deviceAlreadyRegisteredException,
+    required TResult orElse(),
+  }) {
+    if (deviceAlreadyRegisteredException != null) {
+      return deviceAlreadyRegisteredException(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$DeviceAlreadyRegisteredExceptionImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class DeviceAlreadyRegisteredException implements ServerEvent {
+  factory DeviceAlreadyRegisteredException(
+          {required final String errorMessage}) =
+      _$DeviceAlreadyRegisteredExceptionImpl;
+
+  factory DeviceAlreadyRegisteredException.fromJson(Map<String, dynamic> json) =
+      _$DeviceAlreadyRegisteredExceptionImpl.fromJson;
+
+  String get errorMessage;
+  @JsonKey(ignore: true)
+  _$$DeviceAlreadyRegisteredExceptionImplCopyWith<
+          _$DeviceAlreadyRegisteredExceptionImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

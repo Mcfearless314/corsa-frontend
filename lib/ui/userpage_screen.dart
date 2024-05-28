@@ -23,6 +23,7 @@ class _UserPageScreenState extends State<UserPageScreen> {
     Location.instance.requestPermission().then((status) {
       controller.add(status);
     });
+
     /*
     Location.instance.hasPermission().then((status) {
       controller.add(status);

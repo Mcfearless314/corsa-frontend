@@ -73,6 +73,11 @@ sealed class ClientEvent with _$ClientEvent implements BaseEvent {
     @JsonKey(name: 'UserId') required int userId,
   }) = ClientWantsToSeeFullInfoOfRun;
 
+  factory ClientEvent.clientWantsToRegisterADevice({
+    @JsonKey(name: 'DeviceId') required String deviceId,
+    @JsonKey(name: 'UserId') required int userId,
+  }) = ClientWantsToRegisterADevice;
+
   factory ClientEvent.fromJson(Map<String, dynamic> json) =>
       _$ClientEventFromJson(json);
 }
@@ -136,6 +141,15 @@ sealed class ServerEvent with _$ServerEvent implements BaseEvent {
   factory ServerEvent.userAlreadyExistsException({
     required String errorMessage,
   }) = UserAlreadyExistsException;
+
+  factory ServerEvent.serverConfirmsDeviceRegistration({
+    @JsonKey(name: 'Message') required String message,
+    @JsonKey(name: 'DeviceId') required String deviceId,
+  }) = ServerConfirmsDeviceRegistration;
+
+  factory ServerEvent.deviceAlreadyRegisteredException({
+    required String errorMessage,
+  }) = DeviceAlreadyRegisteredException;
 
   factory ServerEvent.fromJson(Map<String, dynamic> json) =>
       _$ServerEventFromJson(json);

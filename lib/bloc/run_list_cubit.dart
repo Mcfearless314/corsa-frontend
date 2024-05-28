@@ -22,12 +22,11 @@ class RunListCubit extends Cubit<RunListState> {
     if (serverEvent is ServerSendsBackAllSavedRuns) {
       emit(state.copyWith(runs: serverEvent.allRuns));
     }
-
-
   }
 
   getFullInfoOfRun(id) {
-    final event = ClientEvent.clientWantsToSeeFullInfoOfRun(runId: id, userId: 1);
+    final event =
+        ClientEvent.clientWantsToSeeFullInfoOfRun(runId: id, userId: 1);
     final serverEventFuture = channel.stream
         .map((event) => ServerEvent.fromJson(jsonDecode(event)))
         .firstWhere((event) => event is ServerSendsBackFullRunInfo);
@@ -37,5 +36,22 @@ class RunListCubit extends Cubit<RunListState> {
         emit(state.copyWith(runInfoWithMap: event.runInfoWithMap));
       }
     });
+  }
+
+  addDevice(String deviceId) async {
+    final event = ClientEvent.clientWantsToRegisterADevice(
+      userId: state.userId!,
+      deviceId: deviceId,
+    );
+    channel.sink.add(jsonEncode(event.toJson()));
+    final serverEventFuture = channel.stream
+        .map((event) => ServerEvent.fromJson(jsonDecode(event)))
+        .firstWhere((event) => event is ServerConfirmsDeviceRegistration || event is DeviceAlreadyRegisteredException);
+    final serverEvent = await serverEventFuture.timeout(Duration(seconds: 5));
+    if (serverEvent is ServerConfirmsDeviceRegistration) {
+      emit(state.copyWith(deviceId: serverEvent.deviceId));
+    } else if (serverEvent is DeviceAlreadyRegisteredException) {
+      emit(state.copyWith(errorMessage: serverEvent.errorMessage));
+    }
   }
 }

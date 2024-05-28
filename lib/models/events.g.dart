@@ -196,6 +196,22 @@ Map<String, dynamic> _$$ClientWantsToSeeFullInfoOfRunImplToJson(
       'eventType': instance.$type,
     };
 
+_$ClientWantsToRegisterADeviceImpl _$$ClientWantsToRegisterADeviceImplFromJson(
+        Map<String, dynamic> json) =>
+    _$ClientWantsToRegisterADeviceImpl(
+      deviceId: json['DeviceId'] as String,
+      userId: (json['UserId'] as num).toInt(),
+      $type: json['eventType'] as String?,
+    );
+
+Map<String, dynamic> _$$ClientWantsToRegisterADeviceImplToJson(
+        _$ClientWantsToRegisterADeviceImpl instance) =>
+    <String, dynamic>{
+      'DeviceId': instance.deviceId,
+      'UserId': instance.userId,
+      'eventType': instance.$type,
+    };
+
 _$ServerSendsBackJwtImpl _$$ServerSendsBackJwtImplFromJson(
         Map<String, dynamic> json) =>
     _$ServerSendsBackJwtImpl(
@@ -391,6 +407,38 @@ _$UserAlreadyExistsExceptionImpl _$$UserAlreadyExistsExceptionImplFromJson(
 
 Map<String, dynamic> _$$UserAlreadyExistsExceptionImplToJson(
         _$UserAlreadyExistsExceptionImpl instance) =>
+    <String, dynamic>{
+      'errorMessage': instance.errorMessage,
+      'eventType': instance.$type,
+    };
+
+_$ServerConfirmsDeviceRegistrationImpl
+    _$$ServerConfirmsDeviceRegistrationImplFromJson(
+            Map<String, dynamic> json) =>
+        _$ServerConfirmsDeviceRegistrationImpl(
+          message: json['Message'] as String,
+          deviceId: json['DeviceId'] as String,
+          $type: json['eventType'] as String?,
+        );
+
+Map<String, dynamic> _$$ServerConfirmsDeviceRegistrationImplToJson(
+        _$ServerConfirmsDeviceRegistrationImpl instance) =>
+    <String, dynamic>{
+      'Message': instance.message,
+      'DeviceId': instance.deviceId,
+      'eventType': instance.$type,
+    };
+
+_$DeviceAlreadyRegisteredExceptionImpl
+    _$$DeviceAlreadyRegisteredExceptionImplFromJson(
+            Map<String, dynamic> json) =>
+        _$DeviceAlreadyRegisteredExceptionImpl(
+          errorMessage: json['errorMessage'] as String,
+          $type: json['eventType'] as String?,
+        );
+
+Map<String, dynamic> _$$DeviceAlreadyRegisteredExceptionImplToJson(
+        _$DeviceAlreadyRegisteredExceptionImpl instance) =>
     <String, dynamic>{
       'errorMessage': instance.errorMessage,
       'eventType': instance.$type,
