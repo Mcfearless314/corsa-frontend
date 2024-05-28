@@ -92,41 +92,43 @@ class RunList extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
+        Builder(
+          builder: (context) => FloatingActionButton(
+            onPressed: () {
+              showDialog(
+                context: context,
+                builder: (context) {
+                  return AlertDialog(
+                    title: Text('Enter Device ID'),
+                    content: TextField(
+                      controller: _deviceIdController,
+                      decoration: InputDecoration(hintText: "Device ID"),
+                    ),
+                    actions: <Widget>[
+                      TextButton(
+                        child: Text('Submit'), //TODO FIX THIS !!
+                        onPressed: () {
+                          context
+                              .read<RunListCubit>()
+                              .addDevice(_deviceIdController.text);
+                          Navigator.of(context).pop();
+                        },
+                      ),
+                      TextButton(
+                        onPressed: () => Navigator.of(context).pop(),
+                        child: Text('Cancel'),
+                      )
+                    ],
+                  );
+                },
+              );
+            },
+            child: const Icon(Icons.add_alarm),
+          ),
+        ),
         FloatingActionButton(
           onPressed: () => startNewRun(context),
           child: const Icon(Icons.add),
-        ),
-        FloatingActionButton(
-          onPressed: () {
-            showDialog(
-              context: context,
-              builder: (context) {
-                return AlertDialog(
-                  title: Text('Enter Device ID'),
-                  content: TextField(
-                    controller: _deviceIdController,
-                    decoration: InputDecoration(hintText: "Device ID"),
-                  ),
-                  actions: <Widget>[
-                    TextButton(
-                      child: Text('Submit'),
-                      onPressed: () {
-                        context
-                            .read<RunListCubit>()
-                            .addDevice(_deviceIdController.text);
-                        Navigator.of(context).pop();
-                      },
-                    ),
-                    TextButton(
-                      onPressed: () => Navigator.of(context).pop(),
-                      child: Text('Cancel'),
-                    )
-                  ],
-                );
-              },
-            );
-          },
-          child: const Icon(Icons.add_alarm),
         ),
       ],
     );
