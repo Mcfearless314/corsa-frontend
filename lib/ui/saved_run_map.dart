@@ -27,7 +27,6 @@ class _SavedRunMapState extends State<SavedRunMap> {
       target: middleOfRoute,
       zoom: 16,
     );
-    _showRouteOnMap();
   }
 
   LatLng _findMiddleOfRoute() {
@@ -97,6 +96,7 @@ class _SavedRunMapState extends State<SavedRunMap> {
         myLocationEnabled: true,
         onMapCreated: (GoogleMapController controller) {
           _mapController = controller;
+          _showRouteOnMap();
         },
         polylines: _polylines,
       ),

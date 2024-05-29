@@ -177,22 +177,33 @@ class DeviceIdDialog extends StatefulWidget {
 }
 
 class _DeviceIdDialogState extends State<DeviceIdDialog> {
+  final _formKey = GlobalKey<FormState>();
   final _deviceIdController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
       title: const Text('Enter Device ID'),
-      content: TextField(
-        controller: _deviceIdController,
-        decoration: const InputDecoration(hintText: "Device ID"),
+      content: Form(
+        key: _formKey,
+        child: TextFormField(
+          controller: _deviceIdController,
+          decoration: const InputDecoration(hintText: "Device ID"),
+          validator: (value) {
+            if (value == null || value.length < 5) {
+              return 'Please enter at least 5 characters';
+            }
+            return null;
+          }
+        ),
       ),
       actions: <Widget>[
         TextButton(
           child: const Text('Submit'),
           onPressed: () {
-            //context.read<RunListCubit>().addDevice(_deviceIdController.text);
-            Navigator.of(context).pop(_deviceIdController.text);
+            if (_formKey.currentState!.validate()) {
+              Navigator.of(context).pop(_deviceIdController.text);
+            }
           },
         ),
         TextButton(
