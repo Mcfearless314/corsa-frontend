@@ -131,7 +131,7 @@ sealed class ServerEvent with _$ServerEvent implements BaseEvent {
   }) = ServerDeniesLogin;
 
   factory ServerEvent.serverSendsBackFullRunInfo({
-    @JsonKey(name: 'RunInfoWithMap') required RunInfoWithMap runInfoWithMap,
+    @JsonKey(name: 'FullRunInfo') required RunInfoWithMap FullRunInfo,
   }) = ServerSendsBackFullRunInfo;
 
   factory ServerEvent.authenticationFailureException({

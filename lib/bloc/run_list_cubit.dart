@@ -36,7 +36,7 @@ class RunListCubit extends Cubit<RunListState> {
     channel.sink.add(jsonEncode(event.toJson()));
     serverEventFuture.then((event) {
       if (event is ServerSendsBackFullRunInfo) {
-        emit(state.copyWith(runInfoWithMap: event.runInfoWithMap));
+        emit(state.copyWith(runInfoWithMap: event.FullRunInfo));
       }
     });
   }

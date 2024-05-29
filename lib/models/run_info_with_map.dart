@@ -17,7 +17,7 @@ class RunInfoWithMap {
     required this.StartOfRun,
     this.EndOfRun,
     required this.TimeOfRun,
-    required this.Distance,
+    this.Distance,
     required this.gpsCordsList,
   });
 

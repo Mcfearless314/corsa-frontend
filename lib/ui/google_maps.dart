@@ -69,6 +69,7 @@ class GoogleMaps extends StatelessWidget {
       builder: (context, state) {
         if (state.status == RunStatus.notStarted) {
           return FloatingActionButton(
+            heroTag: "uniqueTag1",
             onPressed: () => context.read<RunCubit>().startRun(userId),
             child: const Icon(Icons.directions_run),
           );
@@ -77,10 +78,12 @@ class GoogleMaps extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               FloatingActionButton(
+                heroTag: "uniqueTag2",
                 onPressed: () => context.read<RunCubit>().stopRun(),
                 child: const Icon(Icons.save),
               ),
               FloatingActionButton(
+                heroTag: "uniqueTag3",
                 onPressed: () => context.read<RunCubit>().resetRun(userId),
                 child: const Icon(Icons.refresh),
               ),
@@ -88,6 +91,7 @@ class GoogleMaps extends StatelessWidget {
           );
         } else {
           return FloatingActionButton(
+            heroTag: "uniqueTag4",
             onPressed: () => context.read<RunCubit>().startRun(userId),
             child: const Icon(Icons.directions_run),
           );

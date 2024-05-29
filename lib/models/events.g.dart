@@ -372,15 +372,15 @@ Map<String, dynamic> _$$ServerDeniesLoginImplToJson(
 _$ServerSendsBackFullRunInfoImpl _$$ServerSendsBackFullRunInfoImplFromJson(
         Map<String, dynamic> json) =>
     _$ServerSendsBackFullRunInfoImpl(
-      runInfoWithMap: RunInfoWithMap.fromJson(
-          json['RunInfoWithMap'] as Map<String, dynamic>),
+      FullRunInfo:
+          RunInfoWithMap.fromJson(json['FullRunInfo'] as Map<String, dynamic>),
       $type: json['eventType'] as String?,
     );
 
 Map<String, dynamic> _$$ServerSendsBackFullRunInfoImplToJson(
         _$ServerSendsBackFullRunInfoImpl instance) =>
     <String, dynamic>{
-      'RunInfoWithMap': instance.runInfoWithMap,
+      'FullRunInfo': instance.FullRunInfo,
       'eventType': instance.$type,
     };
 

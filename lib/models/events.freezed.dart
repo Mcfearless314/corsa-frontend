@@ -4970,7 +4970,7 @@ mixin _$ServerEvent {
     required TResult Function(@JsonKey(name: 'Message') String message)
         serverDeniesLogin,
     required TResult Function(
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)
+            @JsonKey(name: 'FullRunInfo') RunInfoWithMap FullRunInfo)
         serverSendsBackFullRunInfo,
     required TResult Function(String errorMessage)
         authenticationFailureException,
@@ -5012,8 +5012,7 @@ mixin _$ServerEvent {
         serverConfirmsLogin,
     TResult? Function(@JsonKey(name: 'Message') String message)?
         serverDeniesLogin,
-    TResult? Function(
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)?
+    TResult? Function(@JsonKey(name: 'FullRunInfo') RunInfoWithMap FullRunInfo)?
         serverSendsBackFullRunInfo,
     TResult? Function(String errorMessage)? authenticationFailureException,
     TResult? Function(String errorMessage)? userAlreadyExistsException,
@@ -5053,8 +5052,7 @@ mixin _$ServerEvent {
         serverConfirmsLogin,
     TResult Function(@JsonKey(name: 'Message') String message)?
         serverDeniesLogin,
-    TResult Function(
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)?
+    TResult Function(@JsonKey(name: 'FullRunInfo') RunInfoWithMap FullRunInfo)?
         serverSendsBackFullRunInfo,
     TResult Function(String errorMessage)? authenticationFailureException,
     TResult Function(String errorMessage)? userAlreadyExistsException,
@@ -5289,7 +5287,7 @@ class _$ServerSendsBackJwtImpl
     required TResult Function(@JsonKey(name: 'Message') String message)
         serverDeniesLogin,
     required TResult Function(
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)
+            @JsonKey(name: 'FullRunInfo') RunInfoWithMap FullRunInfo)
         serverSendsBackFullRunInfo,
     required TResult Function(String errorMessage)
         authenticationFailureException,
@@ -5334,8 +5332,7 @@ class _$ServerSendsBackJwtImpl
         serverConfirmsLogin,
     TResult? Function(@JsonKey(name: 'Message') String message)?
         serverDeniesLogin,
-    TResult? Function(
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)?
+    TResult? Function(@JsonKey(name: 'FullRunInfo') RunInfoWithMap FullRunInfo)?
         serverSendsBackFullRunInfo,
     TResult? Function(String errorMessage)? authenticationFailureException,
     TResult? Function(String errorMessage)? userAlreadyExistsException,
@@ -5378,8 +5375,7 @@ class _$ServerSendsBackJwtImpl
         serverConfirmsLogin,
     TResult Function(@JsonKey(name: 'Message') String message)?
         serverDeniesLogin,
-    TResult Function(
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)?
+    TResult Function(@JsonKey(name: 'FullRunInfo') RunInfoWithMap FullRunInfo)?
         serverSendsBackFullRunInfo,
     TResult Function(String errorMessage)? authenticationFailureException,
     TResult Function(String errorMessage)? userAlreadyExistsException,
@@ -5662,7 +5658,7 @@ class _$ServerSendsBackRunImpl
     required TResult Function(@JsonKey(name: 'Message') String message)
         serverDeniesLogin,
     required TResult Function(
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)
+            @JsonKey(name: 'FullRunInfo') RunInfoWithMap FullRunInfo)
         serverSendsBackFullRunInfo,
     required TResult Function(String errorMessage)
         authenticationFailureException,
@@ -5707,8 +5703,7 @@ class _$ServerSendsBackRunImpl
         serverConfirmsLogin,
     TResult? Function(@JsonKey(name: 'Message') String message)?
         serverDeniesLogin,
-    TResult? Function(
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)?
+    TResult? Function(@JsonKey(name: 'FullRunInfo') RunInfoWithMap FullRunInfo)?
         serverSendsBackFullRunInfo,
     TResult? Function(String errorMessage)? authenticationFailureException,
     TResult? Function(String errorMessage)? userAlreadyExistsException,
@@ -5751,8 +5746,7 @@ class _$ServerSendsBackRunImpl
         serverConfirmsLogin,
     TResult Function(@JsonKey(name: 'Message') String message)?
         serverDeniesLogin,
-    TResult Function(
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)?
+    TResult Function(@JsonKey(name: 'FullRunInfo') RunInfoWithMap FullRunInfo)?
         serverSendsBackFullRunInfo,
     TResult Function(String errorMessage)? authenticationFailureException,
     TResult Function(String errorMessage)? userAlreadyExistsException,
@@ -6024,7 +6018,7 @@ class _$ServerSendsBackAllSavedRunsImpl
     required TResult Function(@JsonKey(name: 'Message') String message)
         serverDeniesLogin,
     required TResult Function(
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)
+            @JsonKey(name: 'FullRunInfo') RunInfoWithMap FullRunInfo)
         serverSendsBackFullRunInfo,
     required TResult Function(String errorMessage)
         authenticationFailureException,
@@ -6069,8 +6063,7 @@ class _$ServerSendsBackAllSavedRunsImpl
         serverConfirmsLogin,
     TResult? Function(@JsonKey(name: 'Message') String message)?
         serverDeniesLogin,
-    TResult? Function(
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)?
+    TResult? Function(@JsonKey(name: 'FullRunInfo') RunInfoWithMap FullRunInfo)?
         serverSendsBackFullRunInfo,
     TResult? Function(String errorMessage)? authenticationFailureException,
     TResult? Function(String errorMessage)? userAlreadyExistsException,
@@ -6113,8 +6106,7 @@ class _$ServerSendsBackAllSavedRunsImpl
         serverConfirmsLogin,
     TResult Function(@JsonKey(name: 'Message') String message)?
         serverDeniesLogin,
-    TResult Function(
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)?
+    TResult Function(@JsonKey(name: 'FullRunInfo') RunInfoWithMap FullRunInfo)?
         serverSendsBackFullRunInfo,
     TResult Function(String errorMessage)? authenticationFailureException,
     TResult Function(String errorMessage)? userAlreadyExistsException,
@@ -6382,7 +6374,7 @@ class _$ServerSendsBackAllProgressImpl
     required TResult Function(@JsonKey(name: 'Message') String message)
         serverDeniesLogin,
     required TResult Function(
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)
+            @JsonKey(name: 'FullRunInfo') RunInfoWithMap FullRunInfo)
         serverSendsBackFullRunInfo,
     required TResult Function(String errorMessage)
         authenticationFailureException,
@@ -6427,8 +6419,7 @@ class _$ServerSendsBackAllProgressImpl
         serverConfirmsLogin,
     TResult? Function(@JsonKey(name: 'Message') String message)?
         serverDeniesLogin,
-    TResult? Function(
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)?
+    TResult? Function(@JsonKey(name: 'FullRunInfo') RunInfoWithMap FullRunInfo)?
         serverSendsBackFullRunInfo,
     TResult? Function(String errorMessage)? authenticationFailureException,
     TResult? Function(String errorMessage)? userAlreadyExistsException,
@@ -6471,8 +6462,7 @@ class _$ServerSendsBackAllProgressImpl
         serverConfirmsLogin,
     TResult Function(@JsonKey(name: 'Message') String message)?
         serverDeniesLogin,
-    TResult Function(
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)?
+    TResult Function(@JsonKey(name: 'FullRunInfo') RunInfoWithMap FullRunInfo)?
         serverSendsBackFullRunInfo,
     TResult Function(String errorMessage)? authenticationFailureException,
     TResult Function(String errorMessage)? userAlreadyExistsException,
@@ -6733,7 +6723,7 @@ class _$ServerConfirmsDeletionOfRunImpl
     required TResult Function(@JsonKey(name: 'Message') String message)
         serverDeniesLogin,
     required TResult Function(
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)
+            @JsonKey(name: 'FullRunInfo') RunInfoWithMap FullRunInfo)
         serverSendsBackFullRunInfo,
     required TResult Function(String errorMessage)
         authenticationFailureException,
@@ -6778,8 +6768,7 @@ class _$ServerConfirmsDeletionOfRunImpl
         serverConfirmsLogin,
     TResult? Function(@JsonKey(name: 'Message') String message)?
         serverDeniesLogin,
-    TResult? Function(
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)?
+    TResult? Function(@JsonKey(name: 'FullRunInfo') RunInfoWithMap FullRunInfo)?
         serverSendsBackFullRunInfo,
     TResult? Function(String errorMessage)? authenticationFailureException,
     TResult? Function(String errorMessage)? userAlreadyExistsException,
@@ -6822,8 +6811,7 @@ class _$ServerConfirmsDeletionOfRunImpl
         serverConfirmsLogin,
     TResult Function(@JsonKey(name: 'Message') String message)?
         serverDeniesLogin,
-    TResult Function(
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)?
+    TResult Function(@JsonKey(name: 'FullRunInfo') RunInfoWithMap FullRunInfo)?
         serverSendsBackFullRunInfo,
     TResult Function(String errorMessage)? authenticationFailureException,
     TResult Function(String errorMessage)? userAlreadyExistsException,
@@ -7078,7 +7066,7 @@ class _$ServerSendsBackRunIdImpl
     required TResult Function(@JsonKey(name: 'Message') String message)
         serverDeniesLogin,
     required TResult Function(
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)
+            @JsonKey(name: 'FullRunInfo') RunInfoWithMap FullRunInfo)
         serverSendsBackFullRunInfo,
     required TResult Function(String errorMessage)
         authenticationFailureException,
@@ -7123,8 +7111,7 @@ class _$ServerSendsBackRunIdImpl
         serverConfirmsLogin,
     TResult? Function(@JsonKey(name: 'Message') String message)?
         serverDeniesLogin,
-    TResult? Function(
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)?
+    TResult? Function(@JsonKey(name: 'FullRunInfo') RunInfoWithMap FullRunInfo)?
         serverSendsBackFullRunInfo,
     TResult? Function(String errorMessage)? authenticationFailureException,
     TResult? Function(String errorMessage)? userAlreadyExistsException,
@@ -7167,8 +7154,7 @@ class _$ServerSendsBackRunIdImpl
         serverConfirmsLogin,
     TResult Function(@JsonKey(name: 'Message') String message)?
         serverDeniesLogin,
-    TResult Function(
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)?
+    TResult Function(@JsonKey(name: 'FullRunInfo') RunInfoWithMap FullRunInfo)?
         serverSendsBackFullRunInfo,
     TResult Function(String errorMessage)? authenticationFailureException,
     TResult Function(String errorMessage)? userAlreadyExistsException,
@@ -7440,7 +7426,7 @@ class _$ServerConfirmsRegistrationImpl
     required TResult Function(@JsonKey(name: 'Message') String message)
         serverDeniesLogin,
     required TResult Function(
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)
+            @JsonKey(name: 'FullRunInfo') RunInfoWithMap FullRunInfo)
         serverSendsBackFullRunInfo,
     required TResult Function(String errorMessage)
         authenticationFailureException,
@@ -7485,8 +7471,7 @@ class _$ServerConfirmsRegistrationImpl
         serverConfirmsLogin,
     TResult? Function(@JsonKey(name: 'Message') String message)?
         serverDeniesLogin,
-    TResult? Function(
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)?
+    TResult? Function(@JsonKey(name: 'FullRunInfo') RunInfoWithMap FullRunInfo)?
         serverSendsBackFullRunInfo,
     TResult? Function(String errorMessage)? authenticationFailureException,
     TResult? Function(String errorMessage)? userAlreadyExistsException,
@@ -7529,8 +7514,7 @@ class _$ServerConfirmsRegistrationImpl
         serverConfirmsLogin,
     TResult Function(@JsonKey(name: 'Message') String message)?
         serverDeniesLogin,
-    TResult Function(
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)?
+    TResult Function(@JsonKey(name: 'FullRunInfo') RunInfoWithMap FullRunInfo)?
         serverSendsBackFullRunInfo,
     TResult Function(String errorMessage)? authenticationFailureException,
     TResult Function(String errorMessage)? userAlreadyExistsException,
@@ -7805,7 +7789,7 @@ class _$ServerSendsBackRunWithMapImpl
     required TResult Function(@JsonKey(name: 'Message') String message)
         serverDeniesLogin,
     required TResult Function(
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)
+            @JsonKey(name: 'FullRunInfo') RunInfoWithMap FullRunInfo)
         serverSendsBackFullRunInfo,
     required TResult Function(String errorMessage)
         authenticationFailureException,
@@ -7850,8 +7834,7 @@ class _$ServerSendsBackRunWithMapImpl
         serverConfirmsLogin,
     TResult? Function(@JsonKey(name: 'Message') String message)?
         serverDeniesLogin,
-    TResult? Function(
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)?
+    TResult? Function(@JsonKey(name: 'FullRunInfo') RunInfoWithMap FullRunInfo)?
         serverSendsBackFullRunInfo,
     TResult? Function(String errorMessage)? authenticationFailureException,
     TResult? Function(String errorMessage)? userAlreadyExistsException,
@@ -7894,8 +7877,7 @@ class _$ServerSendsBackRunWithMapImpl
         serverConfirmsLogin,
     TResult Function(@JsonKey(name: 'Message') String message)?
         serverDeniesLogin,
-    TResult Function(
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)?
+    TResult Function(@JsonKey(name: 'FullRunInfo') RunInfoWithMap FullRunInfo)?
         serverSendsBackFullRunInfo,
     TResult Function(String errorMessage)? authenticationFailureException,
     TResult Function(String errorMessage)? userAlreadyExistsException,
@@ -8177,7 +8159,7 @@ class _$ServerConfirmsLoginImpl
     required TResult Function(@JsonKey(name: 'Message') String message)
         serverDeniesLogin,
     required TResult Function(
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)
+            @JsonKey(name: 'FullRunInfo') RunInfoWithMap FullRunInfo)
         serverSendsBackFullRunInfo,
     required TResult Function(String errorMessage)
         authenticationFailureException,
@@ -8222,8 +8204,7 @@ class _$ServerConfirmsLoginImpl
         serverConfirmsLogin,
     TResult? Function(@JsonKey(name: 'Message') String message)?
         serverDeniesLogin,
-    TResult? Function(
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)?
+    TResult? Function(@JsonKey(name: 'FullRunInfo') RunInfoWithMap FullRunInfo)?
         serverSendsBackFullRunInfo,
     TResult? Function(String errorMessage)? authenticationFailureException,
     TResult? Function(String errorMessage)? userAlreadyExistsException,
@@ -8266,8 +8247,7 @@ class _$ServerConfirmsLoginImpl
         serverConfirmsLogin,
     TResult Function(@JsonKey(name: 'Message') String message)?
         serverDeniesLogin,
-    TResult Function(
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)?
+    TResult Function(@JsonKey(name: 'FullRunInfo') RunInfoWithMap FullRunInfo)?
         serverSendsBackFullRunInfo,
     TResult Function(String errorMessage)? authenticationFailureException,
     TResult Function(String errorMessage)? userAlreadyExistsException,
@@ -8527,7 +8507,7 @@ class _$ServerDeniesLoginImpl
     required TResult Function(@JsonKey(name: 'Message') String message)
         serverDeniesLogin,
     required TResult Function(
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)
+            @JsonKey(name: 'FullRunInfo') RunInfoWithMap FullRunInfo)
         serverSendsBackFullRunInfo,
     required TResult Function(String errorMessage)
         authenticationFailureException,
@@ -8572,8 +8552,7 @@ class _$ServerDeniesLoginImpl
         serverConfirmsLogin,
     TResult? Function(@JsonKey(name: 'Message') String message)?
         serverDeniesLogin,
-    TResult? Function(
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)?
+    TResult? Function(@JsonKey(name: 'FullRunInfo') RunInfoWithMap FullRunInfo)?
         serverSendsBackFullRunInfo,
     TResult? Function(String errorMessage)? authenticationFailureException,
     TResult? Function(String errorMessage)? userAlreadyExistsException,
@@ -8616,8 +8595,7 @@ class _$ServerDeniesLoginImpl
         serverConfirmsLogin,
     TResult Function(@JsonKey(name: 'Message') String message)?
         serverDeniesLogin,
-    TResult Function(
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)?
+    TResult Function(@JsonKey(name: 'FullRunInfo') RunInfoWithMap FullRunInfo)?
         serverSendsBackFullRunInfo,
     TResult Function(String errorMessage)? authenticationFailureException,
     TResult Function(String errorMessage)? userAlreadyExistsException,
@@ -8763,7 +8741,7 @@ abstract class _$$ServerSendsBackFullRunInfoImplCopyWith<$Res> {
           $Res Function(_$ServerSendsBackFullRunInfoImpl) then) =
       __$$ServerSendsBackFullRunInfoImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({@JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap});
+  $Res call({@JsonKey(name: 'FullRunInfo') RunInfoWithMap FullRunInfo});
 }
 
 /// @nodoc
@@ -8778,12 +8756,12 @@ class __$$ServerSendsBackFullRunInfoImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? runInfoWithMap = null,
+    Object? FullRunInfo = null,
   }) {
     return _then(_$ServerSendsBackFullRunInfoImpl(
-      runInfoWithMap: null == runInfoWithMap
-          ? _value.runInfoWithMap
-          : runInfoWithMap // ignore: cast_nullable_to_non_nullable
+      FullRunInfo: null == FullRunInfo
+          ? _value.FullRunInfo
+          : FullRunInfo // ignore: cast_nullable_to_non_nullable
               as RunInfoWithMap,
     ));
   }
@@ -8795,7 +8773,7 @@ class _$ServerSendsBackFullRunInfoImpl
     with DiagnosticableTreeMixin
     implements ServerSendsBackFullRunInfo {
   _$ServerSendsBackFullRunInfoImpl(
-      {@JsonKey(name: 'RunInfoWithMap') required this.runInfoWithMap,
+      {@JsonKey(name: 'FullRunInfo') required this.FullRunInfo,
       final String? $type})
       : $type = $type ?? 'ServerSendsBackFullRunInfo';
 
@@ -8804,15 +8782,15 @@ class _$ServerSendsBackFullRunInfoImpl
       _$$ServerSendsBackFullRunInfoImplFromJson(json);
 
   @override
-  @JsonKey(name: 'RunInfoWithMap')
-  final RunInfoWithMap runInfoWithMap;
+  @JsonKey(name: 'FullRunInfo')
+  final RunInfoWithMap FullRunInfo;
 
   @JsonKey(name: 'eventType')
   final String $type;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'ServerEvent.serverSendsBackFullRunInfo(runInfoWithMap: $runInfoWithMap)';
+    return 'ServerEvent.serverSendsBackFullRunInfo(FullRunInfo: $FullRunInfo)';
   }
 
   @override
@@ -8821,7 +8799,7 @@ class _$ServerSendsBackFullRunInfoImpl
     properties
       ..add(
           DiagnosticsProperty('type', 'ServerEvent.serverSendsBackFullRunInfo'))
-      ..add(DiagnosticsProperty('runInfoWithMap', runInfoWithMap));
+      ..add(DiagnosticsProperty('FullRunInfo', FullRunInfo));
   }
 
   @override
@@ -8829,13 +8807,13 @@ class _$ServerSendsBackFullRunInfoImpl
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ServerSendsBackFullRunInfoImpl &&
-            (identical(other.runInfoWithMap, runInfoWithMap) ||
-                other.runInfoWithMap == runInfoWithMap));
+            (identical(other.FullRunInfo, FullRunInfo) ||
+                other.FullRunInfo == FullRunInfo));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, runInfoWithMap);
+  int get hashCode => Object.hash(runtimeType, FullRunInfo);
 
   @JsonKey(ignore: true)
   @override
@@ -8877,7 +8855,7 @@ class _$ServerSendsBackFullRunInfoImpl
     required TResult Function(@JsonKey(name: 'Message') String message)
         serverDeniesLogin,
     required TResult Function(
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)
+            @JsonKey(name: 'FullRunInfo') RunInfoWithMap FullRunInfo)
         serverSendsBackFullRunInfo,
     required TResult Function(String errorMessage)
         authenticationFailureException,
@@ -8888,7 +8866,7 @@ class _$ServerSendsBackFullRunInfoImpl
     required TResult Function(String errorMessage)
         deviceAlreadyRegisteredException,
   }) {
-    return serverSendsBackFullRunInfo(runInfoWithMap);
+    return serverSendsBackFullRunInfo(FullRunInfo);
   }
 
   @override
@@ -8922,8 +8900,7 @@ class _$ServerSendsBackFullRunInfoImpl
         serverConfirmsLogin,
     TResult? Function(@JsonKey(name: 'Message') String message)?
         serverDeniesLogin,
-    TResult? Function(
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)?
+    TResult? Function(@JsonKey(name: 'FullRunInfo') RunInfoWithMap FullRunInfo)?
         serverSendsBackFullRunInfo,
     TResult? Function(String errorMessage)? authenticationFailureException,
     TResult? Function(String errorMessage)? userAlreadyExistsException,
@@ -8932,7 +8909,7 @@ class _$ServerSendsBackFullRunInfoImpl
         serverConfirmsDeviceRegistration,
     TResult? Function(String errorMessage)? deviceAlreadyRegisteredException,
   }) {
-    return serverSendsBackFullRunInfo?.call(runInfoWithMap);
+    return serverSendsBackFullRunInfo?.call(FullRunInfo);
   }
 
   @override
@@ -8966,8 +8943,7 @@ class _$ServerSendsBackFullRunInfoImpl
         serverConfirmsLogin,
     TResult Function(@JsonKey(name: 'Message') String message)?
         serverDeniesLogin,
-    TResult Function(
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)?
+    TResult Function(@JsonKey(name: 'FullRunInfo') RunInfoWithMap FullRunInfo)?
         serverSendsBackFullRunInfo,
     TResult Function(String errorMessage)? authenticationFailureException,
     TResult Function(String errorMessage)? userAlreadyExistsException,
@@ -8978,7 +8954,7 @@ class _$ServerSendsBackFullRunInfoImpl
     required TResult orElse(),
   }) {
     if (serverSendsBackFullRunInfo != null) {
-      return serverSendsBackFullRunInfo(runInfoWithMap);
+      return serverSendsBackFullRunInfo(FullRunInfo);
     }
     return orElse();
   }
@@ -9093,15 +9069,15 @@ class _$ServerSendsBackFullRunInfoImpl
 
 abstract class ServerSendsBackFullRunInfo implements ServerEvent {
   factory ServerSendsBackFullRunInfo(
-          {@JsonKey(name: 'RunInfoWithMap')
-          required final RunInfoWithMap runInfoWithMap}) =
+          {@JsonKey(name: 'FullRunInfo')
+          required final RunInfoWithMap FullRunInfo}) =
       _$ServerSendsBackFullRunInfoImpl;
 
   factory ServerSendsBackFullRunInfo.fromJson(Map<String, dynamic> json) =
       _$ServerSendsBackFullRunInfoImpl.fromJson;
 
-  @JsonKey(name: 'RunInfoWithMap')
-  RunInfoWithMap get runInfoWithMap;
+  @JsonKey(name: 'FullRunInfo')
+  RunInfoWithMap get FullRunInfo;
   @JsonKey(ignore: true)
   _$$ServerSendsBackFullRunInfoImplCopyWith<_$ServerSendsBackFullRunInfoImpl>
       get copyWith => throw _privateConstructorUsedError;
@@ -9228,7 +9204,7 @@ class _$AuthenticationFailureExceptionImpl
     required TResult Function(@JsonKey(name: 'Message') String message)
         serverDeniesLogin,
     required TResult Function(
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)
+            @JsonKey(name: 'FullRunInfo') RunInfoWithMap FullRunInfo)
         serverSendsBackFullRunInfo,
     required TResult Function(String errorMessage)
         authenticationFailureException,
@@ -9273,8 +9249,7 @@ class _$AuthenticationFailureExceptionImpl
         serverConfirmsLogin,
     TResult? Function(@JsonKey(name: 'Message') String message)?
         serverDeniesLogin,
-    TResult? Function(
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)?
+    TResult? Function(@JsonKey(name: 'FullRunInfo') RunInfoWithMap FullRunInfo)?
         serverSendsBackFullRunInfo,
     TResult? Function(String errorMessage)? authenticationFailureException,
     TResult? Function(String errorMessage)? userAlreadyExistsException,
@@ -9317,8 +9292,7 @@ class _$AuthenticationFailureExceptionImpl
         serverConfirmsLogin,
     TResult Function(@JsonKey(name: 'Message') String message)?
         serverDeniesLogin,
-    TResult Function(
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)?
+    TResult Function(@JsonKey(name: 'FullRunInfo') RunInfoWithMap FullRunInfo)?
         serverSendsBackFullRunInfo,
     TResult Function(String errorMessage)? authenticationFailureException,
     TResult Function(String errorMessage)? userAlreadyExistsException,
@@ -9575,7 +9549,7 @@ class _$UserAlreadyExistsExceptionImpl
     required TResult Function(@JsonKey(name: 'Message') String message)
         serverDeniesLogin,
     required TResult Function(
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)
+            @JsonKey(name: 'FullRunInfo') RunInfoWithMap FullRunInfo)
         serverSendsBackFullRunInfo,
     required TResult Function(String errorMessage)
         authenticationFailureException,
@@ -9620,8 +9594,7 @@ class _$UserAlreadyExistsExceptionImpl
         serverConfirmsLogin,
     TResult? Function(@JsonKey(name: 'Message') String message)?
         serverDeniesLogin,
-    TResult? Function(
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)?
+    TResult? Function(@JsonKey(name: 'FullRunInfo') RunInfoWithMap FullRunInfo)?
         serverSendsBackFullRunInfo,
     TResult? Function(String errorMessage)? authenticationFailureException,
     TResult? Function(String errorMessage)? userAlreadyExistsException,
@@ -9664,8 +9637,7 @@ class _$UserAlreadyExistsExceptionImpl
         serverConfirmsLogin,
     TResult Function(@JsonKey(name: 'Message') String message)?
         serverDeniesLogin,
-    TResult Function(
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)?
+    TResult Function(@JsonKey(name: 'FullRunInfo') RunInfoWithMap FullRunInfo)?
         serverSendsBackFullRunInfo,
     TResult Function(String errorMessage)? authenticationFailureException,
     TResult Function(String errorMessage)? userAlreadyExistsException,
@@ -9938,7 +9910,7 @@ class _$ServerConfirmsDeviceRegistrationImpl
     required TResult Function(@JsonKey(name: 'Message') String message)
         serverDeniesLogin,
     required TResult Function(
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)
+            @JsonKey(name: 'FullRunInfo') RunInfoWithMap FullRunInfo)
         serverSendsBackFullRunInfo,
     required TResult Function(String errorMessage)
         authenticationFailureException,
@@ -9983,8 +9955,7 @@ class _$ServerConfirmsDeviceRegistrationImpl
         serverConfirmsLogin,
     TResult? Function(@JsonKey(name: 'Message') String message)?
         serverDeniesLogin,
-    TResult? Function(
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)?
+    TResult? Function(@JsonKey(name: 'FullRunInfo') RunInfoWithMap FullRunInfo)?
         serverSendsBackFullRunInfo,
     TResult? Function(String errorMessage)? authenticationFailureException,
     TResult? Function(String errorMessage)? userAlreadyExistsException,
@@ -10027,8 +9998,7 @@ class _$ServerConfirmsDeviceRegistrationImpl
         serverConfirmsLogin,
     TResult Function(@JsonKey(name: 'Message') String message)?
         serverDeniesLogin,
-    TResult Function(
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)?
+    TResult Function(@JsonKey(name: 'FullRunInfo') RunInfoWithMap FullRunInfo)?
         serverSendsBackFullRunInfo,
     TResult Function(String errorMessage)? authenticationFailureException,
     TResult Function(String errorMessage)? userAlreadyExistsException,
@@ -10292,7 +10262,7 @@ class _$DeviceAlreadyRegisteredExceptionImpl
     required TResult Function(@JsonKey(name: 'Message') String message)
         serverDeniesLogin,
     required TResult Function(
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)
+            @JsonKey(name: 'FullRunInfo') RunInfoWithMap FullRunInfo)
         serverSendsBackFullRunInfo,
     required TResult Function(String errorMessage)
         authenticationFailureException,
@@ -10337,8 +10307,7 @@ class _$DeviceAlreadyRegisteredExceptionImpl
         serverConfirmsLogin,
     TResult? Function(@JsonKey(name: 'Message') String message)?
         serverDeniesLogin,
-    TResult? Function(
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)?
+    TResult? Function(@JsonKey(name: 'FullRunInfo') RunInfoWithMap FullRunInfo)?
         serverSendsBackFullRunInfo,
     TResult? Function(String errorMessage)? authenticationFailureException,
     TResult? Function(String errorMessage)? userAlreadyExistsException,
@@ -10381,8 +10350,7 @@ class _$DeviceAlreadyRegisteredExceptionImpl
         serverConfirmsLogin,
     TResult Function(@JsonKey(name: 'Message') String message)?
         serverDeniesLogin,
-    TResult Function(
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)?
+    TResult Function(@JsonKey(name: 'FullRunInfo') RunInfoWithMap FullRunInfo)?
         serverSendsBackFullRunInfo,
     TResult Function(String errorMessage)? authenticationFailureException,
     TResult Function(String errorMessage)? userAlreadyExistsException,

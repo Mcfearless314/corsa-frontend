@@ -72,51 +72,56 @@ class RunList extends StatelessWidget {
                           SliverList(
                             delegate: SliverChildBuilderDelegate(
                               (BuildContext context, int index) {
-                                return Card(
-                                  shape: RoundedRectangleBorder(
-                                    side: const BorderSide(
-                                        color: Colors.black, width: 1),
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  color: Colors.orange,
-                                  child: Row(
-                                    children: <Widget>[
-                                      SizedBox(
-                                          width: 80,
-                                          height: 80,
-                                          child: Stack(
-                                              fit: StackFit.expand,
+                                return GestureDetector(
+                                  onTap: () {
+                                    context.read<RunListCubit>().getFullInfoOfRun(state.runs![index].runId);
+                                  },
+                                  child: Card(
+                                    shape: RoundedRectangleBorder(
+                                      side: const BorderSide(
+                                          color: Colors.black, width: 1),
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                    color: Colors.orange,
+                                    child: Row(
+                                      children: <Widget>[
+                                        SizedBox(
+                                            width: 80,
+                                            height: 80,
+                                            child: Stack(
+                                                fit: StackFit.expand,
+                                                children: [
+                                                  Image.asset('assets/Corsa.jpg')
+                                                ])),
+                                        Expanded(
+                                          child: Padding(
+                                            padding: const EdgeInsets.all(8.0),
+                                            child: Column(
                                               children: [
-                                                Image.asset('assets/Corsa.jpg')
-                                              ])),
-                                      Expanded(
-                                        child: Padding(
-                                          padding: const EdgeInsets.all(8.0),
-                                          child: Column(
-                                            children: [
-                                              Text(
-                                                  'Start: ${state.runs![index].startOfRun.day}/${state.runs![index].startOfRun.month}-${state.runs![index].startOfRun.year} ${state.runs![index].startOfRun.hour}:${state.runs![index].startOfRun.minute}',
-                                                  style: const TextStyle(
-                                                      fontFamily: 'PoetsenOne',
-                                                      fontSize: 14.0,
-                                                      color: Colors.white)),
-                                              Text(
-                                                  'Duration: ${state.runs![index].timeOfRun} min',
-                                                  style: const TextStyle(
-                                                      fontFamily: 'PoetsenOne',
-                                                      fontSize: 14.0,
-                                                      color: Colors.white)),
-                                              Text(
-                                                  'Distance: ${state.runs![index].distance.toString()} km',
-                                                  style: const TextStyle(
-                                                      fontFamily: 'PoetsenOne',
-                                                      fontSize: 14.0,
-                                                      color: Colors.white)),
-                                            ],
+                                                Text(
+                                                    'Start: ${state.runs![index].startOfRun.day}/${state.runs![index].startOfRun.month}-${state.runs![index].startOfRun.year} ${state.runs![index].startOfRun.hour}:${state.runs![index].startOfRun.minute}',
+                                                    style: const TextStyle(
+                                                        fontFamily: 'PoetsenOne',
+                                                        fontSize: 14.0,
+                                                        color: Colors.white)),
+                                                Text(
+                                                    'Duration: ${state.runs![index].timeOfRun} min',
+                                                    style: const TextStyle(
+                                                        fontFamily: 'PoetsenOne',
+                                                        fontSize: 14.0,
+                                                        color: Colors.white)),
+                                                Text(
+                                                    'Distance: ${state.runs![index].distance.toString()} km',
+                                                    style: const TextStyle(
+                                                        fontFamily: 'PoetsenOne',
+                                                        fontSize: 14.0,
+                                                        color: Colors.white)),
+                                              ],
+                                            ),
                                           ),
                                         ),
-                                      ),
-                                    ],
+                                      ],
+                                    ),
                                   ),
                                 );
                               },
@@ -142,6 +147,7 @@ class RunList extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
         FloatingActionButton(
+          heroTag: "uniqueTag5",
           onPressed: () async {
             final String? deviceId = await showDialog(
               context: context,
@@ -154,6 +160,7 @@ class RunList extends StatelessWidget {
           child: const Icon(Icons.add_alarm),
         ),
         FloatingActionButton(
+          heroTag: "uniqueTag6",
           onPressed: () => startNewRun(context),
           child: const Icon(Icons.add),
         ),
