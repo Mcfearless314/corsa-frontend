@@ -7,13 +7,13 @@ import '../BroadcastWsChannel.dart';
 import '../models/events.dart';
 
 class RunListCubit extends Cubit<RunListState> {
-  RunListCubit(this.channel) : super(RunListState.empty());
+  RunListCubit(this.channel, int userId) : super(RunListState.fromUser(userId));
 
   final BroadcastWsChannel channel;
 
   void getRuns() async {
     final event =
-        ClientEvent.clientWantsToSeeAllSavedRuns(userId: state.userId!);
+        ClientEvent.clientWantsToSeeAllSavedRuns(userId: state.userId);
     final serverEventFuture = channel.stream
         .map((event) => ServerEvent.fromJson(jsonDecode(event)))
         .firstWhere((event) => event is ServerSendsBackAllSavedRuns);
@@ -25,8 +25,11 @@ class RunListCubit extends Cubit<RunListState> {
   }
 
   getFullInfoOfRun(id) {
-    final event =
-        ClientEvent.clientWantsToSeeFullInfoOfRun(runId: id, userId: 1);
+    final event = ClientEvent.clientWantsToSeeFullInfoOfRun(
+      userId: state.userId,
+      runId: id,
+    );
+
     final serverEventFuture = channel.stream
         .map((event) => ServerEvent.fromJson(jsonDecode(event)))
         .firstWhere((event) => event is ServerSendsBackFullRunInfo);
@@ -38,15 +41,17 @@ class RunListCubit extends Cubit<RunListState> {
     });
   }
 
-  addDevice(String deviceId) async {
+  addDevice(String deviceId, int userId) async {
     final event = ClientEvent.clientWantsToRegisterADevice(
-      userId: state.userId!,
+      userId: userId,
       deviceId: deviceId,
     );
     channel.sink.add(jsonEncode(event.toJson()));
     final serverEventFuture = channel.stream
         .map((event) => ServerEvent.fromJson(jsonDecode(event)))
-        .firstWhere((event) => event is ServerConfirmsDeviceRegistration || event is DeviceAlreadyRegisteredException);
+        .firstWhere((event) =>
+            event is ServerConfirmsDeviceRegistration ||
+            event is DeviceAlreadyRegisteredException);
     final serverEvent = await serverEventFuture.timeout(Duration(seconds: 5));
     if (serverEvent is ServerConfirmsDeviceRegistration) {
       emit(state.copyWith(deviceId: serverEvent.deviceId));

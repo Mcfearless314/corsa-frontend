@@ -6,7 +6,7 @@ import '../models/run_info_with_map.dart';
 class RunListState {
   final List<Run>? runs;
   final RunInfoWithMap? runInfoWithMap;
-  final int? userId;
+  final int userId;
   final String? deviceId;
   final String? errorMessage;
 
@@ -17,11 +17,11 @@ class RunListState {
     required this.errorMessage,
   });
 
-  factory RunListState.empty() {
-    return const RunListState(
+  factory RunListState.fromUser(int userId) {
+    return RunListState(
       runs: null,
+      userId: userId,
       runInfoWithMap: null,
-      userId: null,
       deviceId: null,
       errorMessage: null,
     );
