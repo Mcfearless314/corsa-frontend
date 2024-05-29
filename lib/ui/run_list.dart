@@ -15,7 +15,12 @@ class RunList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<RunListCubit>(
-        create: (context) => RunListCubit(context.read<BroadcastWsChannel>(), userId),
+        create: (context) {
+          final cubit =
+              RunListCubit(context.read<BroadcastWsChannel>(), userId);
+          cubit.getRuns();
+          return cubit;
+        },
         child: BlocConsumer<RunListCubit, RunListState>(
           listener: (context, state) {
             if (state.runs == null) {
@@ -51,7 +56,7 @@ class RunList extends StatelessWidget {
                           color: Colors.white)),
                   centerTitle: true,
                 ),
-                body: state.runs == null || state.runs!.isEmpty
+                body: state.runs == null
                     ? const Center(
                         child: Text(
                           "There are no runs recorded yet, press the button below to start your first run!",
@@ -67,7 +72,53 @@ class RunList extends StatelessWidget {
                           SliverList(
                             delegate: SliverChildBuilderDelegate(
                               (BuildContext context, int index) {
-                                // Your existing code here...
+                                return Card(
+                                  shape: RoundedRectangleBorder(
+                                    side: const BorderSide(
+                                        color: Colors.black, width: 1),
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                  color: Colors.orange,
+                                  child: Row(
+                                    children: <Widget>[
+                                      SizedBox(
+                                          width: 80,
+                                          height: 80,
+                                          child: Stack(
+                                              fit: StackFit.expand,
+                                              children: [
+                                                Image.asset('assets/Corsa.jpg')
+                                              ])),
+                                      Expanded(
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Column(
+                                            children: [
+                                              Text(
+                                                  'Start: ${state.runs![index].startOfRun.day}/${state.runs![index].startOfRun.month}-${state.runs![index].startOfRun.year} ${state.runs![index].startOfRun.hour}:${state.runs![index].startOfRun.minute}',
+                                                  style: const TextStyle(
+                                                      fontFamily: 'PoetsenOne',
+                                                      fontSize: 14.0,
+                                                      color: Colors.white)),
+                                              Text(
+                                                  'Duration: ${state.runs![index].timeOfRun} min',
+                                                  style: const TextStyle(
+                                                      fontFamily: 'PoetsenOne',
+                                                      fontSize: 14.0,
+                                                      color: Colors.white)),
+                                              Text(
+                                                  'Distance: ${state.runs![index].distance.toString()} km',
+                                                  style: const TextStyle(
+                                                      fontFamily: 'PoetsenOne',
+                                                      fontSize: 14.0,
+                                                      color: Colors.white)),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                );
                               },
                               childCount: state.runs!.length,
                             ),
@@ -124,14 +175,14 @@ class _DeviceIdDialogState extends State<DeviceIdDialog> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: Text('Enter Device ID'),
+      title: const Text('Enter Device ID'),
       content: TextField(
         controller: _deviceIdController,
-        decoration: InputDecoration(hintText: "Device ID"),
+        decoration: const InputDecoration(hintText: "Device ID"),
       ),
       actions: <Widget>[
         TextButton(
-          child: Text('Submit'),
+          child: const Text('Submit'),
           onPressed: () {
             //context.read<RunListCubit>().addDevice(_deviceIdController.text);
             Navigator.of(context).pop(_deviceIdController.text);
@@ -139,7 +190,7 @@ class _DeviceIdDialogState extends State<DeviceIdDialog> {
         ),
         TextButton(
           onPressed: () => Navigator.of(context).pop(),
-          child: Text('Cancel'),
+          child: const Text('Cancel'),
         )
       ],
     );

@@ -20,7 +20,7 @@ class RunListCubit extends Cubit<RunListState> {
     channel.sink.add(jsonEncode(event.toJson()));
     final serverEvent = await serverEventFuture.timeout(Duration(seconds: 5));
     if (serverEvent is ServerSendsBackAllSavedRuns) {
-      emit(state.copyWith(runs: serverEvent.allRuns));
+      emit(RunListState();
     }
   }
 
