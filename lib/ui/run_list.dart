@@ -131,7 +131,7 @@ class _DeviceIdDialogState extends State<DeviceIdDialog> {
       ),
       actions: <Widget>[
         TextButton(
-          child: Text('Submit'), //TODO FIX THIS !!
+          child: Text('Submit'),
           onPressed: () {
             //context.read<RunListCubit>().addDevice(_deviceIdController.text);
             Navigator.of(context).pop(_deviceIdController.text);

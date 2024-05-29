@@ -18,7 +18,6 @@ class _SavedRunMapState extends State<SavedRunMap> {
   late CameraPosition _initialCameraPosition;
   final String now = '${DateTime.now().day}/${DateTime.now().month}/${DateTime.now().year}';
 
-  //TODO add some information about the run underneath the map
 
   @override
   void initState() {
@@ -34,18 +33,18 @@ class _SavedRunMapState extends State<SavedRunMap> {
   LatLng _findMiddleOfRoute() {
     double totalLat = 0;
     double totalLong = 0;
-    List<Coordinates> route = _getRoute();
+    List<Cords> route = _getRoute();
 
-    for (Coordinates point in route) {
-      totalLat += point.latitude;
-      totalLong += point.longitude;
+    for (Cords point in route) {
+      totalLat += point.Latitude;
+      totalLong += point.Longitude;
     }
 
     return LatLng(totalLat / route.length, totalLong / route.length);
   }
 
-  List<Coordinates> _getRoute() {
-    return widget.runInfoWithMap!.coordinates;
+  List<Cords> _getRoute() {
+    return widget.runInfoWithMap!.gpsCordsList;
   }
 
   void _showRouteOnMap() {
@@ -56,22 +55,22 @@ class _SavedRunMapState extends State<SavedRunMap> {
       _polylines.add(Polyline(
         polylineId: const PolylineId('route'),
         points:
-            _getRoute().map((c) => LatLng(c.latitude, c.longitude)).toList(),
+            _getRoute().map((c) => LatLng(c.Latitude, c.Longitude)).toList(),
         color: Colors.blue,
         width: 5,
       ));
 
       // Calculate the bounds of the route
-      double minLat = _getRoute()[0].latitude;
-      double maxLat = _getRoute()[0].latitude;
-      double minLong = _getRoute()[0].longitude;
-      double maxLong = _getRoute()[0].longitude;
+      double minLat = _getRoute()[0].Latitude;
+      double maxLat = _getRoute()[0].Latitude;
+      double minLong = _getRoute()[0].Longitude;
+      double maxLong = _getRoute()[0].Longitude;
 
-      for (Coordinates point in _getRoute()) {
-        if (point.latitude < minLat) minLat = point.latitude;
-        if (point.latitude > maxLat) maxLat = point.latitude;
-        if (point.longitude < minLong) minLong = point.longitude;
-        if (point.longitude > maxLong) maxLong = point.longitude;
+      for (Cords point in _getRoute()) {
+        if (point.Latitude < minLat) minLat = point.Latitude;
+        if (point.Latitude > maxLat) maxLat = point.Latitude;
+        if (point.Longitude < minLong) minLong = point.Longitude;
+        if (point.Longitude > maxLong) maxLong = point.Longitude;
       }
 
       LatLngBounds bounds = LatLngBounds(

@@ -51,7 +51,6 @@ class RunCubit extends Cubit<RunState> {
   void stopRun() async {
     _logCoordinatesTimer?.cancel();
     final location = await getCurrentLocation();
-
     final event = ClientEvent.clientWantsToStopARun(
       runEndTime: DateTime.now(),
       endingLat: location.latitude,
@@ -59,13 +58,12 @@ class RunCubit extends Cubit<RunState> {
       runId: state.runId!,
     );
     channel.sink.add(jsonEncode(event.toJson()));
-
     final serverEventFuture = channel.stream
         .map((event) => ServerEvent.fromJson(jsonDecode(event)))
         .firstWhere((event) => event is ServerSendsBackRunWithMap);
     final serverEvent = await serverEventFuture.timeout(Duration(seconds: 5));
     if (serverEvent is ServerSendsBackRunWithMap) {
-      emit(state.copyWith(runInfoWithMap: serverEvent.runInfoWithMap, status: RunStatus.finished));
+      emit(state.copyWith(runInfoWithMap: serverEvent.fullRunInfo, status: RunStatus.finished));
 
     }
   }

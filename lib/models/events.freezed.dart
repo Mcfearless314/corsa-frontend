@@ -4960,7 +4960,7 @@ mixin _$ServerEvent {
             @JsonKey(name: 'UserId') int userId)
         serverConfirmsRegistration,
     required TResult Function(@JsonKey(name: 'Message') String message,
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)
+            @JsonKey(name: 'FullRunInfo') RunInfoWithMap fullRunInfo)
         serverSendsBackRunWithMap,
     required TResult Function(
             @JsonKey(name: 'Message') String message,
@@ -5003,7 +5003,7 @@ mixin _$ServerEvent {
             @JsonKey(name: 'UserId') int userId)?
         serverConfirmsRegistration,
     TResult? Function(@JsonKey(name: 'Message') String message,
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)?
+            @JsonKey(name: 'FullRunInfo') RunInfoWithMap fullRunInfo)?
         serverSendsBackRunWithMap,
     TResult? Function(
             @JsonKey(name: 'Message') String message,
@@ -5044,7 +5044,7 @@ mixin _$ServerEvent {
             @JsonKey(name: 'UserId') int userId)?
         serverConfirmsRegistration,
     TResult Function(@JsonKey(name: 'Message') String message,
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)?
+            @JsonKey(name: 'FullRunInfo') RunInfoWithMap fullRunInfo)?
         serverSendsBackRunWithMap,
     TResult Function(
             @JsonKey(name: 'Message') String message,
@@ -5279,7 +5279,7 @@ class _$ServerSendsBackJwtImpl
             @JsonKey(name: 'UserId') int userId)
         serverConfirmsRegistration,
     required TResult Function(@JsonKey(name: 'Message') String message,
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)
+            @JsonKey(name: 'FullRunInfo') RunInfoWithMap fullRunInfo)
         serverSendsBackRunWithMap,
     required TResult Function(
             @JsonKey(name: 'Message') String message,
@@ -5325,7 +5325,7 @@ class _$ServerSendsBackJwtImpl
             @JsonKey(name: 'UserId') int userId)?
         serverConfirmsRegistration,
     TResult? Function(@JsonKey(name: 'Message') String message,
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)?
+            @JsonKey(name: 'FullRunInfo') RunInfoWithMap fullRunInfo)?
         serverSendsBackRunWithMap,
     TResult? Function(
             @JsonKey(name: 'Message') String message,
@@ -5369,7 +5369,7 @@ class _$ServerSendsBackJwtImpl
             @JsonKey(name: 'UserId') int userId)?
         serverConfirmsRegistration,
     TResult Function(@JsonKey(name: 'Message') String message,
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)?
+            @JsonKey(name: 'FullRunInfo') RunInfoWithMap fullRunInfo)?
         serverSendsBackRunWithMap,
     TResult Function(
             @JsonKey(name: 'Message') String message,
@@ -5652,7 +5652,7 @@ class _$ServerSendsBackRunImpl
             @JsonKey(name: 'UserId') int userId)
         serverConfirmsRegistration,
     required TResult Function(@JsonKey(name: 'Message') String message,
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)
+            @JsonKey(name: 'FullRunInfo') RunInfoWithMap fullRunInfo)
         serverSendsBackRunWithMap,
     required TResult Function(
             @JsonKey(name: 'Message') String message,
@@ -5698,7 +5698,7 @@ class _$ServerSendsBackRunImpl
             @JsonKey(name: 'UserId') int userId)?
         serverConfirmsRegistration,
     TResult? Function(@JsonKey(name: 'Message') String message,
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)?
+            @JsonKey(name: 'FullRunInfo') RunInfoWithMap fullRunInfo)?
         serverSendsBackRunWithMap,
     TResult? Function(
             @JsonKey(name: 'Message') String message,
@@ -5742,7 +5742,7 @@ class _$ServerSendsBackRunImpl
             @JsonKey(name: 'UserId') int userId)?
         serverConfirmsRegistration,
     TResult Function(@JsonKey(name: 'Message') String message,
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)?
+            @JsonKey(name: 'FullRunInfo') RunInfoWithMap fullRunInfo)?
         serverSendsBackRunWithMap,
     TResult Function(
             @JsonKey(name: 'Message') String message,
@@ -6014,7 +6014,7 @@ class _$ServerSendsBackAllSavedRunsImpl
             @JsonKey(name: 'UserId') int userId)
         serverConfirmsRegistration,
     required TResult Function(@JsonKey(name: 'Message') String message,
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)
+            @JsonKey(name: 'FullRunInfo') RunInfoWithMap fullRunInfo)
         serverSendsBackRunWithMap,
     required TResult Function(
             @JsonKey(name: 'Message') String message,
@@ -6060,7 +6060,7 @@ class _$ServerSendsBackAllSavedRunsImpl
             @JsonKey(name: 'UserId') int userId)?
         serverConfirmsRegistration,
     TResult? Function(@JsonKey(name: 'Message') String message,
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)?
+            @JsonKey(name: 'FullRunInfo') RunInfoWithMap fullRunInfo)?
         serverSendsBackRunWithMap,
     TResult? Function(
             @JsonKey(name: 'Message') String message,
@@ -6104,7 +6104,7 @@ class _$ServerSendsBackAllSavedRunsImpl
             @JsonKey(name: 'UserId') int userId)?
         serverConfirmsRegistration,
     TResult Function(@JsonKey(name: 'Message') String message,
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)?
+            @JsonKey(name: 'FullRunInfo') RunInfoWithMap fullRunInfo)?
         serverSendsBackRunWithMap,
     TResult Function(
             @JsonKey(name: 'Message') String message,
@@ -6372,7 +6372,7 @@ class _$ServerSendsBackAllProgressImpl
             @JsonKey(name: 'UserId') int userId)
         serverConfirmsRegistration,
     required TResult Function(@JsonKey(name: 'Message') String message,
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)
+            @JsonKey(name: 'FullRunInfo') RunInfoWithMap fullRunInfo)
         serverSendsBackRunWithMap,
     required TResult Function(
             @JsonKey(name: 'Message') String message,
@@ -6418,7 +6418,7 @@ class _$ServerSendsBackAllProgressImpl
             @JsonKey(name: 'UserId') int userId)?
         serverConfirmsRegistration,
     TResult? Function(@JsonKey(name: 'Message') String message,
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)?
+            @JsonKey(name: 'FullRunInfo') RunInfoWithMap fullRunInfo)?
         serverSendsBackRunWithMap,
     TResult? Function(
             @JsonKey(name: 'Message') String message,
@@ -6462,7 +6462,7 @@ class _$ServerSendsBackAllProgressImpl
             @JsonKey(name: 'UserId') int userId)?
         serverConfirmsRegistration,
     TResult Function(@JsonKey(name: 'Message') String message,
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)?
+            @JsonKey(name: 'FullRunInfo') RunInfoWithMap fullRunInfo)?
         serverSendsBackRunWithMap,
     TResult Function(
             @JsonKey(name: 'Message') String message,
@@ -6723,7 +6723,7 @@ class _$ServerConfirmsDeletionOfRunImpl
             @JsonKey(name: 'UserId') int userId)
         serverConfirmsRegistration,
     required TResult Function(@JsonKey(name: 'Message') String message,
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)
+            @JsonKey(name: 'FullRunInfo') RunInfoWithMap fullRunInfo)
         serverSendsBackRunWithMap,
     required TResult Function(
             @JsonKey(name: 'Message') String message,
@@ -6769,7 +6769,7 @@ class _$ServerConfirmsDeletionOfRunImpl
             @JsonKey(name: 'UserId') int userId)?
         serverConfirmsRegistration,
     TResult? Function(@JsonKey(name: 'Message') String message,
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)?
+            @JsonKey(name: 'FullRunInfo') RunInfoWithMap fullRunInfo)?
         serverSendsBackRunWithMap,
     TResult? Function(
             @JsonKey(name: 'Message') String message,
@@ -6813,7 +6813,7 @@ class _$ServerConfirmsDeletionOfRunImpl
             @JsonKey(name: 'UserId') int userId)?
         serverConfirmsRegistration,
     TResult Function(@JsonKey(name: 'Message') String message,
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)?
+            @JsonKey(name: 'FullRunInfo') RunInfoWithMap fullRunInfo)?
         serverSendsBackRunWithMap,
     TResult Function(
             @JsonKey(name: 'Message') String message,
@@ -7068,7 +7068,7 @@ class _$ServerSendsBackRunIdImpl
             @JsonKey(name: 'UserId') int userId)
         serverConfirmsRegistration,
     required TResult Function(@JsonKey(name: 'Message') String message,
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)
+            @JsonKey(name: 'FullRunInfo') RunInfoWithMap fullRunInfo)
         serverSendsBackRunWithMap,
     required TResult Function(
             @JsonKey(name: 'Message') String message,
@@ -7114,7 +7114,7 @@ class _$ServerSendsBackRunIdImpl
             @JsonKey(name: 'UserId') int userId)?
         serverConfirmsRegistration,
     TResult? Function(@JsonKey(name: 'Message') String message,
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)?
+            @JsonKey(name: 'FullRunInfo') RunInfoWithMap fullRunInfo)?
         serverSendsBackRunWithMap,
     TResult? Function(
             @JsonKey(name: 'Message') String message,
@@ -7158,7 +7158,7 @@ class _$ServerSendsBackRunIdImpl
             @JsonKey(name: 'UserId') int userId)?
         serverConfirmsRegistration,
     TResult Function(@JsonKey(name: 'Message') String message,
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)?
+            @JsonKey(name: 'FullRunInfo') RunInfoWithMap fullRunInfo)?
         serverSendsBackRunWithMap,
     TResult Function(
             @JsonKey(name: 'Message') String message,
@@ -7430,7 +7430,7 @@ class _$ServerConfirmsRegistrationImpl
             @JsonKey(name: 'UserId') int userId)
         serverConfirmsRegistration,
     required TResult Function(@JsonKey(name: 'Message') String message,
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)
+            @JsonKey(name: 'FullRunInfo') RunInfoWithMap fullRunInfo)
         serverSendsBackRunWithMap,
     required TResult Function(
             @JsonKey(name: 'Message') String message,
@@ -7476,7 +7476,7 @@ class _$ServerConfirmsRegistrationImpl
             @JsonKey(name: 'UserId') int userId)?
         serverConfirmsRegistration,
     TResult? Function(@JsonKey(name: 'Message') String message,
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)?
+            @JsonKey(name: 'FullRunInfo') RunInfoWithMap fullRunInfo)?
         serverSendsBackRunWithMap,
     TResult? Function(
             @JsonKey(name: 'Message') String message,
@@ -7520,7 +7520,7 @@ class _$ServerConfirmsRegistrationImpl
             @JsonKey(name: 'UserId') int userId)?
         serverConfirmsRegistration,
     TResult Function(@JsonKey(name: 'Message') String message,
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)?
+            @JsonKey(name: 'FullRunInfo') RunInfoWithMap fullRunInfo)?
         serverSendsBackRunWithMap,
     TResult Function(
             @JsonKey(name: 'Message') String message,
@@ -7681,7 +7681,7 @@ abstract class _$$ServerSendsBackRunWithMapImplCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: 'Message') String message,
-      @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap});
+      @JsonKey(name: 'FullRunInfo') RunInfoWithMap fullRunInfo});
 }
 
 /// @nodoc
@@ -7697,16 +7697,16 @@ class __$$ServerSendsBackRunWithMapImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? message = null,
-    Object? runInfoWithMap = null,
+    Object? fullRunInfo = null,
   }) {
     return _then(_$ServerSendsBackRunWithMapImpl(
       message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
-      runInfoWithMap: null == runInfoWithMap
-          ? _value.runInfoWithMap
-          : runInfoWithMap // ignore: cast_nullable_to_non_nullable
+      fullRunInfo: null == fullRunInfo
+          ? _value.fullRunInfo
+          : fullRunInfo // ignore: cast_nullable_to_non_nullable
               as RunInfoWithMap,
     ));
   }
@@ -7719,7 +7719,7 @@ class _$ServerSendsBackRunWithMapImpl
     implements ServerSendsBackRunWithMap {
   _$ServerSendsBackRunWithMapImpl(
       {@JsonKey(name: 'Message') required this.message,
-      @JsonKey(name: 'RunInfoWithMap') required this.runInfoWithMap,
+      @JsonKey(name: 'FullRunInfo') required this.fullRunInfo,
       final String? $type})
       : $type = $type ?? 'ServerSendsBackRunWithMap';
 
@@ -7730,15 +7730,15 @@ class _$ServerSendsBackRunWithMapImpl
   @JsonKey(name: 'Message')
   final String message;
   @override
-  @JsonKey(name: 'RunInfoWithMap')
-  final RunInfoWithMap runInfoWithMap;
+  @JsonKey(name: 'FullRunInfo')
+  final RunInfoWithMap fullRunInfo;
 
   @JsonKey(name: 'eventType')
   final String $type;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'ServerEvent.serverSendsBackRunWithMap(message: $message, runInfoWithMap: $runInfoWithMap)';
+    return 'ServerEvent.serverSendsBackRunWithMap(message: $message, fullRunInfo: $fullRunInfo)';
   }
 
   @override
@@ -7748,7 +7748,7 @@ class _$ServerSendsBackRunWithMapImpl
       ..add(
           DiagnosticsProperty('type', 'ServerEvent.serverSendsBackRunWithMap'))
       ..add(DiagnosticsProperty('message', message))
-      ..add(DiagnosticsProperty('runInfoWithMap', runInfoWithMap));
+      ..add(DiagnosticsProperty('fullRunInfo', fullRunInfo));
   }
 
   @override
@@ -7757,13 +7757,13 @@ class _$ServerSendsBackRunWithMapImpl
         (other.runtimeType == runtimeType &&
             other is _$ServerSendsBackRunWithMapImpl &&
             (identical(other.message, message) || other.message == message) &&
-            (identical(other.runInfoWithMap, runInfoWithMap) ||
-                other.runInfoWithMap == runInfoWithMap));
+            (identical(other.fullRunInfo, fullRunInfo) ||
+                other.fullRunInfo == fullRunInfo));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, message, runInfoWithMap);
+  int get hashCode => Object.hash(runtimeType, message, fullRunInfo);
 
   @JsonKey(ignore: true)
   @override
@@ -7795,7 +7795,7 @@ class _$ServerSendsBackRunWithMapImpl
             @JsonKey(name: 'UserId') int userId)
         serverConfirmsRegistration,
     required TResult Function(@JsonKey(name: 'Message') String message,
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)
+            @JsonKey(name: 'FullRunInfo') RunInfoWithMap fullRunInfo)
         serverSendsBackRunWithMap,
     required TResult Function(
             @JsonKey(name: 'Message') String message,
@@ -7816,7 +7816,7 @@ class _$ServerSendsBackRunWithMapImpl
     required TResult Function(String errorMessage)
         deviceAlreadyRegisteredException,
   }) {
-    return serverSendsBackRunWithMap(message, runInfoWithMap);
+    return serverSendsBackRunWithMap(message, fullRunInfo);
   }
 
   @override
@@ -7841,7 +7841,7 @@ class _$ServerSendsBackRunWithMapImpl
             @JsonKey(name: 'UserId') int userId)?
         serverConfirmsRegistration,
     TResult? Function(@JsonKey(name: 'Message') String message,
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)?
+            @JsonKey(name: 'FullRunInfo') RunInfoWithMap fullRunInfo)?
         serverSendsBackRunWithMap,
     TResult? Function(
             @JsonKey(name: 'Message') String message,
@@ -7860,7 +7860,7 @@ class _$ServerSendsBackRunWithMapImpl
         serverConfirmsDeviceRegistration,
     TResult? Function(String errorMessage)? deviceAlreadyRegisteredException,
   }) {
-    return serverSendsBackRunWithMap?.call(message, runInfoWithMap);
+    return serverSendsBackRunWithMap?.call(message, fullRunInfo);
   }
 
   @override
@@ -7885,7 +7885,7 @@ class _$ServerSendsBackRunWithMapImpl
             @JsonKey(name: 'UserId') int userId)?
         serverConfirmsRegistration,
     TResult Function(@JsonKey(name: 'Message') String message,
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)?
+            @JsonKey(name: 'FullRunInfo') RunInfoWithMap fullRunInfo)?
         serverSendsBackRunWithMap,
     TResult Function(
             @JsonKey(name: 'Message') String message,
@@ -7906,7 +7906,7 @@ class _$ServerSendsBackRunWithMapImpl
     required TResult orElse(),
   }) {
     if (serverSendsBackRunWithMap != null) {
-      return serverSendsBackRunWithMap(message, runInfoWithMap);
+      return serverSendsBackRunWithMap(message, fullRunInfo);
     }
     return orElse();
   }
@@ -8022,8 +8022,8 @@ class _$ServerSendsBackRunWithMapImpl
 abstract class ServerSendsBackRunWithMap implements ServerEvent {
   factory ServerSendsBackRunWithMap(
           {@JsonKey(name: 'Message') required final String message,
-          @JsonKey(name: 'RunInfoWithMap')
-          required final RunInfoWithMap runInfoWithMap}) =
+          @JsonKey(name: 'FullRunInfo')
+          required final RunInfoWithMap fullRunInfo}) =
       _$ServerSendsBackRunWithMapImpl;
 
   factory ServerSendsBackRunWithMap.fromJson(Map<String, dynamic> json) =
@@ -8031,8 +8031,8 @@ abstract class ServerSendsBackRunWithMap implements ServerEvent {
 
   @JsonKey(name: 'Message')
   String get message;
-  @JsonKey(name: 'RunInfoWithMap')
-  RunInfoWithMap get runInfoWithMap;
+  @JsonKey(name: 'FullRunInfo')
+  RunInfoWithMap get fullRunInfo;
   @JsonKey(ignore: true)
   _$$ServerSendsBackRunWithMapImplCopyWith<_$ServerSendsBackRunWithMapImpl>
       get copyWith => throw _privateConstructorUsedError;
@@ -8167,7 +8167,7 @@ class _$ServerConfirmsLoginImpl
             @JsonKey(name: 'UserId') int userId)
         serverConfirmsRegistration,
     required TResult Function(@JsonKey(name: 'Message') String message,
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)
+            @JsonKey(name: 'FullRunInfo') RunInfoWithMap fullRunInfo)
         serverSendsBackRunWithMap,
     required TResult Function(
             @JsonKey(name: 'Message') String message,
@@ -8213,7 +8213,7 @@ class _$ServerConfirmsLoginImpl
             @JsonKey(name: 'UserId') int userId)?
         serverConfirmsRegistration,
     TResult? Function(@JsonKey(name: 'Message') String message,
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)?
+            @JsonKey(name: 'FullRunInfo') RunInfoWithMap fullRunInfo)?
         serverSendsBackRunWithMap,
     TResult? Function(
             @JsonKey(name: 'Message') String message,
@@ -8257,7 +8257,7 @@ class _$ServerConfirmsLoginImpl
             @JsonKey(name: 'UserId') int userId)?
         serverConfirmsRegistration,
     TResult Function(@JsonKey(name: 'Message') String message,
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)?
+            @JsonKey(name: 'FullRunInfo') RunInfoWithMap fullRunInfo)?
         serverSendsBackRunWithMap,
     TResult Function(
             @JsonKey(name: 'Message') String message,
@@ -8517,7 +8517,7 @@ class _$ServerDeniesLoginImpl
             @JsonKey(name: 'UserId') int userId)
         serverConfirmsRegistration,
     required TResult Function(@JsonKey(name: 'Message') String message,
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)
+            @JsonKey(name: 'FullRunInfo') RunInfoWithMap fullRunInfo)
         serverSendsBackRunWithMap,
     required TResult Function(
             @JsonKey(name: 'Message') String message,
@@ -8563,7 +8563,7 @@ class _$ServerDeniesLoginImpl
             @JsonKey(name: 'UserId') int userId)?
         serverConfirmsRegistration,
     TResult? Function(@JsonKey(name: 'Message') String message,
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)?
+            @JsonKey(name: 'FullRunInfo') RunInfoWithMap fullRunInfo)?
         serverSendsBackRunWithMap,
     TResult? Function(
             @JsonKey(name: 'Message') String message,
@@ -8607,7 +8607,7 @@ class _$ServerDeniesLoginImpl
             @JsonKey(name: 'UserId') int userId)?
         serverConfirmsRegistration,
     TResult Function(@JsonKey(name: 'Message') String message,
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)?
+            @JsonKey(name: 'FullRunInfo') RunInfoWithMap fullRunInfo)?
         serverSendsBackRunWithMap,
     TResult Function(
             @JsonKey(name: 'Message') String message,
@@ -8867,7 +8867,7 @@ class _$ServerSendsBackFullRunInfoImpl
             @JsonKey(name: 'UserId') int userId)
         serverConfirmsRegistration,
     required TResult Function(@JsonKey(name: 'Message') String message,
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)
+            @JsonKey(name: 'FullRunInfo') RunInfoWithMap fullRunInfo)
         serverSendsBackRunWithMap,
     required TResult Function(
             @JsonKey(name: 'Message') String message,
@@ -8913,7 +8913,7 @@ class _$ServerSendsBackFullRunInfoImpl
             @JsonKey(name: 'UserId') int userId)?
         serverConfirmsRegistration,
     TResult? Function(@JsonKey(name: 'Message') String message,
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)?
+            @JsonKey(name: 'FullRunInfo') RunInfoWithMap fullRunInfo)?
         serverSendsBackRunWithMap,
     TResult? Function(
             @JsonKey(name: 'Message') String message,
@@ -8957,7 +8957,7 @@ class _$ServerSendsBackFullRunInfoImpl
             @JsonKey(name: 'UserId') int userId)?
         serverConfirmsRegistration,
     TResult Function(@JsonKey(name: 'Message') String message,
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)?
+            @JsonKey(name: 'FullRunInfo') RunInfoWithMap fullRunInfo)?
         serverSendsBackRunWithMap,
     TResult Function(
             @JsonKey(name: 'Message') String message,
@@ -9218,7 +9218,7 @@ class _$AuthenticationFailureExceptionImpl
             @JsonKey(name: 'UserId') int userId)
         serverConfirmsRegistration,
     required TResult Function(@JsonKey(name: 'Message') String message,
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)
+            @JsonKey(name: 'FullRunInfo') RunInfoWithMap fullRunInfo)
         serverSendsBackRunWithMap,
     required TResult Function(
             @JsonKey(name: 'Message') String message,
@@ -9264,7 +9264,7 @@ class _$AuthenticationFailureExceptionImpl
             @JsonKey(name: 'UserId') int userId)?
         serverConfirmsRegistration,
     TResult? Function(@JsonKey(name: 'Message') String message,
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)?
+            @JsonKey(name: 'FullRunInfo') RunInfoWithMap fullRunInfo)?
         serverSendsBackRunWithMap,
     TResult? Function(
             @JsonKey(name: 'Message') String message,
@@ -9308,7 +9308,7 @@ class _$AuthenticationFailureExceptionImpl
             @JsonKey(name: 'UserId') int userId)?
         serverConfirmsRegistration,
     TResult Function(@JsonKey(name: 'Message') String message,
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)?
+            @JsonKey(name: 'FullRunInfo') RunInfoWithMap fullRunInfo)?
         serverSendsBackRunWithMap,
     TResult Function(
             @JsonKey(name: 'Message') String message,
@@ -9565,7 +9565,7 @@ class _$UserAlreadyExistsExceptionImpl
             @JsonKey(name: 'UserId') int userId)
         serverConfirmsRegistration,
     required TResult Function(@JsonKey(name: 'Message') String message,
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)
+            @JsonKey(name: 'FullRunInfo') RunInfoWithMap fullRunInfo)
         serverSendsBackRunWithMap,
     required TResult Function(
             @JsonKey(name: 'Message') String message,
@@ -9611,7 +9611,7 @@ class _$UserAlreadyExistsExceptionImpl
             @JsonKey(name: 'UserId') int userId)?
         serverConfirmsRegistration,
     TResult? Function(@JsonKey(name: 'Message') String message,
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)?
+            @JsonKey(name: 'FullRunInfo') RunInfoWithMap fullRunInfo)?
         serverSendsBackRunWithMap,
     TResult? Function(
             @JsonKey(name: 'Message') String message,
@@ -9655,7 +9655,7 @@ class _$UserAlreadyExistsExceptionImpl
             @JsonKey(name: 'UserId') int userId)?
         serverConfirmsRegistration,
     TResult Function(@JsonKey(name: 'Message') String message,
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)?
+            @JsonKey(name: 'FullRunInfo') RunInfoWithMap fullRunInfo)?
         serverSendsBackRunWithMap,
     TResult Function(
             @JsonKey(name: 'Message') String message,
@@ -9928,7 +9928,7 @@ class _$ServerConfirmsDeviceRegistrationImpl
             @JsonKey(name: 'UserId') int userId)
         serverConfirmsRegistration,
     required TResult Function(@JsonKey(name: 'Message') String message,
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)
+            @JsonKey(name: 'FullRunInfo') RunInfoWithMap fullRunInfo)
         serverSendsBackRunWithMap,
     required TResult Function(
             @JsonKey(name: 'Message') String message,
@@ -9974,7 +9974,7 @@ class _$ServerConfirmsDeviceRegistrationImpl
             @JsonKey(name: 'UserId') int userId)?
         serverConfirmsRegistration,
     TResult? Function(@JsonKey(name: 'Message') String message,
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)?
+            @JsonKey(name: 'FullRunInfo') RunInfoWithMap fullRunInfo)?
         serverSendsBackRunWithMap,
     TResult? Function(
             @JsonKey(name: 'Message') String message,
@@ -10018,7 +10018,7 @@ class _$ServerConfirmsDeviceRegistrationImpl
             @JsonKey(name: 'UserId') int userId)?
         serverConfirmsRegistration,
     TResult Function(@JsonKey(name: 'Message') String message,
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)?
+            @JsonKey(name: 'FullRunInfo') RunInfoWithMap fullRunInfo)?
         serverSendsBackRunWithMap,
     TResult Function(
             @JsonKey(name: 'Message') String message,
@@ -10282,7 +10282,7 @@ class _$DeviceAlreadyRegisteredExceptionImpl
             @JsonKey(name: 'UserId') int userId)
         serverConfirmsRegistration,
     required TResult Function(@JsonKey(name: 'Message') String message,
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)
+            @JsonKey(name: 'FullRunInfo') RunInfoWithMap fullRunInfo)
         serverSendsBackRunWithMap,
     required TResult Function(
             @JsonKey(name: 'Message') String message,
@@ -10328,7 +10328,7 @@ class _$DeviceAlreadyRegisteredExceptionImpl
             @JsonKey(name: 'UserId') int userId)?
         serverConfirmsRegistration,
     TResult? Function(@JsonKey(name: 'Message') String message,
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)?
+            @JsonKey(name: 'FullRunInfo') RunInfoWithMap fullRunInfo)?
         serverSendsBackRunWithMap,
     TResult? Function(
             @JsonKey(name: 'Message') String message,
@@ -10372,7 +10372,7 @@ class _$DeviceAlreadyRegisteredExceptionImpl
             @JsonKey(name: 'UserId') int userId)?
         serverConfirmsRegistration,
     TResult Function(@JsonKey(name: 'Message') String message,
-            @JsonKey(name: 'RunInfoWithMap') RunInfoWithMap runInfoWithMap)?
+            @JsonKey(name: 'FullRunInfo') RunInfoWithMap fullRunInfo)?
         serverSendsBackRunWithMap,
     TResult Function(
             @JsonKey(name: 'Message') String message,

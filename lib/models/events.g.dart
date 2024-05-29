@@ -324,8 +324,8 @@ _$ServerSendsBackRunWithMapImpl _$$ServerSendsBackRunWithMapImplFromJson(
         Map<String, dynamic> json) =>
     _$ServerSendsBackRunWithMapImpl(
       message: json['Message'] as String,
-      runInfoWithMap: RunInfoWithMap.fromJson(
-          json['RunInfoWithMap'] as Map<String, dynamic>),
+      fullRunInfo:
+          RunInfoWithMap.fromJson(json['FullRunInfo'] as Map<String, dynamic>),
       $type: json['eventType'] as String?,
     );
 
@@ -333,7 +333,7 @@ Map<String, dynamic> _$$ServerSendsBackRunWithMapImplToJson(
         _$ServerSendsBackRunWithMapImpl instance) =>
     <String, dynamic>{
       'Message': instance.message,
-      'RunInfoWithMap': instance.runInfoWithMap,
+      'FullRunInfo': instance.fullRunInfo,
       'eventType': instance.$type,
     };
 

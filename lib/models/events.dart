@@ -117,7 +117,7 @@ sealed class ServerEvent with _$ServerEvent implements BaseEvent {
 
   factory ServerEvent.serverSendsBackRunWithMap({
     @JsonKey(name: 'Message') required String message,
-    @JsonKey(name: 'RunInfoWithMap') required RunInfoWithMap runInfoWithMap,
+    @JsonKey(name: 'FullRunInfo') required RunInfoWithMap fullRunInfo,
   }) = ServerSendsBackRunWithMap;
 
   factory ServerEvent.serverConfirmsLogin({

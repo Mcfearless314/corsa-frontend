@@ -1,23 +1,24 @@
+
 import 'package:json_annotation/json_annotation.dart';
 
 part 'run_info_with_map.g.dart';
 
 @JsonSerializable()
 class RunInfoWithMap {
-  final String runId;
-  final DateTime startOfRun;
-  final DateTime? endOfRun;
-  final String timeOfRun;
-  final double distance;
-  List<Coordinates> coordinates;
+  final String RunId;
+  final DateTime StartOfRun;
+  final DateTime? EndOfRun;
+  final String TimeOfRun;
+  final double? Distance;
+  List<Cords> gpsCordsList;
 
   RunInfoWithMap({
-    required this.runId,
-    required this.startOfRun,
-    this.endOfRun,
-    required this.timeOfRun,
-    required this.distance,
-    required this.coordinates,
+    required this.RunId,
+    required this.StartOfRun,
+    this.EndOfRun,
+    required this.TimeOfRun,
+    required this.Distance,
+    required this.gpsCordsList,
   });
 
   factory RunInfoWithMap.fromJson(Map<String, dynamic> json) => _$RunInfoWithMapFromJson(json);
@@ -25,17 +26,17 @@ class RunInfoWithMap {
 }
 
 @JsonSerializable()
-class Coordinates {
-  double latitude;
-  double longitude;
-  DateTime timeStamp;
+class Cords {
+  double Latitude;
+  double Longitude;
+  DateTime TimeStamp;
 
-  Coordinates({
-    required this.latitude,
-    required this.longitude,
-    required this.timeStamp,
+  Cords({
+    required this.Latitude,
+    required this.Longitude,
+    required this.TimeStamp,
   });
 
-  factory Coordinates.fromJson(Map<String, dynamic> json) => _$CoordinatesFromJson(json);
-  Map<String, dynamic> toJson() => _$CoordinatesToJson(this);
+  factory Cords.fromJson(Map<String, dynamic> json) => _$CordsFromJson(json);
+  Map<String, dynamic> toJson() => _$CordsToJson(this);
 }
