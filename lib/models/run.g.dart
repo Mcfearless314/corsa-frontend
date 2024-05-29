@@ -7,19 +7,19 @@ part of 'run.dart';
 // **************************************************************************
 
 Run _$RunFromJson(Map<String, dynamic> json) => Run(
-      runId: json['runId'] as String,
-      startOfRun: DateTime.parse(json['startOfRun'] as String),
-      endOfRun: json['endOfRun'] == null
+      runId: json['RunId'] as String,
+      startOfRun: DateTime.parse(json['StartOfRun'] as String),
+      endOfRun: json['EndOfRun'] == null
           ? null
-          : DateTime.parse(json['endOfRun'] as String),
-      timeOfRun: json['timeOfRun'] as String,
-      distance: (json['distance'] as num).toDouble(),
+          : DateTime.parse(json['EndOfRun'] as String),
+      timeOfRun: json['TimeOfRun'] as String,
+      distance: (json['Distance'] as num).toDouble(),
     );
 
 Map<String, dynamic> _$RunToJson(Run instance) => <String, dynamic>{
-      'runId': instance.runId,
-      'startOfRun': instance.startOfRun.toIso8601String(),
-      'endOfRun': instance.endOfRun?.toIso8601String(),
-      'timeOfRun': instance.timeOfRun,
-      'distance': instance.distance,
+      'RunId': instance.runId,
+      'StartOfRun': instance.startOfRun.toIso8601String(),
+      'EndOfRun': instance.endOfRun?.toIso8601String(),
+      'TimeOfRun': instance.timeOfRun,
+      'Distance': instance.distance,
     };

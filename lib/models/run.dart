@@ -4,11 +4,11 @@ part 'run.g.dart';
 
 @JsonSerializable()
 class Run {
-  final String runId;
-  final DateTime startOfRun;
-  final DateTime? endOfRun;
-  final String timeOfRun;
-  final double distance;
+  @JsonKey(name: "RunId") final String runId;
+  @JsonKey(name: "StartOfRun") final DateTime startOfRun;
+  @JsonKey(name: "EndOfRun") final DateTime? endOfRun;
+  @JsonKey(name: "TimeOfRun") final String timeOfRun;
+  @JsonKey(name: "Distance") final double distance;
 
   Run({
     required this.runId,
