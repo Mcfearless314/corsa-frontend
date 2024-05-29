@@ -56,7 +56,7 @@ class RunList extends StatelessWidget {
                           color: Colors.white)),
                   centerTitle: true,
                 ),
-                body: state.runs == null
+                body: (state.runs == null || state.runs!.isEmpty)
                     ? const Center(
                         child: Text(
                           "There are no runs recorded yet, press the button below to start your first run!",
