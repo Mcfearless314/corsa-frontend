@@ -12,7 +12,7 @@ Run _$RunFromJson(Map<String, dynamic> json) => Run(
       endOfRun: json['EndOfRun'] == null
           ? null
           : DateTime.parse(json['EndOfRun'] as String),
-      timeOfRun: json['TimeOfRun'] as String,
+      timeOfRun: Duration(microseconds: (json['TimeOfRun'] as num).toInt()),
       distance: (json['Distance'] as num).toDouble(),
     );
 
@@ -20,6 +20,6 @@ Map<String, dynamic> _$RunToJson(Run instance) => <String, dynamic>{
       'RunId': instance.runId,
       'StartOfRun': instance.startOfRun.toIso8601String(),
       'EndOfRun': instance.endOfRun?.toIso8601String(),
-      'TimeOfRun': instance.timeOfRun,
+      'TimeOfRun': instance.timeOfRun.inMicroseconds,
       'Distance': instance.distance,
     };

@@ -13,7 +13,7 @@ RunInfoWithMap _$RunInfoWithMapFromJson(Map<String, dynamic> json) =>
       EndOfRun: json['EndOfRun'] == null
           ? null
           : DateTime.parse(json['EndOfRun'] as String),
-      TimeOfRun: json['TimeOfRun'] as String,
+      TimeOfRun: Duration(microseconds: (json['TimeOfRun'] as num).toInt()),
       Distance: (json['Distance'] as num?)?.toDouble(),
       gpsCordsList: (json['gpsCordsList'] as List<dynamic>)
           .map((e) => Cords.fromJson(e as Map<String, dynamic>))
@@ -25,7 +25,7 @@ Map<String, dynamic> _$RunInfoWithMapToJson(RunInfoWithMap instance) =>
       'RunId': instance.RunId,
       'StartOfRun': instance.StartOfRun.toIso8601String(),
       'EndOfRun': instance.EndOfRun?.toIso8601String(),
-      'TimeOfRun': instance.TimeOfRun,
+      'TimeOfRun': instance.TimeOfRun.inMicroseconds,
       'Distance': instance.Distance,
       'gpsCordsList': instance.gpsCordsList,
     };

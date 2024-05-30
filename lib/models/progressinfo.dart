@@ -5,7 +5,7 @@ part 'progressinfo.g.dart';
 @JsonSerializable()
 class ProgressInfo {
   final String runId;
-  final String timeOfRun;
+  final Duration timeOfRun;
   final double distance;
 
   ProgressInfo({
