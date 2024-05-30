@@ -22,7 +22,7 @@ class Run {
     return Run(
       runId: json['RunId'] as String,
       startOfRun: DateTime.parse(json['StartOfRun'] as String),
-      endOfRun: DateTime.parse(json['EndOfRun'] as String),
+      endOfRun: json['EndOfRun'] != null ? DateTime.parse(json['EndOfRun'] as String) : null,
       distance: (json['Distance'] as num).toDouble(),
       timeOfRun: parseDuration(json['TimeOfRun'] as String),
     );

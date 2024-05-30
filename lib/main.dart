@@ -9,21 +9,14 @@ import 'package:web_socket_channel/web_socket_channel.dart';
 
 import 'BroadcastWsChannel.dart';
 
-
 void main() {
   Uri wsUrl;
 
-  if (kIsWeb) {
-    wsUrl = Uri.parse('ws://localhost:8181');
-  } else if (Platform.isAndroid) {
-    wsUrl = Uri.parse('ws://10.0.2.2:8181');
-  } else {
-    throw UnimplementedError('This platform is not supported');
-  }
+  wsUrl = Uri.parse('wss://corsa-fe16c283132e.herokuapp.com/');
   final broadcastChannel = BroadcastWsChannel(wsUrl);
-  runApp(Provider<BroadcastWsChannel>.value(value: broadcastChannel, child: const MyApp()));
+  runApp(Provider<BroadcastWsChannel>.value(
+      value: broadcastChannel, child: const MyApp()));
 }
-
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -33,8 +26,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: AppTheme.lightTheme,
-        home: const Center(
-          child: HomePageScreen()
-        ));
+        home: const Center(child: HomePageScreen()));
   }
 }

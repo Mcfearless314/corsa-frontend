@@ -44,6 +44,7 @@ class GoogleMaps extends StatelessWidget {
                 return Center(child: Text('Error: ${snapshot.error}'));
               } else {
                 return GoogleMap(
+                  mapType: MapType.normal,
                   initialCameraPosition: CameraPosition(
                     target: snapshot.data!,
                     zoom: 15,
