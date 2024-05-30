@@ -48,8 +48,5 @@ void main() {
     ));
         expect(find.widgetWithText(TextFormField, 'Username'), findsOneWidget);
       });
-
-  /*channel.streamController.add('{"type": "welcome"}');
-  final serverEvent = await channel.sinkController.stream.firstWhere((
-      element) =>)*/
+  
 }
